@@ -4,6 +4,7 @@ subtitle: "Termux + Debian + uv + VS Code (code-server) + Git y GitHub"
 description: "Guía paso a paso para convertir una tablet Android en un entorno completo de programación en Python: Linux con Termux y Debian, gestión de proyectos con uv, VS Code en el navegador y control de versiones con Git y GitHub. Incluye la rutina diaria para crear y abrir proyectos."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-10-16
+image: ../imagenes/portada_tablet.jpg
 categories: [Python, Android, uv, VS Code, Git]
 ---
 

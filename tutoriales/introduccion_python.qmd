@@ -1,17 +1,28 @@
 ---
-title: "Introducción a Python desde cero"
-subtitle: "Variables, operadores, condicionales, ciclos, listas, diccionarios, funciones y más"
-description: "Curso introductorio de Python para quien nunca ha programado: tipos de datos, entrada y salida, condicionales, ciclos for y while, cadenas, listas, tuplas, conjuntos, diccionarios, funciones, manejo de errores, archivos y módulos, con ejercicios resueltos."
+title: "Introducción a la programación en Python"
+subtitle: "Fundamentos del lenguaje: tipos de datos, estructuras de control, estructuras de datos y funciones"
+description: "Fundamentos de la programación en Python: tipos de datos, operadores, entrada y salida, estructuras condicionales y repetitivas, cadenas, listas, tuplas, conjuntos, diccionarios, funciones, manejo de excepciones, archivos y módulos, con ejercicios resueltos."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-10-16
+image: ../imagenes/portada_python.jpg
 categories: [Python, Fundamentos]
 ---
 
 ## Introducción
 
-**Python** es un lenguaje de programación de propósito general, fácil de leer y muy usado en ciencia de datos, inteligencia artificial, automatización y desarrollo web. Este tutorial parte de cero y llega hasta las estructuras de datos y funciones necesarias para empezar a escribir programas propios.
+**Python** es un lenguaje de programación interpretado, de alto nivel y de propósito general, caracterizado por una sintaxis legible y por un amplio ecosistema de librerías. Es una de las herramientas de referencia en ciencia de datos, inteligencia artificial, computación científica y automatización.
 
-Cada sección tiene ejemplos con su resultado y, al final, ejercicios resueltos.
+Este documento presenta los fundamentos del lenguaje que sirven de base para cursos posteriores de análisis de datos y aprendizaje automático.
+
+**Objetivos de aprendizaje.** Al finalizar el estudio de este material, el estudiante estará en capacidad de:
+
+1. Identificar los tipos de datos básicos de Python y aplicar sus operadores.
+2. Implementar estructuras de control condicionales y repetitivas.
+3. Seleccionar y manipular la estructura de datos adecuada (lista, tupla, conjunto o diccionario) según el problema.
+4. Diseñar funciones reutilizables y documentadas.
+5. Manejar excepciones, archivos de texto y módulos de la biblioteca estándar.
+
+Cada sección incluye ejemplos con su resultado y, al final, ejercicios propuestos con solución.
 
 ::: {.callout-note}
 ## Cómo leer los ejemplos
@@ -20,10 +31,9 @@ Las líneas que empiezan con `#` son **comentarios**: Python las ignora y sirven
 
 ## Parte 1 · Preparar un proyecto para practicar
 
-Si ya tienes uv instalado ([ver tutorial del entorno](tutorial_python_tablet_android.qmd)), crea un proyecto para los ejercicios:
+Para desarrollar los ejemplos y ejercicios se recomienda crear un proyecto con uv (ver el [tutorial de uv](tutorial_uv.qmd)):
 
 ```bash
-cd /root/proyectos
 uv init curso-python --python 3.12
 cd curso-python
 ```
@@ -35,7 +45,7 @@ Hay dos formas de ejecutar código:
 | **Archivo `.py`** | Escribir el código en `main.py` y ejecutar `uv run main.py` | Programas completos. |
 | **Consola interactiva** | Ejecutar `uv run python` y escribir línea por línea | Probar algo rápido. Para salir: `exit()`. |
 
-En VS Code también puedes usar el botón ▶ o un notebook `.ipynb`.
+En VS Code también es posible usar el botón ▶ o un notebook `.ipynb`.
 
 ## Parte 2 · El primer programa
 
@@ -315,7 +325,7 @@ while contador <= 5:
 
 ::: {.callout-warning}
 ## Ciclos infinitos
-Si la condición del `while` nunca se vuelve falsa, el programa no termina. En el ejemplo, olvidar `contador += 1` produce un ciclo infinito. Para detenerlo, presiona **Ctrl + C** en la terminal.
+Si la condición del `while` nunca se vuelve falsa, el programa no termina. En el ejemplo, olvidar `contador += 1` produce un ciclo infinito. Para detenerlo se presiona **Ctrl + C** en la terminal.
 :::
 
 Validar una entrada hasta que sea correcta:
@@ -522,7 +532,7 @@ for fila in matriz:
 
 ::: {.callout-warning}
 ## Copiar una lista
-`b = a` **no** copia la lista: `a` y `b` pasan a ser dos nombres para la misma lista, y modificar una modifica la otra. Para una copia independiente usa `b = a.copy()`.
+`b = a` **no** copia la lista: `a` y `b` pasan a ser dos nombres para la misma lista, y modificar una modifica la otra. Para obtener una copia independiente se usa `b = a.copy()`.
 :::
 
 ## Parte 10 · Tuplas y conjuntos
@@ -589,7 +599,7 @@ print(len(estudiante))               # salida: 4
 
 ::: {.callout-note}
 ## `[]` frente a `.get()`
-`estudiante["ciudad"]` produce un `KeyError` si la clave no existe. `estudiante.get("ciudad")` devuelve `None` (o el valor por defecto que indiques) sin detener el programa.
+`estudiante["ciudad"]` produce un `KeyError` si la clave no existe. `estudiante.get("ciudad")` devuelve `None` (o el valor por defecto indicado) sin detener el programa.
 :::
 
 ### Recorrer un diccionario
@@ -790,7 +800,7 @@ with open("notas.txt", "w", encoding="utf-8") as archivo:
     archivo.write("Sara,3.8\n")
 ```
 
-- `"w"`: modo escritura. Crea el archivo o **reemplaza** su contenido. Usa `"a"` para agregar al final.
+- `"w"`: modo escritura. Crea el archivo o **reemplaza** su contenido. El modo `"a"` agrega al final.
 - `\n`: salto de línea.
 - `with`: cierra el archivo automáticamente al terminar el bloque.
 - `encoding="utf-8"`: permite tildes y ñ.
@@ -836,11 +846,11 @@ print(np.mean([4.5, 3.2, 4.0]))
 
 ## Parte 16 · Ejercicios
 
-Intenta resolver cada ejercicio antes de abrir la solución.
+Se recomienda resolver cada ejercicio antes de consultar la solución.
 
 ### Ejercicio 1 · Par o impar
 
-Pide un número entero e indica si es par o impar.
+Escriba un programa que solicite un número entero e indique si es par o impar.
 
 ::: {.callout-tip collapse="true"}
 ## Solución
@@ -855,7 +865,7 @@ else:
 
 ### Ejercicio 2 · Calculadora de IMC
 
-Pide peso (kg) y estatura (m), calcula el índice de masa corporal (`peso / estatura²`) y clasifícalo: menor de 18.5 bajo peso, menor de 25 normal, menor de 30 sobrepeso, y 30 o más obesidad.
+Escriba un programa que solicite el peso (kg) y la estatura (m), calcule el índice de masa corporal (`peso / estatura²`) y lo clasifique así: menor de 18.5 bajo peso, menor de 25 normal, menor de 30 sobrepeso, y 30 o más obesidad.
 
 ::: {.callout-tip collapse="true"}
 ## Solución
@@ -879,7 +889,7 @@ print(f"IMC: {imc:.1f} ({categoria})")
 
 ### Ejercicio 3 · Números primos
 
-Muestra todos los números primos entre 2 y 50. Un número es primo si solo es divisible entre 1 y sí mismo.
+Escriba un programa que muestre todos los números primos entre 2 y 50. Un número es primo si solo es divisible entre 1 y sí mismo.
 
 ::: {.callout-tip collapse="true"}
 ## Solución
@@ -897,7 +907,7 @@ for n in range(2, 51):
 
 ### Ejercicio 4 · Adivinar el número
 
-El programa elige un número aleatorio entre 1 y 100 y el usuario intenta adivinarlo. Después de cada intento, indica si el número es mayor o menor, y al final muestra cuántos intentos usó.
+Escriba un programa que elija un número aleatorio entre 1 y 100 y permita al usuario intentar adivinarlo. Después de cada intento, el programa debe indicar si el número buscado es mayor o menor y, al final, cuántos intentos se usaron.
 
 ::: {.callout-tip collapse="true"}
 ## Solución
@@ -922,7 +932,7 @@ while True:
 
 ### Ejercicio 5 · Estadísticas de una lista
 
-Escribe una función `resumen(notas)` que devuelva un diccionario con el promedio, la nota máxima, la mínima y cuántas notas son aprobatorias (3.0 o más).
+Implemente una función `resumen(notas)` que devuelva un diccionario con el promedio, la nota máxima, la mínima y cuántas notas son aprobatorias (3.0 o más).
 
 ::: {.callout-tip collapse="true"}
 ## Solución
@@ -942,7 +952,7 @@ print(resumen([4.5, 2.8, 3.9, 1.7, 3.0]))
 
 ### Ejercicio 6 · Agenda de contactos
 
-Crea un programa con un menú que permita agregar un contacto (nombre y teléfono), buscar un contacto por nombre, listar todos los contactos y salir. Usa un diccionario.
+Implemente un programa con un menú que permita agregar un contacto (nombre y teléfono), buscar un contacto por nombre, listar todos los contactos y salir. Los contactos deben almacenarse en un diccionario.
 
 ::: {.callout-tip collapse="true"}
 ## Solución
@@ -976,7 +986,7 @@ while True:
 
 ### Ejercicio 7 · Inventario
 
-Dada la lista de productos, calcula el valor total del inventario (precio × cantidad), muestra los productos con menos de 5 unidades y el producto de mayor valor total.
+A partir de la siguiente lista de productos, calcule el valor total del inventario (precio × cantidad), muestre los productos con menos de 5 unidades e identifique el producto de mayor valor total.
 
 ```python
 inventario = [
@@ -1007,7 +1017,7 @@ print(f"Mayor valor: {mayor['producto']}")
 
 ## Siguientes pasos
 
-Con estas bases se puede continuar con:
+Los temas que dan continuidad a este material son:
 
 - **Programación orientada a objetos**: clases y objetos.
 - **NumPy**: cálculo numérico con arreglos.

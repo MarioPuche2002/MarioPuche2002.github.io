@@ -1,0 +1,514 @@
+---
+title: "Gestión de proyectos Python con uv"
+subtitle: "Versiones de Python, entornos virtuales, dependencias y reproducibilidad"
+description: "Guía de uso de uv, el gestor de proyectos y paquetes de Python desarrollado por Astral: instalación, versiones de Python, creación de proyectos, gestión de dependencias, archivo de bloqueo, ejecución de programas, scripts independientes, herramientas de línea de comandos e integración con Jupyter, VS Code y Git."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-16
+image: ../imagenes/portada_uv.jpg
+categories: [Python, uv, Entornos]
+---
+
+## Introducción
+
+**uv** es un gestor de proyectos y paquetes de Python desarrollado por Astral. Reúne en una sola herramienta funciones que tradicionalmente se repartían entre varias: `pip` (instalación de paquetes), `venv` (entornos virtuales), `pyenv` (versiones de Python), `pip-tools` (bloqueo de versiones) y `pipx` (herramientas de línea de comandos). Está escrito en Rust y resuelve e instala dependencias en una fracción del tiempo que requieren las herramientas tradicionales.
+
+**Objetivos de aprendizaje.** Al finalizar el estudio de este material, el estudiante estará en capacidad de:
+
+1. Instalar uv y administrar varias versiones de Python.
+2. Crear proyectos con una estructura estándar basada en `pyproject.toml`.
+3. Agregar, actualizar y eliminar dependencias, distinguiendo entre dependencias de ejecución y de desarrollo.
+4. Garantizar la reproducibilidad de un proyecto mediante el archivo de bloqueo `uv.lock`.
+5. Ejecutar programas, scripts independientes y herramientas sin instalar dependencias de forma global.
+6. Integrar un proyecto uv con Jupyter, VS Code y Git.
+
+## Parte 1 · Conceptos
+
+| Término | Definición |
+|---|---|
+| **Paquete** | Conjunto de módulos de Python distribuido para su reutilización, por ejemplo `numpy` o `pandas`. |
+| **PyPI** | *Python Package Index*, el repositorio público oficial de paquetes de Python. |
+| **Dependencia** | Paquete que un proyecto necesita para funcionar. |
+| **Dependencia transitiva** | Paquete que se instala porque lo requiere otra dependencia, no porque el proyecto lo pida directamente. |
+| **Entorno virtual** | Directorio aislado (`.venv`) con un intérprete de Python y sus paquetes, independiente del resto del sistema y de otros proyectos. |
+| **`pyproject.toml`** | Archivo estándar que describe el proyecto: nombre, versión, versión de Python requerida y dependencias. |
+| **Archivo de bloqueo (`uv.lock`)** | Registro de las versiones exactas de todas las dependencias, incluidas las transitivas. Permite reconstruir el mismo entorno en otro equipo. |
+| **Resolución** | Proceso de encontrar un conjunto de versiones compatibles entre sí que satisfaga todos los requisitos del proyecto. |
+
+**¿Por qué aislar cada proyecto?** Si dos proyectos comparten una instalación global, actualizar una librería para uno puede romper el otro. Con un entorno virtual por proyecto, cada uno conserva exactamente las versiones que necesita.
+
+## Parte 2 · Instalación
+
+::: {.panel-tabset}
+
+## Windows
+
+En **PowerShell**:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Al terminar, cierre y vuelva a abrir la terminal.
+
+## macOS y Linux
+
+En la terminal:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Al terminar, cierre y vuelva a abrir la terminal, o ejecute `source $HOME/.local/bin/env`.
+
+:::
+
+**Verificación:**
+
+```bash
+uv --version
+```
+
+**Actualización** (cuando se instaló con el script oficial):
+
+```bash
+uv self update
+```
+
+## Parte 3 · Versiones de Python
+
+uv descarga y administra sus propias versiones de Python, sin depender de la que traiga el sistema operativo.
+
+```bash
+uv python install 3.12          # instala una versión
+uv python install 3.11 3.13     # instala varias
+uv python list                  # versiones disponibles e instaladas
+uv python list --only-installed # solo las instaladas
+uv python find 3.12             # ruta del intérprete
+uv python uninstall 3.11        # desinstala una versión
+```
+
+Dentro de un proyecto, la versión se fija con:
+
+```bash
+uv python pin 3.12
+```
+
+Esto crea el archivo `.python-version`, que uv consulta cada vez que ejecuta algo en el proyecto.
+
+::: {.callout-note}
+## Instalación automática
+Si un proyecto requiere una versión de Python que no está instalada, uv la descarga automáticamente la primera vez que se necesita.
+:::
+
+## Parte 4 · Crear un proyecto
+
+```bash
+uv init analisis-datos --python 3.12
+cd analisis-datos
+```
+
+Estructura generada:
+
+```
+analisis-datos/
+├── .git/               repositorio Git (si Git está instalado)
+├── .gitignore          archivos que Git debe ignorar, entre ellos .venv
+├── .python-version     versión de Python del proyecto
+├── README.md           descripción del proyecto
+├── main.py             programa de ejemplo
+└── pyproject.toml      metadatos y dependencias
+```
+
+Contenido inicial de `pyproject.toml`:
+
+```toml
+[project]
+name = "analisis-datos"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+```
+
+| Campo | Significado |
+|---|---|
+| `name` | Nombre del proyecto. |
+| `version` | Versión del proyecto. |
+| `description` | Descripción breve; conviene reemplazar el texto por defecto. |
+| `requires-python` | Versiones de Python con las que el proyecto es compatible. |
+| `dependencies` | Lista de dependencias. uv la actualiza automáticamente. |
+
+### Tipos de proyecto
+
+| Comando | Tipo | Uso |
+|---|---|---|
+| `uv init nombre` | Aplicación | Programas, análisis de datos, notebooks. Es la opción habitual. |
+| `uv init --package nombre` | Aplicación empaquetada | Programas que se instalarán como comando de terminal. Usa la estructura `src/`. |
+| `uv init --lib nombre` | Librería | Código pensado para que otros proyectos lo importen. |
+
+Para convertir en proyecto una carpeta que ya existe, se ejecuta `uv init` dentro de ella, sin nombre.
+
+## Parte 5 · Gestión de dependencias
+
+### Agregar dependencias
+
+```bash
+uv add pandas
+uv add numpy matplotlib scikit-learn
+```
+
+En una sola operación, `uv add`:
+
+1. Agrega el paquete a `dependencies` en `pyproject.toml`.
+2. Resuelve las versiones compatibles y actualiza `uv.lock`.
+3. Crea el entorno `.venv` si no existe e instala los paquetes en él.
+
+### Restricciones de versión
+
+```bash
+uv add "pandas>=2.2"            # versión mínima
+uv add "numpy>=1.26,<3"         # rango
+uv add "requests==2.32.3"       # versión exacta
+```
+
+| Especificador | Significado |
+|---|---|
+| `>=2.2` | 2.2 o superior. |
+| `<3` | Inferior a 3. |
+| `==2.32.3` | Exactamente esa versión. |
+| `~=2.2` | Compatible: `>=2.2` y `<3.0`. |
+
+Si no se especifica versión, uv registra como mínima la versión que instaló.
+
+### Dependencias de desarrollo y grupos
+
+Algunas herramientas solo se necesitan durante el desarrollo (pruebas, formateo, notebooks) y no para ejecutar el programa:
+
+```bash
+uv add --dev pytest ruff ipykernel
+uv add --group docs mkdocs
+```
+
+Quedan registradas por separado en `pyproject.toml`:
+
+```toml
+[project]
+dependencies = [
+    "pandas>=2.2.3",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "pytest>=8.3.4",
+    "ruff>=0.9.0",
+]
+docs = [
+    "mkdocs>=1.6.1",
+]
+```
+
+Las versiones mostradas son ilustrativas; dependen del momento de la instalación.
+
+### Otras operaciones
+
+| Tarea | Comando |
+|---|---|
+| Eliminar una dependencia | `uv remove pandas` |
+| Eliminar una dependencia de desarrollo | `uv remove --dev pytest` |
+| Ver el árbol de dependencias | `uv tree` |
+| Ver qué dependencias tienen versiones nuevas | `uv tree --outdated` |
+| Agregar desde un repositorio Git | `uv add git+https://github.com/usuario/repo` |
+| Agregar desde un `requirements.txt` | `uv add -r requirements.txt` |
+
+## Parte 6 · Archivo de bloqueo y sincronización
+
+`pyproject.toml` declara **qué** necesita el proyecto, generalmente con rangos (`pandas>=2.2`). `uv.lock` registra **exactamente** qué versiones se resolvieron, incluidas todas las dependencias transitivas.
+
+| Comando | Qué hace |
+|---|---|
+| `uv lock` | Resuelve las dependencias y actualiza `uv.lock` sin instalar nada. |
+| `uv sync` | Deja el `.venv` exactamente como indica `uv.lock`: instala lo que falta y elimina lo que sobra. |
+| `uv lock --upgrade` | Actualiza todas las dependencias a las versiones más recientes permitidas. |
+| `uv lock --upgrade-package pandas` | Actualiza solo un paquete. |
+| `uv sync --no-dev` | Sincroniza sin las dependencias de desarrollo. |
+| `uv sync --locked` | Falla si `uv.lock` no corresponde a `pyproject.toml`. Útil en integración continua. |
+| `uv sync --frozen` | Usa `uv.lock` tal como está, sin verificarlo. |
+
+**Flujo de reproducibilidad.** Quien clona el proyecto solo necesita ejecutar:
+
+```bash
+uv sync
+```
+
+y obtiene un entorno idéntico al del autor: misma versión de Python y mismas versiones de cada paquete.
+
+::: {.callout-important}
+## Qué se sube a Git
+`pyproject.toml`, `uv.lock` y `.python-version` **sí** se suben al repositorio. La carpeta `.venv` **no**, porque es pesada, depende del sistema operativo y se reconstruye con `uv sync`. El `.gitignore` que genera `uv init` ya la excluye.
+:::
+
+## Parte 7 · Ejecución de programas
+
+```bash
+uv run main.py
+```
+
+`uv run` verifica que el entorno esté sincronizado con `uv.lock`, lo actualiza si hace falta y ejecuta el comando con el Python del proyecto. Por esta razón **no es necesario activar el entorno virtual**.
+
+| Comando | Qué hace |
+|---|---|
+| `uv run main.py` | Ejecuta un archivo. |
+| `uv run python` | Abre la consola interactiva del proyecto. |
+| `uv run python -m modulo` | Ejecuta un módulo. |
+| `uv run pytest` | Ejecuta una herramienta instalada en el proyecto. |
+| `uv run --with rich main.py` | Ejecuta con un paquete adicional temporal, sin agregarlo al proyecto. |
+
+### Activación manual del entorno (opcional)
+
+Si se prefiere trabajar con el entorno activado:
+
+::: {.panel-tabset}
+
+## Windows
+
+```powershell
+.venv\Scripts\activate
+```
+
+## macOS y Linux
+
+```bash
+source .venv/bin/activate
+```
+
+:::
+
+Con el entorno activado, `python` y los paquetes del proyecto quedan disponibles directamente. Para salir se usa `deactivate`.
+
+## Parte 8 · Scripts independientes
+
+Un script de un solo archivo puede declarar sus propias dependencias, sin crear un proyecto completo. uv lee esa declaración y prepara un entorno temporal para ejecutarlo.
+
+```bash
+uv init --script descarga.py --python 3.12
+uv add --script descarga.py requests
+```
+
+El archivo queda con un encabezado de metadatos:
+
+```python
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "requests",
+# ]
+# ///
+
+import requests
+
+respuesta = requests.get("https://api.github.com")
+print(respuesta.status_code)
+```
+
+Se ejecuta con:
+
+```bash
+uv run descarga.py
+```
+
+Este formato (PEP 723) es útil para compartir utilidades pequeñas: el archivo contiene todo lo necesario para ejecutarse.
+
+## Parte 9 · Herramientas de línea de comandos
+
+Algunas aplicaciones de Python se usan como comandos de terminal, por ejemplo `ruff` (análisis de código) o `jupyterlab`. uv permite ejecutarlas sin instalarlas en ningún proyecto.
+
+**Ejecución temporal** con `uvx` (equivale a `uv tool run`):
+
+```bash
+uvx ruff check .
+uvx --from jupyterlab jupyter-lab
+```
+
+**Instalación permanente**, cuando la herramienta se usa con frecuencia:
+
+```bash
+uv tool install ruff
+uv tool list
+uv tool upgrade --all
+uv tool uninstall ruff
+```
+
+Cada herramienta se instala en su propio entorno aislado, de modo que no interfiere con los proyectos.
+
+## Parte 10 · Integración con Jupyter y VS Code
+
+### Jupyter
+
+**Opción A · Jupyter como herramienta temporal**, usando el entorno del proyecto:
+
+```bash
+uv run --with jupyter jupyter lab
+```
+
+**Opción B · Registrar el proyecto como kernel**, para usarlo desde VS Code o desde un Jupyter instalado aparte:
+
+```bash
+uv add --dev ipykernel
+uv run python -m ipykernel install --user --name analisis-datos --display-name "Python (analisis-datos)"
+```
+
+### VS Code
+
+1. Abrir la carpeta del proyecto (*File → Open Folder*).
+2. Seleccionar el intérprete: *Command Palette* (**Ctrl+Shift+P** o **F1**) → **Python: Select Interpreter** → el que corresponde a `.venv`.
+
+Alternativamente, se fija en la configuración del proyecto, creando `.vscode/settings.json`:
+
+```json
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+}
+```
+
+En Windows la ruta es `${workspaceFolder}\\.venv\\Scripts\\python.exe`.
+
+## Parte 11 · Compatibilidad con pip
+
+uv ofrece una interfaz equivalente a `pip` y `venv` para proyectos que no usan `pyproject.toml`:
+
+| Comando tradicional | Equivalente en uv |
+|---|---|
+| `python -m venv .venv` | `uv venv` |
+| `pip install pandas` | `uv pip install pandas` |
+| `pip install -r requirements.txt` | `uv pip install -r requirements.txt` |
+| `pip uninstall pandas` | `uv pip uninstall pandas` |
+| `pip list` | `uv pip list` |
+| `pip freeze > requirements.txt` | `uv pip freeze > requirements.txt` |
+
+Esta interfaz es útil para trabajar con proyectos existentes. Para proyectos nuevos se recomienda el flujo basado en proyectos (`uv init`, `uv add`, `uv sync`), porque registra las dependencias y garantiza la reproducibilidad.
+
+### Migrar un proyecto basado en `requirements.txt`
+
+```bash
+cd proyecto-existente
+uv init
+uv add -r requirements.txt
+```
+
+A partir de ese momento, las dependencias quedan en `pyproject.toml` y `uv.lock`.
+
+## Parte 12 · Flujo de trabajo recomendado
+
+**Proyecto nuevo:**
+
+```bash
+uv init mi-proyecto --python 3.12
+cd mi-proyecto
+uv add numpy pandas matplotlib
+uv add --dev ipykernel pytest
+uv run main.py
+git add .
+git commit -m "Inicio del proyecto"
+```
+
+**Proyecto existente, clonado desde GitHub:**
+
+```bash
+git clone https://github.com/usuario/mi-proyecto.git
+cd mi-proyecto
+uv sync
+uv run main.py
+```
+
+**Antes de empezar cada sesión de trabajo:**
+
+```bash
+git pull
+uv sync
+```
+
+## Referencia rápida
+
+| Tarea | Comando |
+|---|---|
+| Instalar Python | `uv python install 3.12` |
+| Fijar la versión de Python del proyecto | `uv python pin 3.12` |
+| Crear un proyecto | `uv init nombre` |
+| Agregar una dependencia | `uv add paquete` |
+| Agregar una dependencia de desarrollo | `uv add --dev paquete` |
+| Eliminar una dependencia | `uv remove paquete` |
+| Sincronizar el entorno | `uv sync` |
+| Actualizar dependencias | `uv lock --upgrade` y `uv sync` |
+| Ejecutar un archivo | `uv run archivo.py` |
+| Ver dependencias | `uv tree` |
+| Ejecutar una herramienta sin instalarla | `uvx herramienta` |
+| Instalar una herramienta | `uv tool install herramienta` |
+| Limpiar la caché | `uv cache clean` |
+| Actualizar uv | `uv self update` |
+
+## Problemas frecuentes
+
+| Problema | Causa y solución |
+|---|---|
+| `uv: command not found` o "no se reconoce como comando" | La terminal no tiene uv en el PATH. Cerrar y abrir la terminal; en Linux o macOS, ejecutar `source $HOME/.local/bin/env`. |
+| `No solution found when resolving dependencies` | Las restricciones de versión son incompatibles entre sí o con `requires-python`. Revisar los rangos en `pyproject.toml` o relajar la restricción del paquete indicado en el mensaje. |
+| El editor no reconoce los paquetes instalados | El editor usa otro intérprete. Seleccionar el de `.venv`. |
+| En Windows no se puede activar el entorno | La política de ejecución de PowerShell bloquea scripts. Usar `uv run`, que no requiere activación, o ejecutar `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`. |
+| El entorno quedó en un estado inconsistente | Borrar la carpeta `.venv` y ejecutar `uv sync`. |
+
+## Ejercicio práctico
+
+Construya un proyecto llamado `estadistica-descriptiva` que:
+
+1. Use Python 3.12.
+2. Tenga como dependencias `pandas` y `matplotlib`, y como dependencias de desarrollo `ipykernel` y `pytest`.
+3. Contenga un `main.py` que genere 100 números aleatorios con la librería estándar `random`, los cargue en un `DataFrame` de pandas, imprima `describe()` y guarde un histograma en `histograma.png`.
+4. Se ejecute con `uv run main.py`.
+
+::: {.callout-tip collapse="true"}
+## Solución
+
+```bash
+uv init estadistica-descriptiva --python 3.12
+cd estadistica-descriptiva
+uv add pandas matplotlib
+uv add --dev ipykernel pytest
+```
+
+`main.py`:
+
+```python
+import random
+
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+def main():
+    datos = [random.gauss(mu=50, sigma=10) for _ in range(100)]
+    df = pd.DataFrame({"valor": datos})
+    print(df.describe())
+
+    df["valor"].plot.hist(bins=15, edgecolor="black")
+    plt.title("Histograma de 100 valores aleatorios")
+    plt.savefig("histograma.png", dpi=150, bbox_inches="tight")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+```bash
+uv run main.py
+```
+:::
+
+## Referencias
+
+- Documentación oficial de uv: [docs.astral.sh/uv](https://docs.astral.sh/uv/)
+- PEP 621, metadatos del proyecto en `pyproject.toml`: [peps.python.org/pep-0621](https://peps.python.org/pep-0621/)
+- PEP 723, metadatos en scripts independientes: [peps.python.org/pep-0723](https://peps.python.org/pep-0723/)

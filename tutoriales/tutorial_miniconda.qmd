@@ -1,0 +1,426 @@
+---
+title: "Entornos de trabajo en Python con Miniconda"
+subtitle: "Instalación, configuración de canales, entornos, paquetes y reproducibilidad"
+description: "Guía de instalación y uso de Miniconda, el instalador mínimo de conda: diferencias con Anaconda, instalación en Windows, macOS y Linux, configuración de canales, creación y administración de entornos, instalación de paquetes, archivos environment.yml e integración con Jupyter y VS Code."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-16
+image: ../imagenes/portada_miniconda.jpg
+categories: [Python, Miniconda, Entornos]
+---
+
+## Introducción
+
+**Miniconda** es un instalador mínimo que incluye únicamente el gestor de paquetes **conda**, Python y un conjunto reducido de paquetes esenciales. A partir de esa base, el usuario crea entornos aislados e instala solo lo que cada proyecto necesita.
+
+conda se diferencia de otros gestores de Python en que administra paquetes de **cualquier lenguaje**, no solo de Python. Puede instalar, por ejemplo, librerías de C/C++, compiladores, CUDA, R o herramientas de bioinformática y de análisis geoespacial, lo que lo hace especialmente útil en computación científica.
+
+**Objetivos de aprendizaje.** Al finalizar el estudio de este material, el estudiante estará en capacidad de:
+
+1. Diferenciar conda, Miniconda, Anaconda y Miniforge.
+2. Instalar y configurar Miniconda en Windows, macOS o Linux.
+3. Crear, activar, clonar y eliminar entornos.
+4. Instalar paquetes desde distintos canales y combinar correctamente conda con pip.
+5. Documentar y reproducir un entorno mediante un archivo `environment.yml`.
+6. Usar un entorno de Miniconda desde Jupyter y VS Code.
+
+## Parte 1 · Conceptos
+
+### conda, Miniconda, Anaconda y Miniforge
+
+| Nombre | Qué es |
+|---|---|
+| **conda** | El gestor de paquetes y de entornos. Es el programa que se usa en la terminal. |
+| **Miniconda** | Instalador **mínimo** de conda, distribuido por Anaconda, Inc. Trae conda, Python y lo indispensable. |
+| **Anaconda Distribution** | Instalador **completo**: conda más cientos de paquetes científicos preinstalados y una interfaz gráfica (Anaconda Navigator). Ocupa varios gigabytes. |
+| **Miniforge** | Instalador mínimo equivalente a Miniconda, mantenido por la comunidad, que usa por defecto el canal libre `conda-forge`. |
+
+Este tutorial trata **Miniconda**: se instala lo mínimo y cada proyecto agrega lo que necesita en su propio entorno.
+
+### Terminología
+
+| Término | Definición |
+|---|---|
+| **Entorno** | Directorio aislado con su propia versión de Python y sus propios paquetes. |
+| **Entorno `base`** | Entorno que crea Miniconda al instalarse. Contiene conda y no debe usarse para proyectos. |
+| **Canal** | Repositorio desde el que conda descarga paquetes. |
+| **`defaults`** | Canales oficiales de Anaconda, Inc. (`main`, `r`, etc.). |
+| **`conda-forge`** | Canal comunitario, libre y con el catálogo más amplio. |
+| **`environment.yml`** | Archivo de texto que describe un entorno para reproducirlo en otro equipo. |
+
+::: {.callout-warning}
+## Términos de servicio de los canales de Anaconda
+El uso de los canales `defaults` de Anaconda, Inc. está sujeto a sus términos de servicio, que restringen el uso gratuito en algunas organizaciones. Las versiones recientes de Miniconda solicitan aceptar esos términos la primera vez que se usan, y el mensaje indica el comando exacto para hacerlo. Para uso institucional, se recomienda revisar los términos vigentes o trabajar con el canal libre `conda-forge` (Parte 3).
+:::
+
+## Parte 2 · Instalación
+
+Los instaladores oficiales se descargan desde [anaconda.com/download](https://www.anaconda.com/download) (sección *Miniconda*) o desde el repositorio [repo.anaconda.com/miniconda](https://repo.anaconda.com/miniconda/).
+
+::: {.panel-tabset}
+
+## Windows
+
+1. Descargar el instalador **Miniconda3 Windows 64-bit** (`.exe`).
+2. Ejecutarlo y seleccionar:
+   - **Just Me** (solo para el usuario actual), que no requiere permisos de administrador.
+   - Ruta de instalación por defecto, sin espacios ni tildes. Si el nombre de usuario de Windows tiene tildes o espacios, conviene instalar en una ruta como `C:\miniconda3`.
+   - **No** marcar *Add Miniconda3 to my PATH environment variable*.
+3. Al terminar, abrir desde el menú Inicio **Anaconda Prompt (miniconda3)** o **Anaconda PowerShell Prompt (miniconda3)**. Todos los comandos de este tutorial se ejecutan ahí.
+
+## macOS
+
+Desde la terminal, según el procesador:
+
+```bash
+# Apple Silicon (M1, M2, M3, M4...)
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
+bash Miniconda3-latest-MacOSX-arm64.sh
+
+# Intel
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh
+```
+
+Durante la instalación: **Enter** para leer la licencia, **q** para salir de ella, **yes** para aceptarla, **Enter** para la ruta por defecto y **yes** para inicializar conda. Luego cerrar y abrir la terminal.
+
+## Linux
+
+```bash
+# Procesadores x86_64 (la mayoría de computadores)
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# Procesadores ARM de 64 bits (aarch64)
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+bash Miniconda3-latest-Linux-aarch64.sh
+```
+
+La arquitectura se consulta con `uname -m`. Las respuestas del instalador son las mismas que en macOS. Luego cerrar y abrir la terminal.
+
+**Instalación sin preguntas** (útil en servidores):
+
+```bash
+bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3
+$HOME/miniconda3/bin/conda init
+```
+
+`-b` acepta la licencia y omite las preguntas; `-p` indica la ruta de instalación.
+
+:::
+
+**Verificación:**
+
+```bash
+conda --version
+conda info
+```
+
+El indicador de la terminal muestra `(base)` al inicio: significa que el entorno `base` está activo.
+
+## Parte 3 · Configuración inicial
+
+### No activar `base` automáticamente
+
+```bash
+conda config --set auto_activate_base false
+```
+
+Así, al abrir la terminal no queda activo ningún entorno y se evita instalar paquetes por error en `base`.
+
+### Usar `conda-forge` como canal principal (recomendado)
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+```
+
+- `--add channels conda-forge`: pone `conda-forge` como canal de mayor prioridad.
+- `channel_priority strict`: si un paquete existe en `conda-forge`, conda no lo mezcla con versiones de otros canales. Esto evita incompatibilidades y acelera la resolución.
+
+La configuración queda guardada en el archivo `.condarc` de la carpeta personal. Se consulta con:
+
+```bash
+conda config --show channels
+```
+
+### Actualizar conda
+
+```bash
+conda update -n base conda
+```
+
+## Parte 4 · Entornos
+
+### Crear un entorno
+
+```bash
+conda create -n analisis python=3.12
+```
+
+- `-n analisis`: nombre del entorno.
+- `python=3.12`: versión de Python.
+
+Es posible incluir paquetes desde la creación, lo que permite a conda resolver todo de una vez:
+
+```bash
+conda create -n analisis python=3.12 numpy pandas matplotlib scikit-learn jupyterlab
+```
+
+### Activar y desactivar
+
+```bash
+conda activate analisis
+conda deactivate
+```
+
+Con el entorno activo, el indicador de la terminal muestra `(analisis)` y los comandos `python` y `pip` corresponden a ese entorno.
+
+### Administrar entornos
+
+| Tarea | Comando |
+|---|---|
+| Listar entornos | `conda env list` |
+| Clonar un entorno | `conda create -n copia --clone analisis` |
+| Renombrar un entorno | `conda rename -n analisis estadistica` |
+| Eliminar un entorno | `conda remove -n analisis --all` |
+| Ver la ruta de Python del entorno activo | `python -c "import sys; print(sys.executable)"` |
+
+::: {.callout-important}
+## No trabajar en `base`
+El entorno `base` contiene a conda. Instalar paquetes de proyectos en él puede generar conflictos que afecten al propio gestor. Cada proyecto debe tener su propio entorno.
+:::
+
+## Parte 5 · Paquetes
+
+Con el entorno activado:
+
+| Tarea | Comando |
+|---|---|
+| Instalar un paquete | `conda install pandas` |
+| Instalar varios | `conda install numpy scipy seaborn` |
+| Instalar una versión específica | `conda install "numpy=1.26"` |
+| Instalar desde un canal concreto | `conda install -c conda-forge pydicom` |
+| Buscar un paquete | `conda search opencv` |
+| Listar los paquetes del entorno | `conda list` |
+| Actualizar un paquete | `conda update pandas` |
+| Actualizar todo el entorno | `conda update --all` |
+| Desinstalar un paquete | `conda remove pandas` |
+
+Para operar sobre un entorno sin activarlo, se agrega `-n nombre`, por ejemplo `conda install -n analisis pandas`.
+
+### conda y pip en el mismo entorno
+
+Algunos paquetes solo existen en PyPI. En ese caso se instalan con pip **dentro del entorno activo**, siguiendo estas reglas:
+
+1. Instalar primero todo lo posible con conda.
+2. Instalar al final, con pip, solo lo que no esté disponible en conda.
+3. Después de usar pip, evitar seguir instalando con conda en ese entorno. Si hace falta, es preferible recrear el entorno desde un `environment.yml`.
+
+```bash
+conda activate analisis
+conda install numpy pandas
+pip install paquete-que-solo-esta-en-pypi
+```
+
+conda no conoce los cambios que hace pip; mezclar ambos sin orden puede producir versiones duplicadas o incompatibles.
+
+## Parte 6 · Reproducibilidad con `environment.yml`
+
+### Escribir el archivo
+
+```yaml
+name: analisis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - jupyterlab
+  - ipykernel
+  - pip
+  - pip:
+      - paquete-que-solo-esta-en-pypi
+```
+
+| Campo | Significado |
+|---|---|
+| `name` | Nombre del entorno que se creará. |
+| `channels` | Canales, en orden de prioridad. |
+| `dependencies` | Paquetes de conda, con o sin versión. |
+| `pip:` | Paquetes que se instalan con pip después de los de conda. Requiere incluir `pip` en la lista. |
+
+### Crear, actualizar y exportar
+
+| Tarea | Comando |
+|---|---|
+| Crear el entorno desde el archivo | `conda env create -f environment.yml` |
+| Actualizar el entorno tras editar el archivo | `conda env update -f environment.yml --prune` |
+| Exportar solo los paquetes pedidos explícitamente | `conda env export --from-history > environment.yml` |
+| Exportar todas las versiones exactas | `conda env export > environment-completo.yml` |
+
+- `--prune` elimina del entorno los paquetes que ya no aparecen en el archivo.
+- `--from-history` produce un archivo corto y portable entre sistemas operativos, porque solo incluye lo que el usuario instaló.
+- La exportación completa fija cada versión, pero suele funcionar solo en el mismo sistema operativo.
+
+::: {.callout-tip}
+## Buena práctica
+Mantener `environment.yml` en el repositorio del proyecto y editarlo a mano cuando se agregue un paquete. Así el archivo documenta el entorno y cualquier persona lo reproduce con un solo comando.
+:::
+
+## Parte 7 · Integración con Jupyter y VS Code
+
+### Jupyter
+
+**Opción A · JupyterLab dentro del entorno:**
+
+```bash
+conda activate analisis
+conda install jupyterlab
+jupyter lab
+```
+
+**Opción B · Registrar el entorno como kernel**, para usarlo desde un Jupyter instalado en otro entorno o desde VS Code:
+
+```bash
+conda activate analisis
+conda install ipykernel
+python -m ipykernel install --user --name analisis --display-name "Python (analisis)"
+```
+
+Para eliminar un kernel registrado: `jupyter kernelspec uninstall analisis`.
+
+### VS Code
+
+1. Instalar la extensión **Python** de Microsoft.
+2. Abrir la carpeta del proyecto.
+3. *Command Palette* (**Ctrl+Shift+P**) → **Python: Select Interpreter** → elegir el intérprete marcado con el nombre del entorno y la etiqueta *Conda*.
+4. En notebooks, elegir el kernel desde **Select Kernel → Python Environments**.
+
+## Parte 8 · Mantenimiento
+
+| Tarea | Comando |
+|---|---|
+| Liberar espacio (paquetes descargados y caché) | `conda clean --all` |
+| Ver la configuración actual | `conda config --show` |
+| Ver información de la instalación | `conda info` |
+| Actualizar conda | `conda update -n base conda` |
+
+**Desinstalar Miniconda.** En Windows, desde *Configuración → Aplicaciones*. En macOS y Linux, ejecutar `conda init --reverse` y luego borrar la carpeta de instalación (por defecto `$HOME/miniconda3`).
+
+## Parte 9 · Miniconda frente a uv
+
+| Criterio | Miniconda | uv |
+|---|---|---|
+| Paquetes que gestiona | De cualquier lenguaje (Python, C/C++, R, CUDA…) | Solo de Python |
+| Repositorio | Canales de conda (`conda-forge`, `defaults`) | PyPI |
+| Ubicación de los entornos | Centralizada, en la carpeta de Miniconda | Dentro de cada proyecto (`.venv`) |
+| Velocidad | Moderada | Muy alta |
+| Espacio en disco | Mayor | Menor |
+| Reproducibilidad | `environment.yml` | `pyproject.toml` y `uv.lock` |
+| Casos en que es preferible | Dependencias no-Python: GDAL, bioinformática, CUDA, compiladores | Proyectos de Python puro, desarrollo de software |
+
+Ambas herramientas son complementarias. Para ciencia de datos y aprendizaje automático con paquetes de PyPI, uv suele ser suficiente; cuando un proyecto requiere bibliotecas del sistema difíciles de compilar, Miniconda simplifica la instalación.
+
+## Flujo de trabajo recomendado
+
+**Proyecto nuevo:**
+
+```bash
+conda create -n mi-proyecto python=3.12 numpy pandas matplotlib ipykernel
+conda activate mi-proyecto
+conda env export --from-history > environment.yml
+```
+
+**Proyecto existente, clonado desde GitHub:**
+
+```bash
+git clone https://github.com/usuario/mi-proyecto.git
+cd mi-proyecto
+conda env create -f environment.yml
+conda activate mi-proyecto
+```
+
+**Cada sesión de trabajo:**
+
+```bash
+conda activate mi-proyecto
+# ... trabajo ...
+conda deactivate
+```
+
+## Referencia rápida
+
+| Tarea | Comando |
+|---|---|
+| Crear un entorno | `conda create -n nombre python=3.12` |
+| Activar / desactivar | `conda activate nombre` / `conda deactivate` |
+| Listar entornos | `conda env list` |
+| Instalar un paquete | `conda install paquete` |
+| Instalar desde conda-forge | `conda install -c conda-forge paquete` |
+| Listar paquetes | `conda list` |
+| Eliminar un entorno | `conda remove -n nombre --all` |
+| Exportar el entorno | `conda env export --from-history > environment.yml` |
+| Crear desde archivo | `conda env create -f environment.yml` |
+| Limpiar caché | `conda clean --all` |
+
+## Problemas frecuentes
+
+| Problema | Causa y solución |
+|---|---|
+| `conda` no se reconoce como comando (Windows) | Se está usando una terminal sin conda. Abrir **Anaconda Prompt (miniconda3)**, o ejecutar en ella `conda init powershell` para habilitar conda en PowerShell. |
+| `conda: command not found` (macOS o Linux) | No se inicializó conda. Ejecutar `$HOME/miniconda3/bin/conda init` y reabrir la terminal. |
+| `CondaError: Run 'conda init' before 'conda activate'` | Ejecutar `conda init`, cerrar y abrir la terminal. |
+| La resolución de dependencias tarda mucho o falla | Mezcla de canales. Configurar `conda-forge` con prioridad estricta (Parte 3) o crear el entorno con todos los paquetes en un solo comando. |
+| Un paquete instalado con pip deja de funcionar | Se instaló con conda después de pip. Recrear el entorno desde `environment.yml`. |
+| Mensaje sobre términos de servicio de los canales | Aceptarlos con el comando que indica el mensaje, o retirar `defaults` y trabajar con `conda-forge`. |
+
+## Ejercicio práctico
+
+Cree un entorno reproducible para un proyecto de procesamiento de imágenes médicas que:
+
+1. Se llame `imagenes-medicas` y use Python 3.12.
+2. Use exclusivamente el canal `conda-forge`.
+3. Incluya `numpy`, `matplotlib`, `scikit-image`, `pydicom`, `jupyterlab` e `ipykernel`.
+4. Quede descrito en un archivo `environment.yml`.
+5. Esté registrado como kernel de Jupyter con el nombre "Python (imágenes médicas)".
+
+::: {.callout-tip collapse="true"}
+## Solución
+
+`environment.yml`:
+
+```yaml
+name: imagenes-medicas
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - matplotlib
+  - scikit-image
+  - pydicom
+  - jupyterlab
+  - ipykernel
+```
+
+```bash
+conda env create -f environment.yml
+conda activate imagenes-medicas
+python -m ipykernel install --user --name imagenes-medicas --display-name "Python (imágenes médicas)"
+```
+
+Verificación:
+
+```bash
+python -c "import pydicom, skimage; print('Entorno listo')"
+```
+:::
+
+## Referencias
+
+- Documentación de Miniconda: [docs.anaconda.com/miniconda](https://docs.anaconda.com/miniconda/)
+- Documentación de conda: [docs.conda.io](https://docs.conda.io/)
+- Canal conda-forge: [conda-forge.org](https://conda-forge.org/)
