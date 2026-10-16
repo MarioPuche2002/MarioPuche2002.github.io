@@ -1,0 +1,23 @@
+---
+title: "Bienvenido"
+subtitle: "Tutoriales de programación, inteligencia artificial y ciencia de datos"
+page-layout: full
+toc: false
+title-block-banner: true
+listing:
+  - id: tutoriales
+    contents: tutoriales/*.qmd
+    type: default
+    sort: "date desc"
+    fields: [title, description, date, categories]
+    categories: false
+    filter-ui: true
+    sort-ui: false
+---
+
+En este sitio reúno material de apoyo para mis clases y para el trabajo del Grupo de Investigación en Inteligencia Artificial en Ciencias Forenses, de la Salud y Veterinaria (GIAFSV): tutoriales paso a paso, desde los fundamentos de Python hasta la configuración de entornos de programación.
+
+## Tutoriales
+
+::: {#tutoriales}
+:::

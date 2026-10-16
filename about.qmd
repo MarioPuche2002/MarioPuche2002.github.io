@@ -1,0 +1,42 @@
+---
+title: "Mario Andrés Puche Ajiaco"
+subtitle: "Ingeniero Biomédico · Doctorando en Ingeniería"
+toc: false
+about:
+  template: trestles
+  image: imagenes/foto_perfil.png
+  image-shape: round
+  image-width: 14em
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/mario-andr%C3%A9s-puche-ajiaco-460445280
+---
+
+Ingeniero Biomédico de la Universidad Escuela Colombiana de Ingeniería Julio Garavito y la Universidad del Rosario, y doctorando en Ingeniería en la Universidad Escuela Colombiana de Ingeniería Julio Garavito. Mi trabajo se centra en la inteligencia artificial aplicada a la salud, las ciencias forenses y la medicina veterinaria, y en la enseñanza de la programación y las matemáticas.
+
+## Experiencia
+
+**Docente investigador** · Corporación Educativa Nacional (CEN)
+
+**Líder del Grupo de Investigación en Inteligencia Artificial en Ciencias Forenses, de la Salud y Veterinaria (GIAFSV)** · Corporación Educativa Nacional (CEN)
+
+**Docente de cátedra** · Universidad Escuela Colombiana de Ingeniería Julio Garavito
+
+## Formación
+
+**Doctorado en Ingeniería** (en curso) · Universidad Escuela Colombiana de Ingeniería Julio Garavito
+
+**Ingeniería Biomédica** · Universidad Escuela Colombiana de Ingeniería Julio Garavito y Universidad del Rosario
+
+## Publicaciones
+
+- Puche Ajiaco, M. A., Rodríguez Cheu, L. E., Caicedo Rodríguez, P. E., Castiblanco Sánchez, J. C. y Ortiz Martínez, J. G. (2026). *Multimodal Deep Learning for Acetabular Component Diameter Prediction in Total Hip Arthroplasty*. 2026 IEEE Colombian Conference on Applications of Computational Intelligence (ColCACI). DOI: [10.1109/ColCACI71483.2026.11691423](https://doi.org/10.1109/ColCACI71483.2026.11691423)
+
+- Puche Ajiaco, M. A., Caicedo, P. E., Ortiz Martínez, J. G. y Rodríguez Cheu, L. E. (2025). *Prediction of prosthetic components in hip arthroplasty using a multimodal architecture*. Asociación Colombiana de Facultades de Ingeniería (ACOFI). DOI: [10.26507/paper.4602](https://doi.org/10.26507/paper.4602)
+
+- *Exploration of Natural Compounds in Interaction with Gamma-Aminobutyric Acid Through Molecular Docking: Towards New Therapies for Anxiety*. IEEE. [IEEE Xplore](https://ieeexplore.ieee.org/document/11276163)
+
+## Intereses
+
+Inteligencia artificial aplicada a la salud · Procesamiento de imágenes médicas · Ciencias forenses · Medicina veterinaria · Enseñanza de la programación
