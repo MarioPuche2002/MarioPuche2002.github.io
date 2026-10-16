@@ -1,0 +1,9 @@
+---
+title: "Álgebra Lineal"
+description: "Sitio de la asignatura Álgebra Lineal en la Universidad Escuela Colombiana de Ingeniería Julio Garavito."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-16
+image: ../imagenes/portada_algebra.jpg
+---
+
+Material en preparación.
