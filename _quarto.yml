@@ -8,11 +8,11 @@ website:
   title: "Mario Andrés Puche Ajiaco"
   description: "Tutoriales de programación, inteligencia artificial y ciencia de datos."
   page-navigation: true
-     back-to-top-navigation: true
-     favicon: imagenes/logo.png
-     navbar:
-       logo: imagenes/logo.png
-       left:
+  back-to-top-navigation: true
+  favicon: imagenes/logo.png
+  navbar:
+    logo: imagenes/logo.png
+    left:
       - href: index.qmd
         text: Principal
       - href: about.qmd
