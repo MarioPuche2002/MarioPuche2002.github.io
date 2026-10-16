@@ -1,0 +1,1016 @@
+---
+title: "Introducción a Python desde cero"
+subtitle: "Variables, operadores, condicionales, ciclos, listas, diccionarios, funciones y más"
+description: "Curso introductorio de Python para quien nunca ha programado: tipos de datos, entrada y salida, condicionales, ciclos for y while, cadenas, listas, tuplas, conjuntos, diccionarios, funciones, manejo de errores, archivos y módulos, con ejercicios resueltos."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-16
+categories: [Python, Fundamentos]
+---
+
+## Introducción
+
+**Python** es un lenguaje de programación de propósito general, fácil de leer y muy usado en ciencia de datos, inteligencia artificial, automatización y desarrollo web. Este tutorial parte de cero y llega hasta las estructuras de datos y funciones necesarias para empezar a escribir programas propios.
+
+Cada sección tiene ejemplos con su resultado y, al final, ejercicios resueltos.
+
+::: {.callout-note}
+## Cómo leer los ejemplos
+Las líneas que empiezan con `#` son **comentarios**: Python las ignora y sirven para explicar el código. En este tutorial, el comentario `# salida:` muestra lo que imprime el programa.
+:::
+
+## Parte 1 · Preparar un proyecto para practicar
+
+Si ya tienes uv instalado ([ver tutorial del entorno](tutorial_python_tablet_android.qmd)), crea un proyecto para los ejercicios:
+
+```bash
+cd /root/proyectos
+uv init curso-python --python 3.12
+cd curso-python
+```
+
+Hay dos formas de ejecutar código:
+
+| Forma | Cómo | Cuándo usarla |
+|---|---|---|
+| **Archivo `.py`** | Escribir el código en `main.py` y ejecutar `uv run main.py` | Programas completos. |
+| **Consola interactiva** | Ejecutar `uv run python` y escribir línea por línea | Probar algo rápido. Para salir: `exit()`. |
+
+En VS Code también puedes usar el botón ▶ o un notebook `.ipynb`.
+
+## Parte 2 · El primer programa
+
+```python
+print("Hola, mundo")
+# salida: Hola, mundo
+```
+
+`print()` es una **función**: una instrucción con nombre que recibe datos entre paréntesis y hace algo con ellos. En este caso, los muestra en pantalla.
+
+```python
+print("Python", "es", "fácil")
+# salida: Python es fácil
+
+print("Primera línea")
+print()                      # imprime una línea vacía
+print("Tercera línea")
+```
+
+## Parte 3 · Variables y tipos de datos
+
+Una **variable** es un nombre que guarda un valor. Se crea con el signo `=` (asignación):
+
+```python
+nombre = "Ana"
+edad = 20
+estatura = 1.65
+es_estudiante = True
+```
+
+### Tipos básicos
+
+| Tipo | Nombre en Python | Ejemplo |
+|---|---|---|
+| Número entero | `int` | `20`, `-3`, `0` |
+| Número decimal | `float` | `1.65`, `3.0`, `-0.5` |
+| Texto (cadena) | `str` | `"Ana"`, `'hola'` |
+| Booleano (verdadero/falso) | `bool` | `True`, `False` |
+| Ausencia de valor | `NoneType` | `None` |
+
+La función `type()` indica el tipo de un valor:
+
+```python
+print(type(edad))        # salida: <class 'int'>
+print(type(estatura))    # salida: <class 'float'>
+print(type(nombre))      # salida: <class 'str'>
+```
+
+### Reglas para nombrar variables
+
+- Pueden tener letras, números y guion bajo, pero **no pueden empezar con número**.
+- Distinguen mayúsculas: `edad` y `Edad` son variables distintas.
+- Por convención se escriben en minúsculas con guion bajo: `nota_final`, `numero_estudiantes`.
+- No pueden ser palabras reservadas como `if`, `for`, `class` o `True`.
+
+### Convertir entre tipos
+
+```python
+int("25")        # 25      (texto a entero)
+float("3.5")     # 3.5     (texto a decimal)
+str(100)         # "100"   (número a texto)
+int(7.9)         # 7       (corta la parte decimal)
+round(7.9)       # 8       (redondea)
+```
+
+## Parte 4 · Operadores
+
+### Aritméticos
+
+| Operador | Operación | Ejemplo | Resultado |
+|---|---|---|---|
+| `+` | Suma | `7 + 3` | `10` |
+| `-` | Resta | `7 - 3` | `4` |
+| `*` | Multiplicación | `7 * 3` | `21` |
+| `/` | División | `7 / 2` | `3.5` |
+| `//` | División entera | `7 // 2` | `3` |
+| `%` | Residuo (módulo) | `7 % 2` | `1` |
+| `**` | Potencia | `2 ** 3` | `8` |
+
+Se respeta el orden matemático de las operaciones; los paréntesis lo cambian:
+
+```python
+print(2 + 3 * 4)     # salida: 14
+print((2 + 3) * 4)   # salida: 20
+```
+
+### Asignación abreviada
+
+```python
+contador = 0
+contador += 1    # equivale a: contador = contador + 1
+contador *= 5    # equivale a: contador = contador * 5
+print(contador)  # salida: 5
+```
+
+### De comparación
+
+Devuelven `True` o `False`:
+
+| Operador | Significado | Ejemplo | Resultado |
+|---|---|---|---|
+| `==` | Igual a | `5 == 5` | `True` |
+| `!=` | Diferente de | `5 != 3` | `True` |
+| `>` | Mayor que | `5 > 3` | `True` |
+| `<` | Menor que | `5 < 3` | `False` |
+| `>=` | Mayor o igual | `5 >= 5` | `True` |
+| `<=` | Menor o igual | `3 <= 2` | `False` |
+
+::: {.callout-warning}
+## `=` no es lo mismo que `==`
+`=` **asigna** un valor a una variable. `==` **compara** dos valores.
+:::
+
+### Lógicos
+
+| Operador | Devuelve `True` cuando… | Ejemplo | Resultado |
+|---|---|---|---|
+| `and` | ambas condiciones son verdaderas | `5 > 3 and 2 > 1` | `True` |
+| `or` | al menos una es verdadera | `5 > 3 or 2 > 10` | `True` |
+| `not` | la condición es falsa | `not 5 > 3` | `False` |
+
+## Parte 5 · Entrada y salida
+
+### Leer datos del usuario
+
+`input()` muestra un mensaje y espera a que el usuario escriba algo. **Siempre devuelve texto**, así que para hacer cálculos hay que convertirlo:
+
+```python
+nombre = input("¿Cómo te llamas? ")
+edad = int(input("¿Cuántos años tienes? "))
+print("En diez años tendrás", edad + 10, "años")
+```
+
+### Mostrar resultados con f-strings
+
+Las **f-strings** permiten insertar variables dentro de un texto. Se escribe una `f` antes de las comillas y las variables van entre llaves `{}`:
+
+```python
+nombre = "Ana"
+nota = 4.2567
+print(f"{nombre} obtuvo {nota}")          # salida: Ana obtuvo 4.2567
+print(f"{nombre} obtuvo {nota:.2f}")      # salida: Ana obtuvo 4.26
+print(f"El doble es {nota * 2:.1f}")      # salida: El doble es 8.5
+```
+
+`:.2f` significa "mostrar con 2 decimales".
+
+## Parte 6 · Condicionales
+
+Permiten que el programa tome decisiones. La estructura básica es `if` (si), `elif` (si no, si) y `else` (si no):
+
+```python
+nota = float(input("Nota final: "))
+
+if nota >= 4.5:
+    print("Excelente")
+elif nota >= 3.0:
+    print("Aprobado")
+else:
+    print("Reprobado")
+```
+
+::: {.callout-important}
+## La indentación es obligatoria
+En Python, el código que pertenece a un `if`, `for`, `while` o función se escribe con **sangría de 4 espacios**. La línea anterior termina siempre con dos puntos `:`. Si la sangría está mal, Python muestra un `IndentationError`.
+:::
+
+Cómo funciona:
+
+1. Python evalúa las condiciones de arriba hacia abajo.
+2. Ejecuta el bloque de la **primera** condición verdadera y se salta el resto.
+3. Si ninguna es verdadera, ejecuta el bloque `else` (que es opcional).
+
+### Condiciones combinadas
+
+```python
+edad = 20
+tiene_documento = True
+
+if edad >= 18 and tiene_documento:
+    print("Puede ingresar")
+
+temperatura = 38.5
+if temperatura < 36 or temperatura > 37.5:
+    print("Temperatura fuera de rango")
+
+if 3.0 <= nota <= 5.0:          # comparación encadenada
+    print("Nota aprobatoria válida")
+```
+
+### Condicionales anidados
+
+```python
+numero = int(input("Escribe un número: "))
+
+if numero > 0:
+    if numero % 2 == 0:
+        print("Positivo y par")
+    else:
+        print("Positivo e impar")
+elif numero < 0:
+    print("Negativo")
+else:
+    print("Es cero")
+```
+
+### Expresión condicional en una línea
+
+```python
+edad = 16
+estado = "mayor de edad" if edad >= 18 else "menor de edad"
+print(estado)   # salida: menor de edad
+```
+
+## Parte 7 · Ciclos
+
+Un **ciclo** repite un bloque de código.
+
+### Ciclo `for`
+
+Recorre los elementos de una secuencia, uno por uno:
+
+```python
+for letra in "Hola":
+    print(letra)
+# salida:
+# H
+# o
+# l
+# a
+```
+
+### La función `range()`
+
+Genera secuencias de números. Es la forma habitual de repetir algo un número fijo de veces:
+
+| Uso | Genera |
+|---|---|
+| `range(5)` | 0, 1, 2, 3, 4 |
+| `range(2, 6)` | 2, 3, 4, 5 |
+| `range(0, 10, 2)` | 0, 2, 4, 6, 8 |
+| `range(5, 0, -1)` | 5, 4, 3, 2, 1 |
+
+El último número **no se incluye**.
+
+```python
+for i in range(1, 6):
+    print(f"{i} al cuadrado es {i ** 2}")
+
+# Tabla de multiplicar
+n = 7
+for i in range(1, 11):
+    print(f"{n} x {i} = {n * i}")
+```
+
+### Acumuladores y contadores
+
+Un patrón muy común: una variable que se va actualizando dentro del ciclo.
+
+```python
+suma = 0
+for i in range(1, 101):
+    suma += i
+print(f"La suma de 1 a 100 es {suma}")   # salida: La suma de 1 a 100 es 5050
+```
+
+### Ciclo `while`
+
+Repite mientras una condición sea verdadera. Se usa cuando no se sabe de antemano cuántas veces hay que repetir:
+
+```python
+contador = 1
+while contador <= 5:
+    print(contador)
+    contador += 1
+```
+
+::: {.callout-warning}
+## Ciclos infinitos
+Si la condición del `while` nunca se vuelve falsa, el programa no termina. En el ejemplo, olvidar `contador += 1` produce un ciclo infinito. Para detenerlo, presiona **Ctrl + C** en la terminal.
+:::
+
+Validar una entrada hasta que sea correcta:
+
+```python
+nota = float(input("Nota (0 a 5): "))
+while nota < 0 or nota > 5:
+    print("Nota inválida")
+    nota = float(input("Nota (0 a 5): "))
+print("Nota registrada")
+```
+
+### `break` y `continue`
+
+- `break`: sale del ciclo inmediatamente.
+- `continue`: salta al siguiente ciclo sin ejecutar el resto del bloque.
+
+```python
+for i in range(1, 11):
+    if i % 2 == 0:
+        continue          # salta los pares
+    if i > 7:
+        break             # se detiene al pasar de 7
+    print(i)
+# salida: 1, 3, 5, 7 (una por línea)
+```
+
+```python
+# Menú que se repite hasta que el usuario elige salir
+while True:
+    opcion = input("Escribe 'salir' para terminar: ")
+    if opcion == "salir":
+        break
+    print(f"Escribiste: {opcion}")
+```
+
+## Parte 8 · Cadenas de texto
+
+Una cadena (`str`) es una secuencia de caracteres. Cada carácter tiene una **posición (índice)** que empieza en 0:
+
+```
+ P   y   t   h   o   n
+ 0   1   2   3   4   5
+-6  -5  -4  -3  -2  -1
+```
+
+```python
+texto = "Python"
+print(texto[0])      # salida: P
+print(texto[-1])     # salida: n   (los índices negativos cuentan desde el final)
+print(texto[0:3])    # salida: Pyt (del índice 0 al 2)
+print(texto[2:])     # salida: thon
+print(len(texto))    # salida: 6   (longitud)
+```
+
+La notación `[inicio:fin]` se llama **rebanado (slicing)**: toma desde `inicio` hasta `fin - 1`.
+
+### Métodos útiles
+
+Un **método** es una función que pertenece a un tipo de dato y se llama con un punto:
+
+| Método | Qué hace | Ejemplo | Resultado |
+|---|---|---|---|
+| `.upper()` | Mayúsculas | `"hola".upper()` | `"HOLA"` |
+| `.lower()` | Minúsculas | `"HOLA".lower()` | `"hola"` |
+| `.title()` | Primera letra de cada palabra en mayúscula | `"ana pérez".title()` | `"Ana Pérez"` |
+| `.strip()` | Quita espacios al inicio y al final | `"  hola  ".strip()` | `"hola"` |
+| `.replace(a, b)` | Reemplaza texto | `"gato".replace("g", "p")` | `"pato"` |
+| `.split(sep)` | Divide en una lista | `"a,b,c".split(",")` | `["a", "b", "c"]` |
+| `.count(x)` | Cuenta apariciones | `"banana".count("a")` | `3` |
+| `.startswith(x)` | ¿Empieza con…? | `"Python".startswith("Py")` | `True` |
+
+```python
+frase = "aprender python es divertido"
+print("python" in frase)                  # salida: True
+print(" ".join(["uno", "dos", "tres"]))   # salida: uno dos tres
+```
+
+Las cadenas son **inmutables**: los métodos no modifican la cadena original, sino que devuelven una nueva.
+
+## Parte 9 · Listas
+
+Una **lista** guarda varios valores en orden. Se escribe entre corchetes `[]` y puede modificarse:
+
+```python
+notas = [4.5, 3.2, 2.8, 4.0]
+frutas = ["manzana", "pera", "uva"]
+mixta = [1, "dos", 3.0, True]
+vacia = []
+```
+
+### Acceder y modificar elementos
+
+Los índices funcionan igual que en las cadenas:
+
+```python
+frutas = ["manzana", "pera", "uva"]
+print(frutas[0])       # salida: manzana
+print(frutas[-1])      # salida: uva
+print(frutas[0:2])     # salida: ['manzana', 'pera']
+
+frutas[1] = "mango"    # modifica un elemento
+print(frutas)          # salida: ['manzana', 'mango', 'uva']
+```
+
+### Métodos de las listas
+
+| Método | Qué hace |
+|---|---|
+| `lista.append(x)` | Agrega `x` al final. |
+| `lista.insert(i, x)` | Inserta `x` en la posición `i`. |
+| `lista.extend(otra)` | Agrega todos los elementos de otra lista. |
+| `lista.remove(x)` | Elimina la primera aparición de `x`. |
+| `lista.pop()` | Elimina y devuelve el último elemento. |
+| `lista.pop(i)` | Elimina y devuelve el elemento de la posición `i`. |
+| `lista.index(x)` | Devuelve la posición de `x`. |
+| `lista.count(x)` | Cuenta cuántas veces aparece `x`. |
+| `lista.sort()` | Ordena la lista (la modifica). |
+| `lista.reverse()` | Invierte el orden. |
+
+```python
+numeros = [5, 2, 8]
+numeros.append(1)        # [5, 2, 8, 1]
+numeros.insert(0, 10)    # [10, 5, 2, 8, 1]
+numeros.remove(8)        # [10, 5, 2, 1]
+ultimo = numeros.pop()   # ultimo = 1, numeros = [10, 5, 2]
+numeros.sort()           # [2, 5, 10]
+print(numeros)
+```
+
+### Funciones que trabajan con listas
+
+```python
+notas = [4.5, 3.2, 2.8, 4.0]
+print(len(notas))                # salida: 4
+print(sum(notas))                # salida: 14.5
+print(max(notas))                # salida: 4.5
+print(min(notas))                # salida: 2.8
+print(sum(notas) / len(notas))   # salida: 3.625 (promedio)
+print(sorted(notas))             # nueva lista ordenada, sin modificar la original
+print(3.2 in notas)              # salida: True
+```
+
+### Recorrer listas
+
+```python
+frutas = ["manzana", "pera", "uva"]
+
+for fruta in frutas:
+    print(fruta)
+
+# enumerate() entrega la posición y el valor
+for i, fruta in enumerate(frutas):
+    print(f"{i}: {fruta}")
+
+# zip() recorre dos listas en paralelo
+nombres = ["Ana", "Luis", "Sara"]
+notas = [4.5, 3.2, 4.8]
+for nombre, nota in zip(nombres, notas):
+    print(f"{nombre} sacó {nota}")
+```
+
+### Construir listas con un ciclo
+
+```python
+cuadrados = []
+for i in range(1, 6):
+    cuadrados.append(i ** 2)
+print(cuadrados)    # salida: [1, 4, 9, 16, 25]
+```
+
+### Listas por comprensión
+
+Forma compacta de crear una lista a partir de otra. Hace lo mismo que el ejemplo anterior en una sola línea:
+
+```python
+cuadrados = [i ** 2 for i in range(1, 6)]
+# salida: [1, 4, 9, 16, 25]
+
+notas = [4.5, 3.2, 2.8, 4.0, 1.9]
+aprobadas = [n for n in notas if n >= 3.0]
+# salida: [4.5, 3.2, 4.0]
+```
+
+Se lee así: "`i ** 2` para cada `i` en `range(1, 6)`".
+
+### Listas anidadas (matrices)
+
+```python
+matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+print(matriz[1][2])    # salida: 6 (fila 1, columna 2)
+
+for fila in matriz:
+    for valor in fila:
+        print(valor, end=" ")
+    print()
+```
+
+`end=" "` hace que `print` termine con un espacio en vez de un salto de línea.
+
+::: {.callout-warning}
+## Copiar una lista
+`b = a` **no** copia la lista: `a` y `b` pasan a ser dos nombres para la misma lista, y modificar una modifica la otra. Para una copia independiente usa `b = a.copy()`.
+:::
+
+## Parte 10 · Tuplas y conjuntos
+
+### Tuplas
+
+Como las listas, pero **inmutables**: no se pueden modificar después de creadas. Se escriben con paréntesis:
+
+```python
+coordenada = (4.6, -74.1)
+print(coordenada[0])        # salida: 4.6
+
+latitud, longitud = coordenada    # desempaquetado
+print(longitud)             # salida: -74.1
+```
+
+Se usan para datos que no deben cambiar, como coordenadas, fechas o colores RGB.
+
+### Conjuntos
+
+Colecciones **sin orden y sin elementos repetidos**. Se escriben con llaves:
+
+```python
+colores = {"rojo", "azul", "rojo", "verde"}
+print(colores)              # salida: {'rojo', 'azul', 'verde'} (el orden puede variar)
+
+numeros = [1, 2, 2, 3, 3, 3]
+unicos = set(numeros)       # elimina repetidos: {1, 2, 3}
+
+a = {1, 2, 3, 4}
+b = {3, 4, 5}
+print(a | b)    # unión:        {1, 2, 3, 4, 5}
+print(a & b)    # intersección: {3, 4}
+print(a - b)    # diferencia:   {1, 2}
+```
+
+## Parte 11 · Diccionarios
+
+Un **diccionario** guarda pares **clave: valor**. En lugar de acceder por posición, se accede por la clave. Se escribe con llaves:
+
+```python
+estudiante = {
+    "nombre": "Ana",
+    "edad": 20,
+    "programa": "Ingeniería",
+    "notas": [4.5, 3.8, 4.2],
+}
+```
+
+### Acceder, agregar y modificar
+
+```python
+print(estudiante["nombre"])          # salida: Ana
+print(estudiante.get("ciudad"))      # salida: None (no da error si la clave no existe)
+print(estudiante.get("ciudad", "Sin dato"))   # salida: Sin dato
+
+estudiante["edad"] = 21              # modifica
+estudiante["ciudad"] = "Bogotá"      # agrega una clave nueva
+del estudiante["programa"]           # elimina una clave
+
+print("nombre" in estudiante)        # salida: True (¿existe la clave?)
+print(len(estudiante))               # salida: 4
+```
+
+::: {.callout-note}
+## `[]` frente a `.get()`
+`estudiante["ciudad"]` produce un `KeyError` si la clave no existe. `estudiante.get("ciudad")` devuelve `None` (o el valor por defecto que indiques) sin detener el programa.
+:::
+
+### Recorrer un diccionario
+
+```python
+precios = {"pan": 2500, "leche": 4200, "huevos": 12000}
+
+for producto in precios:                    # recorre las claves
+    print(producto)
+
+for precio in precios.values():             # recorre los valores
+    print(precio)
+
+for producto, precio in precios.items():    # recorre clave y valor
+    print(f"{producto}: ${precio:,}")
+```
+
+### Métodos de los diccionarios
+
+| Método | Qué hace |
+|---|---|
+| `d.keys()` | Todas las claves. |
+| `d.values()` | Todos los valores. |
+| `d.items()` | Pares (clave, valor). |
+| `d.get(k, defecto)` | Valor de `k`, o `defecto` si no existe. |
+| `d.update(otro)` | Agrega o actualiza con otro diccionario. |
+| `d.pop(k)` | Elimina la clave `k` y devuelve su valor. |
+
+### Ejemplo: contar palabras
+
+```python
+texto = "el perro y el gato y el loro"
+conteo = {}
+
+for palabra in texto.split():
+    conteo[palabra] = conteo.get(palabra, 0) + 1
+
+print(conteo)
+# salida: {'el': 3, 'perro': 1, 'y': 2, 'gato': 1, 'loro': 1}
+```
+
+### Lista de diccionarios
+
+Es la forma más común de representar una tabla de datos:
+
+```python
+estudiantes = [
+    {"nombre": "Ana", "nota": 4.5},
+    {"nombre": "Luis", "nota": 2.9},
+    {"nombre": "Sara", "nota": 3.8},
+]
+
+for e in estudiantes:
+    estado = "aprobó" if e["nota"] >= 3.0 else "reprobó"
+    print(f"{e['nombre']} {estado} con {e['nota']}")
+
+promedio = sum(e["nota"] for e in estudiantes) / len(estudiantes)
+print(f"Promedio del curso: {promedio:.2f}")
+```
+
+### Diccionarios por comprensión
+
+```python
+cuadrados = {n: n ** 2 for n in range(1, 6)}
+# salida: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+### Resumen de estructuras de datos
+
+| Estructura | Sintaxis | Ordenada | Modificable | Permite repetidos | Acceso |
+|---|---|---|---|---|---|
+| Lista | `[1, 2, 3]` | Sí | Sí | Sí | Por índice |
+| Tupla | `(1, 2, 3)` | Sí | No | Sí | Por índice |
+| Conjunto | `{1, 2, 3}` | No | Sí | No | Solo recorrer o `in` |
+| Diccionario | `{"a": 1}` | Sí (orden de inserción) | Sí | Claves no | Por clave |
+
+## Parte 12 · Funciones
+
+Una **función** es un bloque de código con nombre que se puede reutilizar. Se define con `def`:
+
+```python
+def saludar(nombre):
+    print(f"Hola, {nombre}")
+
+saludar("Ana")      # salida: Hola, Ana
+saludar("Luis")     # salida: Hola, Luis
+```
+
+- `nombre` es un **parámetro**: el dato que la función recibe.
+- `"Ana"` es el **argumento**: el valor concreto que se envía al llamarla.
+
+### Devolver un resultado con `return`
+
+```python
+def promedio(valores):
+    """Calcula el promedio de una lista de números."""
+    return sum(valores) / len(valores)
+
+resultado = promedio([4.5, 3.2, 4.0])
+print(f"{resultado:.2f}")   # salida: 3.90
+```
+
+`print` muestra un valor en pantalla; `return` lo **devuelve** para poder guardarlo en una variable y seguir usándolo. El texto entre triple comilla es la **docstring**: la documentación de la función.
+
+### Parámetros con valor por defecto
+
+```python
+def potencia(base, exponente=2):
+    return base ** exponente
+
+print(potencia(5))        # salida: 25 (usa exponente=2)
+print(potencia(2, 10))    # salida: 1024
+print(potencia(exponente=3, base=2))   # salida: 8 (argumentos por nombre)
+```
+
+### Devolver varios valores
+
+```python
+def estadisticas(valores):
+    return min(valores), max(valores), sum(valores) / len(valores)
+
+minimo, maximo, prom = estadisticas([4, 8, 15, 16, 23, 42])
+print(minimo, maximo, prom)   # salida: 4 42 18.0
+```
+
+### Alcance de las variables
+
+Las variables creadas dentro de una función solo existen dentro de ella:
+
+```python
+def calcular():
+    resultado = 10     # variable local
+    return resultado
+
+calcular()
+print(resultado)       # NameError: 'resultado' no existe fuera de la función
+```
+
+### Funciones lambda
+
+Funciones pequeñas de una sola expresión. Son útiles, por ejemplo, para ordenar:
+
+```python
+estudiantes = [("Ana", 4.5), ("Luis", 2.9), ("Sara", 3.8)]
+ordenados = sorted(estudiantes, key=lambda e: e[1], reverse=True)
+print(ordenados)
+# salida: [('Ana', 4.5), ('Sara', 3.8), ('Luis', 2.9)]
+```
+
+`key=lambda e: e[1]` indica que se ordene por el segundo elemento de cada tupla (la nota).
+
+## Parte 13 · Manejo de errores
+
+Cuando algo falla, Python lanza una **excepción** y el programa se detiene. Errores frecuentes:
+
+| Error | Causa típica |
+|---|---|
+| `SyntaxError` | Código mal escrito: falta `:`, paréntesis o comillas. |
+| `IndentationError` | Sangría incorrecta. |
+| `NameError` | Variable que no existe o está mal escrita. |
+| `TypeError` | Operación entre tipos incompatibles, como `"5" + 3`. |
+| `ValueError` | Valor inválido, como `int("hola")`. |
+| `IndexError` | Índice fuera de la lista. |
+| `KeyError` | Clave que no existe en un diccionario. |
+| `ZeroDivisionError` | División por cero. |
+
+Con `try` y `except` se puede capturar el error y responder sin que el programa se detenga:
+
+```python
+try:
+    numero = int(input("Escribe un número: "))
+    print(f"El inverso es {1 / numero}")
+except ValueError:
+    print("Eso no es un número entero")
+except ZeroDivisionError:
+    print("No se puede dividir entre cero")
+```
+
+Combinado con un ciclo, permite pedir datos hasta que sean válidos:
+
+```python
+while True:
+    try:
+        edad = int(input("Edad: "))
+        break
+    except ValueError:
+        print("Escribe solo números")
+```
+
+## Parte 14 · Archivos
+
+### Escribir un archivo
+
+```python
+with open("notas.txt", "w", encoding="utf-8") as archivo:
+    archivo.write("Ana,4.5\n")
+    archivo.write("Luis,2.9\n")
+    archivo.write("Sara,3.8\n")
+```
+
+- `"w"`: modo escritura. Crea el archivo o **reemplaza** su contenido. Usa `"a"` para agregar al final.
+- `\n`: salto de línea.
+- `with`: cierra el archivo automáticamente al terminar el bloque.
+- `encoding="utf-8"`: permite tildes y ñ.
+
+### Leer un archivo
+
+```python
+with open("notas.txt", "r", encoding="utf-8") as archivo:
+    for linea in archivo:
+        nombre, nota = linea.strip().split(",")
+        print(f"{nombre}: {float(nota)}")
+```
+
+## Parte 15 · Módulos
+
+Un **módulo** es un archivo con código que se puede reutilizar. Python trae muchos incluidos (la *biblioteca estándar*):
+
+```python
+import math
+print(math.sqrt(16))     # salida: 4.0
+print(math.pi)           # salida: 3.141592653589793
+
+import random
+print(random.randint(1, 6))           # número aleatorio entre 1 y 6
+print(random.choice(["a", "b", "c"])) # elemento aleatorio
+
+from datetime import date
+print(date.today())      # fecha actual
+```
+
+Las librerías externas, como `numpy` o `pandas`, se instalan primero en el proyecto con uv:
+
+```bash
+uv add numpy
+```
+
+```python
+import numpy as np
+print(np.mean([4.5, 3.2, 4.0]))
+```
+
+`as np` le da un nombre corto al módulo.
+
+## Parte 16 · Ejercicios
+
+Intenta resolver cada ejercicio antes de abrir la solución.
+
+### Ejercicio 1 · Par o impar
+
+Pide un número entero e indica si es par o impar.
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+numero = int(input("Número: "))
+if numero % 2 == 0:
+    print("Es par")
+else:
+    print("Es impar")
+```
+:::
+
+### Ejercicio 2 · Calculadora de IMC
+
+Pide peso (kg) y estatura (m), calcula el índice de masa corporal (`peso / estatura²`) y clasifícalo: menor de 18.5 bajo peso, menor de 25 normal, menor de 30 sobrepeso, y 30 o más obesidad.
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+peso = float(input("Peso (kg): "))
+estatura = float(input("Estatura (m): "))
+imc = peso / estatura ** 2
+
+if imc < 18.5:
+    categoria = "Bajo peso"
+elif imc < 25:
+    categoria = "Normal"
+elif imc < 30:
+    categoria = "Sobrepeso"
+else:
+    categoria = "Obesidad"
+
+print(f"IMC: {imc:.1f} ({categoria})")
+```
+:::
+
+### Ejercicio 3 · Números primos
+
+Muestra todos los números primos entre 2 y 50. Un número es primo si solo es divisible entre 1 y sí mismo.
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+for n in range(2, 51):
+    es_primo = True
+    for divisor in range(2, n):
+        if n % divisor == 0:
+            es_primo = False
+            break
+    if es_primo:
+        print(n, end=" ")
+```
+:::
+
+### Ejercicio 4 · Adivinar el número
+
+El programa elige un número aleatorio entre 1 y 100 y el usuario intenta adivinarlo. Después de cada intento, indica si el número es mayor o menor, y al final muestra cuántos intentos usó.
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+import random
+
+secreto = random.randint(1, 100)
+intentos = 0
+
+while True:
+    intento = int(input("Adivina (1-100): "))
+    intentos += 1
+    if intento < secreto:
+        print("Es mayor")
+    elif intento > secreto:
+        print("Es menor")
+    else:
+        print(f"¡Correcto! Lo lograste en {intentos} intentos")
+        break
+```
+:::
+
+### Ejercicio 5 · Estadísticas de una lista
+
+Escribe una función `resumen(notas)` que devuelva un diccionario con el promedio, la nota máxima, la mínima y cuántas notas son aprobatorias (3.0 o más).
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+def resumen(notas):
+    return {
+        "promedio": round(sum(notas) / len(notas), 2),
+        "maxima": max(notas),
+        "minima": min(notas),
+        "aprobadas": len([n for n in notas if n >= 3.0]),
+    }
+
+print(resumen([4.5, 2.8, 3.9, 1.7, 3.0]))
+# salida: {'promedio': 3.18, 'maxima': 4.5, 'minima': 1.7, 'aprobadas': 3}
+```
+:::
+
+### Ejercicio 6 · Agenda de contactos
+
+Crea un programa con un menú que permita agregar un contacto (nombre y teléfono), buscar un contacto por nombre, listar todos los contactos y salir. Usa un diccionario.
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+agenda = {}
+
+while True:
+    print("\n1. Agregar  2. Buscar  3. Listar  4. Salir")
+    opcion = input("Opción: ")
+
+    if opcion == "1":
+        nombre = input("Nombre: ").strip().title()
+        telefono = input("Teléfono: ").strip()
+        agenda[nombre] = telefono
+        print("Contacto guardado")
+    elif opcion == "2":
+        nombre = input("Nombre a buscar: ").strip().title()
+        print(agenda.get(nombre, "No encontrado"))
+    elif opcion == "3":
+        if not agenda:
+            print("La agenda está vacía")
+        for nombre, telefono in sorted(agenda.items()):
+            print(f"{nombre}: {telefono}")
+    elif opcion == "4":
+        print("Hasta luego")
+        break
+    else:
+        print("Opción inválida")
+```
+:::
+
+### Ejercicio 7 · Inventario
+
+Dada la lista de productos, calcula el valor total del inventario (precio × cantidad), muestra los productos con menos de 5 unidades y el producto de mayor valor total.
+
+```python
+inventario = [
+    {"producto": "Guantes", "precio": 15000, "cantidad": 40},
+    {"producto": "Jeringas", "precio": 800, "cantidad": 3},
+    {"producto": "Gasas", "precio": 5000, "cantidad": 12},
+    {"producto": "Alcohol", "precio": 9000, "cantidad": 4},
+]
+```
+
+::: {.callout-tip collapse="true"}
+## Solución
+```python
+total = 0
+for item in inventario:
+    total += item["precio"] * item["cantidad"]
+print(f"Valor total: ${total:,}")
+
+print("Productos por agotarse:")
+for item in inventario:
+    if item["cantidad"] < 5:
+        print(f"- {item['producto']} ({item['cantidad']} unidades)")
+
+mayor = max(inventario, key=lambda i: i["precio"] * i["cantidad"])
+print(f"Mayor valor: {mayor['producto']}")
+```
+:::
+
+## Siguientes pasos
+
+Con estas bases se puede continuar con:
+
+- **Programación orientada a objetos**: clases y objetos.
+- **NumPy**: cálculo numérico con arreglos.
+- **pandas**: análisis de datos en tablas.
+- **matplotlib**: gráficas.
+- **scikit-learn**: aprendizaje automático.

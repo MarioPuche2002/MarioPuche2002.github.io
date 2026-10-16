@@ -1,0 +1,613 @@
+---
+title: "Entorno de programación en Python en una tablet Android"
+subtitle: "Termux + Debian + uv + VS Code (code-server) + Git y GitHub"
+description: "Guía paso a paso para convertir una tablet Android en un entorno completo de programación en Python: Linux con Termux y Debian, gestión de proyectos con uv, VS Code en el navegador y control de versiones con Git y GitHub. Incluye la rutina diaria para crear y abrir proyectos."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-16
+categories: [Python, Android, uv, VS Code, Git]
+---
+
+## Introducción
+
+Este tutorial convierte una tablet Android en un entorno de programación en Python con las mismas herramientas que se usan en un computador: una distribución Linux completa, un gestor moderno de proyectos y librerías, el editor VS Code y control de versiones con GitHub. No requiere rootear la tablet.
+
+Fue probado en una tablet Lenovo con **Android 14**.
+
+El tutorial tiene dos bloques:
+
+- **Bloque A · Instalación** (partes 1 a 8): se hace una sola vez.
+- **Bloque B · Uso diario** (partes 9 a 11): cómo iniciar una sesión, crear o abrir proyectos y guardar el trabajo en GitHub.
+
+::: {.callout-tip}
+## Si ya tienes todo instalado
+Ve directamente a la [Parte 9 · Rutina diaria](#parte-9-rutina-diaria).
+:::
+
+::: {.callout-note}
+## Sobre la tilde `~`
+En Linux, `~` es un atajo para la carpeta personal. Como en algunos teclados de tablet es difícil escribirla, en este tutorial se usa `$HOME`, que significa lo mismo. Dentro de Debian, `$HOME` equivale a `/root`.
+:::
+
+## Parte 0 · Conceptos básicos
+
+| Término | Qué es |
+|---|---|
+| **Terminal** | Programa donde das instrucciones escribiendo comandos en vez de tocar botones. |
+| **Comando** | Instrucción escrita, por ejemplo `ls` (listar archivos). Se ejecuta con **Enter**. |
+| **Prompt** | Texto que indica que la terminal espera un comando, por ejemplo `$` o `root@localhost:~#`. |
+| **Linux** | Sistema operativo libre, muy usado en servidores y programación. Android usa el núcleo de Linux, pero no incluye sus herramientas de escritorio. |
+| **Distribución** | Versión empaquetada de Linux: Debian, Ubuntu, Fedora, etc. |
+| **Debian** | Distribución estable y liviana, existente desde 1993. Ubuntu está basado en ella. |
+| **Termux** | Aplicación de Android que ofrece una terminal y un sistema de paquetes tipo Linux. |
+| **proot-distro** | Herramienta de Termux que ejecuta una distribución completa (Debian) dentro de Android, sin rootear la tablet. |
+| **root** | Usuario administrador. Dentro de Debian eres `root`, pero solo en ese entorno aislado; la tablet no se modifica. |
+| **Gestor de paquetes** | Programa que instala, actualiza y elimina software. Termux usa `pkg` y Debian usa `apt`. |
+| **`$HOME`** | Variable que contiene la ruta de tu carpeta personal. |
+| **PATH** | Lista de carpetas donde la terminal busca los programas. |
+| **Python** | Lenguaje de programación. |
+| **uv** | Herramienta muy rápida para instalar versiones de Python, crear entornos virtuales y gestionar librerías. Reemplaza a `pip`, `venv` y `pyenv`. |
+| **Entorno virtual (`.venv`)** | Carpeta aislada con su propio Python y librerías, para que cada proyecto tenga sus dependencias sin interferir con otros. |
+| **VS Code** | Editor de código de Microsoft. |
+| **code-server** | VS Code adaptado para correr como servidor y usarse desde el navegador. |
+| **localhost** | La propia máquina. `localhost:8080` es "el servicio que corre en esta tablet, en el puerto 8080". |
+| **Git** | Programa que guarda el historial de cambios del código. |
+| **GitHub** | Sitio web donde se publican los repositorios de Git. |
+
+**Estructura del entorno:**
+
+```
+Android 14
+ └── Termux                  (terminal)
+      └── Debian             (Linux completo, vía proot-distro)
+           ├── uv + Python   (lenguaje y librerías)
+           ├── Git + gh      (control de versiones y GitHub)
+           └── code-server   (VS Code) ──► se abre en Chrome: localhost:8080
+```
+
+# Bloque A · Instalación
+
+## Parte 1 · Instalar Termux
+
+1. Abre **Google Play**, busca **Termux** (desarrollador: *Fredrik Fornwall*) e instálalo.
+2. Ábrelo y espera a que termine la instalación inicial y aparezca el símbolo `$`.
+
+::: {.callout-warning}
+## F-Droid y Android 14
+La versión de Termux de F-Droid puede no instalarse en Android 14. La versión de Google Play la publican los mismos desarrolladores y está actualizada para versiones recientes de Android. No mezcles versiones: si instalas complementos, deben venir de la misma fuente.
+:::
+
+## Parte 2 · Preparar Termux
+
+```bash
+pkg update && pkg upgrade -y
+```
+
+- `pkg update`: descarga la lista actualizada de paquetes.
+- `&&`: ejecuta el segundo comando solo si el primero terminó bien.
+- `pkg upgrade`: actualiza los paquetes instalados.
+- `-y`: responde "sí" automáticamente.
+
+Si pregunta algo sobre archivos de configuración, presiona **Enter**.
+
+```bash
+termux-setup-storage
+```
+
+Da permiso de acceso a los archivos de la tablet. Si el comando no existe en tu versión, omite este paso.
+
+```bash
+pkg install proot-distro -y
+proot-distro install debian
+```
+
+Instala la herramienta y luego descarga Debian. Tarda unos minutos.
+
+**Atajo para entrar a Debian con una palabra:**
+
+```bash
+echo "alias debian='proot-distro login debian'" >> $HOME/.bashrc
+source $HOME/.bashrc
+```
+
+- `echo "..."`: imprime un texto.
+- `>>`: agrega ese texto al final de un archivo sin borrar su contenido.
+- `.bashrc`: archivo de configuración que se lee cada vez que abres la terminal.
+- `alias`: nombre corto para un comando largo.
+- `source`: recarga el archivo para que el cambio funcione de inmediato.
+
+**Opcional: agregar teclas útiles a la barra de Termux** (`~`, `|`):
+
+```bash
+mkdir -p $HOME/.termux
+nano $HOME/.termux/termux.properties
+```
+
+Pega esta línea:
+
+```
+extra-keys = [['ESC','~','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN','|']]
+```
+
+Guarda con **Ctrl+O** y **Enter**, sal con **Ctrl+X** y aplica el cambio:
+
+```bash
+termux-reload-settings
+```
+
+## Parte 3 · Entrar a Debian y prepararlo
+
+```bash
+debian
+```
+
+El prompt cambia a `root@localhost:~#`: ya estás en Debian.
+
+```bash
+uname -m
+```
+
+Muestra la arquitectura del procesador. Debe decir `aarch64` (ARM de 64 bits).
+
+```bash
+apt update && apt upgrade -y
+apt install curl wget git nano unzip -y
+```
+
+| Paquete | Para qué sirve |
+|---|---|
+| `curl` y `wget` | Descargar archivos o scripts desde internet. |
+| `git` | Control de versiones. |
+| `nano` | Editor de texto sencillo en la terminal. |
+| `unzip` | Descomprimir archivos `.zip`. |
+
+**Comandos básicos de navegación:**
+
+| Comando | Qué hace |
+|---|---|
+| `pwd` | Muestra en qué carpeta estás. |
+| `ls` | Lista los archivos de la carpeta actual. |
+| `ls -a` | Lista también los archivos ocultos (los que empiezan con punto). |
+| `cd carpeta` | Entra a una carpeta. |
+| `cd ..` | Sube a la carpeta anterior. |
+| `cd` | Solo, sin nada más: vuelve a tu carpeta personal. |
+| `mkdir nombre` | Crea una carpeta. |
+| `rm archivo` | Borra un archivo. |
+| `clear` | Limpia la pantalla. |
+| `exit` | Sale de Debian y vuelve a Termux. |
+
+## Parte 4 · Instalar uv y Python
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+- `curl -LsSf URL`: descarga el script de instalación (`-L` sigue redirecciones, `-s` silencioso, `-S` muestra errores, `-f` falla si el servidor responde con error).
+- `|` (tubería): envía lo descargado al siguiente comando.
+- `sh`: ejecuta el script, que instala uv en `$HOME/.local/bin`.
+
+```bash
+source $HOME/.local/bin/env
+```
+
+Agrega uv al PATH.
+
+```bash
+uv python install 3.12
+```
+
+Descarga e instala Python 3.12, administrado por uv.
+
+**Verificación:**
+
+```bash
+uv --version
+uv python list --only-installed
+```
+
+::: {.callout-note}
+## ¿Por qué uv y no Miniconda?
+uv ocupa pocos megas, instala librerías mucho más rápido, gestiona las versiones de Python y usa PyPI, donde numpy, pandas, scikit-learn, matplotlib y jupyter tienen versiones para ARM64. Miniconda solo se justifica para librerías que no están en PyPI.
+:::
+
+## Parte 5 · Instalar VS Code (code-server)
+
+```bash
+curl -fsSL https://code-server.dev/install.sh | sh
+```
+
+Descarga y ejecuta el instalador oficial. Detecta Debian ARM64 e instala el paquete adecuado. Al final aparece `deb package has been installed`. Los mensajes sobre `systemctl` y `sudo` no aplican en Termux y se pueden ignorar.
+
+**Verificación:**
+
+```bash
+code-server --version
+```
+
+**Atajo para arrancarlo:**
+
+```bash
+echo "alias vscode='code-server --bind-addr 127.0.0.1:8080 --auth none'" >> $HOME/.bashrc
+source $HOME/.bashrc
+```
+
+- `--bind-addr 127.0.0.1:8080`: solo acepta conexiones desde la misma tablet, en el puerto 8080.
+- `--auth none`: no pide contraseña. Es seguro **solo** porque está limitado a `127.0.0.1`; nadie de la red Wi-Fi puede entrar.
+
+## Parte 6 · Abrir y configurar VS Code
+
+1. En Debian, escribe:
+
+   ```bash
+   vscode
+   ```
+
+2. Espera la línea `HTTP server listening on http://127.0.0.1:8080/`. **No presiones nada más en Termux**: mientras esos mensajes estén en pantalla, el servidor está funcionando.
+3. En la notificación de Termux, toca **Acquire wakelock** para que Android no suspenda el proceso.
+4. Cambia a **Chrome** (sin cerrar Termux) y entra a `http://localhost:8080`.
+5. En Chrome, usa **⋮ → Agregar a pantalla principal** para abrir VS Code como una aplicación.
+
+::: {.callout-important}
+## Ctrl + C detiene VS Code
+En la terminal de Termux, **Ctrl + C** apaga el servidor. Úsalo solo cuando termines de trabajar. Si necesitas otra terminal en Termux, desliza desde el borde izquierdo y toca **New session**.
+:::
+
+**Extensiones** (ícono de cuatro cuadros en la barra lateral):
+
+- **Python** (ms-python): ejecutar y depurar Python.
+- **Jupyter** (ms-toolsai): notebooks `.ipynb`.
+- *Spanish Language Pack* (opcional): interfaz en español.
+
+**Terminal integrada:** *Menú ☰ → Terminal → New Terminal*. Es la misma terminal de Debian, dentro de VS Code. Desde aquí se hace todo lo demás.
+
+## Parte 7 · Configurar Git y GitHub
+
+### Conceptos
+
+| Término | Qué es |
+|---|---|
+| **Repositorio (repo)** | Carpeta de un proyecto bajo control de Git. |
+| **Commit** | "Foto" del proyecto en un momento dado, con un mensaje que describe el cambio. |
+| **Staging (`git add`)** | Paso previo al commit: eliges qué cambios entran en la foto. |
+| **Rama (branch)** | Línea de desarrollo. La principal se llama `main`. |
+| **Remoto (`origin`)** | La copia del repositorio que está en GitHub. |
+| **Push / Pull** | Subir commits a GitHub / bajar cambios desde GitHub. |
+| **GitHub CLI (`gh`)** | Herramienta oficial de GitHub para la terminal. |
+
+```
+editas archivos ──► git add ──► git commit ──► git push ──► GitHub
+```
+
+### Configurar Git (una sola vez)
+
+Si no tienes cuenta de GitHub, créala en [github.com/signup](https://github.com/signup). Luego, en la terminal de VS Code:
+
+```bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "correo-de-tu-cuenta@github"
+git config --global init.defaultBranch main
+git config --global core.editor nano
+```
+
+- `user.name` y `user.email`: autor de cada commit. Usa **el mismo correo de tu cuenta de GitHub**.
+- `init.defaultBranch main`: la rama principal se llamará `main`.
+- `core.editor nano`: editor que abrirá Git cuando necesite un texto.
+- `--global`: aplica a todos tus proyectos.
+
+Verifica con `git config --global --list`.
+
+### Conectar la tablet con GitHub
+
+```bash
+apt install gh -y
+gh auth login
+```
+
+| Pregunta | Respuesta |
+|---|---|
+| Where do you use GitHub? | **GitHub.com** |
+| Preferred protocol for Git operations? | **HTTPS** |
+| Authenticate Git with your GitHub credentials? | **Yes** |
+| How would you like to authenticate? | **Login with a web browser** |
+
+Aparece un código de 8 caracteres. Anótalo, presiona **Enter**, entra en Chrome a [github.com/login/device](https://github.com/login/device), escribe el código y autoriza. En la terminal debe aparecer **Logged in as tu-usuario**. Verifica con `gh auth status`.
+
+## Parte 8 · Primer proyecto de prueba
+
+Un clasificador de flores con el dataset *Iris* y scikit-learn.
+
+### Crear el proyecto
+
+```bash
+mkdir -p /root/proyectos
+cd /root/proyectos
+uv init iris-clasificador --python 3.12
+cd iris-clasificador
+```
+
+`uv init` genera:
+
+| Archivo | Para qué sirve |
+|---|---|
+| `pyproject.toml` | "Ficha técnica" del proyecto: nombre, versión de Python y dependencias. |
+| `.python-version` | Fija la versión de Python del proyecto. |
+| `main.py` | Archivo de ejemplo. |
+| `README.md` | Descripción del proyecto (portada en GitHub). |
+| `.gitignore` | Archivos que Git no debe subir, como `.venv`. |
+
+### Agregar librerías
+
+```bash
+uv add pandas scikit-learn matplotlib ipykernel
+```
+
+Crea el entorno virtual `.venv`, instala las librerías, las registra en `pyproject.toml` y genera `uv.lock` con las versiones exactas, para que el proyecto sea reproducible en otro equipo.
+
+### Abrir la carpeta y configurar el intérprete
+
+1. *Menú ☰ → File → Open Folder* → `/root/proyectos/iris-clasificador` → **OK**.
+2. En la terminal integrada, crea la configuración del proyecto:
+
+   ```bash
+   mkdir -p .vscode
+   nano .vscode/settings.json
+   ```
+
+   Pega:
+
+   ```json
+   {
+     "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"
+   }
+   ```
+
+   Guarda (**Ctrl+O**, **Enter**, **Ctrl+X**) y recarga la página en Chrome.
+
+`${workspaceFolder}` es la carpeta abierta y `.venv/bin/python` es el Python del entorno virtual. Este archivo viaja con el proyecto a GitHub.
+
+::: {.callout-tip}
+## Alternativa
+También funciona *Menú ☰ → View → Command Palette* (o **F1**) → **Python: Select Interpreter** → **Enter interpreter path…** → `/root/proyectos/iris-clasificador/.venv/bin/python`. A veces Chrome intercepta el atajo `Ctrl+Shift+P`.
+:::
+
+### Escribir y ejecutar el código
+
+Reemplaza el contenido de `main.py`:
+
+```python
+"""Clasificador de flores Iris con Random Forest."""
+
+import matplotlib
+matplotlib.use("Agg")  # Guarda las gráficas como imagen (sin ventana)
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import ConfusionMatrixDisplay, accuracy_score
+from sklearn.model_selection import train_test_split
+
+
+def main():
+    # 1. Cargar los datos
+    iris = load_iris(as_frame=True)
+    X, y = iris.data, iris.target
+    print(f"Datos: {X.shape[0]} flores, {X.shape[1]} variables")
+
+    # 2. Dividir en entrenamiento (80 %) y prueba (20 %)
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42, stratify=y
+    )
+
+    # 3. Entrenar el modelo
+    modelo = RandomForestClassifier(n_estimators=100, random_state=42)
+    modelo.fit(X_train, y_train)
+
+    # 4. Evaluar
+    y_pred = modelo.predict(X_test)
+    print(f"Exactitud: {accuracy_score(y_test, y_pred):.2%}")
+
+    # 5. Guardar la matriz de confusión
+    ConfusionMatrixDisplay.from_predictions(
+        y_test, y_pred, display_labels=iris.target_names
+    )
+    plt.title("Matriz de confusión - Iris")
+    plt.savefig("matriz_confusion.png", dpi=150, bbox_inches="tight")
+    print("Gráfica guardada en matriz_confusion.png")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+```bash
+uv run main.py
+```
+
+`uv run` ejecuta el archivo con el Python y las librerías del `.venv`, sin activarlo manualmente.
+
+### Notebook con el entorno del proyecto
+
+Registra el entorno como kernel de Jupyter (una vez por proyecto):
+
+```bash
+uv run python -m ipykernel install --user --name iris-clasificador --display-name "Python (iris-clasificador)"
+```
+
+Crea `exploracion.ipynb`, haz clic en **Select Kernel → Jupyter Kernel → Python (iris-clasificador)** y ejecuta:
+
+```python
+from sklearn.datasets import load_iris
+df = load_iris(as_frame=True).frame
+df.describe()
+```
+
+::: {.callout-note}
+## Verificar el kernel
+Si un `import` falla, ejecuta `import sys; print(sys.executable)` en una celda. Debe mostrar la ruta del `.venv` del proyecto. Recuerda que se importa `sklearn`, aunque el paquete se instale como `scikit-learn`.
+:::
+
+### Subirlo a GitHub
+
+```bash
+git status
+git add .
+git commit -m "Primer commit: clasificador Iris con scikit-learn"
+gh repo create iris-clasificador --public --source=. --remote=origin --push
+```
+
+Si `git status` responde `not a git repository`, ejecuta antes `git init`. Con esto termina la instalación.
+
+# Bloque B · Uso diario
+
+## Parte 9 · Rutina diaria
+
+### Iniciar una sesión de trabajo
+
+| Paso | Dónde | Qué hacer |
+|---|---|---|
+| 1 | Tablet | Abrir **Termux**. |
+| 2 | Termux | Escribir `debian`. |
+| 3 | Termux | Escribir `vscode` y esperar `HTTP server listening…`. |
+| 4 | Notificación | Tocar **Acquire wakelock**. |
+| 5 | Tablet | Abrir el ícono de **VS Code** de la pantalla principal (o Chrome en `localhost:8080`). |
+| 6 | VS Code | Abrir la terminal: *Menú ☰ → Terminal → New Terminal*. |
+
+### Terminar la sesión
+
+1. Guarda el trabajo en GitHub (ver [Parte 11](#parte-11-guardar-el-trabajo-en-github)).
+2. En Termux, presiona **Ctrl + C** para detener VS Code.
+3. Escribe `exit` para salir de Debian y libera el wakelock desde la notificación.
+
+## Parte 10 · Crear o abrir proyectos con uv
+
+Todos los proyectos viven en `/root/proyectos`. Los comandos se escriben en la terminal integrada de VS Code.
+
+### Caso A · Crear un proyecto nuevo
+
+```bash
+cd /root/proyectos
+uv init mi-proyecto --python 3.12
+cd mi-proyecto
+uv add numpy pandas matplotlib ipykernel
+mkdir -p .vscode
+echo '{"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"}' > .vscode/settings.json
+uv run python -m ipykernel install --user --name mi-proyecto --display-name "Python (mi-proyecto)"
+```
+
+| Comando | Qué hace |
+|---|---|
+| `uv init mi-proyecto` | Crea la carpeta con `pyproject.toml`, `main.py`, `README.md` y `.gitignore`. |
+| `uv add ...` | Crea el `.venv` e instala las librerías. |
+| `echo '...' > .vscode/settings.json` | Crea la configuración del intérprete en una sola línea (`>` crea o reemplaza el archivo). |
+| `ipykernel install` | Registra el proyecto como kernel para notebooks. |
+
+Luego, en VS Code: *Menú ☰ → File → Open Folder* → `/root/proyectos/mi-proyecto`.
+
+Para publicarlo en GitHub:
+
+```bash
+git add .
+git commit -m "Inicio del proyecto"
+gh repo create mi-proyecto --private --source=. --remote=origin --push
+```
+
+Usa `--public` si quieres que sea visible para todos.
+
+### Caso B · Abrir un proyecto que ya está en la tablet
+
+1. En VS Code: *Menú ☰ → File → Open Recent* y elige el proyecto, o *File → Open Folder* → `/root/proyectos/nombre`.
+2. En la terminal integrada, trae los cambios más recientes y sincroniza las librerías:
+
+   ```bash
+   cd /root/proyectos/nombre
+   git pull
+   uv sync
+   ```
+
+- `git pull`: baja los cambios de GitHub, por si trabajaste desde otro equipo.
+- `uv sync`: deja el `.venv` exactamente como indica `uv.lock`.
+
+Para ver qué proyectos tienes: `ls /root/proyectos`.
+
+### Caso C · Traer un proyecto desde GitHub
+
+```bash
+cd /root/proyectos
+gh repo clone usuario/nombre-del-repo
+cd nombre-del-repo
+uv sync
+```
+
+- `gh repo clone`: descarga el repositorio. Para los tuyos basta el nombre: `gh repo clone nombre-del-repo`.
+- `uv sync`: crea el `.venv` e instala todo lo que el proyecto declara.
+
+Si el proyecto usa notebooks, registra el kernel con `uv run python -m ipykernel install --user --name nombre-del-repo`.
+
+### Caso D · Convertir una carpeta existente en proyecto uv
+
+Para un proyecto que tiene un `requirements.txt` pero no `pyproject.toml`:
+
+```bash
+cd /root/proyectos/carpeta-existente
+uv init --python 3.12
+uv add -r requirements.txt
+```
+
+### Comandos de uv para el día a día
+
+| Tarea | Comando |
+|---|---|
+| Agregar una librería | `uv add librería` |
+| Agregar una librería solo para desarrollo | `uv add --dev pytest` |
+| Quitar una librería | `uv remove librería` |
+| Ver las librerías instaladas | `uv tree` |
+| Ejecutar un archivo | `uv run archivo.py` |
+| Abrir Python interactivo del proyecto | `uv run python` |
+| Sincronizar el `.venv` con `uv.lock` | `uv sync` |
+| Actualizar todas las librerías | `uv lock --upgrade` y luego `uv sync` |
+| Instalar otra versión de Python | `uv python install 3.13` |
+| Actualizar uv | `uv self update` |
+| Limpiar la caché si falta espacio | `uv cache clean` |
+
+## Parte 11 · Guardar el trabajo en GitHub
+
+Cada vez que termines un avance:
+
+```bash
+git status
+git add .
+git commit -m "Describe aquí qué cambiaste"
+git push
+```
+
+| Comando | Qué hace |
+|---|---|
+| `git status` | Muestra qué archivos cambiaron. |
+| `git diff` | Muestra las líneas exactas que cambiaron. |
+| `git add .` | Prepara todos los cambios. |
+| `git add archivo` | Prepara un archivo específico. |
+| `git commit -m "..."` | Guarda la foto con un mensaje. |
+| `git push` | Sube a GitHub. |
+| `git pull` | Baja cambios desde GitHub. |
+| `git log --oneline` | Muestra el historial de commits. |
+| `git restore archivo` | Descarta los cambios no guardados de un archivo. |
+
+En VS Code también se puede usar el ícono de **Control de código fuente** (tres círculos unidos): escribes el mensaje, presionas **Commit** y luego **Sync Changes**.
+
+::: {.callout-tip}
+## Buenos mensajes de commit
+Cortos y en presente: *"Agrega gráfica de importancia de variables"*. Un commit por cada cambio lógico, no uno al final del día.
+:::
+
+## Solución de problemas
+
+| Problema | Solución |
+|---|---|
+| Termux no se instala desde F-Droid en Android 14 | Instalar la versión de Google Play. |
+| `pkg update` falla al descargar | Ejecutar `termux-change-repo` y elegir otro grupo de servidores. |
+| No se puede escribir `~` | Usar `$HOME` o `/root`, o agregar la tecla a Termux (Parte 2). |
+| `uv: command not found` | `source $HOME/.local/bin/env` |
+| Chrome no carga `localhost:8080` | Verificar que `vscode` esté corriendo en Termux. |
+| Termux se cierra solo | Activar el wakelock. En Android 14, también *Ajustes → Opciones de desarrollador → Desactivar restricciones de procesos secundarios*. |
+| VS Code no detecta el `.venv` | Revisar que se abrió la carpeta del proyecto y que existe `.vscode/settings.json`. |
+| El notebook no importa las librerías | Registrar el kernel con `ipykernel install` y elegirlo en *Select Kernel → Jupyter Kernel*. |
+| `gh auth login` no abre el navegador | Entrar manualmente a github.com/login/device y escribir el código. |
+| `git push` pide usuario y contraseña | Ejecutar `gh auth setup-git`. |
