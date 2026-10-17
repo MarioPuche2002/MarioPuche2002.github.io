@@ -3,7 +3,7 @@ title: "Metodología de la Investigación"
 description: "Curso de fundamentos de la investigación científica orientado a la formulación de un anteproyecto de investigación, desde la idea inicial hasta el diseño metodológico, el plan de análisis de datos y las consideraciones éticas."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-10-16
-image: ../imagenes/portada_metodologia.jpg
+image: ../imagenes/portada_metodologia.jpeg
 ---
 
 ## Presentación
