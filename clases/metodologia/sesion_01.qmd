@@ -1,0 +1,73 @@
+---
+title: "Sesión 1 · La investigación científica"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Comprender qué es la investigación científica, cuáles son sus características y cómo se relacionan los conceptos de método, metodología y técnica, para iniciar la identificación de ideas de investigación.
+
+## Contenidos
+
+### ¿Qué es investigar?
+
+La **investigación** es una actividad orientada a la obtención de conocimiento nuevo y a su aplicación en la solución de problemas o interrogantes de carácter científico. Se caracteriza por ser:
+
+- **Sistemática:** sigue un proceso ordenado de etapas.
+- **Crítica:** evalúa la evidencia de forma rigurosa y busca errores en sus propios planteamientos.
+- **Empírica:** se apoya en datos obtenidos de la observación o la experimentación.
+- **Comunicable y verificable:** sus resultados pueden ser revisados y reproducidos por otros investigadores.
+
+Junto a la investigación científica, la **investigación tecnológica** emplea el conocimiento científico para desarrollar productos, procesos o servicios, tanto en tecnologías *duras* (dispositivos, materiales, software) como *blandas* (métodos de gestión, protocolos, modelos organizacionales).
+
+### El método científico
+
+El método científico es el procedimiento general mediante el cual se produce conocimiento válido. Sus etapas se pueden resumir así:
+
+1. **Observación** de un fenómeno.
+2. **Formulación de una pregunta** sobre ese fenómeno.
+3. **Revisión de lo que ya se sabe** (literatura).
+4. **Planteamiento de una hipótesis** o respuesta tentativa.
+5. **Diseño y ejecución** de un estudio para contrastarla.
+6. **Análisis** de los datos obtenidos.
+7. **Conclusiones** y comunicación de los resultados.
+
+El proceso no es lineal: con frecuencia es necesario regresar a una etapa anterior. El planteamiento de una investigación siempre está en evolución y es susceptible de ajustarse.
+
+### Método, metodología y técnica
+
+| Concepto | Definición | Ejemplo |
+|---|---|---|
+| **Método** | Procedimiento o conjunto de procedimientos que sirven para alcanzar los fines de la investigación. | Método experimental. |
+| **Técnica** | Medio auxiliar, más específico que el método, que contribuye a la misma finalidad. | Encuesta, entrevista, observación, medición con un instrumento. |
+| **Metodología** | Descripción, análisis y justificación de los métodos y técnicas empleados. Se interesa más por el proceso de investigación que por los resultados. | Capítulo de metodología de un proyecto. |
+
+### Fuentes de ideas de investigación
+
+Las ideas de investigación surgen de diversas fuentes: la experiencia personal o profesional, la observación de problemas en el entorno, la lectura de artículos científicos, las conversaciones con expertos, las tesis y proyectos previos, y las necesidades de la sociedad o de la industria. Una buena idea es aquella que despierta interés genuino, es novedosa en algún aspecto y puede convertirse en un problema investigable.
+
+### El producto del curso: el anteproyecto
+
+Un **anteproyecto** es la propuesta preliminar de una investigación: plantea qué se quiere investigar, por qué, para qué y cómo. A lo largo del curso se construirá un anteproyecto en [formato Brief](formato_brief.qmd), un documento conciso de máximo 1500 palabras que resume los elementos esenciales de la propuesta. Cada sesión aporta una de sus secciones.
+
+## Actividad en clase
+
+1. En grupos, cada estudiante comparte un problema de su entorno académico, profesional o cotidiano que le genere curiosidad.
+2. El grupo clasifica cada problema según su origen: experiencia, observación, lectura o necesidad social.
+3. Se discute cuáles de ellos podrían abordarse mediante investigación y cuáles requieren otro tipo de intervención.
+
+## Avance del anteproyecto
+
+Redactar **tres ideas de investigación** en un párrafo cada una, indicando:
+
+- El fenómeno o situación que llama la atención.
+- Por qué se considera importante.
+- En qué contexto se presenta.
+
+## Lecturas recomendadas
+
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulos 1 y 2.
+
+---
+
+[Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_02.qmd)
