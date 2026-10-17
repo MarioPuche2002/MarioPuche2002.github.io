@@ -1,0 +1,89 @@
+---
+title: "Metodología de la Investigación"
+description: "Curso de fundamentos de la investigación científica orientado a la formulación de un anteproyecto de investigación, desde la idea inicial hasta el diseño metodológico, el plan de análisis de datos y las consideraciones éticas."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-16
+image: ../imagenes/portada_metodologia.jpg
+---
+
+## Presentación
+
+La investigación científica es un proceso sistemático, crítico y empírico que se aplica al estudio de un fenómeno o problema con el fin de generar conocimiento nuevo o de aplicarlo a la solución de necesidades concretas. Este curso presenta los fundamentos del método científico y de los enfoques cuantitativo y cualitativo, con mayor profundidad en el enfoque cuantitativo, y acompaña al estudiante en la construcción progresiva de una propuesta de investigación propia.
+
+El curso está organizado de menor a mayor complejidad: parte de la noción de investigación y de la elección de un tema, avanza por la revisión de la literatura, el planteamiento del problema, la pregunta y los objetivos, y llega al diseño metodológico, el análisis de datos y las consideraciones éticas. Cada sesión aporta una sección del documento final.
+
+## Objetivo general
+
+Formular un **anteproyecto de investigación** coherente, fundamentado en la literatura científica y metodológicamente viable, presentado en el [formato Brief](metodologia/formato_brief.qmd) bajo normas APA, séptima edición.
+
+## Resultados de aprendizaje
+
+Al finalizar el curso, el estudiante estará en capacidad de:
+
+1. Diferenciar los enfoques, tipos y alcances de la investigación científica, y seleccionar el más adecuado para un problema determinado.
+2. Diseñar y ejecutar estrategias de búsqueda de literatura en bases de datos académicas, y gestionar las referencias obtenidas.
+3. Comprender, evaluar y sintetizar artículos científicos en español e inglés.
+4. Plantear un problema de investigación sustentado en evidencia, y derivar de él una pregunta, objetivos e hipótesis coherentes.
+5. Seleccionar un diseño de investigación, una estrategia de muestreo y los instrumentos de recolección de datos pertinentes.
+6. Proponer un plan de análisis de datos basado en estadística descriptiva e inferencial.
+7. Identificar las implicaciones éticas de una investigación y las medidas para su manejo.
+8. Comunicar por escrito y de forma oral una propuesta de investigación con lenguaje académico y normas de citación.
+
+## Metodología de trabajo
+
+- **Sesiones teórico-prácticas.** Cada sesión combina la exposición de conceptos con un taller aplicado al proyecto de cada estudiante o grupo.
+- **Lecturas previas.** Se indica para cada sesión la lectura recomendada, que debe realizarse antes de la clase.
+- **Avances del anteproyecto.** Cada sesión cierra con un avance concreto del documento final. Los avances se revisan y retroalimentan a lo largo del curso.
+- **Trabajo en equipo.** El anteproyecto puede desarrollarse de forma individual o en grupos pequeños, según lo acordado al inicio del curso.
+
+## Evaluación
+
+La evaluación es formativa y acumulativa, y considera:
+
+- Los avances parciales del anteproyecto entregados durante el semestre.
+- Los talleres de búsqueda de literatura y de análisis de datos.
+- La entrega final del anteproyecto en formato Brief.
+- La sustentación oral del anteproyecto.
+
+La valoración de los documentos escritos y de la sustentación se realiza mediante rúbricas que se socializan con anticipación.
+
+## Programación de sesiones
+
+| Sesión | Tema | Avance del anteproyecto |
+|:---:|---|---|
+| 1 | [La investigación científica](metodologia/sesion_01.qmd) | Tres ideas de investigación |
+| 2 | [Enfoques y tipos de investigación](metodologia/sesion_02.qmd) | Idea seleccionada y enfoque preliminar |
+| 3 | [Del tema al problema: la brecha de conocimiento](metodologia/sesion_03.qmd) | Tema, brecha y problema preliminar |
+| 4 | [Búsqueda de literatura I: bases de datos y estrategias](metodologia/sesion_04.qmd) | Ecuación de búsqueda |
+| 5 | [Búsqueda de literatura II: lectura crítica y gestión de referencias](metodologia/sesion_05.qmd) | Matriz de literatura y referencias en APA |
+| 6 | [Planteamiento del problema](metodologia/sesion_06.qmd) | Descripción del problema |
+| 7 | [La pregunta de investigación](metodologia/sesion_07.qmd) | Pregunta de investigación |
+| 8 | [Formulación de objetivos](metodologia/sesion_08.qmd) | Objetivo general y objetivos específicos |
+| 9 | [Justificación, viabilidad y marco referencial](metodologia/sesion_09.qmd) | Introducción, justificación y marco referencial |
+| 10 | [Alcance, hipótesis y variables](metodologia/sesion_10.qmd) | Hipótesis y operacionalización de variables |
+| 11 | [Diseño de la investigación](metodologia/sesion_11.qmd) | Enfoque, tipo y diseño |
+| 12 | [Población, muestra e instrumentos](metodologia/sesion_12.qmd) | Población, muestra, técnicas e instrumentos |
+| 13 | [Análisis de datos I: estadística descriptiva y pruebas paramétricas](metodologia/sesion_13.qmd) | Plan de análisis (parte 1) |
+| 14 | [Análisis de datos II: pruebas no paramétricas y selección de la prueba](metodologia/sesion_14.qmd) | Plan de análisis (parte 2) |
+| 15 | [Ética de la investigación, cronograma y costos](metodologia/sesion_15.qmd) | Consideraciones éticas, cronograma y proyección de costos |
+| 16 | [Integración y sustentación del anteproyecto](metodologia/sesion_16.qmd) | Brief completo y sustentación |
+
+## Recursos
+
+- [Formato Brief del anteproyecto: instrucciones y plantilla](metodologia/formato_brief.qmd)
+- [Introducción a la programación en Python](../tutoriales/introduccion_python.qmd), como apoyo para las sesiones de análisis de datos.
+
+## Bibliografía
+
+### Básica
+
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill.
+- Portney, L. G. (2020). *Foundations of clinical research: Applications to evidence-based practice* (4.ª ed.). F. A. Davis.
+- Martínez-González, M. A., Sánchez-Villegas, A., Toledo, E., & Faulin, J. (Eds.). (2020). *Bioestadística amigable* (4.ª ed.). Elsevier.
+
+### Complementaria
+
+- American Psychological Association. (2020). *Publication manual of the American Psychological Association* (7.ª ed.).
+- Cargill, M., & O'Connor, P. (2021). *Writing scientific research articles: Strategy and steps* (3.ª ed.). Wiley-Blackwell.
+- Hurtado de Barrera, J. (2008). *Cómo formular objetivos de investigación* (2.ª ed.). Quirón Ediciones.
+- Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., Akl, E. A., Brennan, S. E., Chou, R., Glanville, J., Grimshaw, J. M., Hróbjartsson, A., Lalu, M. M., Li, T., Loder, E. W., Mayo-Wilson, E., McDonald, S., … Moher, D. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. <https://doi.org/10.1136/bmj.n71>
