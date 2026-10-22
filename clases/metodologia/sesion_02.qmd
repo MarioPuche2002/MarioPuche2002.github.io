@@ -7,9 +7,7 @@ subtitle: "Metodología de la Investigación"
 
 Diferenciar los enfoques cuantitativo, cualitativo y mixto, así como los principales tipos de investigación, para seleccionar el enfoque preliminar de la propia propuesta.
 
-## Contenidos
-
-### Enfoques de la investigación
+## Enfoques de la investigación
 
 A lo largo de la historia han surgido diversas corrientes de pensamiento sobre cómo se produce el conocimiento: empirismo, positivismo, fenomenología, estructuralismo, entre otras. Desde el siglo XX, estas corrientes se agrupan en dos grandes enfoques, **cuantitativo** y **cualitativo**, y en su combinación, el enfoque **mixto**.
 
@@ -21,7 +19,7 @@ Ambos enfoques comparten cinco fases generales:
 4. Revisan las ideas con base en las pruebas o el análisis.
 5. Proponen nuevas observaciones para esclarecer, modificar o fundamentar las ideas.
 
-### Diferencias entre los enfoques
+## Diferencias entre los enfoques {.compacto}
 
 | Aspecto | Cuantitativo | Cualitativo |
 |---|---|---|
@@ -42,7 +40,7 @@ Ningún enfoque es superior al otro: la elección depende de la pregunta. Un dia
 - **Pregunta cuantitativa:** ¿Qué factores sociodemográficos se asocian con el nivel de adherencia al tratamiento en pacientes con diabetes tipo 2?
 - **Pregunta cualitativa:** ¿Cómo describen los pacientes con diabetes tipo 2 su experiencia con el cumplimiento del tratamiento en la vida cotidiana?
 
-### Tipos de investigación
+## Tipos de investigación
 
 | Criterio | Tipo | Característica principal |
 |---|---|---|
@@ -71,6 +69,6 @@ Ningún enfoque es superior al otro: la elección depende de la pregunta. Un dia
 
 - Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 1.
 
----
+<br>
 
 [← Sesión anterior](sesion_01.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_03.qmd)

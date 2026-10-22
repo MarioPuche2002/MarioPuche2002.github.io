@@ -1,176 +1,90 @@
 ---
-title: "Sesión 14 · Análisis de datos II: pruebas no paramétricas y selección de la prueba"
+title: "Sesión 14 · Nivel de alcance del estudio, hipótesis y variables"
 subtitle: "Metodología de la Investigación"
 ---
 
 ## Objetivo de la sesión
 
-Aplicar pruebas no paramétricas y seleccionar la prueba estadística adecuada según el objetivo, el tipo de variable y el tipo de muestra.
+Definir el alcance del estudio, formular hipótesis cuando correspondan e identificar y operacionalizar las variables de la investigación.
 
-## Contenidos
+## Nivel de alcance de la investigación
 
-### ¿Cuándo usar pruebas no paramétricas?
+No confundir con la **delimitación** (sesión 12): aquí "alcance" se refiere a la **profundidad** con la que el estudio aborda el fenómeno.
 
-Las pruebas no paramétricas, o de distribución libre, **no requieren suponer** que los datos siguen una distribución normal y pueden analizar variables **ordinales o nominales**. La mayoría trabaja con los **rangos** (el orden) de los datos en lugar de sus valores.
 
-| Pruebas paramétricas | Pruebas no paramétricas |
-|---|---|
-| Suponen normalidad y homogeneidad de varianzas. | Tienen supuestos menos exigentes. |
-| Requieren variables cuantitativas. | Admiten variables ordinales y nominales. |
-| Tienen mayor potencia estadística cuando se cumplen los supuestos. | Son útiles con muestras pequeñas o datos con valores extremos. |
-| Comparan medias. | Comparan medianas o distribuciones. |
-
-Como regla general, se prefieren las pruebas paramétricas cuando sus supuestos se cumplen razonablemente, y las no paramétricas cuando no se cumplen, cuando la muestra es pequeña o cuando los datos son ordinales.
-
-### Equivalencias
-
-| Situación | Prueba paramétrica | Alternativa no paramétrica |
+| Alcance | Propósito | Cuándo se usa |
 |---|---|---|
-| Dos grupos independientes | t para muestras independientes | U de Mann–Whitney |
-| Dos mediciones pareadas | t para muestras pareadas | Rangos con signo de Wilcoxon |
-| Tres o más grupos independientes | ANOVA de un factor | Kruskal–Wallis |
-| Tres o más mediciones pareadas | ANOVA de medidas repetidas | Friedman |
-| Relación entre dos variables | Correlación de Pearson | Correlación de Spearman |
-| Relación entre dos variables categóricas | — | Chi cuadrado (o exacta de Fisher con frecuencias pequeñas) |
+| **Exploratorio** | Examinar un tema poco estudiado o novedoso. | Cuando hay poca literatura o el fenómeno es reciente. |
+| **Descriptivo** | Especificar propiedades y características de un fenómeno, grupo o población. | Cuando se requiere conocer cómo es o cómo se manifiesta algo. |
+| **Correlacional** | Conocer la relación o el grado de asociación entre dos o más variables. | Cuando interesa saber si las variables cambian conjuntamente. |
+| **Explicativo** | Establecer las causas de los fenómenos. | Cuando se busca explicar por qué ocurre algo y en qué condiciones. |
 
-### ¿Cómo elegir la prueba?
+Un mismo estudio puede incluir varios alcances; el alcance final lo define el objetivo general.
 
-Se responden cuatro preguntas:
+## Las hipótesis
 
-1. **¿Cuál es el objetivo?** Comparar grupos (diferencias) o medir la relación entre variables (asociación).
-2. **¿Qué tipo de variable es el resultado?** Categórica (nominal u ordinal) o numérica (discreta o continua).
-3. **¿Cuántos grupos o mediciones hay?** Uno, dos, o tres o más.
-4. **¿Las muestras son independientes o relacionadas?** Independientes: personas distintas en cada grupo. Relacionadas: las mismas personas medidas varias veces, o casos emparejados.
+Una **hipótesis** es una respuesta tentativa a la pregunta de investigación, formulada como proposición que puede contrastarse con datos.
 
-```
-¿Qué se busca?
-├── Comparar grupos
-│   ├── Variable numérica y normal
-│   │   ├── 2 grupos independientes → t independientes
-│   │   ├── 2 mediciones pareadas → t pareada
-│   │   └── 3 o más grupos → ANOVA
-│   ├── Variable ordinal o no normal
-│   │   ├── 2 grupos independientes → Mann–Whitney
-│   │   ├── 2 mediciones pareadas → Wilcoxon
-│   │   ├── 3 o más grupos independientes → Kruskal–Wallis
-│   │   └── 3 o más mediciones pareadas → Friedman
-│   └── Variable nominal → Chi cuadrado o exacta de Fisher
-└── Relacionar variables
-    ├── Ambas numéricas y normales → Pearson
-    ├── Ordinales o no normales → Spearman
-    └── Ambas categóricas → Chi cuadrado
-```
+No todas las investigaciones cuantitativas plantean hipótesis. Se formulan cuando el alcance es correlacional o explicativo, o cuando un estudio descriptivo intenta pronosticar un dato o valor. Los estudios exploratorios generalmente no las incluyen.
 
-Como recordaba el estadístico George Box, *todos los modelos son incorrectos, pero algunos son útiles*: la elección de la prueba implica verificar los supuestos y justificar la decisión.
+## Tipos de hipótesis {.compacto}
 
-### Práctica en Python
+| Tipo | Descripción | Ejemplo |
+|---|---|---|
+| **De investigación descriptiva** | Pronostica un valor o dato. | La prevalencia de sobrepeso en los estudiantes de primer semestre es superior al 30 %. |
+| **De investigación correlacional** | Plantea una asociación entre variables. | A mayor tiempo de uso de pantallas antes de dormir, menor calidad del sueño. |
+| **De diferencia de grupos** | Plantea que los grupos difieren. | La exactitud del modelo A es diferente de la del modelo B. |
+| **Causal** | Plantea una relación de causa y efecto. | El entrenamiento con realidad virtual mejora la precisión del gesto quirúrgico. |
+| **Nula (H₀)** | Niega la relación o la diferencia planteada. | No existe diferencia en la exactitud entre el modelo A y el modelo B. |
+| **Alternativa (H₁)** | Ofrece una posibilidad distinta de la nula; suele coincidir con la hipótesis de investigación. | Existe diferencia en la exactitud entre el modelo A y el modelo B. |
+| **Estadística** | Traduce las anteriores a términos estadísticos. | H₀: μ_A = μ_B; H₁: μ_A ≠ μ_B |
 
-**1. U de Mann–Whitney.** Dolor postoperatorio (escala de 0 a 10) en pacientes con dos técnicas de analgesia.
+Las hipótesis no se demuestran como verdaderas o falsas: se determina si los datos de un estudio particular las **apoyan o no**. Que los datos no apoyen la hipótesis no significa que la investigación haya fracasado; también es conocimiento.
 
-```python
-from scipy import stats
+## Variables
 
-tecnica_a = [3, 5, 2, 4, 6, 3, 2, 5, 4, 3]
-tecnica_b = [6, 7, 5, 8, 6, 7, 9, 5, 6, 8]
+Una **variable** es una propiedad que puede variar y cuya variación puede medirse u observarse.
 
-U, p = stats.mannwhitneyu(tecnica_a, tecnica_b, alternative="two-sided")
-print(f"U = {U}, p = {p:.4f}")
-```
+| Clasificación | Tipo | Descripción |
+|---|---|---|
+| **Por su función** | Independiente | La que se manipula o se considera causa. |
+| | Dependiente | La que se mide como efecto o resultado. |
+| | Interviniente o de confusión | La que puede influir en la relación y debe controlarse. |
+| **Por su naturaleza** | Cualitativa nominal | Categorías sin orden: sexo, tipo de sangre. |
+| | Cualitativa ordinal | Categorías con orden: nivel de dolor leve, moderado, severo. |
+| | Cuantitativa discreta | Valores enteros: número de hijos, número de lesiones. |
+| | Cuantitativa continua | Cualquier valor en un intervalo: peso, temperatura, tiempo. |
 
-```
-U = 5.5, p = 0.0008
-```
+## Operacionalización de variables
 
-La escala de dolor es ordinal; por eso se usa Mann–Whitney y no la prueba t. Como *p* < 0.05, el dolor difiere entre las técnicas.
+Para medir una variable se requieren dos definiciones:
 
-**2. Rangos con signo de Wilcoxon.** Puntaje de ansiedad (escala de 0 a 10) de diez estudiantes antes y después de un taller de manejo del estrés.
+- **Conceptual:** describe la esencia o las características de la variable, generalmente a partir de la literatura.
+- **Operacional:** describe el procedimiento concreto para medirla en el estudio.
 
-```python
-antes   = [7, 6, 8, 5, 7, 9, 6, 8, 7, 6]
-despues = [4, 5, 5, 3, 6, 6, 4, 5, 5, 4]
+**Matriz de operacionalización (ejemplo):**
 
-W, p = stats.wilcoxon(antes, despues)
-print(f"W = {W}, p = {p:.4f}")
-```
-
-```
-W = 0.0, p = 0.0020
-```
-
-**3. Kruskal–Wallis.** Satisfacción (escala de 1 a 7) con tres versiones de una aplicación.
-
-```python
-v1 = [2, 3, 3, 4, 2, 3]
-v2 = [4, 5, 4, 6, 5, 5]
-v3 = [3, 4, 3, 4, 4, 3]
-
-H, p = stats.kruskal(v1, v2, v3)
-print(f"H = {H:.2f}, p = {p:.4f}")
-```
-
-```
-H = 11.00, p = 0.0041
-```
-
-**4. Chi cuadrado de independencia.** Relación entre haber recibido una intervención educativa (sí o no) y la adherencia al tratamiento (adherente o no adherente).
-
-```python
-import numpy as np
-
-#                 Adherente  No adherente
-tabla = np.array([[45,        15],    # Con intervención
-                  [30,        30]])   # Sin intervención
-
-chi2, p, gl, esperadas = stats.chi2_contingency(tabla)
-print(f"Chi² = {chi2:.2f}, gl = {gl}, p = {p:.4f}")
-print("Frecuencias esperadas:\n", esperadas)
-```
-
-```
-Chi² = 6.97, gl = 1, p = 0.0083
-Frecuencias esperadas:
- [[37.5 22.5]
- [37.5 22.5]]
-```
-
-La prueba requiere que las frecuencias esperadas sean, en general, de 5 o más. Si no se cumple en una tabla de 2 × 2, se usa la prueba exacta de Fisher: `stats.fisher_exact(tabla)`.
-
-**5. Correlación de Spearman.**
-
-```python
-horas = [2, 4, 5, 6, 8, 9, 10, 12, 14, 15]
-nota  = [2.8, 3.1, 3.0, 3.5, 3.6, 3.9, 4.0, 4.2, 4.5, 4.4]
-
-rho, p = stats.spearmanr(horas, nota)
-print(f"rho = {rho:.3f}, p = {p:.6f}")
-```
-
-```
-rho = 0.976, p = 0.000001
-```
-
-### Cómo reportar un resultado
-
-Un resultado estadístico se reporta con el nombre de la prueba, el estadístico, los grados de libertad cuando aplican, el valor *p* y, de ser posible, el tamaño del efecto. Por ejemplo:
-
-> El tiempo de reacción fue menor en el grupo entrenado (*M* = 283.9 ms, *DE* = 11.8) que en el grupo control (*M* = 314.8 ms, *DE* = 16.2), *t*(22) = 5.35, *p* < .001, *d* = 2.18.
+| Variable | Definición conceptual | Definición operacional | Tipo | Indicador o escala | Instrumento |
+|---|---|---|---|---|---|
+| Calidad del sueño | Satisfacción subjetiva con el sueño, que incluye duración, latencia y eficiencia. | Puntaje total del índice de calidad de sueño de Pittsburgh. | Cuantitativa discreta | 0 a 21 puntos | Cuestionario autoaplicado |
+| Uso de pantallas | Tiempo de exposición a dispositivos con pantalla. | Minutos diarios de uso reportados por la aplicación de bienestar digital del teléfono. | Cuantitativa continua | Minutos por día | Registro del dispositivo |
 
 ## Actividad en clase
 
-Taller de selección de pruebas:
-
-1. Cada grupo recibe cinco situaciones de investigación y, con el diagrama de decisión, elige la prueba adecuada para cada una, justificando la elección.
-2. Aplica en Python la prueba elegida para una de las situaciones, con datos de ejemplo o del proyecto, y redacta el resultado como se reportaría en un artículo.
+1. Cada grupo identifica el alcance de su estudio a partir del objetivo general.
+2. Si el alcance lo requiere, formula la hipótesis de investigación, la nula y la alternativa.
+3. Construye la matriz de operacionalización con al menos tres variables.
 
 ## Avance del anteproyecto
 
-Completar el **plan de análisis de datos**: para cada objetivo específico, la prueba estadística seleccionada con su justificación (tipo de variable, número de grupos, tipo de muestra y supuestos) y la prueba alternativa si los supuestos no se cumplen. En proyectos con enfoque cualitativo, describir la técnica de análisis (por ejemplo, análisis temático o de contenido).
+1. **Alcance** del estudio, justificado en un párrafo.
+2. **Hipótesis** de investigación, nula y alternativa, si aplican.
+3. **Matriz de operacionalización** de las variables principales.
 
 ## Lecturas recomendadas
 
-- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 10.
-- Documentación de pruebas estadísticas de SciPy: <https://docs.scipy.org/doc/scipy/reference/stats.html>
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulos 5 y 6.
 
----
+<br>
 
 [← Sesión anterior](sesion_13.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_15.qmd)

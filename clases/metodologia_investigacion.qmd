@@ -14,7 +14,7 @@ El curso está organizado de menor a mayor complejidad: parte de la noción de i
 
 ## Objetivo general
 
-Formular un **anteproyecto de investigación** coherente, fundamentado en la literatura científica y metodológicamente viable, presentado en el [formato Brief](metodologia/formato_brief.qmd) bajo normas APA, séptima edición.
+Formular un **anteproyecto de investigación** coherente, fundamentado en la literatura científica y metodológicamente viable, presentado en el [formato Brief](metodologia_brief/formato_brief.qmd) con un estilo de citación normalizado (APA, séptima edición, o IEEE).
 
 ## Resultados de aprendizaje
 
@@ -27,7 +27,9 @@ Al finalizar el curso, el estudiante estará en capacidad de:
 5. Seleccionar un diseño de investigación, una estrategia de muestreo y los instrumentos de recolección de datos pertinentes.
 6. Proponer un plan de análisis de datos basado en estadística descriptiva e inferencial.
 7. Identificar las implicaciones éticas de una investigación y las medidas para su manejo.
-8. Comunicar por escrito y de forma oral una propuesta de investigación con lenguaje académico y normas de citación.
+8. Delimitar el estudio, reconocer sus limitaciones y planificarlo con un cronograma (diagrama de Gantt).
+9. Construir los antecedentes, el marco teórico y el marco conceptual de una investigación.
+10. Comunicar por escrito y de forma oral una propuesta de investigación con lenguaje académico y normas de citación APA o IEEE.
 
 ## Metodología de trabajo
 
@@ -49,28 +51,34 @@ La valoración de los documentos escritos y de la sustentación se realiza media
 
 ## Programación de sesiones
 
+Cada sesión es una **presentación en diapositivas**. Se navega con las flechas del teclado (o deslizando en el celular); la tecla **F** activa pantalla completa, **O** muestra la vista general y **E** prepara la versión para imprimir o guardar en PDF.
+
 | Sesión | Tema | Avance del anteproyecto |
 |:---:|---|---|
 | 1 | [La investigación científica](metodologia/sesion_01.qmd) | Tres ideas de investigación |
 | 2 | [Enfoques y tipos de investigación](metodologia/sesion_02.qmd) | Idea seleccionada y enfoque preliminar |
 | 3 | [Del tema al problema: la brecha de conocimiento](metodologia/sesion_03.qmd) | Tema, brecha y problema preliminar |
 | 4 | [Búsqueda de literatura I: bases de datos y estrategias](metodologia/sesion_04.qmd) | Ecuación de búsqueda |
-| 5 | [Búsqueda de literatura II: lectura crítica y gestión de referencias](metodologia/sesion_05.qmd) | Matriz de literatura y referencias en APA |
-| 6 | [Planteamiento del problema](metodologia/sesion_06.qmd) | Descripción del problema |
-| 7 | [La pregunta de investigación](metodologia/sesion_07.qmd) | Pregunta de investigación |
-| 8 | [Formulación de objetivos](metodologia/sesion_08.qmd) | Objetivo general y objetivos específicos |
-| 9 | [Justificación, viabilidad y marco referencial](metodologia/sesion_09.qmd) | Introducción, justificación y marco referencial |
-| 10 | [Alcance, hipótesis y variables](metodologia/sesion_10.qmd) | Hipótesis y operacionalización de variables |
-| 11 | [Diseño de la investigación](metodologia/sesion_11.qmd) | Enfoque, tipo y diseño |
-| 12 | [Población, muestra e instrumentos](metodologia/sesion_12.qmd) | Población, muestra, técnicas e instrumentos |
-| 13 | [Análisis de datos I: estadística descriptiva y pruebas paramétricas](metodologia/sesion_13.qmd) | Plan de análisis (parte 1) |
-| 14 | [Análisis de datos II: pruebas no paramétricas y selección de la prueba](metodologia/sesion_14.qmd) | Plan de análisis (parte 2) |
-| 15 | [Ética de la investigación, cronograma y costos](metodologia/sesion_15.qmd) | Consideraciones éticas, cronograma y proyección de costos |
-| 16 | [Integración y sustentación del anteproyecto](metodologia/sesion_16.qmd) | Brief completo y sustentación |
+| 5 | [Búsqueda de literatura II: lectura crítica y gestión de referencias](metodologia/sesion_05.qmd) | Matriz de literatura |
+| 6 | [Normas APA (7.ª edición)](metodologia/sesion_06.qmd) | Referencias en APA y formato del documento |
+| 7 | [Normas IEEE](metodologia/sesion_07.qmd) | Estilo de citación del anteproyecto |
+| 8 | [Planteamiento del problema](metodologia/sesion_08.qmd) | Descripción del problema |
+| 9 | [La pregunta de investigación](metodologia/sesion_09.qmd) | Pregunta de investigación |
+| 10 | [Formulación de objetivos](metodologia/sesion_10.qmd) | Objetivo general y objetivos específicos |
+| 11 | [Justificación, viabilidad e introducción](metodologia/sesion_11.qmd) | Introducción y justificación |
+| 12 | [Alcance, delimitación y cronograma](metodologia/sesion_12.qmd) | Delimitación, limitaciones y diagrama de Gantt |
+| 13 | [Marco teórico: antecedentes, marco teórico y marco conceptual](metodologia/sesion_13.qmd) | Antecedentes, marco teórico y marco conceptual |
+| 14 | [Nivel de alcance del estudio, hipótesis y variables](metodologia/sesion_14.qmd) | Hipótesis y operacionalización de variables |
+| 15 | [Diseño de la investigación](metodologia/sesion_15.qmd) | Enfoque, tipo y diseño |
+| 16 | [Población, muestra e instrumentos](metodologia/sesion_16.qmd) | Población, muestra, técnicas e instrumentos |
+| 17 | [Análisis de datos I: estadística descriptiva y pruebas paramétricas](metodologia/sesion_17.qmd) | Plan de análisis (parte 1) |
+| 18 | [Análisis de datos II: pruebas no paramétricas y selección de la prueba](metodologia/sesion_18.qmd) | Plan de análisis (parte 2) |
+| 19 | [Ética de la investigación, cronograma y costos](metodologia/sesion_19.qmd) | Consideraciones éticas, cronograma y proyección de costos |
+| 20 | [Integración y sustentación del anteproyecto](metodologia/sesion_20.qmd) | Brief completo y sustentación |
 
 ## Recursos
 
-- [Formato Brief del anteproyecto: instrucciones y plantilla](metodologia/formato_brief.qmd)
+- [Formato Brief del anteproyecto: instrucciones y plantilla](metodologia_brief/formato_brief.qmd)
 - [Introducción a la programación en Python](../tutoriales/introduccion_python.qmd), como apoyo para las sesiones de análisis de datos.
 
 ## Bibliografía
@@ -84,6 +92,8 @@ La valoración de los documentos escritos y de la sustentación se realiza media
 ### Complementaria
 
 - American Psychological Association. (2020). *Publication manual of the American Psychological Association* (7.ª ed.).
+- Creswell, J. W., & Creswell, J. D. (2018). *Research design: Qualitative, quantitative, and mixed methods approaches* (5.ª ed.). SAGE.
+- IEEE. (s. f.). *IEEE reference guide*. IEEE Author Center. <https://journals.ieeeauthorcenter.ieee.org/>
 - Cargill, M., & O'Connor, P. (2021). *Writing scientific research articles: Strategy and steps* (3.ª ed.). Wiley-Blackwell.
 - Hurtado de Barrera, J. (2008). *Cómo formular objetivos de investigación* (2.ª ed.). Quirón Ediciones.
 - Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., Shamseer, L., Tetzlaff, J. M., Akl, E. A., Brennan, S. E., Chou, R., Glanville, J., Grimshaw, J. M., Hróbjartsson, A., Lalu, M. M., Li, T., Loder, E. W., Mayo-Wilson, E., McDonald, S., … Moher, D. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. <https://doi.org/10.1136/bmj.n71>

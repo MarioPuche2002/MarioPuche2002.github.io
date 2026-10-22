@@ -1,97 +1,148 @@
 ---
-title: "Sesión 7 · La pregunta de investigación"
+title: "Sesión 7 · Normas IEEE"
 subtitle: "Metodología de la Investigación"
 ---
 
 ## Objetivo de la sesión
 
-Formular una pregunta de investigación clara, específica y respondible, coherente con el problema planteado y con el enfoque del estudio.
+Aplicar el estilo IEEE para citar fuentes en el texto y elaborar la lista de referencias, y diferenciarlo del estilo APA.
 
-## Contenidos
+## ¿Qué es el estilo IEEE?
 
-### Función de la pregunta
+::: {.definicion}
+El **estilo IEEE** es el sistema de citación del *Institute of Electrical and Electronics Engineers*. Es un estilo **numérico**: en el texto cada fuente se identifica con un **número entre corchetes**, y la lista de referencias se ordena por **orden de aparición**.
+:::
 
-La pregunta de investigación expresa **qué se quiere saber**. De ella se derivan el objetivo general, el diseño, la población, las variables y el análisis. Una pregunta bien formulada simplifica todas las decisiones posteriores; una pregunta vaga las complica.
+. . .
 
-### Preguntas de preparación y preguntas de investigación
+Se usa en **ingeniería** (eléctrica, electrónica, sistemas, biomédica, mecatrónica), **computación** y ciencias aplicadas, y en las revistas y congresos de esas áreas.
 
-| Tipo | Qué buscan | Cómo se responden | Ejemplo |
-|---|---|---|---|
-| **De preparación** (de fondo) | Conocimiento general sobre un tema. | Con libros y revisiones narrativas. | ¿Qué es la retinopatía diabética? |
-| **De investigación** (de acción) | Un conocimiento específico que aún no existe o no está resuelto. | Con investigación primaria o secundaria. | ¿Cuál es la sensibilidad de un modelo de aprendizaje profundo para detectar retinopatía diabética en fotografías tomadas con teléfonos móviles en atención primaria? |
+. . .
 
-Las preguntas de preparación son necesarias para comprender el tema, pero **no** son preguntas de investigación.
+::: {.obs data-t="¿APA o IEEE?"}
+El estilo lo define la **institución, la revista o el congreso** al que se envía el trabajo. Lo importante es usar **uno solo** de forma consistente en todo el documento.
+:::
 
-### Componentes de la pregunta
+## APA frente a IEEE
 
-Una pregunta de investigación completa indica:
+![](img/apa_vs_ieee.svg){fig-align="center" width="95%"}
 
-- **Qué** se quiere saber (el fenómeno o la relación entre variables).
-- **Acerca de qué** elemento de estudio.
-- **En quiénes** o en qué objetos.
-- **Dónde**.
-- **Cuándo**.
-
-### Estructuras de apoyo
-
-En distintas áreas se usan acrónimos que ayudan a no omitir componentes:
-
-| Estructura | Componentes | Uso típico |
+| | APA | IEEE |
 |---|---|---|
-| **PICO** | Población, Intervención, Comparación, Resultado (*Outcome*) | Efectividad de intervenciones o tecnologías. |
-| **PEO** | Población, Exposición, Resultado | Estudios de asociación o de factores de riesgo. |
-| **PIRD** | Población, Prueba índice, Prueba de referencia, Diagnóstico | Exactitud de pruebas diagnósticas. |
-| **SPIDER** | Muestra, Fenómeno de interés, Diseño, Evaluación, Tipo de investigación | Estudios cualitativos y mixtos. |
+| Cita en el texto | (Autor, año) | [número] |
+| Orden de la lista | Alfabético | Orden de aparición |
+| Nombres de autores | Apellido, Inicial. | Inicial. Apellido |
+| Títulos de artículos | Sin comillas | "Entre comillas" |
 
-**Ejemplo con PICO:**
+## Citas en el texto
 
-- **P:** pacientes adultos con dolor lumbar crónico.
-- **I:** programa de ejercicio guiado por una aplicación móvil.
-- **C:** programa de ejercicio presencial.
-- **O:** intensidad del dolor a las ocho semanas.
+- Cada fuente recibe un número **la primera vez** que se cita: [1], [2], [3]…
+- Si se vuelve a citar, se usa **el mismo número**.
+- El número va **dentro de la oración**, antes del signo de puntuación, con un espacio antes del corchete.
 
-> ¿En adultos con dolor lumbar crónico, un programa de ejercicio guiado por una aplicación móvil reduce la intensidad del dolor a las ocho semanas en la misma medida que un programa presencial?
+. . .
 
-### Preguntas según el enfoque
+::: {.ejemplo}
+- Las redes convolucionales superan a los métodos clásicos en clasificación de imágenes [1].
+- Varios trabajos lo confirman [2], [5], [7].
+- Para un rango de fuentes: [3]–[6].
+- Cita textual con página: "…" [4, p. 12].
+- Con el autor en la frase: Pérez *et al.* [2] propusieron un modelo…
+:::
 
-**Cuantitativo.** Se plantean con *qué*, *cuánto*, *cuál es la relación*, *cuál es la diferencia*, *cuál es el efecto*. Involucran variables medibles.
+. . .
 
-**Cualitativo.** Son abiertas y exploratorias. Una forma general es: *¿Cómo se caracteriza (se comprende, se describe, se experimenta) [el fenómeno central] en [participantes] en [contexto]?*
+::: {.obs}
+El número **reemplaza** al autor: no se escribe "en [1] se muestra" de forma repetitiva; se prefiere "Pérez [1] muestra…" o "se ha mostrado [1]".
+:::
 
-### Requisitos de una buena pregunta
+## Figuras, tablas y ecuaciones en IEEE
 
-- **Su respuesta no se conoce** todavía.
-- **Puede responderse con evidencia empírica**: es posible obtener datos para contestarla.
-- **Implica medios éticos** para responderla.
-- **Es específica**: cuanto más precisa, más fácil de responder.
-- **Aporta conocimiento sustancial** al campo.
-- **Es factible** con el tiempo y los recursos disponibles.
+- Figuras: **Fig. 1**, Fig. 2… con el título debajo de la figura.
+- Tablas: **TABLA I**, TABLA II… (números romanos) con el título encima.
+- Ecuaciones numeradas a la derecha entre paréntesis: (1), (2). En el texto: "como se observa en (2)".
 
-### Errores frecuentes
+## La lista de referencias
 
-| Error | Ejemplo | Mejor |
-|---|---|---|
-| Demasiado amplia | ¿Cómo afecta la tecnología a la salud? | ¿Cuál es la relación entre el tiempo diario de uso de pantallas y la calidad del sueño en estudiantes universitarios de primer semestre? |
-| Se responde con sí o no sin profundidad | ¿Sirve la inteligencia artificial para diagnosticar? | ¿Cuál es la exactitud de un modelo de clasificación de radiografías de tórax para detectar neumonía, comparado con la lectura de un radiólogo? |
-| Ya tiene respuesta conocida | ¿Fumar aumenta el riesgo de cáncer de pulmón? | Requiere identificar una brecha real. |
-| Es una pregunta de preparación | ¿Qué es la osteoporosis? | Se responde con la literatura, no con una investigación. |
+- Título **Referencias**, al final del documento.
+- Ordenada por **número**, en el orden en que las fuentes aparecen por primera vez en el texto (no alfabéticamente).
+- El número entre corchetes va alineado a la izquierda, separado del cuerpo de la referencia.
+- Nombres de autores: **iniciales y apellido** (A. B. Pérez).
+- Hasta **seis autores** se escriben todos; con más de seis, el primero seguido de *et al.*
+- Nombres de revistas **abreviados** y en *cursiva*; títulos de artículos **entre comillas**.
+
+## Anatomía de una referencia IEEE
+
+![](img/ieee_referencia.svg){fig-align="center" width="100%"}
+
+## Modelos de referencia (1)
+
+| Tipo | Modelo y ejemplo |
+|---|---|
+| **Artículo de revista** | [n] A. B. Apellido, "Título del artículo," *Abrev. Revista*, vol. x, no. x, pp. xx–xx, mes. año, doi: xxx. |
+| | [1] A. Pérez y L. Gómez, "Calidad del sueño en universitarios," *Rev. Salud*, vol. 12, no. 3, pp. 45–60, mar. 2023, doi: 10.xxxx/rs.2023.45. |
+| **Libro** | [n] A. B. Apellido, *Título del libro*, x.ª ed. Ciudad, País: Editorial, año. |
+| | [2] R. C. Gonzalez y R. E. Woods, *Digital Image Processing*, 4th ed. New York, NY, USA: Pearson, 2018. |
+| **Capítulo de libro** | [n] A. B. Apellido, "Título del capítulo," en *Título del libro*, E. Editor, Ed. Ciudad, País: Editorial, año, pp. xx–xx. |
+
+## Modelos de referencia (2)
+
+| Tipo | Modelo |
+|---|---|
+| **Artículo de congreso** | [n] A. B. Apellido, "Título del artículo," en *Abrev. Nombre del Congreso*, Ciudad, País, año, pp. xx–xx, doi: xxx. |
+| **Tesis** | [n] A. B. Apellido, "Título de la tesis," tesis de maestría, Depto., Universidad, Ciudad, País, año. |
+| **Página web** | [n] Autor u organización. "Título de la página." Nombre del sitio. Accedido: mes día, año. [En línea]. Disponible: URL |
+| **Norma técnica** | [n] *Título de la norma*, Número de la norma, Organización, año. |
+| **Conjunto de datos** | [n] Autor, "Título del conjunto de datos," Repositorio, año. [En línea]. Disponible: URL |
+| **Software** | [n] Autor, *Nombre del software*, versión x.x, año. [En línea]. Disponible: URL |
+
+. . .
+
+::: {.obs data-t="Idioma"}
+En documentos en español se aceptan "en", "Accedido" y "[En línea]. Disponible:"; en revistas en inglés se usan "in", "Accessed" y "[Online]. Available:".
+:::
+
+## Ejemplo completo
+
+> El aprendizaje profundo ha mejorado la detección automática de lesiones en imágenes médicas [1]. Sin embargo, su desempeño disminuye cuando los datos de entrenamiento son pocos [2], [3]. Pérez *et al.* [1] propusieron aumentar los datos con transformaciones geométricas, estrategia que también se evaluó en [3].
+
+**Referencias**
+
+[1] A. Pérez, L. Gómez y M. Ruiz, "Detección automática de lesiones con redes convolucionales," *Rev. Ing. Biomed.*, vol. 8, no. 2, pp. 10–22, 2023.
+
+[2] J. Smith, "Small data in deep learning," en *Proc. Int. Conf. Mach. Learn. Appl.*, 2022, pp. 101–108.
+
+[3] K. Lee, *Data Augmentation for Medical Imaging*. Boston, MA, USA: Academic Press, 2021.
+
+. . .
+
+Observe que [1] se cita dos veces con el **mismo número** y que la lista sigue el **orden de aparición**.
+
+## Errores frecuentes
+
+| Error | Corrección |
+|---|---|
+| Ordenar la lista alfabéticamente | Ordenarla por número de aparición |
+| Asignar un número nuevo a una fuente ya citada | Reutilizar su número original |
+| Escribir (Pérez, 2023) en un documento IEEE | Usar [n] |
+| Poner el número después del punto: "…imágenes. [1]" | Antes del punto: "…imágenes [1]." |
+| Mezclar APA e IEEE en el mismo documento | Usar un solo estilo |
 
 ## Actividad en clase
 
-1. Cada grupo descompone su problema en los componentes *qué, en quiénes, dónde y cuándo*, y elige la estructura de apoyo más adecuada (PICO, PEO, PIRD o SPIDER).
-2. Redacta tres versiones de la pregunta y elige la más precisa.
-3. Intercambio: otro grupo verifica los requisitos y señala ambigüedades.
+1. Tomar un párrafo de la matriz de literatura escrito en APA y convertirlo a IEEE: citas en el texto y lista de referencias.
+2. Configurar el gestor de referencias en estilo IEEE y regenerar la lista.
+3. Comparar ambas versiones y señalar tres diferencias de formato.
 
 ## Avance del anteproyecto
 
-1. Tabla con los **componentes** de la pregunta.
-2. **Pregunta de investigación** definitiva, que se integra al final de la descripción del problema.
+Elegir el estilo de citación del anteproyecto según el área y la indicación del curso, y revisar que **todas** las citas y referencias sigan ese estilo de forma consistente.
 
 ## Lecturas recomendadas
 
-- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulos 3 y 12.
-- Munn, Z., Stern, C., Aromataris, E., Lockwood, C., & Jordan, Z. (2018). What kind of systematic review should I conduct? A proposed typology and guidance for systematic reviewers in the medical and health sciences. *BMC Medical Research Methodology, 18*(1), 5. <https://doi.org/10.1186/s12874-017-0468-4>
+- IEEE. (s. f.). *IEEE Reference Guide*. IEEE Author Center. <https://journals.ieeeauthorcenter.ieee.org/>
+- IEEE. (s. f.). *IEEE Editorial Style Manual for Authors*. IEEE Author Center.
 
----
+<br>
 
 [← Sesión anterior](sesion_06.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_08.qmd)

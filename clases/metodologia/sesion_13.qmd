@@ -1,220 +1,219 @@
 ---
-title: "Sesión 13 · Análisis de datos I: estadística descriptiva y pruebas paramétricas"
+title: "Sesión 13 · Marco teórico: antecedentes, marco teórico y marco conceptual"
 subtitle: "Metodología de la Investigación"
 ---
 
 ## Objetivo de la sesión
 
-Describir un conjunto de datos, comprender la lógica de la prueba de hipótesis y aplicar las principales pruebas paramétricas con Python.
+Comprender la función del marco teórico en la investigación, diferenciar antecedentes, marco teórico y marco conceptual, y construirlos a partir de la literatura revisada.
 
-## Contenidos
+## ¿Qué es el marco teórico?
 
-### Del dato a la decisión
-
-El análisis cuantitativo tiene dos momentos:
-
-1. **Estadística descriptiva:** resume y describe los datos de la muestra.
-2. **Estadística inferencial:** usa la muestra para sacar conclusiones sobre la población, mediante la estimación de parámetros y la prueba de hipótesis.
-
-Antes de cualquier análisis es necesario identificar el **tipo de cada variable** (sesión 10): nominal, ordinal, discreta o continua. El tipo de variable determina qué medidas y qué pruebas son apropiadas.
-
-### Estadística descriptiva
-
-| Medida | Qué indica | Uso |
-|---|---|---|
-| **Distribución de frecuencias** | Cuántas veces aparece cada valor o categoría. | Todas las variables. |
-| **Moda** | Valor más frecuente. | Todas las variables. |
-| **Mediana** | Valor central de los datos ordenados. | Variables ordinales y cuantitativas; robusta ante valores extremos. |
-| **Media** | Promedio aritmético. | Variables cuantitativas. |
-| **Rango** | Diferencia entre el valor máximo y el mínimo. | Variables cuantitativas. |
-| **Desviación estándar** | Dispersión promedio de los datos respecto a la media, en las unidades originales. | Variables cuantitativas. |
-| **Varianza** | Desviación estándar al cuadrado. | Variables cuantitativas. |
-| **Asimetría** | Si los datos se concentran a la izquierda o a la derecha de la media. | Evaluar la forma de la distribución. |
-| **Curtosis** | Qué tan concentrados están los datos en el centro frente a las colas. | Evaluar la forma de la distribución. |
-
-### La distribución normal
-
-La **distribución normal** o gaussiana tiene forma de campana, es simétrica (asimetría cero), y su media, mediana y moda coinciden. Muchas pruebas estadísticas suponen que los datos provienen de una población con esta distribución, por lo que conviene verificarlo con gráficos (histograma, gráfico Q–Q) y con pruebas de normalidad:
-
-| Prueba | Observación |
-|---|---|
-| Shapiro–Wilk | Recomendada para muestras pequeñas y medianas. |
-| D'Agostino–Pearson (K²) | Se basa en la asimetría y la curtosis. Requiere al menos 8 a 20 datos. |
-| Anderson–Darling | Da más peso a las colas de la distribución. |
-
-En todas ellas, H₀: los datos provienen de una distribución normal. Si *p* > α, no hay evidencia para rechazar la normalidad.
-
-### La lógica de la prueba de hipótesis
-
-1. Se plantea la **hipótesis nula** (H₀: no hay diferencia o relación) y la **alternativa** (H₁: sí la hay).
-2. Se fija a priori el **nivel de significancia** α, la probabilidad máxima de equivocarse al rechazar H₀. Habitualmente α = 0.05.
-3. Se elige la prueba adecuada y se calcula el **estadístico** con los datos.
-4. Se obtiene el **valor *p***: la probabilidad de observar un resultado tan extremo como el obtenido, si H₀ fuera verdadera.
-5. **Decisión:** si *p* ≤ α, se rechaza H₀; si *p* > α, no se rechaza H₀.
-
-::: {.callout-important}
-## No rechazar no es aceptar
-Un valor *p* alto no demuestra que H₀ sea verdadera: indica que **no hay evidencia suficiente** para rechazarla. Tampoco se "demuestra" la hipótesis alternativa; se concluye que los datos son o no son compatibles con H₀.
+::: {.definicion}
+El **marco teórico** es el conjunto de **conceptos, teorías, enfoques y antecedentes** que el investigador selecciona y organiza para **sustentar y guiar** su trabajo. Ofrece la perspectiva desde la cual se aborda el problema, orienta el diseño metodológico y sirve de base para interpretar los resultados (Hernández-Sampieri & Mendoza, 2018).
 :::
 
-### Errores en la prueba de hipótesis
+. . .
 
-| | H₀ es verdadera | H₀ es falsa |
-|---|---|---|
-| **Se rechaza H₀** | Error tipo I (probabilidad α) | Decisión correcta (potencia, 1 − β) |
-| **No se rechaza H₀** | Decisión correcta | Error tipo II (probabilidad β) |
+En muchos formatos se llama **marco referencial** y agrupa varios componentes: antecedentes, marco teórico, marco conceptual y, cuando aplica, marco normativo o contextual.
 
-Una analogía es un juicio: H₀ es "el acusado es inocente". Condenar a un inocente es un error tipo I; absolver a un culpable es un error tipo II.
+## Funciones del marco teórico
 
-### Significancia estadística y tamaño del efecto
+![](img/marco_funciones.svg){fig-align="center" width="56%"}
 
-Un resultado puede ser estadísticamente significativo y, sin embargo, irrelevante en la práctica, sobre todo con muestras grandes. Por eso, además del valor *p*, se reporta el **tamaño del efecto**, por ejemplo la *d* de Cohen para diferencias de medias (0.2 pequeño, 0.5 mediano, 0.8 grande) o el coeficiente *r* para correlaciones.
+. . .
 
-### Pruebas paramétricas
+Además, ayuda a **evitar errores** cometidos en estudios previos, a formular **hipótesis** y a definir **variables**.
 
-Suponen que la variable dependiente es cuantitativa (de intervalo o de razón), que se distribuye normalmente en la población y, cuando se comparan grupos, que sus varianzas son homogéneas (homocedasticidad).
+## Antecedentes, marco teórico y marco conceptual
 
-| Prueba | Pregunta que responde |
+![](img/marco_vs.svg){fig-align="center" width="95%"}
+
+## Los antecedentes
+
+::: {.definicion}
+Los **antecedentes** son las **investigaciones previas** relacionadas con el problema. Muestran qué se ha estudiado, cómo, con qué resultados y qué queda por resolver.
+:::
+
+. . .
+
+Para cada antecedente se reporta, en pocas líneas:
+
+- **Autor y año** (citados en APA o IEEE).
+- **Objetivo** y **contexto** del estudio.
+- **Método**: enfoque, población, instrumentos.
+- **Resultados** principales.
+- **Aporte** a la investigación propia: qué se toma, qué se cuestiona o qué falta.
+
+. . .
+
+::: {.obs}
+Se recomienda organizarlos de lo **internacional a lo local**, o por **temas**, y priorizar estudios de los **últimos cinco años**. La matriz de literatura (sesión 5) es el insumo principal.
+:::
+
+## El marco teórico (propiamente dicho)
+
+::: {.definicion}
+Presenta las **teorías, modelos y enfoques** que **explican** el fenómeno y en los que se apoya el estudio.
+:::
+
+. . .
+
+::: {.ejemplo}
+Un estudio sobre la calidad del sueño en estudiantes puede apoyarse en:
+
+- El **modelo de regulación del sueño** (proceso homeostático y ritmo circadiano).
+- Los estudios sobre el efecto de la **luz azul** en la secreción de melatonina.
+- Una teoría del **comportamiento** para explicar los hábitos de uso de pantallas.
+:::
+
+. . .
+
+No se trata de copiar todo lo que se sabe del tema, sino de elegir las teorías **pertinentes** al problema y explicar **cómo** se relacionan con él.
+
+## El marco conceptual
+
+::: {.definicion}
+Define los **conceptos clave** del estudio tal como se entenderán en la investigación, con base en autores reconocidos.
+:::
+
+. . .
+
+| Concepto | Definición que adopta el estudio |
 |---|---|
-| **t para una muestra** | ¿La media de un grupo difiere de un valor de referencia? |
-| **t para muestras independientes** | ¿Difieren las medias de dos grupos distintos? |
-| **t para muestras pareadas** | ¿Difieren las medias de dos mediciones sobre los mismos casos (antes y después)? |
-| **z** | Igual que la prueba t, cuando la muestra es grande (más de 30 casos por grupo). |
-| **ANOVA de un factor** | ¿Difieren las medias de tres o más grupos? |
-| **Correlación de Pearson** | ¿Existe relación lineal entre dos variables cuantitativas? |
-| **Regresión lineal** | ¿Cómo predice una variable el valor de otra? |
+| **Calidad del sueño** | Satisfacción subjetiva con el sueño, que incluye duración, latencia, eficiencia y alteraciones (según el instrumento elegido). |
+| **Uso de pantallas antes de dormir** | Tiempo de uso de celular, computador o televisión en la hora previa a acostarse. |
+| **Estudiante de primer semestre** | Persona matriculada por primera vez en un programa de pregrado. |
 
-### Práctica en Python
+. . .
 
-Se requieren las librerías `numpy`, `scipy` y `pandas`. En un proyecto con uv:
+Las definiciones del marco conceptual deben ser **coherentes** con la operacionalización de las variables (sesión 14).
 
-```bash
-uv add numpy scipy pandas matplotlib
-```
+## Elementos y orden de construcción
 
-**1. Descripción y normalidad.** Tiempo de reacción (en milisegundos) de dos grupos: sin entrenamiento y con entrenamiento.
+![](img/marco_elementos.svg){fig-align="center" width="92%"}
 
-```python
-import numpy as np
-from scipy import stats
+El **estado del arte** cierra el marco: sintetiza lo más reciente y señala la **brecha** que justifica el estudio.
 
-control   = [312, 298, 335, 321, 289, 340, 305, 317, 330, 296, 326, 309]
-entrenado = [284, 271, 302, 290, 265, 299, 281, 276, 295, 288, 270, 286]
+## ¿Dónde obtener la información?
 
-print(f"Media control: {np.mean(control):.1f} ms, DE: {np.std(control, ddof=1):.1f}")
-print(f"Media entrenado: {np.mean(entrenado):.1f} ms, DE: {np.std(entrenado, ddof=1):.1f}")
+| Fuente | Ejemplos |
+|---|---|
+| **Literatura académica** | Artículos de revistas científicas, libros especializados, tesis. |
+| **Documentos oficiales** | Informes técnicos, estadísticas y publicaciones de organismos públicos o internacionales. |
+| **Bases de datos** | Scopus, Web of Science, PubMed, IEEE Xplore, SciELO, Redalyc, Google Académico. |
 
-for nombre, datos in [("control", control), ("entrenado", entrenado)]:
-    estadistico, p = stats.shapiro(datos)
-    print(f"Shapiro–Wilk {nombre}: W = {estadistico:.3f}, p = {p:.3f}")
-```
+. . .
 
-```
-Media control: 314.8 ms, DE: 16.2
-Media entrenado: 283.9 ms, DE: 11.8
-Shapiro–Wilk control: W = 0.974, p = 0.952
-Shapiro–Wilk entrenado: W = 0.970, p = 0.911
-```
+::: {.obs data-t="Evite"}
+Blogs, páginas sin autor, sitios comerciales o enciclopedias abiertas como fuente principal. Úselos, si acaso, para orientarse y luego busque la fuente académica original.
+:::
 
-En ambos grupos *p* > 0.05: no se rechaza la normalidad.
+## Búsqueda con operadores booleanos
 
-**2. Prueba t para muestras independientes.**
+| Operador | Función | Ejemplo |
+|---|---|---|
+| **AND** | Ambos términos deben aparecer | "calidad del sueño" AND estudiantes |
+| **OR** | Al menos uno de los términos | insomnio OR "trastornos del sueño" |
+| **NOT** | Excluye un término | sueño NOT apnea |
+| **" "** (comillas) | Frase exacta | "uso de pantallas" |
+| **\*** (asterisco) | Variaciones de una palabra | universitar\* (universitario, universitaria, universitarios…) |
 
-```python
-estadistico, p = stats.levene(control, entrenado)
-print(f"Levene: p = {p:.3f}")                 # homogeneidad de varianzas
+. . .
 
-t, p = stats.ttest_ind(control, entrenado)
-print(f"t = {t:.2f}, p = {p:.5f}")
+Recuerde la ecuación de búsqueda de la sesión 4 y combine operadores con paréntesis: ("calidad del sueño" OR insomnio) AND (pantalla\* OR celular).
 
-a, b = np.array(control), np.array(entrenado)
-d = (a.mean() - b.mean()) / np.sqrt((a.var(ddof=1) + b.var(ddof=1)) / 2)
-print(f"d de Cohen = {d:.2f}")
-```
+## Estrategias para construirlo (1)
 
-```
-Levene: p = 0.212
-t = 5.35, p = 0.00002
-d de Cohen = 2.18
-```
+::: {.columns}
+::: {.column width="50%"}
+**1. Revisión de la literatura**
 
-Las varianzas son homogéneas (*p* = 0.212). Como *p* < 0.05, se rechaza H₀: el tiempo de reacción medio difiere entre los grupos, y el tamaño del efecto es grande. Si las varianzas no fueran homogéneas, se usaría `stats.ttest_ind(control, entrenado, equal_var=False)` (prueba de Welch).
+- Búsqueda **exhaustiva** en varias bases de datos.
+- **Selección** de fuentes pertinentes, recientes y confiables.
+- **Organización** de la información en la matriz de literatura.
 
-**3. Prueba t para muestras pareadas.** Presión arterial sistólica (mmHg) de diez pacientes antes y después de un programa de actividad física.
+**2. Identificación de teorías y conceptos**
 
-```python
-antes   = [148, 152, 139, 160, 145, 155, 150, 142, 158, 147]
-despues = [140, 147, 136, 151, 141, 146, 145, 140, 150, 142]
+- Identificar las **teorías** que explican el fenómeno.
+- **Definir** los conceptos clave.
+- **Analizar críticamente**: coincidencias, contradicciones y vacíos.
+:::
+::: {.column width="50%"}
+**3. Organización del contenido**
 
-t, p = stats.ttest_rel(antes, despues)
-print(f"Diferencia media: {np.mean(np.array(antes) - np.array(despues)):.1f} mmHg")
-print(f"t = {t:.2f}, p = {p:.5f}")
-```
+- De lo **general a lo particular**.
+- **Agrupación temática** (no autor por autor).
+- Elaboración de un **esquema**: índice o mapa conceptual.
+:::
+:::
 
-```
-Diferencia media: 5.8 mmHg
-t = 7.25, p = 0.00005
-```
+## Estrategias para construirlo (2)
 
-**4. ANOVA de un factor.** Crecimiento (cm) de plantas con tres fertilizantes.
+::: {.columns}
+::: {.column width="50%"}
+**4. Redacción**
 
-```python
-f1 = [20.1, 21.4, 19.8, 22.0, 20.7, 21.1, 19.5, 20.9]
-f2 = [22.5, 23.1, 21.8, 24.0, 22.9, 23.4, 22.2, 23.7]
-f3 = [20.4, 19.9, 21.0, 20.2, 19.6, 20.8, 21.3, 20.0]
+- Un **hilo conductor** que conecte las ideas con el problema.
+- **Lenguaje académico**, claro y preciso.
+- **Síntesis**, no resumen: agrupar autores que coinciden.
+- Revisión de redacción, ortografía y citación.
+:::
+::: {.column width="50%"}
+**5. Integración con la investigación**
 
-F, p = stats.f_oneway(f1, f2, f3)
-print(f"F = {F:.2f}, p = {p:.7f}")
+El marco debe conectarse con:
 
-print(stats.tukey_hsd(f1, f2, f3))           # ¿qué pares difieren?
-```
+- El **problema** y los **objetivos**.
+- La **justificación**.
+- Las **hipótesis** y las **variables**.
+:::
+:::
 
-```
-F = 28.78, p = 0.0000010
-```
+. . .
 
-El ANOVA indica que al menos un grupo difiere. La prueba *post hoc* de Tukey muestra que el fertilizante 2 difiere de los otros dos, y que el 1 y el 3 no difieren entre sí (*p* = 0.719).
+::: {.ejemplo data-t="Sintetizar en lugar de resumir"}
+❌ "García (2022) hizo… López (2023) hizo… Pérez (2024) hizo…"
 
-**5. Correlación de Pearson y regresión lineal.** Horas de estudio semanales y nota final.
+✅ "Varios estudios asocian el uso nocturno de pantallas con menor calidad del sueño en universitarios (García, 2022; López, 2023; Pérez, 2024), aunque ninguno ha evaluado a estudiantes de primer semestre."
+:::
 
-```python
-horas = [2, 4, 5, 6, 8, 9, 10, 12, 14, 15]
-nota  = [2.8, 3.1, 3.0, 3.5, 3.6, 3.9, 4.0, 4.2, 4.5, 4.4]
+## Errores frecuentes
 
-r, p = stats.pearsonr(horas, nota)
-print(f"r = {r:.3f}, p = {p:.7f}")
-
-reg = stats.linregress(horas, nota)
-print(f"nota = {reg.intercept:.2f} + {reg.slope:.3f} × horas")
-```
-
-```
-r = 0.979, p = 0.0000009
-nota = 2.55 + 0.135 × horas
-```
-
-Existe una correlación positiva fuerte. Recuerde que **correlación no implica causalidad**.
+::: {.columns}
+::: {.column width="45%"}
+![](img/errores_marco.svg){width="100%"}
+:::
+::: {.column width="55%"}
+- **Falta de profundidad:** listar autores sin analizarlos.
+- **Fuentes no académicas** o desactualizadas.
+- **Desconexión** con el problema y los objetivos.
+- **Incoherencia:** saltos entre temas sin hilo conductor.
+- **No citar:** usar ideas ajenas sin reconocer al autor es **plagio**, aunque se cambie la redacción.
+:::
+:::
 
 ## Actividad en clase
 
-Taller con los datos del ejemplo o con un conjunto de datos del proyecto:
-
-1. Calcular las medidas descriptivas y elaborar un histograma y un diagrama de caja por grupo.
-2. Verificar la normalidad y la homogeneidad de varianzas.
-3. Aplicar la prueba paramétrica correspondiente e interpretar el resultado en términos del problema, incluyendo el tamaño del efecto.
+1. A partir de la matriz de literatura, cada grupo clasifica sus fuentes en **antecedentes**, **teorías** y **conceptos**.
+2. Elabora un **mapa conceptual** del marco teórico, de lo general a lo particular.
+3. Redacta un párrafo de antecedentes que **sintetice** al menos tres estudios agrupados por una idea común y cierre con la brecha.
 
 ## Avance del anteproyecto
 
-Redactar la primera parte del **plan de análisis de datos**:
+1. **Antecedentes**: síntesis de los estudios previos más relevantes.
+2. **Marco teórico**: teorías y modelos que sustentan el estudio.
+3. **Marco conceptual**: definición de los conceptos clave.
 
-1. Para cada variable, las medidas descriptivas que se reportarán.
-2. Para cada hipótesis u objetivo específico, la prueba estadística prevista, el nivel de significancia y los supuestos que se verificarán.
+Todo con fuentes académicas, preferiblemente de los últimos cinco años, citadas en el estilo elegido (APA o IEEE).
 
 ## Lecturas recomendadas
 
-- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 10.
-- Martínez-González, M. A., Sánchez-Villegas, A., Toledo, E., & Faulin, J. (Eds.). (2020). *Bioestadística amigable* (4.ª ed.). Elsevier.
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 4.
+- Creswell, J. W., & Creswell, J. D. (2018). *Research design: Qualitative, quantitative, and mixed methods approaches* (5.ª ed.). SAGE.
+- Ridley, D. (2012). *The literature review: A step-by-step guide for students* (2.ª ed.). SAGE.
+- Boote, D. N., & Beile, P. (2005). Scholars before researchers: On the centrality of the dissertation literature review in research preparation. *Educational Researcher, 34*(6), 3–15. <https://doi.org/10.3102/0013189X034006003>
 
----
+<br>
 
 [← Sesión anterior](sesion_12.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_14.qmd)

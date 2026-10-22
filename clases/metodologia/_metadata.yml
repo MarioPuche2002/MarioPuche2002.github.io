@@ -1,0 +1,27 @@
+# Configuración común para las sesiones de Metodología de la Investigación (diapositivas reveal.js)
+author: "Mario Andrés Puche Ajiaco"
+lang: es
+format:
+  revealjs:
+    theme: [default, metodologia.scss]
+    width: 1280
+    height: 760
+    margin: 0.05
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    scrollable: true
+    progress: true
+    transition: fade
+    transition-speed: fast
+    controls: true
+    controls-layout: bottom-right
+    menu:
+      side: left
+      numbers: true
+    chalkboard:
+      buttons: true
+      theme: whiteboard
+    footer: "Metodología de la Investigación · [Volver al curso](../metodologia_investigacion.html)"
+    title-slide-attributes:
+      data-background-color: "#f4f6f8"

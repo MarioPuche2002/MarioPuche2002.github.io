@@ -18,8 +18,9 @@ Sitio web de clases y tutoriales, construido con [Quarto](https://quarto.org) y 
 │   │   └── img/                     Figuras SVG + generar_figuras.py y generar_figuras_2.py
 │   ├── alli_laboratorios/           Laboratorios de GNU Octave por unidad (lab_01.qmd … lab_07.qmd)
 │   ├── alli_evaluaciones/           Parciales y talleres de ALLI (PDF + guía)
-│   ├── metodologia_investigacion.qmd
-│   └── metodologia/
+│   ├── metodologia_investigacion.qmd   Página del curso de Metodología de la Investigación
+│   ├── metodologia/                 20 sesiones en diapositivas (sesion_01.qmd … sesion_20.qmd) e img/
+│   └── metodologia_brief/           Formato Brief del anteproyecto y plantilla en Word
 ├── tutoriales/                      Un archivo .qmd por tutorial
 └── .github/workflows/publish.yml    Genera y publica el sitio en cada push
 ```

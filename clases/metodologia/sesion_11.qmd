@@ -1,141 +1,107 @@
 ---
-title: "Sesión 11 · Diseño de la investigación"
+title: "Sesión 11 · Justificación, viabilidad e introducción"
 subtitle: "Metodología de la Investigación"
 ---
 
 ## Objetivo de la sesión
 
-Seleccionar el diseño de investigación adecuado para responder la pregunta y alcanzar los objetivos, considerando la validez interna y externa del estudio.
+Argumentar la importancia y la viabilidad de la investigación, y redactar la introducción del anteproyecto.
 
-## Contenidos
+## Justificación: el "por qué" de la investigación
 
-### ¿Qué es el diseño?
+::: {.definicion}
+La **justificación** es la descripción organizada de las **necesidades y motivaciones** que sustentan la realización de la investigación. Expone las razones por las que se eligió el tema y las ventajas o beneficios de realizar el estudio.
+:::
 
-El **diseño de investigación** es el plan o la estrategia para obtener la información necesaria y responder la pregunta. La primera gran decisión es si el investigador **manipulará** o no alguna variable:
+. . .
 
-```
-Diseños de investigación
-├── Experimentales (se manipula la variable independiente)
-│   ├── Preexperimentos
-│   ├── Experimentos puros
-│   └── Cuasiexperimentos
-└── No experimentales (solo se observa)
-    ├── Transversales
-    └── Longitudinales
-```
+::: {.obs data-t="No confundir"}
+La justificación responde **por qué** se investiga. El **para qué** (lo que se quiere lograr) corresponde a los **objetivos**.
+:::
 
-### Diseños experimentales
+. . .
 
-Un **experimento** es un estudio en el que se manipula intencionalmente una o más variables independientes para analizar sus consecuencias sobre una o más variables dependientes, en una situación de control.
+Preguntas que ayudan a construirla:
 
-**Requisitos:**
+::: {.columns}
+::: {.column width="50%"}
+- ¿Por qué ese tema?
+- ¿Por qué estos eventos o fenómenos?
+- ¿Por qué estas unidades de estudio?
+:::
+::: {.column width="50%"}
+- ¿Por qué esta perspectiva temporal?
+- ¿Por qué este enfoque teórico?
+- ¿Por qué este nivel de investigación?
+:::
+:::
 
-1. **Manipulación** de la variable independiente: por presencia o ausencia, por grados o por modalidades.
-2. **Medición** del efecto en la variable dependiente, con instrumentos válidos y confiables.
-3. **Control y validez interna**: confianza en que el efecto se debe a la variable manipulada y no a otros factores.
+## Aspectos que fortalecen una justificación
 
-**Grupos:**
-
-- **Experimental:** recibe el tratamiento o estímulo.
-- **De control:** no lo recibe o recibe el tratamiento estándar; sirve de referencia.
-
-### Validez interna
-
-Es el grado de confianza en que los resultados se deben a la manipulación y no a otras causas. Sus principales amenazas son:
-
-| Amenaza | Descripción |
+| Aspecto | Qué se argumenta |
 |---|---|
-| Historia | Eventos externos ocurridos durante el estudio. |
-| Maduración | Cambios naturales en los participantes con el paso del tiempo. |
-| Efecto de la preprueba | La primera medición influye en la segunda. |
-| Instrumentación | Cambios en el instrumento o en quien mide. |
-| Regresión a la media | Los valores extremos tienden a acercarse al promedio en una nueva medición. |
-| Selección | Los grupos no son equivalentes desde el inicio. |
-| Mortalidad experimental | Pérdida de participantes durante el estudio. |
-| Difusión del tratamiento | El grupo de control recibe parte del tratamiento. |
+| **Significado** | Qué importancia tiene el problema para el campo o la comunidad. |
+| **Originalidad** | Qué aporta de nuevo frente a lo que ya se sabe (la brecha). |
+| **Aplicabilidad** | Cómo se podrán usar los resultados en la práctica. |
+| **Interés social** | Quiénes se benefician y de qué manera. |
+| **Aportes teóricos** | Qué vacío de conocimiento ayuda a llenar. |
+| **Factibilidad** | Por qué es posible realizarla con los recursos disponibles. |
 
-La validez interna se controla con **al menos dos grupos de comparación** y con **grupos equivalentes** al inicio, logrados mediante **asignación aleatoria** o **emparejamiento** en las variables relevantes.
+Una justificación clara y objetiva responde estos aspectos con argumentos y, cuando es posible, con **datos y citas**.
 
-### Notación de los diseños
+## Criterios de importancia
 
-| Símbolo | Significado |
+La justificación expone **por qué vale la pena** realizar la investigación. Debe responder:
+
+- ¿Por qué es importante el problema?
+- ¿Por qué deben invertirse tiempo y recursos en esta investigación?
+- ¿Por qué debe realizarse de la forma propuesta?
+- ¿Cuál es el aporte original al campo del conocimiento?
+
+**Criterios para valorar la importancia de una investigación:**
+
+| Criterio | Pregunta orientadora |
 |---|---|
-| R | Asignación aleatoria |
-| G | Grupo de participantes o casos |
-| X | Tratamiento o estímulo |
-| O | Medición (antes del tratamiento: preprueba; después: posprueba) |
-| — | Ausencia de tratamiento (grupo de control) |
+| **Conveniencia** | ¿Para qué sirve la investigación? |
+| **Relevancia social** | ¿Quiénes se beneficiarán y de qué manera? |
+| **Implicaciones prácticas** | ¿Ayudará a resolver un problema real? |
+| **Valor teórico** | ¿Llenará algún vacío de conocimiento? ¿Aportará a una teoría? |
+| **Utilidad metodológica** | ¿Contribuirá con un nuevo instrumento, método o forma de estudiar una población? |
 
-### Tipos de diseño experimental
+No es necesario cumplir todos los criterios, pero sí argumentar con claridad los que aplican.
 
-| Diseño | Esquema | Características |
-|---|---|---|
-| **Preexperimento:** estudio de caso con una medición | G X O | Control mínimo. Útil como primer acercamiento. |
-| **Preexperimento:** preprueba–posprueba con un grupo | G O₁ X O₂ | Hay punto de referencia inicial, pero no grupo de control. |
-| **Experimento puro:** posprueba y grupo de control | R G₁ X O₁ / R G₂ — O₂ | Grupos aleatorizados. |
-| **Experimento puro:** preprueba–posprueba y grupo de control | R G₁ O₁ X O₂ / R G₂ O₃ — O₄ | Permite verificar la equivalencia inicial. |
-| **Experimento puro:** cuatro grupos de Solomon | Combina los dos anteriores | Controla el efecto de la preprueba. |
-| **Experimento factorial** | Dos o más variables independientes con dos o más niveles | Analiza efectos individuales y su interacción. |
-| **Series cronológicas** | Varias mediciones a lo largo del tiempo | Evalúa efectos a corto y largo plazo. |
-| **Cuasiexperimento** | G₁ O₁ X O₂ / G₂ O₃ — O₄ (sin R) | Grupos ya formados; menor certeza sobre la equivalencia inicial. |
+## Viabilidad o factibilidad
 
-### Validez externa
+Una investigación es **viable** cuando puede realizarse con los recursos disponibles. Se consideran:
 
-Es la posibilidad de **generalizar** los resultados a otras personas, situaciones y contextos. Se ve amenazada cuando los participantes no son representativos, cuando las condiciones del experimento son muy artificiales o cuando los participantes modifican su conducta por saberse observados.
+- **Tiempo** disponible para el proyecto.
+- **Recursos financieros.**
+- **Recursos humanos**: conocimientos y disponibilidad del equipo.
+- **Infraestructura y materiales**: equipos, laboratorios, software.
+- **Acceso a los datos o a los participantes.**
+- **Aspectos éticos y legales.**
 
-**Laboratorio frente a campo:** el experimento de laboratorio maximiza el control (validez interna); el experimento de campo, realizado en el ambiente natural, gana realismo (validez externa).
+Las investigaciones que se extienden más allá de lo previsto pueden perder utilidad: sus resultados pueden quedar superados por otros estudios o el contexto puede haber cambiado. Por eso, un anteproyecto debe ser ambicioso en su pregunta pero realista en su alcance.
 
-### Diseños no experimentales
+## La introducción
 
-En ellos **no se manipulan variables**: se observan los fenómenos tal como ocurren, porque las variables ya sucedieron o no pueden manipularse por razones prácticas o éticas.
-
-| Diseño | Descripción | Subtipos |
-|---|---|---|
-| **Transversal** | Recolecta datos en un único momento. | Exploratorio, descriptivo, correlacional-causal. |
-| **Longitudinal** | Recolecta datos en varios momentos para analizar cambios. | **De tendencia:** misma población, distintos participantes. **De cohorte:** subgrupo específico seguido en el tiempo. **Panel:** los mismos participantes en cada medición. |
-
-### Otros diseños frecuentes
-
-- **Estudio de caso:** analiza en profundidad una unidad (una persona, un grupo, una organización, un objeto), con métodos cuantitativos, cualitativos o mixtos.
-- **Estudios de desarrollo tecnológico y validación:** diseñan un prototipo, algoritmo o modelo y lo evalúan frente a una referencia o al método estándar. Su metodología suele organizarse por fases: requerimientos, diseño, implementación, validación y análisis.
-- **Revisión sistemática:** cuando la pregunta se responde a partir de estudios ya publicados (sesión 5).
-
-### Pasos para realizar un experimento
-
-1. Decidir cuántas variables independientes y dependientes se incluirán.
-2. Elegir los niveles de manipulación y traducirlos en tratamientos.
-3. Desarrollar los instrumentos para medir las variables dependientes.
-4. Seleccionar la muestra y, si son personas, reclutarlas.
-5. Elegir el diseño apropiado para las hipótesis y objetivos.
-6. Planear cómo se manejarán los participantes.
-7. Asignar al azar o emparejar (experimento puro), o analizar los grupos intactos (cuasiexperimento).
-8. Aplicar las prepruebas, los tratamientos y las pospruebas.
-
-### Las fases metodológicas
-
-En el anteproyecto, el diseño se concreta en **fases**: cada una agrupa las actividades necesarias para alcanzar un objetivo específico. Por ejemplo:
-
-| Fase | Objetivo específico relacionado | Actividades |
-|---|---|---|
-| 1. Recolección y depuración de datos | Caracterizar a la población | Obtención de la base de datos, limpieza, análisis descriptivo. |
-| 2. Análisis de asociación | Identificar las variables asociadas | Pruebas estadísticas de asociación. |
-| 3. Modelado y evaluación | Comparar el desempeño de los modelos | Entrenamiento, validación y comparación de métricas. |
+En el Brief, la introducción presenta de manera general el **campo de estudio**: a qué se refiere, por qué el tema es relevante para la investigación y qué problemas se presentan en él. Va de lo general a lo particular y prepara al lector para la descripción del problema. Se apoya en fuentes válidas.
 
 ## Actividad en clase
 
-1. Cada grupo decide si su estudio es experimental o no experimental y justifica la decisión.
-2. Representa su diseño con la notación R, G, X, O.
-3. Identifica las dos principales amenazas a la validez interna de su estudio y propone cómo controlarlas.
-4. Organiza la metodología en fases relacionadas con los objetivos específicos.
+1. Cada grupo revisa su problema y sus objetivos, y elige los criterios de justificación que aplican a su proyecto.
+2. Redacta un borrador de justificación que responda las cuatro preguntas orientadoras.
+3. Evalúa la viabilidad del proyecto con la lista de recursos (tiempo, dinero, personas, equipos, acceso a datos, aspectos éticos).
 
 ## Avance del anteproyecto
 
-Redactar la primera parte del **diseño metodológico**: enfoque, tipo y diseño de investigación, y fases metodológicas relacionadas con los objetivos específicos.
+1. **Introducción** (máximo 150 palabras).
+2. **Justificación** (máximo 150 palabras), que responda las cuatro preguntas orientadoras.
 
 ## Lecturas recomendadas
 
-- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 7.
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulos 3 y 4.
 
----
+<br>
 
 [← Sesión anterior](sesion_10.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_12.qmd)

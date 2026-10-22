@@ -1,0 +1,84 @@
+---
+title: "Sesión 20 · Integración y sustentación del anteproyecto"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Integrar los avances en un anteproyecto coherente en formato Brief, redactar el título y el resumen, y presentar oralmente la propuesta.
+
+## La coherencia interna
+
+Un anteproyecto es coherente cuando todas sus partes se corresponden. Antes de la entrega final se recomienda revisar esta **matriz de coherencia**:
+
+| Problema | Pregunta | Objetivo general | Objetivos específicos | Fase metodológica | Análisis | Resultado esperado |
+|---|---|---|---|---|---|---|
+| ¿Qué falta saber? | ¿Qué se responderá? | ¿Qué se logrará? | Logro 1, 2 y 3 | ¿Cómo se alcanzará cada logro? | ¿Con qué técnica o prueba? | ¿Qué producto se obtendrá? |
+
+Preguntas de verificación:
+
+- ¿El objetivo general responde directamente la pregunta?
+- ¿Cada objetivo específico tiene una fase metodológica y una técnica de análisis asociadas?
+- ¿El diseño es adecuado para el alcance declarado?
+- ¿Las variables de los objetivos son las mismas que se operacionalizaron y se analizarán?
+- ¿El cronograma incluye todas las fases y es realista?
+
+## El título
+
+El título debe ser **conciso, pero lo más informativo posible**: indica el contenido de forma explícita y precisa. Suele incluir el fenómeno o las variables, la población y el contexto. Se evitan las abreviaturas, las expresiones vagas ("Estudio sobre…", "Análisis de…" sin especificar) y las preguntas.
+
+| Débil | Mejor |
+|---|---|
+| La inteligencia artificial en la salud | Desempeño de un modelo de aprendizaje profundo para detectar neumonía en radiografías de tórax de adultos |
+| Estudio sobre el sueño | Relación entre el uso de pantallas antes de dormir y la calidad del sueño en estudiantes universitarios |
+
+## El resumen y el *abstract*
+
+El resumen se escribe **al final**, cuando el documento está completo. En el Brief tiene un máximo de 150 palabras, en español y en inglés, e incluye: tema, problema, contexto, método, técnicas e instrumentos, población, cronograma y proyección de costos. Se acompaña de tres a cinco **palabras clave**, preferiblemente tomadas de un tesauro (sesión 4).
+
+## Escritura académica
+
+- **Lenguaje impersonal:** "se propone", "se analizará", en lugar de "yo propongo".
+- **Un párrafo, una idea**, con una oración inicial que la anuncie.
+- **Oraciones cortas y directas.** Como referencia, las guías de legibilidad para textos científicos sugieren promedios cercanos a 18 a 20 palabras por oración.
+- **Precisión:** evitar adjetivos innecesarios ("muy importante", "gran cantidad") y reemplazarlos por datos.
+- **Tiempos verbales:** presente para lo que se sabe y para el problema; futuro para lo que se hará.
+- **Citas:** toda afirmación que no sea propia debe estar citada en APA, séptima edición.
+
+## Revisión por pares
+
+Antes de la entrega final, cada grupo revisa el anteproyecto de otro con la [lista de verificación del Brief](../metodologia_brief/formato_brief.qmd#lista-de-verificación). La revisión entre pares reproduce el proceso que siguen las revistas científicas y ayuda a detectar vacíos que el autor no ve.
+
+## La sustentación
+
+Una sustentación de 10 minutos puede organizarse así:
+
+| Momento | Contenido | Tiempo |
+|---|---|:-:|
+| 1 | Título, contexto y problema | 2 min |
+| 2 | Pregunta y objetivos | 1 min |
+| 3 | Marco referencial y estado del arte (brecha) | 2 min |
+| 4 | Diseño metodológico y plan de análisis | 3 min |
+| 5 | Consideraciones éticas, cronograma y costos | 1 min |
+| 6 | Resultados esperados y cierre | 1 min |
+
+Recomendaciones: una idea por diapositiva, poco texto, figuras legibles, y preparación de respuestas a las preguntas más probables sobre la viabilidad y el diseño.
+
+## Actividad en clase
+
+1. Cada grupo completa la matriz de coherencia de su proyecto y corrige las inconsistencias.
+2. Revisión por pares con la lista de verificación del Brief.
+3. Sustentación oral de los anteproyectos y retroalimentación.
+
+## Avance del anteproyecto
+
+**Entrega final:** anteproyecto completo en [formato Brief](../metodologia_brief/formato_brief.qmd), con título, resumen y *abstract*, todas las secciones integradas, referencias en APA y anexos, y su sustentación oral.
+
+## Lecturas recomendadas
+
+- Cargill, M., & O'Connor, P. (2021). *Writing scientific research articles: Strategy and steps* (3.ª ed.). Wiley-Blackwell.
+- American Psychological Association. (2020). *Publication manual of the American Psychological Association* (7.ª ed.). Capítulos 4 y 6.
+
+<br>
+
+[← Sesión anterior](sesion_19.qmd) · [Programa del curso](../metodologia_investigacion.qmd)

@@ -7,9 +7,7 @@ subtitle: "Metodología de la Investigación"
 
 Diferenciar tema, brecha de conocimiento y problema de investigación, y aplicar esa distinción para acotar la idea seleccionada.
 
-## Contenidos
-
-### Tema, brecha y problema
+## Tema, brecha y problema
 
 Uno de los errores más frecuentes al iniciar una investigación es confundir el **tema** con el **problema**. Son niveles distintos de especificidad:
 
@@ -20,7 +18,7 @@ Uno de los errores más frecuentes al iniciar una investigación es confundir el
 | **Problema de investigación** | Formulación explícita de la situación que requiere investigarse para cerrar la brecha. | ¿Cuál es la incertidumbre que debe resolverse? |
 | **Pregunta de investigación** | Interrogante concreta que guía el estudio. | ¿Qué voy a responder exactamente? |
 
-**Ejemplo:**
+## Ejemplo: del tema a la pregunta
 
 - **Tema:** inteligencia artificial en el diagnóstico por imágenes.
 - **Brecha:** la mayoría de los modelos de clasificación de lesiones de piel se han entrenado con imágenes de personas de piel clara; hay poca evidencia sobre su desempeño en otros fototipos.
@@ -29,7 +27,7 @@ Uno de los errores más frecuentes al iniciar una investigación es confundir el
 
 Una investigación no se justifica solo porque el tema sea interesante: se justifica porque existe una brecha relevante y porque cerrarla aporta conocimiento útil.
 
-### Tipos de brecha
+## Tipos de brecha
 
 | Brecha | Descripción |
 |---|---|
@@ -39,11 +37,11 @@ Una investigación no se justifica solo porque el tema sea interesante: se justi
 | **Poblacional o contextual** | El fenómeno no se ha estudiado en una población, región o contexto particular. |
 | **Tecnológica o de implementación** | Hay conocimiento, pero no se ha llevado a la práctica o no se ha evaluado su aplicación. |
 
-### Investigación orientada a desafíos
+## Investigación orientada a desafíos
 
 Los problemas de investigación no surgen solo de vacíos en la literatura. También provienen de **desafíos sociales, productivos o ambientales** que requieren conocimiento nuevo: el acceso a la salud, la seguridad alimentaria, la transición energética, la educación. Las investigaciones de mayor impacto suelen conectar una brecha de conocimiento con un desafío real.
 
-### Acotar la idea
+## Acotar la idea
 
 Para pasar de una idea amplia a un problema investigable, se reduce progresivamente el alcance precisando:
 
@@ -76,6 +74,6 @@ La brecha se verificará con la búsqueda de literatura de las sesiones 4 y 5.
 
 - Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 2.
 
----
+<br>
 
 [← Sesión anterior](sesion_02.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_04.qmd)

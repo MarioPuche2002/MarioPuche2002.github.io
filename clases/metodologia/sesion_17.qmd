@@ -1,0 +1,228 @@
+---
+title: "Sesión 17 · Análisis de datos I: estadística descriptiva y pruebas paramétricas"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Describir un conjunto de datos, comprender la lógica de la prueba de hipótesis y aplicar las principales pruebas paramétricas con Python.
+
+## Del dato a la decisión
+
+El análisis cuantitativo tiene dos momentos:
+
+1. **Estadística descriptiva:** resume y describe los datos de la muestra.
+2. **Estadística inferencial:** usa la muestra para sacar conclusiones sobre la población, mediante la estimación de parámetros y la prueba de hipótesis.
+
+Antes de cualquier análisis es necesario identificar el **tipo de cada variable** (sesión 14): nominal, ordinal, discreta o continua. El tipo de variable determina qué medidas y qué pruebas son apropiadas.
+
+## Estadística descriptiva
+
+| Medida | Qué indica | Uso |
+|---|---|---|
+| **Distribución de frecuencias** | Cuántas veces aparece cada valor o categoría. | Todas las variables. |
+| **Moda** | Valor más frecuente. | Todas las variables. |
+| **Mediana** | Valor central de los datos ordenados. | Variables ordinales y cuantitativas; robusta ante valores extremos. |
+| **Media** | Promedio aritmético. | Variables cuantitativas. |
+| **Rango** | Diferencia entre el valor máximo y el mínimo. | Variables cuantitativas. |
+| **Desviación estándar** | Dispersión promedio de los datos respecto a la media, en las unidades originales. | Variables cuantitativas. |
+| **Varianza** | Desviación estándar al cuadrado. | Variables cuantitativas. |
+| **Asimetría** | Si los datos se concentran a la izquierda o a la derecha de la media. | Evaluar la forma de la distribución. |
+| **Curtosis** | Qué tan concentrados están los datos en el centro frente a las colas. | Evaluar la forma de la distribución. |
+
+## La distribución normal
+
+La **distribución normal** o gaussiana tiene forma de campana, es simétrica (asimetría cero), y su media, mediana y moda coinciden. Muchas pruebas estadísticas suponen que los datos provienen de una población con esta distribución, por lo que conviene verificarlo con gráficos (histograma, gráfico Q–Q) y con pruebas de normalidad:
+
+| Prueba | Observación |
+|---|---|
+| Shapiro–Wilk | Recomendada para muestras pequeñas y medianas. |
+| D'Agostino–Pearson (K²) | Se basa en la asimetría y la curtosis. Requiere al menos 8 a 20 datos. |
+| Anderson–Darling | Da más peso a las colas de la distribución. |
+
+En todas ellas, H₀: los datos provienen de una distribución normal. Si *p* > α, no hay evidencia para rechazar la normalidad.
+
+## La lógica de la prueba de hipótesis
+
+1. Se plantea la **hipótesis nula** (H₀: no hay diferencia o relación) y la **alternativa** (H₁: sí la hay).
+2. Se fija a priori el **nivel de significancia** α, la probabilidad máxima de equivocarse al rechazar H₀. Habitualmente α = 0.05.
+3. Se elige la prueba adecuada y se calcula el **estadístico** con los datos.
+4. Se obtiene el **valor *p***: la probabilidad de observar un resultado tan extremo como el obtenido, si H₀ fuera verdadera.
+5. **Decisión:** si *p* ≤ α, se rechaza H₀; si *p* > α, no se rechaza H₀.
+
+::: {.callout-important}
+## No rechazar no es aceptar
+Un valor *p* alto no demuestra que H₀ sea verdadera: indica que **no hay evidencia suficiente** para rechazarla. Tampoco se "demuestra" la hipótesis alternativa; se concluye que los datos son o no son compatibles con H₀.
+:::
+
+## Errores en la prueba de hipótesis
+
+| | H₀ es verdadera | H₀ es falsa |
+|---|---|---|
+| **Se rechaza H₀** | Error tipo I (probabilidad α) | Decisión correcta (potencia, 1 − β) |
+| **No se rechaza H₀** | Decisión correcta | Error tipo II (probabilidad β) |
+
+Una analogía es un juicio: H₀ es "el acusado es inocente". Condenar a un inocente es un error tipo I; absolver a un culpable es un error tipo II.
+
+## Significancia estadística y tamaño del efecto
+
+Un resultado puede ser estadísticamente significativo y, sin embargo, irrelevante en la práctica, sobre todo con muestras grandes. Por eso, además del valor *p*, se reporta el **tamaño del efecto**, por ejemplo la *d* de Cohen para diferencias de medias (0.2 pequeño, 0.5 mediano, 0.8 grande) o el coeficiente *r* para correlaciones.
+
+## Pruebas paramétricas {.compacto}
+
+Suponen que la variable dependiente es cuantitativa (de intervalo o de razón), que se distribuye normalmente en la población y, cuando se comparan grupos, que sus varianzas son homogéneas (homocedasticidad).
+
+| Prueba | Pregunta que responde |
+|---|---|
+| **t para una muestra** | ¿La media de un grupo difiere de un valor de referencia? |
+| **t para muestras independientes** | ¿Difieren las medias de dos grupos distintos? |
+| **t para muestras pareadas** | ¿Difieren las medias de dos mediciones sobre los mismos casos (antes y después)? |
+| **z** | Igual que la prueba t, cuando la muestra es grande (más de 30 casos por grupo). |
+| **ANOVA de un factor** | ¿Difieren las medias de tres o más grupos? |
+| **Correlación de Pearson** | ¿Existe relación lineal entre dos variables cuantitativas? |
+| **Regresión lineal** | ¿Cómo predice una variable el valor de otra? |
+
+## Práctica en Python
+
+Se requieren las librerías `numpy`, `scipy` y `pandas`. En un proyecto con uv:
+
+```bash
+uv add numpy scipy pandas matplotlib
+```
+
+## Práctica en Python · 1. Descripción y normalidad
+
+Tiempo de reacción (en milisegundos) de dos grupos: sin entrenamiento y con entrenamiento.
+
+```python
+import numpy as np
+from scipy import stats
+
+control   = [312, 298, 335, 321, 289, 340, 305, 317, 330, 296, 326, 309]
+entrenado = [284, 271, 302, 290, 265, 299, 281, 276, 295, 288, 270, 286]
+
+print(f"Media control: {np.mean(control):.1f} ms, DE: {np.std(control, ddof=1):.1f}")
+print(f"Media entrenado: {np.mean(entrenado):.1f} ms, DE: {np.std(entrenado, ddof=1):.1f}")
+
+for nombre, datos in [("control", control), ("entrenado", entrenado)]:
+    estadistico, p = stats.shapiro(datos)
+    print(f"Shapiro–Wilk {nombre}: W = {estadistico:.3f}, p = {p:.3f}")
+```
+
+```
+Media control: 314.8 ms, DE: 16.2
+Media entrenado: 283.9 ms, DE: 11.8
+Shapiro–Wilk control: W = 0.974, p = 0.952
+Shapiro–Wilk entrenado: W = 0.970, p = 0.911
+```
+
+En ambos grupos *p* > 0.05: no se rechaza la normalidad.
+
+## Práctica en Python · 2. Prueba t para muestras independientes
+
+
+
+```python
+estadistico, p = stats.levene(control, entrenado)
+print(f"Levene: p = {p:.3f}")                 # homogeneidad de varianzas
+
+t, p = stats.ttest_ind(control, entrenado)
+print(f"t = {t:.2f}, p = {p:.5f}")
+
+a, b = np.array(control), np.array(entrenado)
+d = (a.mean() - b.mean()) / np.sqrt((a.var(ddof=1) + b.var(ddof=1)) / 2)
+print(f"d de Cohen = {d:.2f}")
+```
+
+```
+Levene: p = 0.212
+t = 5.35, p = 0.00002
+d de Cohen = 2.18
+```
+
+Las varianzas son homogéneas (*p* = 0.212). Como *p* < 0.05, se rechaza H₀: el tiempo de reacción medio difiere entre los grupos, y el tamaño del efecto es grande. Si las varianzas no fueran homogéneas, se usaría `stats.ttest_ind(control, entrenado, equal_var=False)` (prueba de Welch).
+
+## Práctica en Python · 3. Prueba t para muestras pareadas
+
+Presión arterial sistólica (mmHg) de diez pacientes antes y después de un programa de actividad física.
+
+```python
+antes   = [148, 152, 139, 160, 145, 155, 150, 142, 158, 147]
+despues = [140, 147, 136, 151, 141, 146, 145, 140, 150, 142]
+
+t, p = stats.ttest_rel(antes, despues)
+print(f"Diferencia media: {np.mean(np.array(antes) - np.array(despues)):.1f} mmHg")
+print(f"t = {t:.2f}, p = {p:.5f}")
+```
+
+```
+Diferencia media: 5.8 mmHg
+t = 7.25, p = 0.00005
+```
+
+## Práctica en Python · 4. ANOVA de un factor
+
+Crecimiento (cm) de plantas con tres fertilizantes.
+
+```python
+f1 = [20.1, 21.4, 19.8, 22.0, 20.7, 21.1, 19.5, 20.9]
+f2 = [22.5, 23.1, 21.8, 24.0, 22.9, 23.4, 22.2, 23.7]
+f3 = [20.4, 19.9, 21.0, 20.2, 19.6, 20.8, 21.3, 20.0]
+
+F, p = stats.f_oneway(f1, f2, f3)
+print(f"F = {F:.2f}, p = {p:.7f}")
+
+print(stats.tukey_hsd(f1, f2, f3))           # ¿qué pares difieren?
+```
+
+```
+F = 28.78, p = 0.0000010
+```
+
+El ANOVA indica que al menos un grupo difiere. La prueba *post hoc* de Tukey muestra que el fertilizante 2 difiere de los otros dos, y que el 1 y el 3 no difieren entre sí (*p* = 0.719).
+
+## Práctica en Python · 5. Correlación de Pearson y regresión lineal
+
+Horas de estudio semanales y nota final.
+
+```python
+horas = [2, 4, 5, 6, 8, 9, 10, 12, 14, 15]
+nota  = [2.8, 3.1, 3.0, 3.5, 3.6, 3.9, 4.0, 4.2, 4.5, 4.4]
+
+r, p = stats.pearsonr(horas, nota)
+print(f"r = {r:.3f}, p = {p:.7f}")
+
+reg = stats.linregress(horas, nota)
+print(f"nota = {reg.intercept:.2f} + {reg.slope:.3f} × horas")
+```
+
+```
+r = 0.979, p = 0.0000009
+nota = 2.55 + 0.135 × horas
+```
+
+Existe una correlación positiva fuerte. Recuerde que **correlación no implica causalidad**.
+
+## Actividad en clase
+
+Taller con los datos del ejemplo o con un conjunto de datos del proyecto:
+
+1. Calcular las medidas descriptivas y elaborar un histograma y un diagrama de caja por grupo.
+2. Verificar la normalidad y la homogeneidad de varianzas.
+3. Aplicar la prueba paramétrica correspondiente e interpretar el resultado en términos del problema, incluyendo el tamaño del efecto.
+
+## Avance del anteproyecto
+
+Redactar la primera parte del **plan de análisis de datos**:
+
+1. Para cada variable, las medidas descriptivas que se reportarán.
+2. Para cada hipótesis u objetivo específico, la prueba estadística prevista, el nivel de significancia y los supuestos que se verificarán.
+
+## Lecturas recomendadas
+
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 10.
+- Martínez-González, M. A., Sánchez-Villegas, A., Toledo, E., & Faulin, J. (Eds.). (2020). *Bioestadística amigable* (4.ª ed.). Elsevier.
+
+<br>
+
+[← Sesión anterior](sesion_16.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_18.qmd)

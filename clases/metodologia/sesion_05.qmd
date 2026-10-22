@@ -7,9 +7,7 @@ subtitle: "Metodología de la Investigación"
 
 Seleccionar, leer críticamente y organizar la literatura recuperada, y citarla correctamente según las normas APA, séptima edición.
 
-## Contenidos
-
-### Estructura del artículo científico
+## Estructura del artículo científico
 
 La mayoría de los artículos de investigación siguen la estructura **IMRyD**: Introducción, Métodos, Resultados y Discusión. Cada sección cumple una función:
 
@@ -24,7 +22,7 @@ La mayoría de los artículos de investigación siguen la estructura **IMRyD**: 
 
 El artículo tiene forma de **reloj de arena**: la introducción va de lo general a lo particular; los métodos y resultados son específicos; y la discusión regresa de lo particular a lo general.
 
-### Lectura eficiente
+## Lectura eficiente
 
 Para decidir si un artículo es útil no es necesario leerlo completo. Se recomienda:
 
@@ -32,7 +30,7 @@ Para decidir si un artículo es útil no es necesario leerlo completo. Se recomi
 2. Si es pertinente, revisar las **figuras y tablas**, y las **conclusiones**.
 3. Si sigue siendo pertinente, leer la **introducción** y los **métodos** en detalle.
 
-### Lectura crítica
+## Lectura crítica
 
 Al leer un artículo conviene preguntarse:
 
@@ -46,7 +44,7 @@ Al leer un artículo conviene preguntarse:
 
 En muchas áreas existen **guías de reporte** que indican qué debe informar un estudio según su tipo, y que también sirven como listas de verificación para la lectura crítica. Por ejemplo, CONSORT para ensayos clínicos, STROBE para estudios observacionales, PRISMA para revisiones sistemáticas y CLAIM para estudios de inteligencia artificial en imágenes médicas. Pueden consultarse en la red EQUATOR (<https://www.equator-network.org>).
 
-### Tipos de revisión de la literatura
+## Tipos de revisión de la literatura
 
 | Tipo | Características |
 |---|---|
@@ -57,18 +55,18 @@ En muchas áreas existen **guías de reporte** que indican qué debe informar un
 
 Una revisión sistemática sigue, en términos generales, estas etapas: formular la pregunta, verificar que no exista una revisión previa, escribir un protocolo, diseñar la estrategia de búsqueda, buscar en varias bases de datos, eliminar duplicados, seleccionar por título y resumen, revisar los textos completos, evaluar la calidad de los estudios, extraer los datos, sintetizarlos y redactar el informe. La selección se hace preferiblemente por dos revisores independientes, que resuelven sus desacuerdos por consenso, y el proceso se documenta con el diagrama de flujo **PRISMA**.
 
-### La matriz de literatura
+## La matriz de literatura
 
 Una **matriz de literatura** es una tabla que organiza los artículos revisados y facilita la escritura del marco referencial. Columnas sugeridas:
 
 | Referencia (APA) | Objetivo | Población o datos | Método | Resultados principales | Limitaciones | Aporte a mi proyecto |
 |---|---|---|---|---|---|---|
 
-### Gestores de referencias
+## Gestores de referencias
 
 Un **gestor de referencias** guarda las referencias, almacena los PDF, permite agregar notas y genera automáticamente las citas y la lista de referencias en el formato requerido. Opciones gratuitas: **Zotero** y **Mendeley**. Se integran con Word y Google Docs.
 
-### Citas y referencias en APA, séptima edición
+## Citas y referencias en APA, séptima edición
 
 **Citas en el texto:**
 
@@ -90,11 +88,11 @@ Las citas textuales de menos de 40 palabras van entre comillas e incluyen la pá
 
 La lista de referencias se ordena alfabéticamente por el apellido del primer autor, con sangría francesa.
 
-### Integridad académica
+## Integridad académica
 
 Presentar ideas, datos o textos de otros sin citarlos constituye **plagio**, aunque se haya cambiado la redacción. Toda idea tomada de una fuente debe citarse, se transcriba literalmente o se parafrasee.
 
-### ¿La revisión fue suficiente?
+## ¿La revisión fue suficiente?
 
 Antes de dar por terminada la búsqueda, conviene verificar:
 
@@ -123,6 +121,6 @@ Antes de dar por terminada la búsqueda, conviene verificar:
 - Cargill, M., & O'Connor, P. (2021). *Writing scientific research articles: Strategy and steps* (3.ª ed.). Wiley-Blackwell.
 - Page, M. J., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. <https://doi.org/10.1136/bmj.n71>
 
----
+<br>
 
 [← Sesión anterior](sesion_04.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_06.qmd)

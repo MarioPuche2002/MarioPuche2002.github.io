@@ -7,9 +7,7 @@ subtitle: "Metodología de la Investigación"
 
 Diseñar y ejecutar una estrategia de búsqueda de literatura científica en bases de datos académicas, usando vocabulario controlado, operadores booleanos y filtros.
 
-## Contenidos
-
-### ¿Por qué buscar literatura?
+## ¿Por qué buscar literatura?
 
 La revisión de la literatura permite:
 
@@ -19,7 +17,7 @@ La revisión de la literatura permite:
 - Anticipar lo que podría ocurrir en el estudio y facilitar la interpretación de los resultados.
 - Demostrar a los evaluadores que el investigador conoce su campo.
 
-### Tipos de fuentes
+## Tipos de fuentes
 
 | Tipo | Descripción | Ejemplos |
 |---|---|---|
@@ -30,7 +28,7 @@ La revisión de la literatura permite:
 
 Para un anteproyecto se privilegian los **artículos revisados por pares** (*peer-reviewed*), es decir, evaluados por expertos antes de su publicación.
 
-### Bases de datos académicas
+## Bases de datos académicas
 
 Un sistema de recuperación de información organiza los documentos mediante **metadatos**: título, autores, resumen, palabras clave, revista, año, tipo de publicación y DOI. La **indexación** es el proceso de asignar esos metadatos, y puede ser:
 
@@ -49,13 +47,13 @@ Bases de datos de uso frecuente:
 | SciELO y Redalyc | Revistas de América Latina, en acceso abierto |
 | Google Académico | Buscador general de literatura académica |
 
-### Vocabulario controlado
+## Vocabulario controlado
 
 Un **tesauro** es un vocabulario normalizado y jerárquico que agrupa sinónimos bajo un único término. El más conocido es **MeSH** (*Medical Subject Headings*), usado en PubMed, que contiene decenas de miles de descriptores organizados en árboles temáticos. Su equivalente en español y portugués es **DeCS** (*Descriptores en Ciencias de la Salud*).
 
 Usar el término controlado recupera todos los artículos indexados con ese concepto, sin importar cómo lo hayan escrito los autores. Por ejemplo, el descriptor MeSH `Hypertension` recupera artículos que hablan de *high blood pressure*.
 
-### Identificar los términos de búsqueda
+## Identificar los términos de búsqueda
 
 1. **Dividir la pregunta en conceptos**, idealmente no más de tres.
 2. Para cada concepto, buscar el **término controlado** y los **términos libres** (sinónimos, variantes, abreviaturas, singular y plural).
@@ -69,7 +67,7 @@ Usar el término controlado recupera todos los artículos indexados con ese conc
 | **Controlado (MeSH)** | `"Deep Learning"[Mesh]` | `"Diabetic Retinopathy"[Mesh]` | `"Sensitivity and Specificity"[Mesh]` |
 | **Libre** | deep learning, convolutional neural network*, CNN | diabetic retinopathy, DR | accuracy, sensitivity, specificity, AUC |
 
-### Combinar los términos
+## Combinar los términos
 
 | Herramienta | Uso | Ejemplo |
 |---|---|---|
@@ -88,11 +86,11 @@ AND ("Diabetic Retinopathy"[Mesh] OR "diabetic retinopathy")
 AND ("Sensitivity and Specificity"[Mesh] OR accuracy OR sensitivity OR specificity)
 ```
 
-### Filtros
+## Filtros
 
 Los filtros más útiles son el **año de publicación** (generalmente los últimos cinco años), el **idioma**, el **tipo de artículo** (por ejemplo, revisiones o ensayos clínicos) y la **especie** (humanos o animales).
 
-### Pasos para una búsqueda efectiva
+## Pasos para una búsqueda efectiva
 
 1. Definir el tema y los conceptos de búsqueda.
 2. Identificar los términos controlados y libres.
@@ -121,6 +119,6 @@ Taller en PubMed:
 - Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 3.
 - Tutoriales de búsqueda de PubMed: <https://pubmed.ncbi.nlm.nih.gov/help/>
 
----
+<br>
 
 [← Sesión anterior](sesion_03.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_05.qmd)

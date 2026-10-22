@@ -1,0 +1,182 @@
+---
+title: "Sesión 18 · Análisis de datos II: pruebas no paramétricas y selección de la prueba"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Aplicar pruebas no paramétricas y seleccionar la prueba estadística adecuada según el objetivo, el tipo de variable y el tipo de muestra.
+
+## ¿Cuándo usar pruebas no paramétricas?
+
+Las pruebas no paramétricas, o de distribución libre, **no requieren suponer** que los datos siguen una distribución normal y pueden analizar variables **ordinales o nominales**. La mayoría trabaja con los **rangos** (el orden) de los datos en lugar de sus valores.
+
+| Pruebas paramétricas | Pruebas no paramétricas |
+|---|---|
+| Suponen normalidad y homogeneidad de varianzas. | Tienen supuestos menos exigentes. |
+| Requieren variables cuantitativas. | Admiten variables ordinales y nominales. |
+| Tienen mayor potencia estadística cuando se cumplen los supuestos. | Son útiles con muestras pequeñas o datos con valores extremos. |
+| Comparan medias. | Comparan medianas o distribuciones. |
+
+Como regla general, se prefieren las pruebas paramétricas cuando sus supuestos se cumplen razonablemente, y las no paramétricas cuando no se cumplen, cuando la muestra es pequeña o cuando los datos son ordinales.
+
+## Equivalencias
+
+| Situación | Prueba paramétrica | Alternativa no paramétrica |
+|---|---|---|
+| Dos grupos independientes | t para muestras independientes | U de Mann–Whitney |
+| Dos mediciones pareadas | t para muestras pareadas | Rangos con signo de Wilcoxon |
+| Tres o más grupos independientes | ANOVA de un factor | Kruskal–Wallis |
+| Tres o más mediciones pareadas | ANOVA de medidas repetidas | Friedman |
+| Relación entre dos variables | Correlación de Pearson | Correlación de Spearman |
+| Relación entre dos variables categóricas | — | Chi cuadrado (o exacta de Fisher con frecuencias pequeñas) |
+
+## ¿Cómo elegir la prueba? {.compacto}
+
+Se responden cuatro preguntas:
+
+1. **¿Cuál es el objetivo?** Comparar grupos (diferencias) o medir la relación entre variables (asociación).
+2. **¿Qué tipo de variable es el resultado?** Categórica (nominal u ordinal) o numérica (discreta o continua).
+3. **¿Cuántos grupos o mediciones hay?** Uno, dos, o tres o más.
+4. **¿Las muestras son independientes o relacionadas?** Independientes: personas distintas en cada grupo. Relacionadas: las mismas personas medidas varias veces, o casos emparejados.
+
+```
+¿Qué se busca?
+├── Comparar grupos
+│   ├── Variable numérica y normal
+│   │   ├── 2 grupos independientes → t independientes
+│   │   ├── 2 mediciones pareadas → t pareada
+│   │   └── 3 o más grupos → ANOVA
+│   ├── Variable ordinal o no normal
+│   │   ├── 2 grupos independientes → Mann–Whitney
+│   │   ├── 2 mediciones pareadas → Wilcoxon
+│   │   ├── 3 o más grupos independientes → Kruskal–Wallis
+│   │   └── 3 o más mediciones pareadas → Friedman
+│   └── Variable nominal → Chi cuadrado o exacta de Fisher
+└── Relacionar variables
+    ├── Ambas numéricas y normales → Pearson
+    ├── Ordinales o no normales → Spearman
+    └── Ambas categóricas → Chi cuadrado
+```
+
+Como recordaba el estadístico George Box, *todos los modelos son incorrectos, pero algunos son útiles*: la elección de la prueba implica verificar los supuestos y justificar la decisión.
+
+## Práctica en Python · 1. U de Mann–Whitney
+
+Dolor postoperatorio (escala de 0 a 10) en pacientes con dos técnicas de analgesia.
+
+```python
+from scipy import stats
+
+tecnica_a = [3, 5, 2, 4, 6, 3, 2, 5, 4, 3]
+tecnica_b = [6, 7, 5, 8, 6, 7, 9, 5, 6, 8]
+
+U, p = stats.mannwhitneyu(tecnica_a, tecnica_b, alternative="two-sided")
+print(f"U = {U}, p = {p:.4f}")
+```
+
+```
+U = 5.5, p = 0.0008
+```
+
+La escala de dolor es ordinal; por eso se usa Mann–Whitney y no la prueba t. Como *p* < 0.05, el dolor difiere entre las técnicas.
+
+## Práctica en Python · 2. Rangos con signo de Wilcoxon
+
+Puntaje de ansiedad (escala de 0 a 10) de diez estudiantes antes y después de un taller de manejo del estrés.
+
+```python
+antes   = [7, 6, 8, 5, 7, 9, 6, 8, 7, 6]
+despues = [4, 5, 5, 3, 6, 6, 4, 5, 5, 4]
+
+W, p = stats.wilcoxon(antes, despues)
+print(f"W = {W}, p = {p:.4f}")
+```
+
+```
+W = 0.0, p = 0.0020
+```
+
+## Práctica en Python · 3. Kruskal–Wallis
+
+Satisfacción (escala de 1 a 7) con tres versiones de una aplicación.
+
+```python
+v1 = [2, 3, 3, 4, 2, 3]
+v2 = [4, 5, 4, 6, 5, 5]
+v3 = [3, 4, 3, 4, 4, 3]
+
+H, p = stats.kruskal(v1, v2, v3)
+print(f"H = {H:.2f}, p = {p:.4f}")
+```
+
+```
+H = 11.00, p = 0.0041
+```
+
+## Práctica en Python · 4. Chi cuadrado de independencia
+
+Relación entre haber recibido una intervención educativa (sí o no) y la adherencia al tratamiento (adherente o no adherente).
+
+```python
+import numpy as np
+
+#                 Adherente  No adherente
+tabla = np.array([[45,        15],    # Con intervención
+                  [30,        30]])   # Sin intervención
+
+chi2, p, gl, esperadas = stats.chi2_contingency(tabla)
+print(f"Chi² = {chi2:.2f}, gl = {gl}, p = {p:.4f}")
+print("Frecuencias esperadas:\n", esperadas)
+```
+
+```
+Chi² = 6.97, gl = 1, p = 0.0083
+Frecuencias esperadas:
+ [[37.5 22.5]
+ [37.5 22.5]]
+```
+
+La prueba requiere que las frecuencias esperadas sean, en general, de 5 o más. Si no se cumple en una tabla de 2 × 2, se usa la prueba exacta de Fisher: `stats.fisher_exact(tabla)`.
+
+## Práctica en Python · 5. Correlación de Spearman
+
+
+
+```python
+horas = [2, 4, 5, 6, 8, 9, 10, 12, 14, 15]
+nota  = [2.8, 3.1, 3.0, 3.5, 3.6, 3.9, 4.0, 4.2, 4.5, 4.4]
+
+rho, p = stats.spearmanr(horas, nota)
+print(f"rho = {rho:.3f}, p = {p:.6f}")
+```
+
+```
+rho = 0.976, p = 0.000001
+```
+
+## Cómo reportar un resultado
+
+Un resultado estadístico se reporta con el nombre de la prueba, el estadístico, los grados de libertad cuando aplican, el valor *p* y, de ser posible, el tamaño del efecto. Por ejemplo:
+
+> El tiempo de reacción fue menor en el grupo entrenado (*M* = 283.9 ms, *DE* = 11.8) que en el grupo control (*M* = 314.8 ms, *DE* = 16.2), *t*(22) = 5.35, *p* < .001, *d* = 2.18.
+
+## Actividad en clase
+
+Taller de selección de pruebas:
+
+1. Cada grupo recibe cinco situaciones de investigación y, con el diagrama de decisión, elige la prueba adecuada para cada una, justificando la elección.
+2. Aplica en Python la prueba elegida para una de las situaciones, con datos de ejemplo o del proyecto, y redacta el resultado como se reportaría en un artículo.
+
+## Avance del anteproyecto
+
+Completar el **plan de análisis de datos**: para cada objetivo específico, la prueba estadística seleccionada con su justificación (tipo de variable, número de grupos, tipo de muestra y supuestos) y la prueba alternativa si los supuestos no se cumplen. En proyectos con enfoque cualitativo, describir la técnica de análisis (por ejemplo, análisis temático o de contenido).
+
+## Lecturas recomendadas
+
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 10.
+- Documentación de pruebas estadísticas de SciPy: <https://docs.scipy.org/doc/scipy/reference/stats.html>
+
+<br>
+
+[← Sesión anterior](sesion_17.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_19.qmd)

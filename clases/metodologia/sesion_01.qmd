@@ -7,9 +7,7 @@ subtitle: "Metodología de la Investigación"
 
 Comprender qué es la investigación científica, cuáles son sus características y cómo se relacionan los conceptos de método, metodología y técnica, para iniciar la identificación de ideas de investigación.
 
-## Contenidos
-
-### ¿Qué es investigar?
+## ¿Qué es investigar?
 
 La **investigación** es una actividad orientada a la obtención de conocimiento nuevo y a su aplicación en la solución de problemas o interrogantes de carácter científico. Se caracteriza por ser:
 
@@ -20,7 +18,7 @@ La **investigación** es una actividad orientada a la obtención de conocimiento
 
 Junto a la investigación científica, la **investigación tecnológica** emplea el conocimiento científico para desarrollar productos, procesos o servicios, tanto en tecnologías *duras* (dispositivos, materiales, software) como *blandas* (métodos de gestión, protocolos, modelos organizacionales).
 
-### El método científico
+## El método científico
 
 El método científico es el procedimiento general mediante el cual se produce conocimiento válido. Sus etapas se pueden resumir así:
 
@@ -34,7 +32,7 @@ El método científico es el procedimiento general mediante el cual se produce c
 
 El proceso no es lineal: con frecuencia es necesario regresar a una etapa anterior. El planteamiento de una investigación siempre está en evolución y es susceptible de ajustarse.
 
-### Método, metodología y técnica
+## Método, metodología y técnica
 
 | Concepto | Definición | Ejemplo |
 |---|---|---|
@@ -42,13 +40,13 @@ El proceso no es lineal: con frecuencia es necesario regresar a una etapa anteri
 | **Técnica** | Medio auxiliar, más específico que el método, que contribuye a la misma finalidad. | Encuesta, entrevista, observación, medición con un instrumento. |
 | **Metodología** | Descripción, análisis y justificación de los métodos y técnicas empleados. Se interesa más por el proceso de investigación que por los resultados. | Capítulo de metodología de un proyecto. |
 
-### Fuentes de ideas de investigación
+## Fuentes de ideas de investigación
 
 Las ideas de investigación surgen de diversas fuentes: la experiencia personal o profesional, la observación de problemas en el entorno, la lectura de artículos científicos, las conversaciones con expertos, las tesis y proyectos previos, y las necesidades de la sociedad o de la industria. Una buena idea es aquella que despierta interés genuino, es novedosa en algún aspecto y puede convertirse en un problema investigable.
 
-### El producto del curso: el anteproyecto
+## El producto del curso: el anteproyecto
 
-Un **anteproyecto** es la propuesta preliminar de una investigación: plantea qué se quiere investigar, por qué, para qué y cómo. A lo largo del curso se construirá un anteproyecto en [formato Brief](formato_brief.qmd), un documento conciso de máximo 1500 palabras que resume los elementos esenciales de la propuesta. Cada sesión aporta una de sus secciones.
+Un **anteproyecto** es la propuesta preliminar de una investigación: plantea qué se quiere investigar, por qué, para qué y cómo. A lo largo del curso se construirá un anteproyecto en [formato Brief](../metodologia_brief/formato_brief.qmd), un documento conciso de máximo 1500 palabras que resume los elementos esenciales de la propuesta. Cada sesión aporta una de sus secciones.
 
 ## Actividad en clase
 
@@ -68,6 +66,6 @@ Redactar **tres ideas de investigación** en un párrafo cada una, indicando:
 
 - Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulos 1 y 2.
 
----
+<br>
 
 [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_02.qmd)

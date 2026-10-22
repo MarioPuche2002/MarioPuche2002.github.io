@@ -1,0 +1,107 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: unquote("'Source Sans 3', 'Segoe UI', Roboto, sans-serif");
+$presentation-heading-font: unquote("'Fraunces', Georgia, serif");
+$presentation-heading-color: #0f4c5c;
+$presentation-heading-font-weight: 600;
+$body-bg: #fbfaf7;
+$body-color: #1b2430;
+$link-color: #9a3412;
+$presentation-font-size-root: 28px;
+$presentation-h2-font-size: 1.45em;
+$presentation-h3-font-size: 1.1em;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+.reveal .slides section h2 {
+  border-bottom: 2px solid #e4ddd0;
+  padding-bottom: .25em;
+  margin-bottom: .6em;
+}
+.reveal strong { color: #0b3440; }
+.reveal .slide-number { font-size: 14px; background: transparent; color: #6b7280; }
+.reveal .footer { font-size: 15px; color: #6b7280; }
+.reveal .footer a { color: #0f4c5c; }
+
+/* Portada */
+.reveal .quarto-title-block .title { color: #0f4c5c; font-size: 2.1em; line-height: 1.1; }
+.reveal .quarto-title-block .subtitle { color: #9a3412; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
+.reveal .quarto-title-authors { margin-top: 1.2em; color: #4b5563; }
+
+/* Diapositiva de sección (separadores) */
+.reveal section.seccion h1, .reveal h1 {
+  color: #0f4c5c;
+  font-size: 1.9em;
+}
+
+/* Cajas de contenido */
+.reveal .definicion, .reveal .teorema, .reveal .demo, .reveal .ejemplo,
+.reveal .ejercicio, .reveal .solucion, .reveal .obs {
+  position: relative;
+  border-left: 6px solid;
+  border-radius: 6px;
+  padding: .55em .9em .55em .9em;
+  margin: .45em 0 .7em 0;
+  font-size: .92em;
+}
+.reveal .definicion::before, .reveal .teorema::before, .reveal .demo::before,
+.reveal .ejemplo::before, .reveal .ejercicio::before, .reveal .solucion::before,
+.reveal .obs::before {
+  display: block;
+  font-weight: 700;
+  font-size: .8em;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: .25em;
+}
+.reveal .definicion { border-color: #0f4c5c; background: #eef3f9; }
+.reveal .definicion::before { content: "Definición"; color: #0f4c5c; }
+.reveal .definicion[data-t]::before { content: "Definición · " attr(data-t); }
+
+.reveal .teorema { border-color: #9a3412; background: #faf0f1; }
+.reveal .teorema::before { content: "Teorema"; color: #9a3412; }
+.reveal .teorema[data-t]::before { content: "Teorema · " attr(data-t); }
+
+.reveal .demo { border-color: #6b7280; background: #f3f4f6; }
+.reveal .demo::before { content: "Demostración"; color: #4b5563; }
+.reveal .demo[data-t]::before { content: "Demostración · " attr(data-t); }
+.reveal .demo::after { content: "∎"; position: absolute; right: .7em; bottom: .4em; color: #4b5563; }
+
+.reveal .ejemplo { border-color: #0f766e; background: #ecf6f4; }
+.reveal .ejemplo::before { content: "Ejemplo"; color: #0f766e; }
+.reveal .ejemplo[data-t]::before { content: "Ejemplo · " attr(data-t); }
+
+.reveal .ejercicio { border-color: #b45309; background: #fdf5ea; }
+.reveal .ejercicio::before { content: "Ejercicio"; color: #b45309; }
+.reveal .ejercicio[data-t]::before { content: "Ejercicio · " attr(data-t); }
+
+.reveal .solucion { border-color: #4d7c0f; background: #f2f7ea; }
+.reveal .solucion::before { content: "Solución"; color: #4d7c0f; }
+
+.reveal .obs { border-color: #6d28d9; background: #f4f0fc; }
+.reveal .obs::before { content: "Observación"; color: #6d28d9; }
+.reveal .obs[data-t]::before { content: attr(data-t); }
+
+.reveal .definicion p:last-child, .reveal .teorema p:last-child, .reveal .demo p:last-child,
+.reveal .ejemplo p:last-child, .reveal .ejercicio p:last-child, .reveal .solucion p:last-child,
+.reveal .obs p:last-child { margin-bottom: 0; }
+
+.reveal .chico { font-size: .8em; }
+.reveal .muted { color: #6b7280; }
+.reveal .acento { color: #9a3412; font-weight: 600; }
+
+/* Lista de ejercicios del texto guía */
+.reveal .texto-guia table { font-size: .72em; }
+.reveal .texto-guia td:first-child { white-space: nowrap; font-weight: 600; color: #0f4c5c; }
+
+.reveal table { font-size: .8em; }
+.reveal table th { color: #0f4c5c; }
+.reveal mjx-container[display="true"] { margin: .45em 0 !important; }
+.reveal img { border: none; box-shadow: none; }
+
+/* Diapositivas con mucho contenido */
+.reveal .slides section.compacto { font-size: .86em; }
+.reveal .slides section.compacto table { font-size: .72em; }
+
+/* Figuras centradas: limitar altura para dejar espacio al texto */
+.reveal .quarto-figure-center img { max-height: 420px; width: auto !important; max-width: 100%; }

@@ -1,86 +1,123 @@
 ---
-title: "Sesión 16 · Integración y sustentación del anteproyecto"
+title: "Sesión 16 · Población, muestra e instrumentos"
 subtitle: "Metodología de la Investigación"
 ---
 
 ## Objetivo de la sesión
 
-Integrar los avances en un anteproyecto coherente en formato Brief, redactar el título y el resumen, y presentar oralmente la propuesta.
+Definir la población y la muestra del estudio, seleccionar la técnica de muestreo, estimar el tamaño de la muestra y elegir instrumentos de recolección de datos válidos y confiables.
 
-## Contenidos
+## Unidad de análisis, población y muestra
 
-### La coherencia interna
+| Concepto | Definición | Ejemplo |
+|---|---|---|
+| **Unidad de análisis** | Quiénes o qué se estudiará: personas, objetos, imágenes, registros, eventos. | Cada radiografía de tórax. |
+| **Población** | Conjunto de todos los casos que cumplen determinadas especificaciones de contenido, lugar y tiempo. | Radiografías de tórax de adultos tomadas en un servicio de urgencias entre 2022 y 2024. |
+| **Muestra** | Subgrupo de la población del cual se recolectan los datos. | 600 radiografías seleccionadas de esa población. |
+| **Marco muestral** | Listado o fuente que permite identificar los elementos de la población. | Registro del sistema de archivo de imágenes. |
 
-Un anteproyecto es coherente cuando todas sus partes se corresponden. Antes de la entrega final se recomienda revisar esta **matriz de coherencia**:
+La población se delimita con **criterios de inclusión** (características que deben cumplir los casos) y **criterios de exclusión** (características que los descartan).
 
-| Problema | Pregunta | Objetivo general | Objetivos específicos | Fase metodológica | Análisis | Resultado esperado |
-|---|---|---|---|---|---|---|
-| ¿Qué falta saber? | ¿Qué se responderá? | ¿Qué se logrará? | Logro 1, 2 y 3 | ¿Cómo se alcanzará cada logro? | ¿Con qué técnica o prueba? | ¿Qué producto se obtendrá? |
+**Errores frecuentes:** omitir casos que deberían estar en la muestra, incluir casos que no pertenecen a la población, o seleccionar casos que no son elegibles.
 
-Preguntas de verificación:
+## Tipos de muestreo {.compacto}
 
-- ¿El objetivo general responde directamente la pregunta?
-- ¿Cada objetivo específico tiene una fase metodológica y una técnica de análisis asociadas?
-- ¿El diseño es adecuado para el alcance declarado?
-- ¿Las variables de los objetivos son las mismas que se operacionalizaron y se analizarán?
-- ¿El cronograma incluye todas las fases y es realista?
+**Probabilístico:** todos los elementos de la población tienen una probabilidad conocida de ser elegidos. Permite generalizar y calcular el error de estimación.
 
-### El título
-
-El título debe ser **conciso, pero lo más informativo posible**: indica el contenido de forma explícita y precisa. Suele incluir el fenómeno o las variables, la población y el contexto. Se evitan las abreviaturas, las expresiones vagas ("Estudio sobre…", "Análisis de…" sin especificar) y las preguntas.
-
-| Débil | Mejor |
+| Tipo | Procedimiento |
 |---|---|
-| La inteligencia artificial en la salud | Desempeño de un modelo de aprendizaje profundo para detectar neumonía en radiografías de tórax de adultos |
-| Estudio sobre el sueño | Relación entre el uso de pantallas antes de dormir y la calidad del sueño en estudiantes universitarios |
+| **Aleatorio simple** | Se eligen al azar los elementos del marco muestral. |
+| **Sistemático** | Se elige un elemento cada *k* posiciones, con un punto de inicio aleatorio. |
+| **Estratificado** | La población se divide en estratos (por ejemplo, por edad o sexo) y se toma una muestra de cada uno. Aumenta la precisión. |
+| **Por conglomerados** | Se seleccionan al azar grupos completos (colegios, hospitales, municipios). Reduce costos y tiempo. |
 
-### El resumen y el *abstract*
+**No probabilístico (dirigido):** la elección depende de las características de la investigación y del criterio del investigador. No permite calcular el error estándar, pero es útil cuando se requieren casos con características específicas.
 
-El resumen se escribe **al final**, cuando el documento está completo. En el Brief tiene un máximo de 150 palabras, en español y en inglés, e incluye: tema, problema, contexto, método, técnicas e instrumentos, población, cronograma y proyección de costos. Se acompaña de tres a cinco **palabras clave**, preferiblemente tomadas de un tesauro (sesión 4).
+| Tipo | Procedimiento |
+|---|---|
+| **Por conveniencia** | Casos disponibles y accesibles. |
+| **Intencional o de expertos** | Casos elegidos por su pertinencia para el estudio. |
+| **Por cuotas** | Se fijan proporciones por categorías y se completan sin aleatoriedad. |
+| **Bola de nieve** | Los participantes refieren a otros participantes. |
 
-### Escritura académica
+## Tamaño de la muestra {.compacto}
 
-- **Lenguaje impersonal:** "se propone", "se analizará", en lugar de "yo propongo".
-- **Un párrafo, una idea**, con una oración inicial que la anuncie.
-- **Oraciones cortas y directas.** Como referencia, las guías de legibilidad para textos científicos sugieren promedios cercanos a 18 a 20 palabras por oración.
-- **Precisión:** evitar adjetivos innecesarios ("muy importante", "gran cantidad") y reemplazarlos por datos.
-- **Tiempos verbales:** presente para lo que se sabe y para el problema; futuro para lo que se hará.
-- **Citas:** toda afirmación que no sea propia debe estar citada en APA, séptima edición.
+**Para estimar una proporción** en una población finita:
 
-### Revisión por pares
+$$
+n_0 = \frac{Z^2 \, p \, (1-p)}{e^2} \qquad\qquad n = \frac{n_0}{1 + \dfrac{n_0 - 1}{N}}
+$$
 
-Antes de la entrega final, cada grupo revisa el anteproyecto de otro con la [lista de verificación del Brief](formato_brief.qmd#lista-de-verificación). La revisión entre pares reproduce el proceso que siguen las revistas científicas y ayuda a detectar vacíos que el autor no ve.
+| Símbolo | Significado | Valor habitual |
+|---|---|---|
+| *N* | Tamaño de la población | Conocido |
+| *Z* | Valor de la distribución normal para el nivel de confianza | 1.96 para 95 % |
+| *p* | Proporción esperada | 0.5 si se desconoce (da el tamaño máximo) |
+| *e* | Error máximo aceptable | 0.05 |
 
-### La sustentación
+**Ejemplo:** con *N* = 1000, 95 % de confianza, *p* = 0.5 y *e* = 0.05:
 
-Una sustentación de 10 minutos puede organizarse así:
+$$
+n_0 = \frac{1.96^2 \times 0.5 \times 0.5}{0.05^2} = 384.16 \qquad n = \frac{384.16}{1 + \dfrac{383.16}{1000}} \approx 278
+$$
 
-| Momento | Contenido | Tiempo |
-|---|---|:-:|
-| 1 | Título, contexto y problema | 2 min |
-| 2 | Pregunta y objetivos | 1 min |
-| 3 | Marco referencial y estado del arte (brecha) | 2 min |
-| 4 | Diseño metodológico y plan de análisis | 3 min |
-| 5 | Consideraciones éticas, cronograma y costos | 1 min |
-| 6 | Resultados esperados y cierre | 1 min |
+El mismo cálculo en Python:
 
-Recomendaciones: una idea por diapositiva, poco texto, figuras legibles, y preparación de respuestas a las preguntas más probables sobre la viabilidad y el diseño.
+```python
+import math
+
+def tamano_muestra(N, p=0.5, e=0.05, z=1.96):
+    n0 = (z**2 * p * (1 - p)) / e**2
+    n = n0 / (1 + (n0 - 1) / N)
+    return math.ceil(n)
+
+print(tamano_muestra(1000))   # 278
+```
+
+**Para comparar grupos** (por ejemplo, dos medias), el tamaño de la muestra depende del **nivel de significancia** (α), de la **potencia** deseada (1 − β, habitualmente 80 %) y del **tamaño del efecto** esperado. Se calcula con software como G*Power o con la librería `statsmodels` de Python.
+
+## Técnicas e instrumentos de recolección
+
+| Técnica | Instrumento |
+|---|---|
+| Encuesta | Cuestionario |
+| Entrevista | Guía de entrevista |
+| Observación | Lista de chequeo, registro de observación |
+| Medición | Equipos y sensores calibrados, pruebas estandarizadas |
+| Revisión documental | Formato de extracción de datos |
+| Uso de bases de datos existentes | Diccionario de datos y protocolo de extracción |
+
+Cuando se usan **bases de datos públicas** (por ejemplo, conjuntos de imágenes o señales), se debe documentar su procedencia, los criterios de selección, cómo se definió la etiqueta o referencia de verdad y las condiciones de uso de los datos.
+
+## Confiabilidad y validez
+
+- **Confiabilidad:** grado en que un instrumento produce resultados **consistentes**. Se evalúa mediante la consistencia interna (alfa de Cronbach), la estabilidad en el tiempo (test–retest) o la concordancia entre evaluadores (índice kappa).
+- **Validez:** grado en que el instrumento **mide realmente** lo que pretende medir.
+
+| Tipo de validez | Pregunta |
+|---|---|
+| De contenido | ¿El instrumento cubre todos los aspectos de la variable? |
+| De criterio | ¿Sus resultados coinciden con los de un instrumento de referencia? |
+| De constructo | ¿Se comporta como predice la teoría? |
+| Por juicio de expertos | ¿Especialistas consideran que mide lo que debe medir? |
+
+Un instrumento puede ser confiable sin ser válido (mide siempre igual, pero no lo que debe), pero no puede ser válido sin ser confiable. Siempre que sea posible se prefieren **instrumentos ya validados** para la población de estudio.
 
 ## Actividad en clase
 
-1. Cada grupo completa la matriz de coherencia de su proyecto y corrige las inconsistencias.
-2. Revisión por pares con la lista de verificación del Brief.
-3. Sustentación oral de los anteproyectos y retroalimentación.
+1. Cada grupo define su unidad de análisis, población, criterios de inclusión y exclusión, y marco muestral.
+2. Elige el tipo de muestreo y justifica la elección.
+3. Calcula el tamaño de la muestra, o justifica el tamaño cuando se trabaja con una base de datos existente o con un muestreo no probabilístico.
+4. Selecciona los instrumentos y describe cómo se asegurará su confiabilidad y validez.
 
 ## Avance del anteproyecto
 
-**Entrega final:** anteproyecto completo en [formato Brief](formato_brief.qmd), con título, resumen y *abstract*, todas las secciones integradas, referencias en APA y anexos, y su sustentación oral.
+Completar el **diseño metodológico** con la población, la muestra, la técnica de muestreo, el tamaño de la muestra, las técnicas e instrumentos de recolección y su validez y confiabilidad. La sección completa del diseño metodológico no debe superar 200 palabras en el Brief; los detalles adicionales pueden ir en anexos.
 
 ## Lecturas recomendadas
 
-- Cargill, M., & O'Connor, P. (2021). *Writing scientific research articles: Strategy and steps* (3.ª ed.). Wiley-Blackwell.
-- American Psychological Association. (2020). *Publication manual of the American Psychological Association* (7.ª ed.). Capítulos 4 y 6.
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulos 8 y 9.
 
----
+<br>
 
-[← Sesión anterior](sesion_15.qmd) · [Programa del curso](../metodologia_investigacion.qmd)
+[← Sesión anterior](sesion_15.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_17.qmd)
