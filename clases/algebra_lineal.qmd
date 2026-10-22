@@ -1,9 +1,117 @@
 ---
 title: "Álgebra Lineal"
-description: "Sitio de la asignatura Álgebra Lineal en la Universidad Escuela Colombiana de Ingeniería Julio Garavito."
+description: "Sitio de la asignatura Álgebra Lineal (ALLI) en la Universidad Escuela Colombiana de Ingeniería Julio Garavito: presentaciones, laboratorios en MATLAB, parciales, talleres y chatbot."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-10-16
 image: ../imagenes/portada_algebra.jpg
 ---
 
-Material en preparación.
+## Presentación
+
+El álgebra lineal estudia los sistemas de ecuaciones lineales, las matrices, los vectores y las transformaciones que preservan la suma y la multiplicación por escalares. Es el lenguaje de base de la ingeniería, la estadística, la computación gráfica y el aprendizaje automático.
+
+El curso sigue el cronograma del Departamento de Matemáticas (periodo 2026-2) y el texto guía de Grossman y Flores. Está organizado en **siete unidades**. Cada clase es una **presentación** con teoría, demostraciones, ejemplos resueltos y ejercicios con solución; los **laboratorios** muestran cómo hacer los mismos cálculos en MATLAB.
+
+::: {.callout-tip}
+## Cómo usar las presentaciones
+Se navegan con las flechas del teclado o deslizando en el celular. La tecla **F** activa pantalla completa, **O** muestra la vista general, **M** abre el menú de diapositivas, **B** abre la pizarra para escribir encima y **E** prepara la versión para imprimir o guardar en PDF. Las soluciones aparecen al avanzar: intente resolver antes de pasar.
+:::
+
+## Presentaciones
+
+### Unidad 1 · Sistemas de ecuaciones lineales
+
+- [**Clase 1:** Sistemas de ecuaciones lineales, eliminación de Gauss y Gauss-Jordan (1.1–1.2)](algebra/clase_01.qmd)
+- [**Clase 2:** Sistemas homogéneos (1.4)](algebra/clase_02.qmd)
+
+### Unidad 2 · Vectores y matrices
+
+- [**Clase 3:** Vectores y matrices: definiciones y operaciones (2.1)](algebra/clase_03.qmd)
+- [**Clase 4:** Producto punto y producto de matrices (2.2)](algebra/clase_04.qmd)
+- [**Clase 5:** Matrices y sistemas de ecuaciones lineales (2.3)](algebra/clase_05.qmd)
+- [**Clase 6:** Inversa de una matriz cuadrada (2.4)](algebra/clase_06.qmd)
+- [**Clase 7:** Transpuesta de una matriz (2.5)](algebra/clase_07.qmd)
+
+### Unidad 3 · Determinantes
+
+- [**Clase 8:** Determinantes: menores, cofactores y expansión de Laplace (3.1)](algebra/clase_08.qmd)
+- [**Clase 9:** Propiedades de los determinantes (3.2)](algebra/clase_09.qmd)
+- [**Clase 10:** Determinantes, inversas y regla de Cramer (3.3–3.4)](algebra/clase_10.qmd)
+
+### Unidad 4 · Vectores en $\mathbb R^n$, rectas y planos
+
+- [**Clase 11:** Vectores en el plano, producto escalar y proyecciones (4.1–4.2)](algebra/clase_11.qmd)
+- [**Clase 12:** Vectores en el espacio y producto cruz (4.3–4.4)](algebra/clase_12.qmd)
+- [**Clase 13:** Rectas en el espacio (4.5, parte 1)](algebra/clase_13.qmd)
+- [**Clase 14:** Planos en el espacio (4.5, parte 2)](algebra/clase_14.qmd)
+- [**Clase 15:** Proyecciones y distancias (documento adicional)](algebra/clase_15.qmd)
+
+### Unidad 5 · Espacios vectoriales
+
+- [**Clase 16:** Espacios vectoriales y subespacios (5.1–5.2)](algebra/clase_16.qmd)
+- [**Clase 17:** Combinación lineal y espacio generado (5.3)](algebra/clase_17.qmd)
+- [**Clase 18:** Independencia lineal (5.4)](algebra/clase_18.qmd)
+- [**Clase 19:** Bases, dimensión, coordenadas y cambio de base (5.5)](algebra/clase_19.qmd)
+- [**Clase 20:** Rango, nulidad, espacio renglón y espacio columna (5.7)](algebra/clase_20.qmd)
+- [**Clase 21:** Complemento: bases ortonormales y Gram-Schmidt](algebra/clase_21.qmd)
+
+### Unidad 6 · Transformaciones lineales
+
+- [**Clase 22:** Transformaciones lineales: definición y ejemplos (7.1)](algebra/clase_22.qmd)
+- [**Clase 23:** Núcleo e imagen (7.2)](algebra/clase_23.qmd)
+- [**Clase 24:** Representación matricial (7.3)](algebra/clase_24.qmd)
+
+### Unidad 7 · Valores propios y diagonalización
+
+- [**Clase 25:** Valores y vectores propios (8.1)](algebra/clase_25.qmd)
+- [**Clase 26:** Matrices semejantes y diagonalización (8.3)](algebra/clase_26.qmd)
+
+## Laboratorios
+
+Códigos en **MATLAB** (compatibles con GNU Octave) para cada unidad, divididos por secciones del cronograma.
+
+- [**Laboratorio 01:** Sistemas de ecuaciones lineales: `rref`, `\`, Gauss-Jordan paso a paso y sistemas homogéneos](alli_laboratorios/lab_01.qmd)
+- [**Laboratorio 02:** Vectores y matrices: operaciones, producto, potencias, inversa y transpuesta](alli_laboratorios/lab_02.qmd)
+- [**Laboratorio 03:** Determinantes: cofactores, propiedades, adjunta y regla de Cramer](alli_laboratorios/lab_03.qmd)
+- [**Laboratorio 04:** Vectores, rectas, planos y distancias, con gráficas 2D y 3D](alli_laboratorios/lab_04.qmd)
+- [**Laboratorio 05:** Espacios vectoriales: generado, independencia, bases, coordenadas, rango y Gram-Schmidt](alli_laboratorios/lab_05.qmd)
+- [**Laboratorio 06:** Transformaciones lineales: matriz estándar, núcleo, imagen y geometría](alli_laboratorios/lab_06.qmd)
+- [**Laboratorio 07:** Valores propios y diagonalización: `eig`, multiplicidades y potencias](alli_laboratorios/lab_07.qmd)
+
+## Parciales y talleres
+
+Evaluaciones y talleres del semestre, organizados por corte: **[ver parciales y talleres](../evaluaciones/algebra_lineal.qmd)**.
+
+- **Parciales:** intermedia y final del primer corte; intermedia, final y supletorio del segundo corte.
+- **Talleres:** 1.1, 1.2, 2.1, 2.2 y 3.1.
+
+## Chatbot para la asignatura
+
+- [Preguntas y respuestas **Álgebra Lineal**](https://notebook.google.com/notebook/61688584-62b3-45db-80e2-43216972214a){target="_blank"}
+
+Es un cuaderno de Gemini preparado con el material del curso. Puede hacerle preguntas sobre los temas, pedir que le explique un paso o que le proponga ejercicios similares a los de clase. Es de **solo consulta**: no se pueden agregar ni modificar sus fuentes. Úselo como apoyo, y verifique siempre los resultados con lo visto en clase.
+
+## Cronograma de evaluaciones
+
+| Corte | Evaluación | Secciones | Clases |
+|:---:|---|---|---|
+| 1 | Evaluación intermedia del primer tercio | 1.1 – 2.3 | 1 – 5 |
+| 1 | Evaluación final del primer tercio | 1.1 – 3.1 | 1 – 8 |
+| 2 | Evaluación intermedia del segundo tercio | 3.2 – 4.3 | 9 – 12 |
+| 2 | Evaluación final del segundo tercio | 3.2 – 5.1 | 9 – 16 |
+| 3 | Evaluación intermedia 1 del tercer tercio | 5.3 – 5.5 | 17 – 19 |
+| 3 | Evaluación intermedia 2 del tercer tercio | 5.7 – 7.3 | 20 – 24 |
+| — | Examen final de semestre | todo el curso | 1 – 26 |
+Las fechas exactas y las evaluaciones en línea se anuncian en clase.
+
+## Recursos
+
+- **Texto guía:** Grossman, S. I., & Flores Godoy, J. J. (2019). *Álgebra lineal* (8.ª ed.). McGraw-Hill. Disponible en la biblioteca de la universidad. Cada presentación indica los ejercicios del texto sugeridos por el departamento.
+- **Software:** [MATLAB Online](https://matlab.mathworks.com){target="_blank"} (con la cuenta institucional) o [GNU Octave](https://octave.org){target="_blank"} (gratuito).
+
+## Bibliografía complementaria
+
+- Lay, D. C., Lay, S. R., & McDonald, J. J. (2016). *Álgebra lineal y sus aplicaciones* (5.ª ed.). Pearson.
+- Strang, G. (2016). *Introduction to linear algebra* (5.ª ed.). Wellesley-Cambridge Press.
+- Anton, H., & Rorres, C. (2014). *Elementary linear algebra: Applications version* (11.ª ed.). Wiley.
+
