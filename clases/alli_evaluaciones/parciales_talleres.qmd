@@ -11,7 +11,7 @@ Material de evaluación de **Álgebra Lineal (ALLI)** del periodo 2026-2, en la 
 1. Identifique en la tabla qué **secciones** cubre cada evaluación.
 2. Repase la clase correspondiente y haga los ejercicios propuestos.
 3. Resuelva el parcial o taller con tiempo limitado, como si fuera el examen.
-4. Verifique sus cálculos con los [laboratorios de MATLAB](../algebra_lineal.qmd#laboratorios).
+4. Verifique sus cálculos con los [laboratorios de GNU Octave](../algebra_lineal.qmd#laboratorios).
 :::
 
 ## Parciales

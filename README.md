@@ -16,7 +16,7 @@ Sitio web de clases y tutoriales, construido con [Quarto](https://quarto.org) y 
 │   │   ├── alli.scss                Tema visual (cajas de definición, teorema, demostración…)
 │   │   ├── clase_01.qmd … clase_26.qmd
 │   │   └── img/                     Figuras SVG + generar_figuras.py y generar_figuras_2.py
-│   ├── alli_laboratorios/           Laboratorios MATLAB por unidad (lab_01.qmd … lab_07.qmd)
+│   ├── alli_laboratorios/           Laboratorios de GNU Octave por unidad (lab_01.qmd … lab_07.qmd)
 │   ├── alli_evaluaciones/           Parciales y talleres de ALLI (PDF + guía)
 │   ├── metodologia_investigacion.qmd
 │   └── metodologia/

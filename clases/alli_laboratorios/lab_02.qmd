@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 02 · Vectores y matrices"
-subtitle: "Álgebra Lineal · Unidad 2 · Secciones 2.1 a 2.5 en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 2 · Secciones 2.1 a 2.5 en GNU Octave"
 description: "Operaciones con matrices, producto matricial, potencias, inversa y transpuesta."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [3](../algebra/clase_03.qmd) · [4](../algebra/clase_04.qmd) · [5](../algebra/clase_05.qmd) · [6](../algebra/clase_06.qmd) · [7](../algebra/clase_07.qmd)
+Código para **GNU Octave** (gratuito; también funciona en MATLAB). Si aún no lo tiene, siga el [tutorial de instalación de GNU Octave](../../tutoriales/tutorial_octave.qmd). **Clases relacionadas:** [3](../algebra/clase_03.qmd) · [4](../algebra/clase_04.qmd) · [5](../algebra/clase_05.qmd) · [6](../algebra/clase_06.qmd) · [7](../algebra/clase_07.qmd)
 :::
 
 ## 2.1 Vectores y matrices: definiciones generales

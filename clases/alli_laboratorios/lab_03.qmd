@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 03 · Determinantes"
-subtitle: "Álgebra Lineal · Unidad 3 · Secciones 3.1 a 3.4 en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 3 · Secciones 3.1 a 3.4 en GNU Octave"
 description: "det, menores y cofactores, propiedades, matriz adjunta y regla de Cramer."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [8](../algebra/clase_08.qmd) · [9](../algebra/clase_09.qmd) · [10](../algebra/clase_10.qmd)
+Código para **GNU Octave** (gratuito; también funciona en MATLAB). Si aún no lo tiene, siga el [tutorial de instalación de GNU Octave](../../tutoriales/tutorial_octave.qmd). **Clases relacionadas:** [8](../algebra/clase_08.qmd) · [9](../algebra/clase_09.qmd) · [10](../algebra/clase_10.qmd)
 :::
 
 ## 3.1 Determinantes: definiciones
@@ -23,7 +23,7 @@ d = B(1,1)*B(2,2)*B(3,3) + B(1,2)*B(2,3)*B(3,1) + B(1,3)*B(2,1)*B(3,2) ...
 
 ### Menores, cofactores y expansión de Laplace
 
-El menor $M_{ij}$ se obtiene **borrando** la fila $i$ y la columna $j$. En MATLAB, una fila o columna se borra asignándole `[]`.
+El menor $M_{ij}$ se obtiene **borrando** la fila $i$ y la columna $j$. En Octave, una fila o columna se borra asignándole `[]`.
 
 ```{.matlab filename="lab03_s31_cofactores.m"}
 A = [3 -1 2; 4 5 6; 7 1 2];
@@ -110,7 +110,7 @@ norm(Ainv - inv(A))           % ~ 0
 
 ::: {.callout-note}
 ## Dato
-Las versiones recientes de MATLAB (R2020a o posterior) incluyen `adjoint(A)`, que calcula la adjunta directamente. El ciclo anterior funciona en cualquier versión y en Octave.
+Octave no trae una función para la adjunta: por eso se construye con el ciclo anterior. Si $A$ es invertible, también se puede comprobar con `det(A)*inv(A)`. (En MATLAB R2020a o posterior existe `adjoint(A)`.)
 :::
 
 ## 3.4 Regla de Cramer

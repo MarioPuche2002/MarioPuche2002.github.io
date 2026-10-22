@@ -1,6 +1,6 @@
 ---
 title: "Álgebra Lineal"
-description: "Sitio de la asignatura Álgebra Lineal (ALLI) en la Universidad Escuela Colombiana de Ingeniería Julio Garavito: presentaciones, laboratorios en MATLAB, parciales, talleres y chatbot."
+description: "Sitio de la asignatura Álgebra Lineal (ALLI) en la Universidad Escuela Colombiana de Ingeniería Julio Garavito: presentaciones, laboratorios en GNU Octave, parciales, talleres y chatbot."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-10-16
 image: ../imagenes/portada_algebra.jpg
@@ -10,7 +10,7 @@ image: ../imagenes/portada_algebra.jpg
 
 El álgebra lineal estudia los sistemas de ecuaciones lineales, las matrices, los vectores y las transformaciones que preservan la suma y la multiplicación por escalares. Es el lenguaje de base de la ingeniería, la estadística, la computación gráfica y el aprendizaje automático.
 
-El curso sigue el cronograma del Departamento de Matemáticas (periodo 2026-2) y el texto guía de Grossman y Flores. Está organizado en **siete unidades**. Cada clase es una **presentación** con teoría, demostraciones, ejemplos resueltos y ejercicios con solución; los **laboratorios** muestran cómo hacer los mismos cálculos en MATLAB.
+El curso sigue el cronograma del Departamento de Matemáticas (periodo 2026-2) y el texto guía de Grossman y Flores. Está organizado en **siete unidades**. Cada clase es una **presentación** con teoría, demostraciones, ejemplos resueltos y ejercicios con solución; los **laboratorios** muestran cómo hacer los mismos cálculos en GNU Octave.
 
 ::: {.callout-tip}
 ## Cómo usar las presentaciones
@@ -68,7 +68,7 @@ Se navegan con las flechas del teclado o deslizando en el celular. La tecla **F*
 
 ## Laboratorios
 
-Códigos en **MATLAB** (compatibles con GNU Octave) para cada unidad, divididos por secciones del cronograma.
+Códigos en **GNU Octave** (gratuito y de código abierto; el mismo código funciona en MATLAB) para cada unidad, divididos por secciones del cronograma. Antes del primer laboratorio, instale Octave con el [tutorial de instalación y configuración](../tutoriales/tutorial_octave.qmd).
 
 - [**Laboratorio 01:** Sistemas de ecuaciones lineales: `rref`, `\`, Gauss-Jordan paso a paso y sistemas homogéneos](alli_laboratorios/lab_01.qmd)
 - [**Laboratorio 02:** Vectores y matrices: operaciones, producto, potencias, inversa y transpuesta](alli_laboratorios/lab_02.qmd)
@@ -120,7 +120,7 @@ Las fechas exactas y las evaluaciones en línea se anuncian en clase.
 ## Recursos
 
 - **Texto guía:** Grossman, S. I., & Flores Godoy, J. J. (2019). *Álgebra lineal* (8.ª ed.). McGraw-Hill. Disponible en la biblioteca de la universidad. Cada presentación indica los ejercicios del texto sugeridos por el departamento.
-- **Software:** [MATLAB Online](https://matlab.mathworks.com){target="_blank"} (con la cuenta institucional) o [GNU Octave](https://octave.org){target="_blank"} (gratuito).
+- **Software:** [GNU Octave](https://octave.org){target="_blank"}, gratuito. Guía paso a paso: [instalación y configuración de GNU Octave](../tutoriales/tutorial_octave.qmd). Sin instalar nada, también puede usar [Octave Online](https://octave-online.net){target="_blank"} desde el navegador.
 
 ## Bibliografía complementaria
 

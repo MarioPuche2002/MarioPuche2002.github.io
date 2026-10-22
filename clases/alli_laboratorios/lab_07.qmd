@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 07 · Valores propios y diagonalización"
-subtitle: "Álgebra Lineal · Unidad 7 · Secciones 8.1 y 8.3 en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 7 · Secciones 8.1 y 8.3 en GNU Octave"
 description: "Polinomio característico, eig, espacios propios, multiplicidades, diagonalización y potencias."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [25](../algebra/clase_25.qmd) · [26](../algebra/clase_26.qmd)
+Código para **GNU Octave** (gratuito; también funciona en MATLAB). Si aún no lo tiene, siga el [tutorial de instalación de GNU Octave](../../tutoriales/tutorial_octave.qmd). **Clases relacionadas:** [25](../algebra/clase_25.qmd) · [26](../algebra/clase_26.qmd)
 :::
 
 ## 8.1 Valores y vectores propios

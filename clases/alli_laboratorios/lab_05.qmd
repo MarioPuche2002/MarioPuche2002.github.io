@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 05 · Espacios vectoriales"
-subtitle: "Álgebra Lineal · Unidad 5 · Secciones 5.1 a 5.7 y Gram-Schmidt en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 5 · Secciones 5.1 a 5.7 y Gram-Schmidt en GNU Octave"
 description: "Subespacios, espacio generado, independencia lineal, bases, coordenadas, cambio de base, rango, nulidad y Gram-Schmidt."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [16](../algebra/clase_16.qmd) · [17](../algebra/clase_17.qmd) · [18](../algebra/clase_18.qmd) · [19](../algebra/clase_19.qmd) · [20](../algebra/clase_20.qmd) · [21](../algebra/clase_21.qmd)
+Código para **GNU Octave** (gratuito; también funciona en MATLAB). Si aún no lo tiene, siga el [tutorial de instalación de GNU Octave](../../tutoriales/tutorial_octave.qmd). **Clases relacionadas:** [16](../algebra/clase_16.qmd) · [17](../algebra/clase_17.qmd) · [18](../algebra/clase_18.qmd) · [19](../algebra/clase_19.qmd) · [20](../algebra/clase_20.qmd) · [21](../algebra/clase_21.qmd)
 :::
 
 ::: {.callout-tip}
@@ -137,7 +137,7 @@ baseNulo = [2 -2; 1 0; 0 -1; 0 1]   % columnas (2,1,0,0) y (-2,0,-1,1)
 A * baseNulo                         % matriz cero
 format short
 
-% Comparación con funciones de MATLAB (bases ortonormales)
+% Comparación con funciones de Octave (bases ortonormales)
 size(null(A), 2)          % 2 = nulidad
 size(orth(A), 2)          % 2 = rango
 ```
@@ -168,7 +168,7 @@ round(V' * V * 1e10) / 1e10   % diagonal: columnas ortogonales
 W = V ./ vecnorm(V)     % normalizar cada columna (R2017b+; en Octave también)
 round(W' * W * 1e10) / 1e10   % identidad: base ortonormal
 
-% MATLAB lo hace con la factorización QR (columnas iguales salvo el signo)
+% Octave lo hace con la factorización QR (columnas iguales salvo el signo)
 [Q, Rq] = qr(U);
 norm(abs(Q) - abs(W))   % ~ 0
 ```

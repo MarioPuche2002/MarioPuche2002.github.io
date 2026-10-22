@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 01 · Sistemas de ecuaciones lineales"
-subtitle: "Álgebra Lineal · Unidad 1 · Secciones 1.1, 1.2 y 1.4 en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 1 · Secciones 1.1, 1.2 y 1.4 en GNU Octave"
 description: "Matrices aumentadas, rref, división izquierda para resolver sistemas, Gauss-Jordan paso a paso y sistemas homogéneos."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Puede trabajar en **MATLAB** (licencia de la universidad o [MATLAB Online](https://matlab.mathworks.com)) o en **GNU Octave**, que es gratuito y ejecuta este código sin cambios. Copie cada bloque en un *script* (`.m`) o en la ventana de comandos. Los resultados indicados se obtuvieron ejecutando el código.
+Trabajaremos en **GNU Octave**, gratuito y de código abierto (si aún no lo tiene, siga el [tutorial de instalación y configuración](../../tutoriales/tutorial_octave.qmd)). El mismo código funciona sin cambios en MATLAB. Copie cada bloque en un *script* (`.m`) o en la ventana de comandos. Los resultados indicados se obtuvieron ejecutando el código.
 
 **Clases relacionadas:** [Clase 1](../algebra/clase_01.qmd) · [Clase 2](../algebra/clase_02.qmd)
 :::
@@ -56,11 +56,11 @@ legend('x + y = 5', '2x - y = 1', 'solución (2, 3)')
 title('Sistema 2x2 con solución única')
 ```
 
-**Actividad.** Modifique `b` y `A` para obtener (a) rectas paralelas, $x+y=3$, $x+y=5$; (b) rectas coincidentes, $2x+2y=6$, $x+y=3$. ¿Qué devuelve `det(A)`? ¿Qué advierte MATLAB al usar `A\b`?
+**Actividad.** Modifique `b` y `A` para obtener (a) rectas paralelas, $x+y=3$, $x+y=5$; (b) rectas coincidentes, $2x+2y=6$, $x+y=3$. ¿Qué devuelve `det(A)`? ¿Qué advierte Octave al usar `A\b`?
 
 ::: {.callout-tip collapse="true"}
 ## Respuesta
-En ambos casos `det(A)` es `0` y MATLAB advierte que la matriz es **singular**: `A\b` no es confiable. Para analizar estos casos se usa `rref([A b])` (sección siguiente): en (a) aparece la fila `0 0 1` (inconsistente) y en (b) la fila `0 0 0` (infinitas soluciones).
+En ambos casos `det(A)` es `0` y Octave advierte que la matriz es **singular**: `A\b` no es confiable. Para analizar estos casos se usa `rref([A b])` (sección siguiente): en (a) aparece la fila `0 0 1` (inconsistente) y en (b) la fila `0 0 0` (infinitas soluciones).
 :::
 
 ## 1.2 Eliminación de Gauss-Jordan

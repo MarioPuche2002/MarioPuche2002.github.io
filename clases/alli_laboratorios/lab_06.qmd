@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 06 · Transformaciones lineales"
-subtitle: "Álgebra Lineal · Unidad 6 · Secciones 7.1 a 7.3 en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 6 · Secciones 7.1 a 7.3 en GNU Octave"
 description: "Funciones anónimas, prueba de linealidad, matriz estándar, núcleo e imagen, transformaciones geométricas y composición."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [22](../algebra/clase_22.qmd) · [23](../algebra/clase_23.qmd) · [24](../algebra/clase_24.qmd)
+Código para **GNU Octave** (gratuito; también funciona en MATLAB). Si aún no lo tiene, siga el [tutorial de instalación de GNU Octave](../../tutoriales/tutorial_octave.qmd). **Clases relacionadas:** [22](../algebra/clase_22.qmd) · [23](../algebra/clase_23.qmd) · [24](../algebra/clase_24.qmd)
 :::
 
 ## 7.1 Transformaciones lineales: definición y ejemplos
@@ -59,7 +59,7 @@ rank(B)                               % 2 = dim R^2 -> sobreyectiva
 format short
 ```
 
-**Actividad.** La derivación $D:P_3\to P_2$ tiene matriz `D = [0 1 0 0; 0 0 2 0; 0 0 0 3]` respecto a las bases canónicas. Halle su rango y nulidad con MATLAB e interprete el núcleo.
+**Actividad.** La derivación $D:P_3\to P_2$ tiene matriz `D = [0 1 0 0; 0 0 2 0; 0 0 0 3]` respecto a las bases canónicas. Halle su rango y nulidad con Octave e interprete el núcleo.
 
 ::: {.callout-tip collapse="true"}
 ## Respuesta

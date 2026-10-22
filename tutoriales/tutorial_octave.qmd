@@ -1,0 +1,345 @@
+---
+title: "GNU Octave: instalación y configuración"
+subtitle: "Instalación en Windows, macOS y Linux, primeros pasos, configuración y paquetes"
+description: "Guía paso a paso para instalar y configurar GNU Octave, la alternativa libre y gratuita a MATLAB: instalación en Windows, macOS y Linux, uso desde el navegador, la interfaz gráfica, el archivo de inicio .octaverc, paquetes como symbolic y un script para verificar que todo funciona."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-22
+image: ../imagenes/portada_octave.jpg
+categories: [Octave, Álgebra lineal, Entornos]
+---
+
+## Introducción
+
+**GNU Octave** es un lenguaje y un entorno de cálculo numérico, libre y gratuito, cuya sintaxis es casi idéntica a la de MATLAB. Con él se resuelven sistemas de ecuaciones, se opera con matrices, se calculan determinantes, valores propios y se hacen gráficas en 2D y 3D. Es el software de los [laboratorios de Álgebra Lineal](../clases/algebra_lineal.qmd#laboratorios).
+
+**Objetivos de aprendizaje.** Al finalizar este tutorial, el estudiante estará en capacidad de:
+
+1. Explicar qué es GNU Octave y en qué se diferencia de MATLAB.
+2. Instalar Octave en Windows, macOS o Linux, o usarlo desde el navegador sin instalar nada.
+3. Reconocer las ventanas de la interfaz gráfica y configurar idioma, fuente y carpeta de trabajo.
+4. Personalizar el arranque con el archivo `.octaverc`.
+5. Listar, instalar y cargar paquetes (por ejemplo, `symbolic`).
+6. Verificar la instalación con un script de prueba.
+
+::: {.callout-note}
+## Versión de referencia
+Este tutorial se escribió con **GNU Octave 11.3.0**, la versión estable más reciente en octubre de 2026. Las instrucciones sirven también para versiones 9 y 10, salvo donde se indique.
+:::
+
+## Parte 1 · Conceptos
+
+### Octave y MATLAB
+
+| | GNU Octave | MATLAB |
+|---|---|---|
+| Licencia | Libre (GPL), **gratuito** | Comercial (licencia institucional o paga) |
+| Lenguaje | Compatible con la gran mayoría del código MATLAB | — |
+| Archivos | Scripts y funciones `.m` | Scripts y funciones `.m` |
+| Interfaz | Ventana de comandos, editor, explorador, espacio de trabajo | Similar |
+| Extras | Paquetes de la comunidad (`pkg`) | *Toolboxes* comerciales |
+| En línea | [Octave Online](https://octave-online.net){target="_blank"} | MATLAB Online |
+
+Para Álgebra Lineal (matrices, `rref`, `det`, `inv`, `eig`, `rank`, `null`, gráficas) **todo funciona igual**. Los códigos de los laboratorios se probaron en Octave.
+
+### Conceptos básicos
+
+- **Ventana de comandos:** donde se escriben instrucciones una por una después del símbolo `>>`.
+- **Script:** archivo `.m` con varias instrucciones que se ejecutan en orden.
+- **Carpeta de trabajo (*current directory*):** la carpeta donde Octave busca y guarda sus archivos.
+- **Paquete:** conjunto de funciones adicionales que se instala y se carga con `pkg`.
+
+## Parte 2 · Instalación
+
+Elija **una** de las opciones según su sistema operativo. Si no puede instalar nada, use la opción en línea.
+
+## Windows
+
+1. Entre a [octave.org/download](https://octave.org/download){target="_blank"} y, en la sección **Windows**, descargue el instalador **`octave-11.3.0-w64-installer.exe`** (unos 540 MB).
+2. Ejecute el instalador. Si Windows muestra "Windows protegió su PC", pulse **Más información → Ejecutar de todas formas**.
+3. Acepte la licencia y deje las opciones por defecto. Se recomienda **no** cambiar la carpeta de instalación.
+4. Al terminar, en el menú Inicio aparece **Octave (GUI)**. Ábralo.
+
+::: {.callout-tip}
+## ¿Cuál instalador elijo?
+Use el **w64** normal. La versión "w64-64" (álgebra lineal con enteros de 64 bits) solo sirve para equipos con más de ~32 GB de memoria y matrices gigantes. Octave ya no ofrece versiones de 32 bits.
+:::
+
+::: {.callout-note}
+## Paquetes incluidos
+El instalador de Windows trae varios paquetes de la comunidad ya incluidos. Puede verlos escribiendo `pkg list` en la ventana de comandos (Parte 5).
+:::
+
+## macOS
+
+No hay instalador oficial `.dmg`. La forma recomendada es **Homebrew**:
+
+1. Abra la aplicación **Terminal** e instale las herramientas de línea de comandos de Apple:
+
+   ```bash
+   xcode-select --install
+   ```
+
+2. Si no tiene Homebrew, instálelo siguiendo las instrucciones de [brew.sh](https://brew.sh){target="_blank"}.
+3. Instale Octave:
+
+   ```bash
+   brew update
+   brew install octave
+   ```
+
+4. Ábralo con interfaz gráfica:
+
+   ```bash
+   octave --gui
+   ```
+
+::: {.callout-tip}
+## Un ícono en Aplicaciones
+Para no abrir la Terminal cada vez: abra **Editor de Scripts**, escriba `do shell script "/opt/homebrew/bin/octave --gui"` y use **Archivo → Exportar…** con formato **Aplicación**, nombre `Octave` y destino **Aplicaciones**. En Mac con procesador Intel la ruta es `/usr/local/bin/octave` (compruébela con `which octave`).
+:::
+
+También se puede instalar con MacPorts (`sudo port install octave`).
+
+## Linux
+
+**Opción A · Flatpak (versión más reciente, cualquier distribución):**
+
+```bash
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.octave.Octave
+flatpak run org.octave.Octave
+```
+
+**Opción B · Repositorio de la distribución (más simple, versión más antigua):**
+
+```bash
+# Ubuntu / Debian
+sudo apt update
+sudo apt install octave
+
+# Fedora
+sudo dnf install octave
+```
+
+Después, ábralo desde el menú de aplicaciones o con `octave --gui`.
+
+## Sin instalar: Octave Online
+
+Si está en un computador donde no puede instalar programas (por ejemplo, en una sala de cómputo), entre a [octave-online.net](https://octave-online.net){target="_blank"}. Funciona en el navegador, sin registro, y ejecuta los códigos de los laboratorios. Tiene límites de tiempo de ejecución, así que úselo como plan B.
+
+## Parte 3 · La interfaz gráfica
+
+Al abrir Octave (GUI) aparecen varias ventanas acopladas:
+
+| Ventana | Para qué sirve |
+|---|---|
+| **Ventana de comandos** (*Command Window*) | Escribir y ejecutar instrucciones con `>>` |
+| **Editor** | Escribir, guardar y ejecutar scripts `.m` |
+| **Explorador de archivos** (*File Browser*) | Ver y cambiar la carpeta de trabajo |
+| **Espacio de trabajo** (*Workspace*) | Ver las variables creadas y sus valores |
+| **Historial de comandos** (*Command History*) | Repetir instrucciones anteriores |
+
+::: {.callout-tip}
+## Si se desordenan las ventanas
+Use **Ventana → Restablecer la disposición predeterminada de las ventanas** (*Window → Reset Default Window Layout*).
+:::
+
+### Primer contacto
+
+Escriba en la ventana de comandos, una línea a la vez:
+
+```matlab
+A = [1 2; 3 4]       % una matriz 2x2
+det(A)               % determinante: -2
+inv(A)               % inversa
+A'                   % transpuesta
+```
+
+Termine una línea con `;` para que **no** se muestre el resultado.
+
+## Parte 4 · Configuración inicial
+
+### Preferencias de la interfaz
+
+Abra **Editar → Preferencias** (*Edit → Preferences*):
+
+- **General → Idioma:** elija *Español* y reinicie Octave para ver los menús en español.
+- **General → Tema / estilo:** puede activar un tema oscuro.
+- **Ventana de comandos → Fuente:** aumente el tamaño (por ejemplo, 12 o 14) para proyectar en clase.
+- **Editor → Mostrar números de línea** y **Resaltar la línea actual**: útiles para encontrar errores.
+
+### Carpeta de trabajo
+
+Cree una carpeta para el curso, por ejemplo `Documentos/ALLI`, y selecciónela como carpeta actual desde la barra superior (ícono de carpeta) o con:
+
+```matlab
+cd ~/Documents/ALLI      % macOS / Linux
+cd C:/Users/SuUsuario/Documents/ALLI   % Windows (use / o \)
+pwd                      % muestra la carpeta actual
+```
+
+Octave solo encuentra los scripts que estén en la carpeta actual o en su *path*.
+
+::: {.callout-warning}
+## Nombres de archivos
+Use nombres **sin espacios, tildes ni ñ** y que **no empiecen con número**: `lab01_sistemas.m` sí; `Lab 1 Álgebra.m` no. Tampoco use nombres de funciones existentes (`det.m`, `inv.m`).
+:::
+
+### El archivo de inicio `.octaverc`
+
+Octave ejecuta automáticamente el archivo `.octaverc` de su carpeta personal cada vez que arranca. Ábralo (o créelo) con:
+
+```matlab
+edit ~/.octaverc
+```
+
+En Windows, la carpeta personal es `C:\Users\SuUsuario`. Escriba, por ejemplo:
+
+```matlab
+% ~/.octaverc — configuración personal de Octave
+cd ~/Documents/ALLI       % empezar siempre en la carpeta del curso
+format short g            % números compactos (use "format rat" para fracciones)
+more off                  % mostrar resultados largos sin paginar
+pkg load symbolic         % cargar el paquete simbólico (si lo tiene instalado)
+```
+
+Guarde, cierre y vuelva a abrir Octave para que tome los cambios. Si alguna línea genera error (por ejemplo, la carpeta no existe), corríjala o bórrela.
+
+### Formatos útiles para Álgebra Lineal
+
+```matlab
+format rat      % fracciones: inv([1 2; 3 4]) muestra -2  1 ; 3/2  -1/2
+format short    % 4 decimales (por defecto)
+format long     % 15 decimales
+```
+
+## Parte 5 · Paquetes
+
+Los paquetes amplían Octave con funciones adicionales.
+
+```matlab
+pkg list                 % paquetes instalados (* = cargado)
+pkg load nombre          % cargar un paquete en la sesión actual
+pkg unload nombre        % descargarlo
+pkg describe nombre      % qué contiene
+```
+
+### Instalar un paquete
+
+Con conexión a internet:
+
+```matlab
+pkg install symbolic         % Octave 11 o posterior
+pkg install -forge symbolic  % Octave 10 o anterior
+pkg search algebra           % buscar paquetes por palabra clave (Octave 11)
+```
+
+En Linux con el repositorio de la distribución también se puede usar el sistema (por ejemplo, `sudo apt install octave-symbolic`).
+
+### El paquete `symbolic`
+
+Permite cálculo simbólico (como en papel): determinantes con parámetros, polinomios característicos, etc. Requiere **Python** con la librería **SymPy**.
+
+```matlab
+pkg load symbolic
+syms k lambda
+A = [1 1 k; 1 k 1; k 1 1];
+factor(det(A))                  % resultado: -(k - 1)^2 (k + 2)
+B = [1 1; -2 4];
+factor(det(lambda*eye(2) - B))  % resultado: (lambda - 2)(lambda - 3)
+```
+
+::: {.callout-note}
+## Si `pkg load symbolic` falla
+Instale Python 3 y luego SymPy (`pip install sympy` en una terminal). En Windows, si Octave no encuentra Python, indíquele la ruta con `setenv("PYTHON", "C:/ruta/a/python.exe")` antes de `pkg load symbolic`. **Los laboratorios del curso no necesitan este paquete**: es opcional.
+:::
+
+## Parte 6 · Verificar la instalación
+
+Cree en su carpeta de trabajo el archivo `verificar_octave.m` (**Archivo → Nuevo script**), pegue el siguiente código, guárdelo y ejecútelo con **F5** o con el botón ▶:
+
+```{.matlab filename="verificar_octave.m"}
+% verificar_octave.m  —  comprueba que Octave quedó bien instalado
+disp('=== Versión ===')
+disp(version())
+
+disp('=== Álgebra lineal ===')
+A = [1 2 3; 2 -1 1; 3 0 -1];
+b = [9; 8; 3];
+x = A \ b                 % solución del sistema: [2; -1; 3]
+R = rref([A b])           % forma escalonada reducida
+d = det(A)                % determinante: 20
+Ainv = inv(A);
+disp(norm(A*Ainv - eye(3)) < 1e-12)   % 1 = la inversa es correcta
+
+disp('=== Gráficas ===')
+t = linspace(0, 2*pi, 200);
+plot(t, sin(t), 'LineWidth', 2); grid on
+title('Si ve esta curva, las gráficas funcionan')
+```
+
+**Resultado esperado:** la versión (por ejemplo `11.3.0`), $x=(2,-1,3)$, la matriz `R` con la identidad a la izquierda y la columna $(2,-1,3)$ a la derecha, $\det A=20$, un `1` y una ventana con la gráfica del seno. Si todo eso aparece, ya puede trabajar en los [laboratorios](../clases/algebra_lineal.qmd#laboratorios).
+
+## Parte 7 · Octave y MATLAB: escribir código compatible
+
+Octave acepta algunas formas propias que **MATLAB no entiende**. Para que su código funcione en ambos (y en los laboratorios), prefiera la forma de la columna izquierda:
+
+| Use (compatible) | Evite (solo Octave) |
+|---|---|
+| `% comentario` | `# comentario` |
+| `~=` | `!=` |
+| `x = x + 1;` | `x += 1;`, `x++` |
+| `end` | `endif`, `endfor`, `endwhile`, `endfunction` |
+| `fprintf('%d\n', x)` | `printf('%d\n', x)` |
+| `'texto'` (comillas simples) | `"texto"` en código que también correrá en MATLAB antiguo |
+
+Algunas funciones de MATLAB no existen en Octave o difieren un poco (por ejemplo, `adjoint` o la opción `null(A,'r')`); en los laboratorios se indica la alternativa cuando aplica.
+
+## Referencia rápida
+
+| Acción | Instrucción |
+|---|---|
+| Ver la versión | `version` |
+| Ayuda de una función | `help rref`, `doc rref` |
+| Carpeta actual / cambiar | `pwd`, `cd carpeta` |
+| Listar archivos | `ls` |
+| Borrar variables / pantalla | `clear`, `clc` |
+| Cerrar figuras | `close all` |
+| Ejecutar un script | escribir su nombre sin `.m`, o **F5** en el editor |
+| Paquetes | `pkg list`, `pkg load symbolic`, `pkg install nombre` |
+| Fracciones | `format rat` |
+| Detener un cálculo | **Ctrl + C** en la ventana de comandos |
+
+## Problemas frecuentes
+
+| Problema | Solución |
+|---|---|
+| `error: 'mi_script' undefined` al ejecutar un script | La carpeta actual no es la del archivo: cámbiela con `cd` o desde el explorador. Revise que el nombre no tenga espacios. |
+| La interfaz no abre en macOS | Abra la Terminal y ejecute `octave --gui`; si dice que no tiene GUI, reinstale con Homebrew. |
+| Las tildes se ven como símbolos raros | Guarde los scripts en **UTF-8** (Preferencias → Editor → Codificación). |
+| Las gráficas no aparecen o se congelan | Escriba `graphics_toolkit` para ver el motor; use `graphics_toolkit qt`. Cierre figuras viejas con `close all`. |
+| `warning: matrix singular to machine precision` | No es un fallo de Octave: la matriz no es invertible. Analice el sistema con `rref([A b])`. |
+| `pkg install` falla | Revise la conexión a internet; en redes de la universidad puede bloquearse. En Windows, varios paquetes ya vienen incluidos (`pkg list`). |
+| La ventana de comandos muestra `--More--` | Pulse **q** para salir y escriba `more off` (o añádalo a `.octaverc`). |
+
+## Ejercicio práctico
+
+1. Instale Octave y ejecute `verificar_octave.m`. Tome una captura de pantalla de la ventana de comandos y de la gráfica.
+2. Configure su `.octaverc` para que Octave inicie en la carpeta del curso con `format short g`.
+3. Calcule con `format rat` la inversa de $\begin{pmatrix}2&1&0\\1&1&1\\0&1&3\end{pmatrix}$ y compárela con la obtenida en la [clase 6](../clases/algebra/clase_06.qmd).
+4. Ejecute el primer bloque del [Laboratorio 01](../clases/alli_laboratorios/lab_01.qmd).
+
+::: {.callout-tip collapse="true"}
+## Respuesta del punto 3
+$$
+\begin{pmatrix}2&-3&1\\-3&6&-2\\1&-2&1\end{pmatrix}
+$$
+:::
+
+## Referencias
+
+- GNU Octave. *Download*. <https://octave.org/download>
+- GNU Octave. *News in Octave 11*. <https://octave.org/NEWS-11.html>
+- Octave Wiki. *Octave for macOS*. <https://wiki.octave.org/Octave_for_macOS>
+- Octave Packages. *symbolic*. <https://gnu-octave.github.io/packages/symbolic/>
+- Flathub. *GNU Octave*. <https://flathub.org/apps/org.octave.Octave>

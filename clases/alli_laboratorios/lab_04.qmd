@@ -1,13 +1,13 @@
 ---
 title: "Laboratorio 04 · Vectores, rectas, planos y distancias"
-subtitle: "Álgebra Lineal · Unidad 4 · Secciones 4.1 a 4.5 y distancias en MATLAB"
+subtitle: "Álgebra Lineal · Unidad 4 · Secciones 4.1 a 4.5 y distancias en GNU Octave"
 description: "Magnitud y dirección, producto punto y cruz, proyecciones, gráficas 2D y 3D, rectas, planos y distancias."
 author: "Mario Andrés Puche Ajiaco"
 ---
 
 ::: {.callout-note}
 ## Antes de empezar
-Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [11](../algebra/clase_11.qmd) · [12](../algebra/clase_12.qmd) · [13](../algebra/clase_13.qmd) · [14](../algebra/clase_14.qmd) · [15](../algebra/clase_15.qmd)
+Código para **GNU Octave** (gratuito; también funciona en MATLAB). Si aún no lo tiene, siga el [tutorial de instalación de GNU Octave](../../tutoriales/tutorial_octave.qmd). **Clases relacionadas:** [11](../algebra/clase_11.qmd) · [12](../algebra/clase_12.qmd) · [13](../algebra/clase_13.qmd) · [14](../algebra/clase_14.qmd) · [15](../algebra/clase_15.qmd)
 :::
 
 ## 4.1 Vectores en el plano
