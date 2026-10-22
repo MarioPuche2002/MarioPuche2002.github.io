@@ -1,6 +1,5 @@
 ---
 title: "Bienvenido"
-subtitle: "Clases y tutoriales de programación, matemáticas, inteligencia artificial y ciencia de datos"
 page-layout: full
 toc: false
 title-block-banner: true
@@ -20,8 +19,6 @@ listing:
     filter-ui: true
     sort-ui: false
 ---
-
-En este sitio reúno el material de mis clases y tutoriales de apoyo para el trabajo del Grupo de Investigación en Inteligencia Artificial en Ciencias Forenses, de la Salud y Veterinaria (GIAFSV), desde los fundamentos de Python hasta la configuración de entornos de programación.
 
 ## Clases
 
