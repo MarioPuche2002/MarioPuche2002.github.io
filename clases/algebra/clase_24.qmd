@@ -1,0 +1,262 @@
+---
+title: "Representación matricial de una transformación lineal"
+subtitle: "Clase 24 · Sección 7.3 · Matriz estándar, matriz respecto a bases y composición"
+---
+
+## Objetivos de la clase
+
+- Construir la **matriz estándar** $A_T$ de una transformación lineal $T:\mathbb R^n\to\mathbb R^m$.
+- Representar transformaciones geométricas (rotaciones, reflexiones, proyecciones) con matrices.
+- Hallar la matriz de $T$ **respecto a bases** arbitrarias, incluso en $P_n$ y $M_{m\times n}$.
+- Relacionar la **composición** de transformaciones con el **producto** de matrices.
+
+## Ruta de la clase (70 min)
+
+| Tiempo | Actividad |
+|:---:|---|
+| 0 – 5 | Repaso: núcleo, imagen y teorema de la dimensión |
+| 5 – 20 | Matriz estándar: columnas $T(\mathbf e_j)$; interpretación geométrica |
+| 20 – 35 | Galería: rotaciones, reflexiones, cizallas y proyecciones |
+| 35 – 50 | Matriz respecto a otras bases; la derivada como matriz |
+| 50 – 70 | Composición y producto; práctica en clase |
+
+## Toda transformación lineal de $\mathbb R^n$ en $\mathbb R^m$ es matricial
+
+::: {.teorema}
+Si $T:\mathbb R^n\to\mathbb R^m$ es lineal, existe una única matriz $A_T$ de tamaño $m\times n$ tal que $T(\mathbf x)=A_T\mathbf x$ para todo $\mathbf x$. Sus columnas son las imágenes de la base canónica:
+$$
+A_T=\Big(T(\mathbf e_1)\;\;T(\mathbf e_2)\;\;\cdots\;\;T(\mathbf e_n)\Big).
+$$
+$A_T$ se llama **matriz de transformación** (o matriz estándar) de $T$.
+:::
+
+. . .
+
+::: {.demo}
+Si $\mathbf x=(x_1,\dots,x_n)^T=x_1\mathbf e_1+\cdots+x_n\mathbf e_n$, por linealidad
+$$
+T(\mathbf x)=x_1T(\mathbf e_1)+\cdots+x_nT(\mathbf e_n)=\Big(T(\mathbf e_1)\;\cdots\;T(\mathbf e_n)\Big)\mathbf x=A_T\mathbf x ,
+$$
+usando que $A\mathbf x$ es la combinación lineal de las columnas de $A$ con pesos $x_i$ (clase 4). La unicidad: si $A\mathbf x=B\mathbf x$ para todo $\mathbf x$, con $\mathbf x=\mathbf e_j$ se obtiene que las columnas $j$ coinciden.
+:::
+
+## Interpretación geométrica
+
+![](img/transformacion.svg){fig-align="center" width="72%"}
+
+Para conocer $T$ basta saber **a dónde van** $\mathbf e_1$ y $\mathbf e_2$: el cuadrado unitario se transforma en el paralelogramo generado por las columnas de $A$, y su área se multiplica por $|\det A|$ (aquí $|\det A|=3$).
+
+## Galería: cada matriz deforma el plano
+
+![](img/tl_galeria.svg){fig-align="center" width="98%"}
+
+Para reconocer una transformación, mire **a dónde van** $\mathbf e_1$ y $\mathbf e_2$: son las columnas de su matriz. La proyección tiene determinante $0$ y "aplasta" la figura sobre una recta.
+
+## Ejemplos resueltos: matrices estándar
+
+::: {.ejemplo}
+$T(x,y)=(x+y,\;x-y,\;3y)$: $\;T(\mathbf e_1)=(1,1,0)$, $T(\mathbf e_2)=(1,-1,3)$, luego $A_T=\begin{pmatrix}1&1\\1&-1\\0&3\end{pmatrix}$.
+:::
+
+. . .
+
+::: {.ejemplo data-t="Geometría en ℝ²"}
+| Transformación | $T(\mathbf e_1)$ | $T(\mathbf e_2)$ | $A_T$ |
+|---|---|---|---|
+| Rotación $90^\circ$ | $(0,1)$ | $(-1,0)$ | $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ |
+| Reflexión respecto a $y=x$ | $(0,1)$ | $(1,0)$ | $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ |
+| Proyección sobre $y=x$ | $\left(\tfrac12,\tfrac12\right)$ | $\left(\tfrac12,\tfrac12\right)$ | $\tfrac12\begin{pmatrix}1&1\\1&1\end{pmatrix}$ |
+| Corte horizontal | $(1,0)$ | $(k,1)$ | $\begin{pmatrix}1&k\\0&1\end{pmatrix}$ |
+:::
+
+. . .
+
+La proyección sobre $y=x$ usa la clase 11: $\operatorname{proy}_{(1,1)}\mathbf e_1=\tfrac{1}{2}(1,1)$.
+
+## Núcleo e imagen desde la matriz
+
+::: {.teorema}
+Si $A_T$ es la matriz de $T:\mathbb R^n\to\mathbb R^m$:
+$$
+\operatorname{nu}T=N_{A_T},\qquad\operatorname{Im}T=C_{A_T},\qquad\nu(T)=\nu(A_T),\qquad\rho(T)=\rho(A_T).
+$$
+:::
+
+. . .
+
+::: {.ejemplo}
+La proyección sobre $y=x$, con $A_T=\tfrac12\begin{pmatrix}1&1\\1&1\end{pmatrix}$: $\;N_A=\operatorname{gen}\{(1,-1)\}$ (la recta perpendicular, que se "aplasta") y $C_A=\operatorname{gen}\{(1,1)\}$ (la recta sobre la que se proyecta). $\;\nu=1$, $\rho=1$, $1+1=2$ ✓.
+:::
+
+## Matriz respecto a bases arbitrarias
+
+::: {.teorema}
+Sean $B_1=\{\mathbf v_1,\dots,\mathbf v_n\}$ base de $V$ y $B_2=\{\mathbf w_1,\dots,\mathbf w_m\}$ base de $W$, y $T:V\to W$ lineal. La matriz
+$$
+A_T=\Big([T(\mathbf v_1)]_{B_2}\;\;[T(\mathbf v_2)]_{B_2}\;\;\cdots\;\;[T(\mathbf v_n)]_{B_2}\Big)
+$$
+cumple $\;[T(\mathbf x)]_{B_2}=A_T\,[\mathbf x]_{B_1}\;$ para todo $\mathbf x\in V$.
+:::
+
+. . .
+
+::: {.obs data-t="Receta"}
+1. Aplique $T$ a cada vector de la base de **salida** $B_1$.
+2. Escriba cada imagen en **coordenadas** de la base de **llegada** $B_2$.
+3. Ponga esas coordenadas como **columnas**.
+:::
+
+## Ejemplo resuelto: la derivada como matriz
+
+::: {.ejemplo}
+Halle la matriz de $D:P_3\to P_2$, $D(p)=p'$, respecto a $B_1=\{1,t,t^2,t^3\}$ y $B_2=\{1,t,t^2\}$. Úsela para derivar $p=2-t+4t^3$.
+:::
+
+. . .
+
+$D(1)=0$, $D(t)=1$, $D(t^2)=2t$, $D(t^3)=3t^2$. En coordenadas de $B_2$: $(0,0,0)$, $(1,0,0)$, $(0,2,0)$, $(0,0,3)$:
+$$
+A_D=\begin{pmatrix}0&1&0&0\\0&0&2&0\\0&0&0&3\end{pmatrix}.
+$$
+
+. . .
+
+$[p]_{B_1}=(2,-1,0,4)^T$ y
+$$
+A_D[p]_{B_1}=\begin{pmatrix}0&1&0&0\\0&0&2&0\\0&0&0&3\end{pmatrix}\begin{pmatrix}2\\-1\\0\\4\end{pmatrix}=\begin{pmatrix}-1\\0\\12\end{pmatrix}\;\Longrightarrow\;p'=-1+12t^2.\ ✓
+$$
+
+## Ejemplo resuelto: otra base en $\mathbb R^2$
+
+::: {.ejemplo}
+Sea $T(x,y)=(2x+y,\;3x-2y)$ y $B=\{(1,1),(1,-1)\}$. Halle $[T]_B$ (misma base de salida y de llegada).
+:::
+
+. . .
+
+$T(1,1)=(3,1)$: $\;c_1+c_2=3$, $c_1-c_2=1\Rightarrow[T(1,1)]_B=(2,1)^T$.
+$T(1,-1)=(1,5)$: $\;c_1+c_2=1$, $c_1-c_2=5\Rightarrow[T(1,-1)]_B=(3,-2)^T$.
+
+. . .
+
+$$
+[T]_B=\begin{pmatrix}2&3\\1&-2\end{pmatrix},\qquad\text{mientras que}\qquad A_T=\begin{pmatrix}2&1\\3&-2\end{pmatrix}.
+$$
+
+. . .
+
+::: {.teorema data-t="Cambio de base"}
+Si $P$ tiene por columnas los vectores de $B$, entonces $[T]_B=P^{-1}A_TP$. Aquí: $P=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$ y $P^{-1}A_TP=\begin{pmatrix}2&3\\1&-2\end{pmatrix}$ ✓. Matrices de la forma $P^{-1}AP$ se llaman **semejantes** (clase 26).
+:::
+
+## Composición y producto de matrices
+
+::: {.teorema}
+Si $T:\mathbb R^n\to\mathbb R^m$ y $S:\mathbb R^m\to\mathbb R^p$ son lineales, entonces $A_{S\circ T}=A_SA_T$. Si $T$ es invertible, $A_{T^{-1}}=A_T^{-1}$.
+:::
+
+. . .
+
+::: {.demo}
+$(S\circ T)(\mathbf x)=S(A_T\mathbf x)=A_S(A_T\mathbf x)=(A_SA_T)\mathbf x$, por la asociatividad del producto. Por la unicidad de la matriz estándar, $A_{S\circ T}=A_SA_T$.
+:::
+
+. . .
+
+::: {.ejemplo}
+Rotar $\alpha$ y luego $\beta$ es rotar $\alpha+\beta$: $R_\beta R_\alpha=R_{\alpha+\beta}$ (clase 4). Reflejar dos veces respecto a $y=x$: $\begin{pmatrix}0&1\\1&0\end{pmatrix}^2=I$, se vuelve al punto de partida.
+:::
+
+. . .
+
+::: {.obs data-t="¡El orden importa!"}
+$S\circ T$ significa "primero $T$, luego $S$", y su matriz es $A_SA_T$ (la de $T$ a la **derecha**).
+:::
+
+## Composición en una figura
+
+![](img/composicion.svg){fig-align="center" width="92%"}
+
+Primero se aplica $T$ (cizalla), luego $S$ (rotación). El resultado es la transformación con matriz $A_SA_T$: el orden de las matrices es el **inverso** al orden en que se leen "primero $T$, luego $S$".
+
+## Ejemplo resuelto: rotación de un vector
+
+::: {.ejemplo}
+Rote el vector $(2,0)$ un ángulo de $30^\circ$ en sentido antihorario y halle la matriz de la rotación.
+:::
+
+. . .
+
+$R_{30^\circ}=\begin{pmatrix}\cos30^\circ&-\operatorname{sen}30^\circ\\\operatorname{sen}30^\circ&\cos30^\circ\end{pmatrix}=\begin{pmatrix}\frac{\sqrt3}{2}&-\frac12\\\frac12&\frac{\sqrt3}{2}\end{pmatrix}$, y
+$$
+R_{30^\circ}\begin{pmatrix}2\\0\end{pmatrix}=\begin{pmatrix}\sqrt3\\1\end{pmatrix}.
+$$
+
+. . .
+
+Comprobación: $\|(\sqrt3,1)\|=2$ (la rotación conserva longitudes) y el ángulo con el eje $x$ es $\arctan\frac{1}{\sqrt3}=30^\circ$ ✓. Además $\det R_\theta=\cos^2\theta+\operatorname{sen}^2\theta=1$: conserva áreas.
+
+## Ejercicios propuestos
+
+::: {.ejercicio data-t="1"}
+Halle la matriz estándar de $T:\mathbb R^3\to\mathbb R^3$ que refleja respecto al plano $xy$ y luego rota $90^\circ$ alrededor del eje $z$.
+:::
+
+::: {.solucion .fragment}
+Reflexión: $F=\operatorname{diag}(1,1,-1)$. Rotación: $R=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}$. La composición (primero $F$) es $RF=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&-1\end{pmatrix}$.
+:::
+
+## Ejercicios propuestos
+
+::: {.ejercicio data-t="2"}
+Sea $T:P_2\to P_2$, $T(p)(t)=p(t+1)$. Halle su matriz respecto a $\{1,t,t^2\}$.
+:::
+
+::: {.solucion .fragment}
+$T(1)=1$, $T(t)=1+t$, $T(t^2)=1+2t+t^2$. Columnas: $\begin{pmatrix}1&1&1\\0&1&2\\0&0&1\end{pmatrix}$.
+:::
+
+## Ejercicios propuestos
+
+::: {.ejercicio data-t="3"}
+Use la matriz del ejercicio 2 para decidir si $T$ es invertible y halle $T^{-1}$.
+:::
+
+::: {.solucion .fragment}
+Es triangular con diagonal de unos: $\det=1\neq0$, invertible. Por la clase 6 (o pensando que la inversa es $p(t)\mapsto p(t-1)$): $A^{-1}=\begin{pmatrix}1&-1&1\\0&1&-2\\0&0&1\end{pmatrix}$.
+:::
+
+## Ejercicios propuestos
+
+::: {.ejercicio data-t="4 · Demostración"}
+Demuestre que si $T:\mathbb R^n\to\mathbb R^n$ es lineal, $T$ es invertible si y solo si $\det A_T\neq0$.
+:::
+
+::: {.solucion .fragment}
+$T$ invertible $\iff$ $T$ inyectiva (clase 23, por ser $V=W$) $\iff\operatorname{nu}T=N_{A_T}=\{\mathbf 0\}\iff\det A_T\neq0$ (teorema de la matriz invertible).
+:::
+
+## Ejercicios del texto guía {.texto-guia}
+
+Grossman y Flores, *Álgebra lineal*, 8.ª ed.:
+
+| Sección | Ejercicios |
+|---|---|
+| 7.3 Representación matricial de una transformación lineal | 4, 11, 22, 38 |
+
+. . .
+
+::: {.obs data-t="Evaluación"}
+Hasta aquí: **Evaluación intermedia 2 del tercer tercio** (secciones 5.7 a 7.3).
+:::
+
+## Resumen
+
+- $A_T=\big(T(\mathbf e_1)\cdots T(\mathbf e_n)\big)$ y $T(\mathbf x)=A_T\mathbf x$.
+- Respecto a bases: columnas $=[T(\mathbf v_j)]_{B_2}$, y $[T(\mathbf x)]_{B_2}=A_T[\mathbf x]_{B_1}$.
+- Misma base $B$ a ambos lados: $[T]_B=P^{-1}A_TP$.
+- Composición ↔ producto: $A_{S\circ T}=A_SA_T$.
+
+<br>
+
+[← Clase 23](clase_23.qmd) · [Programa del curso](../algebra_lineal.qmd) · [Clase 25: Valores y vectores propios →](clase_25.qmd)

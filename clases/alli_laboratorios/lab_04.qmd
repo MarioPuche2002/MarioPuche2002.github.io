@@ -1,0 +1,192 @@
+---
+title: "Laboratorio 04 · Vectores, rectas, planos y distancias"
+subtitle: "Álgebra Lineal · Unidad 4 · Secciones 4.1 a 4.5 y distancias en MATLAB"
+description: "Magnitud y dirección, producto punto y cruz, proyecciones, gráficas 2D y 3D, rectas, planos y distancias."
+author: "Mario Andrés Puche Ajiaco"
+---
+
+::: {.callout-note}
+## Antes de empezar
+Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [11](../algebra/clase_11.qmd) · [12](../algebra/clase_12.qmd) · [13](../algebra/clase_13.qmd) · [14](../algebra/clase_14.qmd) · [15](../algebra/clase_15.qmd)
+:::
+
+## 4.1 Vectores en el plano
+
+```{.matlab filename="lab04_s41_plano.m"}
+u = [3 -4];
+norm(u)                        % magnitud -> 5
+theta = atan2d(u(2), u(1))     % -53.13 grados (atan2d sí respeta el cuadrante)
+mod(theta, 360)                % 306.87 grados, en [0, 360)
+
+% De magnitud y dirección a componentes
+r = 6; ang = 150;
+v = r * [cosd(ang) sind(ang)]  % [-5.1962 3.0000] = (-3*sqrt(3), 3)
+
+% Vector unitario
+w = [2 -3];
+uw = w / norm(w)
+norm(uw)                       % 1
+
+% Dibujar vectores desde el origen
+figure; hold on; grid on; axis equal
+quiver(0, 0, u(1), u(2), 0, 'LineWidth', 2)
+quiver(0, 0, v(1), v(2), 0, 'LineWidth', 2)
+quiver(0, 0, u(1)+v(1), u(2)+v(2), 0, '--', 'LineWidth', 2)   % suma
+legend('u', 'v', 'u + v'); title('Suma de vectores (regla del paralelogramo)')
+```
+
+## 4.2 Producto escalar y proyecciones en $\mathbb R^2$
+
+```{.matlab filename="lab04_s42_proyeccion.m"}
+a = [1 2];  b = [-3 1];
+angulo = acosd(dot(a,b) / (norm(a)*norm(b)))   % 98.13 grados
+
+% ¿Paralelos u ortogonales?
+dot([2 3], [-6 4])                % 0 -> ortogonales
+det([2 -3; -4 6])                 % 0 -> paralelos (en R^2)
+
+% Proyección de v sobre u
+u = [4 1];  v = [2 3];
+p = dot(u,v) / dot(u,u) * u       % [2.5882 0.6471] = (44/17, 11/17)
+q = v - p                         % componente ortogonal
+dot(q, u)                         % ~ 0
+
+figure; hold on; grid on; axis equal
+quiver(0,0,u(1),u(2),0,'LineWidth',2); quiver(0,0,v(1),v(2),0,'LineWidth',2)
+quiver(0,0,p(1),p(2),0,'LineWidth',3); plot([v(1) p(1)], [v(2) p(2)], 'k--')
+legend('u','v','proy_u v'); title('Proyección ortogonal')
+```
+
+**Actividad.** Verifique la desigualdad de Cauchy-Schwarz $|\mathbf u\cdot\mathbf v|\le\|\mathbf u\|\|\mathbf v\|$ con 1000 pares de vectores aleatorios (`randn(1,2)`) y cuente cuántas veces se cumple.
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+```matlab
+cuenta = 0;
+for k = 1:1000
+    u = randn(1,2); v = randn(1,2);
+    cuenta = cuenta + (abs(dot(u,v)) <= norm(u)*norm(v) + 1e-12);
+end
+cuenta      % 1000: se cumple siempre
+```
+:::
+
+## 4.3 Vectores en el espacio
+
+```{.matlab filename="lab04_s43_espacio.m"}
+v = [2 -1 2];
+norm(v)                            % 3
+cosenos = v / norm(v)              % cosenos directores [2/3 -1/3 2/3]
+angulos = acosd(cosenos)           % [48.19 109.47 48.19]
+sum(cosenos.^2)                    % 1
+
+a = [2 -1 3];  b = [1 4 -2];
+acosd(dot(a,b)/(norm(a)*norm(b)))  % 117.81 grados
+
+P = [1 0 2];  Q = [3 1 1];
+norm(Q - P)                        % distancia entre puntos -> sqrt(6)
+```
+
+## 4.4 El producto cruz
+
+```{.matlab filename="lab04_s44_cruz.m"}
+u = [1 -1 2];  v = [2 1 -1];
+w = cross(u, v)                    % [-1 5 3]
+[dot(w,u), dot(w,v)]               % [0 0]: ortogonal a ambos
+cross(v, u)                        % = -w (anticonmutativo)
+
+% Área de un triángulo PQR
+P = [1 0 2];  Q = [3 1 1];  R = [2 2 4];
+n = cross(Q - P, R - P)            % [4 -5 3], normal al plano del triángulo
+area = norm(n) / 2                 % 3.5355 = 5*sqrt(2)/2
+
+% Volumen del paralelepípedo y coplanaridad
+a = [1 2 0];  b = [0 1 3];  c = [2 0 1];
+abs(dot(a, cross(b,c)))            % 13
+abs(det([a; b; c]))                % 13, el mismo valor
+det([1 2 3; 2 1 0; 3 3 3])         % 0 -> coplanares
+```
+
+## 4.5 Rectas y planos en el espacio
+
+```{.matlab filename="lab04_s45_rectas_planos.m"}
+% Recta por P y Q, en forma paramétrica
+P = [2 -1 6];  Q = [3 1 -2];
+d = Q - P                          % vector director [1 2 -8]
+t = linspace(-1, 2, 50)';
+L = P + t*d;                       % cada fila es un punto (requiere R2016b+ u Octave)
+figure; plot3(L(:,1), L(:,2), L(:,3), 'LineWidth', 2); grid on; hold on
+plot3(P(1),P(2),P(3),'ko', Q(1),Q(2),Q(3),'ro')
+xlabel('x'); ylabel('y'); zlabel('z'); title('Recta por dos puntos')
+
+% Plano por tres puntos: n = PQ x PR, d = n . P
+P = [1 2 1];  Q = [-2 3 -1];  R = [1 0 4];
+n = cross(Q - P, R - P)            % [-1 9 6]
+dd = dot(n, P)                     % 23  ->  -x + 9y + 6z = 23
+[dot(n,Q), dot(n,R)]               % [23 23] comprobación
+
+% Dibujar el plano  a x + b y + c z = d  (c distinto de 0)
+[X, Y] = meshgrid(-3:0.5:3);
+Z = (dd - n(1)*X - n(2)*Y) / n(3);
+figure; surf(X, Y, Z); hold on
+plot3([P(1) Q(1) R(1)], [P(2) Q(2) R(2)], [P(3) Q(3) R(3)], 'ro')
+title('Plano por tres puntos')
+
+% Recta de intersección de dos planos
+n1 = [1 -1 1];  n2 = [2 3 -2];      % x - y + z = 1,  2x + 3y - 2z = 4
+dir = cross(n1, n2)                % [-1 4 5]
+format rat
+rref([1 -1 1 1; 2 3 -2 4])         % z libre: x = 7/5 - z/5, y = 2/5 + 4z/5
+format short
+
+% Intersección de recta y plano: (9,-1,3) + t(-5,-1,1) con x - y + z = 4
+P0 = [9 -1 3];  v = [-5 -1 1];  n = [1 -1 1];  d0 = 4;
+t0 = (d0 - dot(n,P0)) / dot(n,v)   % 3
+P0 + t0*v                          % [-6 -4 6]
+```
+
+## Distancias
+
+```{.matlab filename="lab04_distancias.m"}
+% Punto Q al plano a x + b y + c z = d
+Q = [1 2 -1];  n = [2 -1 2];  d = 5;
+D1 = abs(dot(n,Q) - d) / norm(n)              % 7/3 = 2.3333
+
+% Punto Q a la recta P + t v en R^3
+Q = [2 -1 3];  P = [1 0 0];  v = [1 2 2];
+D2 = norm(cross(Q - P, v)) / norm(v)          % sqrt(74)/3 = 2.8674
+pie = P + dot(Q-P, v)/dot(v,v) * v            % punto más cercano de la recta
+norm(Q - pie)                                 % mismo valor
+
+% Entre planos paralelos x + 2y - 2z = 7 y x + 2y - 2z = -3
+D3 = abs(7 - (-3)) / norm([1 2 -2])           % 10/3
+
+% Entre rectas que se cruzan
+P1 = [1 0 0];  v1 = [1 1 0];  P2 = [0 0 3];  v2 = [0 1 1];
+m = cross(v1, v2);
+D4 = abs(dot(P2 - P1, m)) / norm(m)           % 2/sqrt(3) = 1.1547
+```
+
+**Actividad.** Escriba un script que reciba un punto $Q$ y un plano $(a,b,c,d)$ y devuelva la distancia **y** el punto del plano más cercano a $Q$. Pruébelo con $Q=(3,1,-2)$ y $x+2y-2z=4$.
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+```matlab
+Q = [3 1 -2];  n = [1 2 -2];  d = 4;
+D = abs(dot(n,Q) - d) / norm(n)                 % 5/3
+F = Q - (dot(n,Q) - d) / dot(n,n) * n           % [22/9 -1/9 -8/9]
+dot(n, F)                                       % 4: F está en el plano
+```
+:::
+
+## Resumen de comandos
+
+| Comando | Para qué sirve |
+|---|---|
+| `norm(v)` | magnitud |
+| `dot(u,v)`, `cross(u,v)` | producto punto y producto cruz |
+| `atan2d`, `acosd`, `cosd`, `sind` | ángulos en grados |
+| `quiver`, `quiver3` | dibujar vectores |
+| `plot3`, `meshgrid` + `surf` | dibujar rectas y planos |
+
+[← Laboratorio 03](lab_03.qmd) · [Volver al curso](../algebra_lineal.qmd) · [Laboratorio 05 →](lab_05.qmd)

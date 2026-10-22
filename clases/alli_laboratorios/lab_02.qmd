@@ -1,0 +1,195 @@
+---
+title: "Laboratorio 02 · Vectores y matrices"
+subtitle: "Álgebra Lineal · Unidad 2 · Secciones 2.1 a 2.5 en MATLAB"
+description: "Operaciones con matrices, producto matricial, potencias, inversa y transpuesta."
+author: "Mario Andrés Puche Ajiaco"
+---
+
+::: {.callout-note}
+## Antes de empezar
+Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [3](../algebra/clase_03.qmd) · [4](../algebra/clase_04.qmd) · [5](../algebra/clase_05.qmd) · [6](../algebra/clase_06.qmd) · [7](../algebra/clase_07.qmd)
+:::
+
+## 2.1 Vectores y matrices: definiciones generales
+
+```{.matlab filename="lab02_s21_operaciones.m"}
+A = [1 4; -2 -2; 0 -8];
+B = [-4 7; 0 1; 8 -3];
+C = [5 -9; 3 0; 6 1];
+
+S = A + B            % suma entrada a entrada (mismo tamaño)
+E = -A - 2*B + 3*C   % ecuación A + 2B - 3C + E = O  ->  [22 -45; 11 0; 2 17]
+
+% Matrices especiales
+Z  = zeros(2,3)      % matriz cero 2x3
+I3 = eye(3)          % identidad 3x3
+D  = diag([-3 -2 4]) % matriz diagonal
+U  = triu(magic(4))  % parte triangular superior de una matriz
+L  = tril(magic(4))  % parte triangular inferior
+
+% Construir una matriz con una regla: a_ij = 2i - j
+M = zeros(3);
+for i = 1:3
+    for j = 1:3
+        M(i,j) = 2*i - j;
+    end
+end
+M                    % [1 0 -1; 3 2 1; 5 4 3]
+```
+
+### Ecuaciones matriciales y combinaciones lineales
+
+```{.matlab filename="lab02_s21_ecuaciones.m"}
+format rat
+A = [1 -1; 2 3];  B = [-1 0; 2 3];
+X = (11*A - 2*B) / 2      % de 3(2A + B + X) = 5(X - A + B)
+
+% ¿Es A4 = alfa*B4 + beta*C4?  Se convierte en un sistema lineal:
+A4 = [4 7; 6 1];  B4 = [1 1; 2 -1];  C4 = [0 3; 2 1];
+K = [B4(:) C4(:)];        % (:) apila las columnas en un vector
+rref([K A4(:)])           % aparece [0 0 1] -> no es combinación lineal
+format short
+```
+
+## 2.2 Productos vectorial y matricial
+
+::: {.callout-warning}
+## El error más común
+`A*B` es el **producto matricial**. `A.*B` es el producto **entrada a entrada** (no es el de álgebra lineal). Lo mismo con `A^2` (que es `A*A`) frente a `A.^2` (cada entrada al cuadrado).
+:::
+
+```{.matlab filename="lab02_s22_productos.m"}
+u = [1 -2 3 4];  v = [2 3 -2 1];
+dot(u, v)            % producto punto -> -6
+u * v'               % lo mismo, como matriz 1x4 por 4x1
+
+A = [1 2 -1; 3 1 4];          % 2x3
+B = [-2 5; 4 -3; 2 1];        % 3x2
+A * B                % 2x2 -> [4 -2; 6 16]
+B * A                % 3x3 -> el producto NO es conmutativo
+A(1,:) * B(:,2)      % una sola entrada: (AB)_12 -> -2
+
+% A*x como combinación lineal de columnas
+A2 = [2 -1 -3; 4 2 -2];  x = [2; -3; 4];
+A2 * x                                   % [-5; -6]
+2*A2(:,1) - 3*A2(:,2) + 4*A2(:,3)        % lo mismo
+
+% Divisores de cero y no cancelación
+P = [1 1; 1 1];  Q = [1 -1; -1 1];
+P * Q                % matriz cero aunque P y Q no lo son
+```
+
+### Potencias y una conjetura
+
+```{.matlab filename="lab02_s22_potencias.m"}
+A = [1 0; 3 1];
+for n = 1:5
+    fprintf('n = %d:\n', n); disp(A^n)   % observe la entrada (2,1): 3n
+end
+A^850 - A^250                % [0 0; 1800 0]
+
+% Rotaciones: R(a)*R(b) = R(a+b)
+R = @(t) [cos(t) -sin(t); sin(t) cos(t)];
+norm(R(pi/6)*R(pi/4) - R(pi/6 + pi/4))   % ~ 0
+norm(R(pi/5)^5 - R(pi))                  % ~ 0: cinco rotaciones de 36° = 180°
+```
+
+**Actividad.** Compruebe numéricamente que $(A+B)^2\neq A^2+2AB+B^2$ con matrices aleatorias `A = randi(5,2)`, `B = randi(5,2)`. ¿Cuándo sí se cumple la igualdad?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+`(A+B)^2 - (A^2 + 2*A*B + B^2)` es igual a `B*A - A*B`, que en general no es cero. La igualdad se cumple exactamente cuando $AB=BA$ (por ejemplo, si $B=I$ o si ambas son diagonales).
+:::
+
+## 2.3 Matrices y sistemas de ecuaciones lineales
+
+```{.matlab filename="lab02_s23_sistemas.m"}
+format rat
+% ¿Es b combinación lineal de las columnas de A?
+A = [1 2 -1; 2 5 1; 1 3 2];
+b = [1; 4; 3];
+rref([A b])            % consistente -> sí (b = -3 a1 + 2 a2)
+c = [1; 4; 4];
+rref([A c])            % fila [0 0 0 1] -> no
+
+% Producto por bloques
+P  = [1 2; 3 4];
+Ab = [P zeros(2,1); zeros(1,2) 5]   % matriz diagonal por bloques
+Ab^2                                 % bloques P^2 y 25
+P^2
+format short
+```
+
+## 2.4 Inversa de una matriz cuadrada
+
+```{.matlab filename="lab02_s24_inversa.m"}
+format rat
+A = [1 2; -2 -1];
+inv(A)                 % [-1/3 -2/3; 2/3 1/3]
+
+% Método de Gauss-Jordan: (A | I) -> (I | A^-1)
+G = [2 1 0; 1 1 1; 0 1 3];
+R = rref([G eye(3)]);
+Ginv = R(:, 4:6)       % [2 -3 1; -3 6 -2; 1 -2 1]
+G * Ginv               % identidad
+
+% Una matriz singular
+L = [1 1 2; 2 3 5; 1 2 3];
+rref([L eye(3)])       % la izquierda no llega a I -> no invertible
+rank(L)                % 2 < 3
+
+% Resolver sistemas: es mejor A\b que inv(A)*b (más preciso y rápido)
+H = [1 2; 3 7];  b = [1; 4];
+H \ b                  % [-1; 1]
+
+% Propiedad (AB)^-1 = B^-1 A^-1
+format short
+B = [2 1; 1 1];
+norm(inv(H*B) - inv(B)*inv(H))   % ~ 0 (solo error de redondeo)
+```
+
+## 2.5 Transpuesta de una matriz
+
+```{.matlab filename="lab02_s25_transpuesta.m"}
+A = [5 -2 8; 7 1 0; -4 -7 -6];
+A'                      % transpuesta (en matrices reales, ' y .' coinciden)
+
+B = [1 0 -5 6; 2 8 4 -9];
+size(B), size(B')       % 2x4 y 4x2
+
+% (AB)^T = B^T A^T
+X = randi(9, 2, 3);  Y = randi(9, 3, 4);
+isequal((X*Y)', Y'*X')  % 1 (verdadero)
+
+% Parte simétrica y antisimétrica
+N = [2 4 -1; 0 3 5; 6 1 2];
+S = (N + N')/2          % simétrica
+K = (N - N')/2          % antisimétrica
+issymmetric(S)          % 1
+isequal(K', -K)         % 1
+isequal(S + K, N)       % 1
+
+% A'*A siempre es simétrica
+issymmetric(B' * B)     % 1
+```
+
+**Actividad.** Genere una matriz aleatoria `A = randi([-5 5], 4)` y verifique que `inv(A')` y `inv(A)'` coinciden (salvo redondeo). ¿Qué propiedad de la clase 7 está comprobando?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+`norm(inv(A') - inv(A)')` da un número del orden de $10^{-16}$. Se comprueba que $(A^T)^{-1}=(A^{-1})^T$. (Si `det(A)` sale 0, genere otra matriz.)
+:::
+
+## Resumen de comandos
+
+| Comando | Para qué sirve |
+|---|---|
+| `zeros`, `ones`, `eye`, `diag`, `triu`, `tril` | matrices especiales |
+| `A*B`, `A^k` | producto y potencia matricial |
+| `A.*B`, `A.^k` | operaciones **entrada a entrada** (¡no confundir!) |
+| `dot(u,v)` | producto punto |
+| `inv(A)`, `rref([A eye(n)])` | inversa |
+| `A'` | transpuesta |
+| `issymmetric`, `isequal` | comprobar propiedades |
+
+[← Laboratorio 01](lab_01.qmd) · [Volver al curso](../algebra_lineal.qmd) · [Laboratorio 03 →](lab_03.qmd)

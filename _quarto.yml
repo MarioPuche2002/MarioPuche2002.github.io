@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - "clases/alli_evaluaciones/**/*.pdf"
 
 lang: es
 

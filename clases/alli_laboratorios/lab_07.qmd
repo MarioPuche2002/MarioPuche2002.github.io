@@ -1,0 +1,137 @@
+---
+title: "Laboratorio 07 · Valores propios y diagonalización"
+subtitle: "Álgebra Lineal · Unidad 7 · Secciones 8.1 y 8.3 en MATLAB"
+description: "Polinomio característico, eig, espacios propios, multiplicidades, diagonalización y potencias."
+author: "Mario Andrés Puche Ajiaco"
+---
+
+::: {.callout-note}
+## Antes de empezar
+Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [25](../algebra/clase_25.qmd) · [26](../algebra/clase_26.qmd)
+:::
+
+## 8.1 Valores y vectores propios
+
+### Paso a paso, como en clase
+
+```{.matlab filename="lab07_s81_pasos.m"}
+A = [1 1; -2 4];
+p = poly(A)                 % coeficientes de det(lambda I - A): [1 -5 6]
+lambdas = roots(p)          % [3; 2]
+
+format rat
+for k = 1:numel(lambdas)
+    L = lambdas(k);
+    fprintf('lambda = %g\n', L);
+    disp(rref(A - L*eye(2)))         % sistema homogéneo (A - lambda I) x = 0
+end
+format short
+
+% Comprobación de los vectores obtenidos a mano
+x2 = [1; 1];  x3 = [1; 2];
+[A*x2, 2*x2]                % iguales
+[A*x3, 3*x3]                % iguales
+
+% Traza y determinante
+[sum(lambdas), trace(A)]    % 5 y 5
+[prod(lambdas), det(A)]     % 6 y 6
+```
+
+### Con `eig`
+
+```{.matlab filename="lab07_s81_eig.m"}
+A = [1 1; -2 4];
+eig(A)                      % solo los valores propios
+[V, D] = eig(A)             % columnas de V: vectores propios UNITARIOS; D diagonal
+A*V - V*D                   % ~ 0
+
+% Los vectores de eig están normalizados: para "verlos" como en clase,
+% divida cada columna por su primera entrada no nula
+V ./ V(1,:)                 % columnas (1,1) y (1,2) en algún orden
+
+% Matriz 3x3 con valor propio repetido
+B = [4 -1 6; 2 1 6; 2 -1 8];
+poly(B)                     % [1 -13 40 -36] = (l-2)^2 (l-9)
+real(eig(B))                % 2, 2, 9 (el orden puede variar)
+size(null(B - 2*eye(3)), 2) % multiplicidad geométrica de 2 -> 2
+size(null(B - 9*eye(3)), 2) % multiplicidad geométrica de 9 -> 1
+
+% Rotación de 90°: valores propios complejos
+eig([0 -1; 1 0])            % i y -i: no hay direcciones reales fijas
+```
+
+**Actividad.** Para $C=\begin{pmatrix}3&1\\0&3\end{pmatrix}$, calcule `eig(C)` y `null(C - 3*eye(2))`. ¿Cuántos vectores propios linealmente independientes hay?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+`eig(C)` devuelve `3, 3` (multiplicidad algebraica 2), pero `null(C - 3*eye(2))` tiene **una** columna, proporcional a $(1,0)$: la multiplicidad geométrica es 1. Hay un solo vector propio LI.
+:::
+
+## 8.3 Matrices semejantes y diagonalización
+
+```{.matlab filename="lab07_s83_diagonalizar.m"}
+A = [1 1; -2 4];
+P = [1 1; 1 2];               % vectores propios (calculados a mano) en columnas
+D = P \ A * P                 % diag(2, 3)  =  P^{-1} A P
+
+% Criterio: diagonalizable <=> n vectores propios LI <=> rank(V) = n
+B = [4 -1 6; 2 1 6; 2 -1 8];
+[V, Db] = eig(B);
+rank(V)                       % 3 -> diagonalizable
+norm(B - V*Db/V)              % ~ 0: B = V D V^{-1}
+
+C = [3 1; 0 3];
+[Vc, Dc] = eig(C);
+rank(Vc)                      % 1 (numéricamente) -> NO diagonalizable
+abs(det(Vc))                  % ~ 0: las columnas son casi paralelas
+
+% Matrices semejantes comparten polinomio característico
+Q = [2 1; 1 1];               % cualquier matriz invertible
+[poly(A); poly(Q \ A * Q)]    % filas iguales
+```
+
+### Potencias con la diagonalización
+
+```{.matlab filename="lab07_s83_potencias.m"}
+A = [1 1; -2 4];
+P = [1 1; 1 2];  D = diag([2 3]);
+k = 10;
+Ak1 = A^k;                         % directo
+Ak2 = P * D^k / P;                 % P D^k P^{-1}
+[Ak1; Ak2]                         % iguales: [-57001 58025; -116050 117074]
+
+% Fórmula cerrada de la clase 26
+formula = [2^(k+1) - 3^k, 3^k - 2^k; 2^(k+1) - 2*3^k, 2*3^k - 2^k]
+
+% Aplicación: dinámica x_{k+1} = A x_k
+M = [0.9 0.2; 0.1 0.8];            % matriz de transición (columnas suman 1)
+x = [1000; 0];
+for paso = 1:50
+    x = M * x;
+end
+x'                                  % se estabiliza en ~ [666.7 333.3]
+[V, Dm] = eig(M);
+diag(Dm)'                           % 1 y 0.7: el valor propio 1 domina
+v1 = V(:, abs(diag(Dm) - 1) < 1e-10);
+1000 * v1' / sum(v1)                % estado de equilibrio ~ [666.7 333.3]
+```
+
+**Actividad.** Diagonalice $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$ con `eig` y calcule $A^5$ de dos maneras. ¿Por qué en este caso la matriz $V$ que devuelve `eig` cumple `V' * V = I`?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+$A^5=\begin{pmatrix}122&121\\121&122\end{pmatrix}$. Como $A$ es **simétrica**, sus vectores propios de valores propios distintos son ortogonales y `eig` los devuelve normalizados: $V$ es una matriz ortogonal (clase 21), y $A=VDV^T$.
+:::
+
+## Resumen de comandos
+
+| Comando | Para qué sirve |
+|---|---|
+| `poly(A)` | coeficientes del polinomio característico |
+| `roots(p)` | raíces de un polinomio |
+| `eig(A)`, `[V,D] = eig(A)` | valores y vectores propios |
+| `null(A - L*eye(n))` | espacio propio de $\lambda=L$ |
+| `trace(A)` | traza |
+| `P \ A * P`, `P * D^k / P` | semejanza y potencias |
+
+[← Laboratorio 06](lab_06.qmd) · [Volver al curso](../algebra_lineal.qmd)

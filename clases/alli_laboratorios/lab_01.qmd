@@ -1,0 +1,190 @@
+---
+title: "Laboratorio 01 · Sistemas de ecuaciones lineales"
+subtitle: "Álgebra Lineal · Unidad 1 · Secciones 1.1, 1.2 y 1.4 en MATLAB"
+description: "Matrices aumentadas, rref, división izquierda para resolver sistemas, Gauss-Jordan paso a paso y sistemas homogéneos."
+author: "Mario Andrés Puche Ajiaco"
+---
+
+::: {.callout-note}
+## Antes de empezar
+Puede trabajar en **MATLAB** (licencia de la universidad o [MATLAB Online](https://matlab.mathworks.com)) o en **GNU Octave**, que es gratuito y ejecuta este código sin cambios. Copie cada bloque en un *script* (`.m`) o en la ventana de comandos. Los resultados indicados se obtuvieron ejecutando el código.
+
+**Clases relacionadas:** [Clase 1](../algebra/clase_01.qmd) · [Clase 2](../algebra/clase_02.qmd)
+:::
+
+## 0. Primeros pasos: matrices y vectores
+
+```{.matlab filename="lab01_s0_basico.m"}
+% Una matriz se escribe por filas: espacios (o comas) separan columnas
+% y punto y coma separa filas.
+A = [1 2 3; 2 -1 1; 3 0 -1]      % matriz 3x3
+b = [9; 8; 3]                    % vector columna 3x1
+size(A)                          % tamaño: [filas columnas]
+A(2,3)                           % entrada de la fila 2, columna 3 -> 1
+A(2,:)                           % fila 2 completa
+A(:,1)                           % columna 1 completa
+Ab = [A b]                       % matriz aumentada (A | b)
+```
+
+::: {.callout-tip}
+## Buenas prácticas
+Termine una línea con `;` para **no** imprimir el resultado. Use `clc` para limpiar la pantalla, `clear` para borrar variables y `format rat` para ver fracciones (vuelva con `format short`).
+:::
+
+## 1.1 Dos ecuaciones lineales con dos incógnitas
+
+Resolvemos $x+y=5$, $2x-y=1$ y lo interpretamos gráficamente como la intersección de dos rectas.
+
+```{.matlab filename="lab01_s11_sistema2x2.m"}
+A = [1 1; 2 -1];
+b = [5; 1];
+
+x = A \ b            % operador "barra invertida": resuelve A*x = b
+% x = [2; 3]
+
+det(A)               % si es distinto de 0, la solución es única -> -3
+
+% --- Interpretación geométrica ---
+t = linspace(-1, 5, 100);
+y1 = 5 - t;          % recta 1:  y = 5 - x
+y2 = 2*t - 1;        % recta 2:  y = 2x - 1
+figure; plot(t, y1, 'LineWidth', 2); hold on
+plot(t, y2, 'LineWidth', 2)
+plot(x(1), x(2), 'ko', 'MarkerFaceColor', 'k')
+grid on; axis equal; xlabel('x'); ylabel('y')
+legend('x + y = 5', '2x - y = 1', 'solución (2, 3)')
+title('Sistema 2x2 con solución única')
+```
+
+**Actividad.** Modifique `b` y `A` para obtener (a) rectas paralelas, $x+y=3$, $x+y=5$; (b) rectas coincidentes, $2x+2y=6$, $x+y=3$. ¿Qué devuelve `det(A)`? ¿Qué advierte MATLAB al usar `A\b`?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+En ambos casos `det(A)` es `0` y MATLAB advierte que la matriz es **singular**: `A\b` no es confiable. Para analizar estos casos se usa `rref([A b])` (sección siguiente): en (a) aparece la fila `0 0 1` (inconsistente) y en (b) la fila `0 0 0` (infinitas soluciones).
+:::
+
+## 1.2 Eliminación de Gauss-Jordan
+
+### La función `rref`
+
+`rref` (*reduced row echelon form*) devuelve la **forma escalonada reducida**.
+
+```{.matlab filename="lab01_s12_rref.m"}
+format rat
+% Solución única (clase 1)
+A = [1 2 3; 2 -1 1; 3 0 -1];  b = [9; 8; 3];
+R = rref([A b])            % última columna: x = 2, y = -1, z = 3
+
+% Infinitas soluciones
+A2 = [1 1 1; 1 2 3; 2 3 4];  b2 = [2; 5; 7];
+R2 = rref([A2 b2])         % [1 0 -1 -1; 0 1 2 3; 0 0 0 0] -> z libre
+
+% Inconsistente
+b3 = [2; 5; 8];
+R3 = rref([A2 b3])         % aparece la fila [0 0 0 1] -> 0 = 1
+format short
+```
+
+### Gauss-Jordan paso a paso
+
+Las operaciones elementales se escriben directamente sobre las filas. Así puede **comprobar** cada paso de un ejercicio hecho a mano.
+
+```{.matlab filename="lab01_s12_pasos.m"}
+format rat
+M = [1 2 3 9; 2 -1 1 8; 3 0 -1 3];   % matriz aumentada
+
+M(2,:) = M(2,:) - 2*M(1,:);          % F2 -> F2 - 2F1
+M(3,:) = M(3,:) - 3*M(1,:);          % F3 -> F3 - 3F1
+M(2,:) = -1/5 * M(2,:);              % F2 -> (-1/5) F2
+M(1,:) = M(1,:) - 2*M(2,:);          % F1 -> F1 - 2F2
+M(3,:) = M(3,:) + 6*M(2,:);          % F3 -> F3 + 6F2
+M(3,:) = -1/4 * M(3,:);              % F3 -> (-1/4) F3
+M(1,:) = M(1,:) - M(3,:);            % F1 -> F1 - F3
+M(2,:) = M(2,:) - M(3,:);            % F2 -> F2 - F3
+M                                    % [1 0 0 2; 0 1 0 -1; 0 0 1 3]
+M([1 3],:) = M([3 1],:);             % así se intercambian filas: F1 <-> F3
+format short
+```
+
+### Clasificar un sistema automáticamente con el rango
+
+El número de pivotes es el **rango** (`rank`). Un sistema es consistente si y solo si `rank(A) == rank([A b])` (teorema que veremos en la clase 20).
+
+```{.matlab filename="lab01_s12_clasificar.m"}
+A = [1 1 1; 1 2 3; 2 3 4];
+b = [2; 5; 7];
+n = size(A, 2);                       % número de incógnitas
+rA  = rank(A);
+rAb = rank([A b]);
+if rA < rAb
+    disp('Sistema inconsistente: no tiene solución')
+elseif rA == n
+    disp('Solución única')
+else
+    fprintf('Infinitas soluciones con %d variable(s) libre(s)\n', n - rA)
+end
+```
+
+### Problema de aplicación
+
+```{.matlab filename="lab01_s12_inversiones.m"}
+% $10 000 en fondos al 5 %, 7 % y 9 %; ganancia $760;
+% lo invertido al 9 % es igual a la suma de los otros dos.
+A = [1 1 1; 0.05 0.07 0.09; 1 1 -1];
+b = [10000; 760; 0];
+montos = A \ b                       % [2000; 3000; 5000]
+ganancia = [0.05 0.07 0.09] * montos % comprobación: 760
+```
+
+**Actividad.** Resuelva con `rref` el sistema $x_1-x_2+2x_3-x_4=1$, $2x_1+x_2-x_3+x_4=5$, $x_1+2x_2-3x_3+2x_4=4$ e identifique las variables libres.
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+`rref([1 -1 2 -1 1; 2 1 -1 1 5; 1 2 -3 2 4])` da `[1 0 1/3 0 2; 0 1 -5/3 1 1; 0 0 0 0 0]`. Las variables libres son $x_3$ y $x_4$ (columnas sin pivote).
+:::
+
+## 1.4 Sistemas homogéneos
+
+```{.matlab filename="lab01_s14_homogeneos.m"}
+format rat
+A = [1 1 1 1; 1 0 0 1; 1 2 1 0];
+R = rref(A)               % para A*x = 0 basta reducir A
+% R = [1 0 0 1; 0 1 0 -1; 0 0 1 1]  ->  w libre:
+% x = -w, y = w, z = -w   ->   x = t*(-1, 1, -1, 1)
+
+v = [-1; 1; -1; 1];
+A * v                     % comprobación: vector cero
+
+% Más incógnitas que ecuaciones -> siempre hay soluciones no triviales
+B = [1 1 -1 2; 2 3 1 1];
+size(B,2) - rank(B)       % número de variables libres = 2
+rref(B)                   % [1 0 -4 5; 0 1 3 -3]
+
+% null(A) devuelve una base (ortonormal) del espacio solución
+format short
+N = null(B);
+size(N, 2)                % 2 vectores en la base
+norm(B * N)               % prácticamente 0 (error de redondeo)
+```
+
+**Actividad.** ¿Para qué valores de $\lambda$ el sistema $(\lambda-1)x+2y=0$, $3x+(\lambda-2)y=0$ tiene soluciones no triviales? Pruebe con `det([L-1 2; 3 L-2])` para varios valores de `L` y luego use `roots([1 -3 -4])`.
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+El determinante es $\lambda^2-3\lambda-4$; `roots([1 -3 -4])` devuelve `4` y `-1`. Para esos valores `rank` de la matriz es 1 y `null` devuelve un vector no nulo.
+:::
+
+## Resumen de comandos
+
+| Comando | Para qué sirve |
+|---|---|
+| `A = [1 2; 3 4]`, `b = [5; 6]` | crear matrices y vectores |
+| `A(i,j)`, `A(i,:)`, `A(:,j)` | acceder a entradas, filas y columnas |
+| `[A b]` | matriz aumentada |
+| `A \ b` | resolver $A\mathbf x=\mathbf b$ (solución única) |
+| `rref(M)` | forma escalonada reducida |
+| `rank(A)` | número de pivotes |
+| `null(A)` | base del espacio solución de $A\mathbf x=\mathbf 0$ |
+| `format rat` / `format short` | ver fracciones / decimales |
+
+[← Volver al curso](../algebra_lineal.qmd) · [Laboratorio 02 →](lab_02.qmd)

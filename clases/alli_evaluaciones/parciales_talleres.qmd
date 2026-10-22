@@ -1,0 +1,43 @@
+---
+title: "Parciales y talleres · Álgebra Lineal"
+subtitle: "Evaluaciones y talleres de ALLI (2026-2), organizados por corte"
+author: "Mario Andrés Puche Ajiaco"
+---
+
+Material de evaluación de **Álgebra Lineal (ALLI)** del periodo 2026-2, en la Universidad Escuela Colombiana de Ingeniería Julio Garavito. Úselo para practicar: resuelva primero sin mirar las respuestas y luego compare con las [presentaciones de clase](../algebra_lineal.qmd) y con el [chatbot de la asignatura](../algebra_lineal.qmd#chatbot-para-la-asignatura).
+
+::: {.callout-tip}
+## Cómo aprovechar este material
+1. Identifique en la tabla qué **secciones** cubre cada evaluación.
+2. Repase la clase correspondiente y haga los ejercicios propuestos.
+3. Resuelva el parcial o taller con tiempo limitado, como si fuera el examen.
+4. Verifique sus cálculos con los [laboratorios de MATLAB](../algebra_lineal.qmd#laboratorios).
+:::
+
+## Parciales
+
+| Corte | Evaluación | Temas | Archivo |
+|:---:|---|---|:---:|
+| 1 | Evaluación intermedia | Gauss-Jordan, sistemas homogéneos, aplicaciones, vectores ortogonales | [PDF](parciales/corte1_intermedio.pdf) |
+| 1 | Evaluación final | Determinantes (cofactores, triangulares, inversa) y producto de matrices | [PDF](parciales/corte1_final.pdf) |
+| 2 | Evaluación intermedia | Regla de Cramer, matriz adjunta, vectores en el plano y proyecciones | [PDF](parciales/corte2_intermedio.pdf) |
+| 2 | Parcial final | Rectas y planos, regla de Cramer, matriz adjunta | [PDF](parciales/corte2_final.pdf) |
+| 2 | Supletorio del parcial final | Rectas y planos, sistemas con parámetro, demostración con la adjunta | [PDF](parciales/corte2_supletorio.pdf) |
+
+## Talleres
+
+| Corte | Taller | Temas | Archivo |
+|:---:|---|---|:---:|
+| 1 | Taller 1.1 | Secciones 1.1 a 2.5: sistemas, Gauss-Jordan, homogéneos, vectores, matrices, productos, inversa y transpuesta | [PDF](talleres/taller_1_1.pdf) |
+| 1 | Taller 1.2 | Aplicación de sistemas, matrices diagonales, demostraciones, determinantes e inversa | [PDF](talleres/taller_1_2.pdf) |
+| 2 | Taller 2.1 | Matriz adjunta, regla de Cramer y vectores | [PDF](talleres/taller_2_1.pdf) |
+| 2 | Taller 2.2 | Rectas y planos en el espacio | [PDF](talleres/taller_2_2.pdf) |
+| 3 | Taller 3.1 | Espacios vectoriales, combinación lineal, independencia, bases, rango y nulidad | [PDF](talleres/taller_3_1.pdf) |
+
+## Relación con las clases
+
+| Corte | Clases de repaso |
+|:---:|---|
+| 1 | [Clases 1 a 8](../algebra_lineal.qmd#presentaciones): sistemas, matrices, inversa, transpuesta y determinantes |
+| 2 | [Clases 9 a 16](../algebra_lineal.qmd#presentaciones): propiedades de determinantes, Cramer, vectores, rectas, planos y distancias |
+| 3 | [Clases 17 a 26](../algebra_lineal.qmd#presentaciones): espacios vectoriales, transformaciones lineales y valores propios |

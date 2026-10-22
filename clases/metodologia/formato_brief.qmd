@@ -1,0 +1,124 @@
+---
+title: "Formato Brief del anteproyecto"
+subtitle: "Metodología de la Investigación"
+---
+
+## ¿Qué es un Brief?
+
+El **Brief** es un documento conciso que presenta un anteproyecto de investigación. Resume la información necesaria para evaluar una propuesta: qué se quiere investigar, por qué, para qué y cómo. Su extensión máxima es de **1500 palabras (cuatro páginas)**, sin contar las referencias ni los anexos.
+
+[Descargar la plantilla en Word (APA, séptima edición)](recursos/formato_brief_apa.docx){.btn .btn-primary}
+
+## Normas de presentación
+
+| Aspecto | Norma |
+|---|---|
+| Estilo de citación | APA, séptima edición |
+| Fuente | Times New Roman, 12 puntos, color negro |
+| Interlineado | 1.5 |
+| Márgenes | 2.54 cm en los cuatro lados |
+| Alineación | Texto justificado |
+| Sangría | Primera línea de cada párrafo a 1.27 cm |
+| Espaciado | Sin espacio entre párrafos; un espacio entre apartados |
+| Títulos | Niveles de encabezado de APA (ver tabla siguiente) |
+| Numeración de páginas | Esquina superior derecha |
+| Extensión | Máximo 1500 palabras, sin incluir referencias ni anexos |
+| Lenguaje | Académico, impersonal, con buen uso de la ortografía, la gramática y la cohesión |
+
+**Niveles de encabezado en APA, séptima edición:**
+
+| Nivel | Formato | Uso en el Brief |
+|---|---|---|
+| 1 | **Centrado, en negrita**, con mayúscula inicial en las palabras principales | Secciones: Resumen, Introducción, Objetivos, etc. |
+| 2 | **Alineado a la izquierda, en negrita** | Subsecciones: Objetivo general, Objetivos específicos, etc. |
+| 3 | ***Alineado a la izquierda, en negrita y cursiva*** | Divisiones dentro de una subsección, si se requieren |
+
+## Contenido por secciones
+
+### Título
+
+Conciso, pero lo más informativo posible. Indica el contenido del anteproyecto de manera explícita y precisa: el fenómeno o las variables, la población y el contexto. Debajo del título se escriben los nombres de los autores.
+
+### Resumen y *abstract*
+
+**Máximo 150 palabras en cada idioma (español e inglés).** Presenta el tema, el problema y su contexto, el método, las técnicas e instrumentos, la población, el cronograma y la proyección de costos. Se acompaña de tres a cinco palabras clave (*keywords*), preferiblemente tomadas de un tesauro. Se redacta al final.
+
+### Introducción
+
+**Máximo 150 palabras.** Presenta de manera general, con fuentes válidas, el campo de estudio en el que se ubica el proyecto: a qué se refiere, por qué el tema es relevante para la investigación y qué problemas se presentan en él.
+
+### Descripción del problema
+
+**Máximo 300 palabras.** Describe de forma precisa y completa la naturaleza y la magnitud del problema que se quiere abordar:
+
+- Los aspectos contextuales: por qué se presenta el problema y cuáles son sus características.
+- Cifras, datos y hechos que evidencian que la problemática realmente existe, con fuentes recientes (preferiblemente de los últimos tres años) y válidas.
+- Las causas directas que generan el problema, con una breve explicación de cada una y las variables que inciden en él.
+- La situación actual y la situación esperada una vez termine el proyecto.
+- La delimitación espacial (y temporal) del problema.
+
+Las afirmaciones se argumentan con fuentes documentales; no pueden derivarse de apreciaciones personales o subjetivas. La sección **termina con la pregunta de investigación**.
+
+### Justificación
+
+**Máximo 150 palabras.** Presenta las motivaciones y la importancia de investigar el problema para el campo de estudio, y resalta las soluciones que aportará el proyecto. Responde:
+
+- ¿Por qué es importante el problema?
+- ¿Por qué deben invertirse tiempo y recursos en esta investigación?
+- ¿Por qué debe llevarse a cabo de la forma propuesta?
+- ¿Cuál es el aporte original de la propuesta al campo del conocimiento?
+
+### Marco referencial
+
+**Máximo 200 palabras.** Describe las categorías teóricas o conceptuales que sustentan el tema de estudio en el que se ubica el problema. Se prefieren fuentes con máximo cinco años de antigüedad, válidas y citadas en APA, séptima edición, respetando la propiedad intelectual.
+
+### Objetivos
+
+Un **objetivo general** y **tres objetivos específicos**, redactados con un verbo en infinitivo y coherentes con la pregunta de investigación.
+
+### Diseño metodológico
+
+**Máximo 200 palabras.** Describe el enfoque, el tipo y el diseño de investigación; la población y la muestra; las técnicas e instrumentos de recolección; las fases metodológicas y el plan de análisis de los datos. Incluye las consideraciones éticas cuando apliquen.
+
+### Cronograma
+
+A partir de las fases metodológicas, enuncia las actividades que se desarrollarán y el tiempo en que se ejecutará cada una.
+
+### Proyección de costos
+
+Presenta los rubros (conceptos) del proyecto y su valor estimado.
+
+### Referencias
+
+Fuentes de consulta utilizadas en el Brief, organizadas alfabéticamente en APA, séptima edición, con sangría francesa:
+
+- Fuentes científicas con una antigüedad máxima de cinco años, o textos clásicos del área.
+- Fuentes nacionales e internacionales.
+- **Mínimo diez referencias diferentes.**
+- Esta sección no se cuenta en la extensión del documento.
+
+### Anexos
+
+Gráficas, tablas, figuras o material que soporte el contenido del Brief. Se evitan los documentos extensos.
+
+## Lista de verificación
+
+Antes de entregar, verifique que:
+
+- [ ] El título es específico e indica variables, población y contexto.
+- [ ] El resumen y el *abstract* tienen máximo 150 palabras cada uno e incluyen palabras clave.
+- [ ] La descripción del problema incluye cifras con fuentes recientes, causas, delimitación y termina con la pregunta.
+- [ ] La justificación responde las cuatro preguntas orientadoras.
+- [ ] El marco referencial usa fuentes de máximo cinco años citadas en APA.
+- [ ] Hay un objetivo general y tres específicos, cada uno con un solo verbo en infinitivo y un solo logro.
+- [ ] El objetivo general responde la pregunta de investigación.
+- [ ] El diseño metodológico indica enfoque, tipo, diseño, población, instrumentos, fases y análisis.
+- [ ] El cronograma incluye todas las fases metodológicas.
+- [ ] La proyección de costos presenta rubros y valores.
+- [ ] Hay al menos diez referencias en APA, ordenadas alfabéticamente, y todas están citadas en el texto.
+- [ ] El documento no supera 1500 palabras sin contar referencias ni anexos.
+- [ ] El formato cumple las normas de presentación: Times New Roman 12, interlineado 1.5, márgenes de 2.54 cm, texto justificado.
+
+---
+
+[Programa del curso](../metodologia_investigacion.qmd)

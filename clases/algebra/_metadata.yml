@@ -1,0 +1,28 @@
+# Configuración común para todas las clases de Álgebra Lineal (diapositivas reveal.js)
+author: "Mario Andrés Puche Ajiaco"
+lang: es
+format:
+  revealjs:
+    theme: [default, alli.scss]
+    width: 1280
+    height: 760
+    margin: 0.05
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    scrollable: true
+    progress: true
+    transition: fade
+    transition-speed: fast
+    controls: true
+    controls-layout: bottom-right
+    menu:
+      side: left
+      numbers: true
+    chalkboard:
+      buttons: true
+      theme: whiteboard
+    html-math-method: mathjax
+    footer: "Álgebra Lineal · [Volver al curso](../algebra_lineal.html)"
+    title-slide-attributes:
+      data-background-color: "#f7f5f0"

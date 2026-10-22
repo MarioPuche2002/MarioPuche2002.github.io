@@ -1,0 +1,76 @@
+---
+title: "Sesión 2 · Enfoques y tipos de investigación"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Diferenciar los enfoques cuantitativo, cualitativo y mixto, así como los principales tipos de investigación, para seleccionar el enfoque preliminar de la propia propuesta.
+
+## Contenidos
+
+### Enfoques de la investigación
+
+A lo largo de la historia han surgido diversas corrientes de pensamiento sobre cómo se produce el conocimiento: empirismo, positivismo, fenomenología, estructuralismo, entre otras. Desde el siglo XX, estas corrientes se agrupan en dos grandes enfoques, **cuantitativo** y **cualitativo**, y en su combinación, el enfoque **mixto**.
+
+Ambos enfoques comparten cinco fases generales:
+
+1. Observan y evalúan fenómenos.
+2. Establecen suposiciones o ideas a partir de esa observación.
+3. Demuestran el grado en que esas ideas tienen fundamento.
+4. Revisan las ideas con base en las pruebas o el análisis.
+5. Proponen nuevas observaciones para esclarecer, modificar o fundamentar las ideas.
+
+### Diferencias entre los enfoques
+
+| Aspecto | Cuantitativo | Cualitativo |
+|---|---|---|
+| Marco filosófico | Positivismo, pospositivismo | Fenomenología, constructivismo, interpretativismo |
+| Realidad | Objetiva y única, externa al investigador | Múltiples realidades construidas por los participantes |
+| Lógica | Deductiva: de la teoría a los datos | Inductiva: de los datos a la teoría |
+| Posición del investigador | Neutral; busca la objetividad | Explícita; reconoce su subjetividad |
+| Uso de la literatura | Identifica variables que se van a medir | Orienta, pero el proceso mismo revela los conceptos clave |
+| Naturaleza de los datos | Numéricos | Textos, narraciones, significados, imágenes |
+| Análisis | Estadístico | Interpretativo, por categorías y temas |
+| Propósito | Medir, generalizar, establecer patrones | Comprender en profundidad, en el contexto natural |
+| Reporte | Tono objetivo e impersonal | Tono descriptivo, que incluye la voz de los participantes |
+
+Ningún enfoque es superior al otro: la elección depende de la pregunta. Un diagnóstico clínico, por ejemplo, combina análisis de laboratorio (cuantitativo) con la entrevista al paciente (cualitativo). El **enfoque mixto** integra ambos para obtener una visión más completa del fenómeno.
+
+**Ejemplo con un mismo tema: la adherencia al tratamiento en pacientes con diabetes.**
+
+- **Pregunta cuantitativa:** ¿Qué factores sociodemográficos se asocian con el nivel de adherencia al tratamiento en pacientes con diabetes tipo 2?
+- **Pregunta cualitativa:** ¿Cómo describen los pacientes con diabetes tipo 2 su experiencia con el cumplimiento del tratamiento en la vida cotidiana?
+
+### Tipos de investigación
+
+| Criterio | Tipo | Característica principal |
+|---|---|---|
+| **Según la finalidad** | Básica (pura o teórica) | Busca ampliar el conocimiento teórico, sin preocuparse por su aplicación inmediata. |
+| | Aplicada | Busca resolver problemas prácticos; su aporte teórico es secundario. |
+| **Según la dimensión temporal** | Histórica | Describe fenómenos del pasado a partir de documentos. |
+| | Descriptiva | Describe los fenómenos tal como se presentan en la actualidad. |
+| | Experimental | Predice qué ocurriría si se modificaran ciertas condiciones; manipula variables. |
+| **Según el lugar** | De laboratorio | En condiciones controladas. |
+| | De campo | En el ambiente natural donde ocurre el fenómeno. |
+| **Según los datos** | Cuantitativa | Datos numéricos y análisis estadístico. |
+| | Cualitativa | Datos no numéricos y análisis interpretativo. |
+
+## Actividad en clase
+
+1. Cada grupo recibe un tema común y redacta una pregunta con enfoque cuantitativo y otra con enfoque cualitativo.
+2. Se identifica el tipo de investigación de cada pregunta según su finalidad y su dimensión temporal.
+3. Plenaria: ¿qué aporta cada enfoque al mismo tema?
+
+## Avance del anteproyecto
+
+1. Seleccionar **una** de las tres ideas de la sesión anterior y justificar la elección en un párrafo.
+2. Indicar el **enfoque preliminar** (cuantitativo, cualitativo o mixto) y el **tipo de investigación** (básica o aplicada), explicando por qué.
+
+## Lecturas recomendadas
+
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 1.
+
+---
+
+[← Sesión anterior](sesion_01.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_03.qmd)

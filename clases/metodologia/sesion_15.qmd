@@ -1,0 +1,115 @@
+---
+title: "Sesión 15 · Ética de la investigación, cronograma y costos"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Identificar las implicaciones éticas de la investigación propuesta y planificar su ejecución en el tiempo y en recursos.
+
+## Contenidos
+
+### ¿Por qué la ética?
+
+Toda investigación tiene una responsabilidad con la sociedad que va más allá de su relevancia académica. Una actuación no ética puede causar daño a los participantes, hacer perder la confianza de la sociedad en la comunidad científica y generar consecuencias legales para los investigadores.
+
+### Principios de la ética de la investigación
+
+| Principio | Significado | Cómo se aplica |
+|---|---|---|
+| **Respeto por las personas (autonomía)** | Las personas deciden libremente si participan. | Consentimiento informado; protección especial a personas con autonomía disminuida. |
+| **Beneficencia** | Maximizar los beneficios. | Diseñar estudios que produzcan conocimiento útil. |
+| **No maleficencia** | Minimizar los daños físicos, psicológicos, sociales o económicos. | Evaluar y reducir los riesgos. |
+| **Justicia** | Distribuir de forma equitativa los beneficios y las cargas. | Selección equitativa de participantes. |
+
+Estos principios se recogen en documentos de referencia internacional como el Informe Belmont, la Declaración de Helsinki y las pautas éticas internacionales para la investigación relacionada con la salud. Además, cada país tiene normas propias sobre investigación con seres humanos, protección de datos personales y derechos de autor, que deben consultarse según el lugar donde se realice el estudio.
+
+### Nivel de riesgo
+
+| Nivel | Descripción | Ejemplos |
+|---|---|---|
+| **Sin riesgo** | No hay intervención sobre los participantes. | Revisión de bases de datos anonimizadas, análisis documental. |
+| **Riesgo mínimo** | Procedimientos comunes que no suponen daño apreciable. | Encuestas, mediciones antropométricas, registros no invasivos. |
+| **Riesgo mayor que el mínimo** | Intervenciones con probabilidad de afectar al participante. | Ensayos con medicamentos o dispositivos, procedimientos invasivos. |
+
+### El consentimiento informado
+
+Es el acuerdo, generalmente por escrito, mediante el cual una persona autoriza su participación con pleno conocimiento de lo que implica, con capacidad de libre elección y sin coacción. Debe incluir, como mínimo:
+
+1. La justificación y los objetivos de la investigación.
+2. Los procedimientos que se realizarán y su propósito.
+3. Las molestias o riesgos esperados (o aclarar que no los hay).
+4. Los beneficios esperados (o aclarar que no los hay).
+5. Que la participación es voluntaria.
+6. Que la persona puede retirarse en cualquier momento sin consecuencias.
+7. La garantía de confidencialidad y de que no será identificada.
+8. Los datos de contacto del investigador y del comité de ética.
+9. Las firmas del participante o de su representante legal.
+
+En la investigación con menores de edad se requiere el consentimiento de los padres o representantes y el **asentimiento** del menor.
+
+### Comités de ética
+
+Los **comités de ética en investigación** evalúan los proyectos antes de su ejecución. Se caracterizan por ser autónomos, interdisciplinarios y plurales. Todo proyecto con seres humanos, con sus datos personales o con animales debe someterse a su evaluación según las normas de la institución donde se realice.
+
+### Otros aspectos éticos
+
+- **Protección de datos:** anonimizar o seudonimizar los datos, almacenarlos de forma segura y usarlos solo para los fines autorizados. Las bases de datos públicas también tienen condiciones de uso que deben respetarse.
+- **Investigación con animales:** aplicar el principio de las **3R**: reemplazar, reducir y refinar.
+- **Conflicto de intereses:** cualquier interés personal, financiero o profesional que pueda comprometer la objetividad del investigador debe declararse.
+- **Integridad científica:** se consideran faltas graves la **fabricación** de datos, la **falsificación** de datos o resultados y el **plagio**.
+- **Uso de herramientas de inteligencia artificial:** su uso en la escritura o el análisis debe declararse, y el investigador sigue siendo responsable de la veracidad del contenido y de las citas.
+
+### El cronograma
+
+El cronograma organiza en el tiempo las **actividades de cada fase metodológica** (sesión 11). Se presenta habitualmente como un diagrama de Gantt.
+
+**Ejemplo para un proyecto de 16 semanas:**
+
+| Fase / actividad | S1–2 | S3–4 | S5–6 | S7–8 | S9–10 | S11–12 | S13–14 | S15–16 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| **Fase 1.** Aval del comité de ética | ■ | ■ | | | | | | |
+| **Fase 1.** Recolección de datos | | ■ | ■ | ■ | | | | |
+| **Fase 2.** Depuración y análisis descriptivo | | | | ■ | ■ | | | |
+| **Fase 3.** Análisis inferencial y modelado | | | | | ■ | ■ | ■ | |
+| **Fase 4.** Redacción del informe final | | | | | | | ■ | ■ |
+| Socialización de resultados | | | | | | | | ■ |
+
+### La proyección de costos
+
+Presenta los **rubros** necesarios para ejecutar el proyecto y su valor estimado. Los rubros habituales son: personal, equipos, materiales e insumos, software, salidas de campo, servicios técnicos, publicación y divulgación, e imprevistos (generalmente un porcentaje pequeño del total).
+
+**Ejemplo (valores ilustrativos en unidades monetarias locales):**
+
+| Rubro | Descripción | Cantidad | Valor unitario | Valor total |
+|---|---|:-:|--:|--:|
+| Personal | Horas de investigador | 160 h | 25 000 | 4 000 000 |
+| Equipos | Sensor de medición | 2 | 350 000 | 700 000 |
+| Materiales | Insumos de laboratorio | 1 lote | 300 000 | 300 000 |
+| Software | Licencia de software estadístico | 0 | — | 0 (software libre) |
+| Divulgación | Inscripción a evento académico | 1 | 400 000 | 400 000 |
+| Imprevistos | 5 % del subtotal | — | — | 270 000 |
+| **Total** | | | | **5 670 000** |
+
+Es recomendable indicar la **fuente de financiación** de cada rubro (recursos propios, institucionales o externos) y preferir alternativas de software libre cuando sea posible.
+
+## Actividad en clase
+
+1. Cada grupo identifica el nivel de riesgo de su proyecto y los aspectos éticos que debe atender.
+2. Si el proyecto incluye participantes humanos, redacta el borrador de los puntos clave del consentimiento informado.
+3. Elabora el cronograma por semanas y la tabla de costos.
+
+## Avance del anteproyecto
+
+1. **Consideraciones éticas**: nivel de riesgo, consentimiento, protección de datos y aval de comité de ética, cuando apliquen.
+2. **Cronograma** con las actividades de cada fase metodológica.
+3. **Proyección de costos** por rubros.
+
+## Lecturas recomendadas
+
+- Asociación Médica Mundial. (2024). *Declaración de Helsinki: Principios éticos para las investigaciones médicas con participantes humanos*.
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 2.
+
+---
+
+[← Sesión anterior](sesion_14.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_16.qmd)

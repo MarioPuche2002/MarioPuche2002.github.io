@@ -1,0 +1,158 @@
+---
+title: "Laboratorio 03 · Determinantes"
+subtitle: "Álgebra Lineal · Unidad 3 · Secciones 3.1 a 3.4 en MATLAB"
+description: "det, menores y cofactores, propiedades, matriz adjunta y regla de Cramer."
+author: "Mario Andrés Puche Ajiaco"
+---
+
+::: {.callout-note}
+## Antes de empezar
+Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [8](../algebra/clase_08.qmd) · [9](../algebra/clase_09.qmd) · [10](../algebra/clase_10.qmd)
+:::
+
+## 3.1 Determinantes: definiciones
+
+```{.matlab filename="lab03_s31_det.m"}
+B = [4 7 -2; 3 -5 1; -8 6 9];
+det(B)                         % -405
+
+% Sarrus "a mano" (solo 3x3)
+d = B(1,1)*B(2,2)*B(3,3) + B(1,2)*B(2,3)*B(3,1) + B(1,3)*B(2,1)*B(3,2) ...
+  - B(1,3)*B(2,2)*B(3,1) - B(1,1)*B(2,3)*B(3,2) - B(1,2)*B(2,1)*B(3,3)
+```
+
+### Menores, cofactores y expansión de Laplace
+
+El menor $M_{ij}$ se obtiene **borrando** la fila $i$ y la columna $j$. En MATLAB, una fila o columna se borra asignándole `[]`.
+
+```{.matlab filename="lab03_s31_cofactores.m"}
+A = [3 -1 2; 4 5 6; 7 1 2];
+
+menor    = @(A,i,j) det(A([1:i-1, i+1:end], [1:j-1, j+1:end]));
+cofactor = @(A,i,j) (-1)^(i+j) * menor(A,i,j);
+
+menor(A,1,2)          % -34
+cofactor(A,1,2)       %  34
+cofactor(A,2,3)       % -10
+
+% Expansión por la fila 1 (sirve cualquier fila o columna)
+n = size(A,1);
+suma = 0;
+for j = 1:n
+    suma = suma + A(1,j) * cofactor(A,1,j);
+end
+suma                  % -84
+det(A)                % -84
+
+% Expansión por la columna 2 de una matriz 4x4 con muchos ceros
+E = [2 0 3 1; 1 0 -1 2; 3 1 2 0; 0 0 4 1];
+E(3,2) * cofactor(E,3,2)   % 17: un solo término sobrevive
+det(E)                     % 17
+```
+
+::: {.callout-tip}
+## Redondeo
+`det` trabaja en punto flotante: a veces devuelve `-84.0000` o `5.0000e-15` en lugar de `-84` o `0`. Use `round(det(A))` cuando sepa que las entradas son enteras.
+:::
+
+## 3.2 Propiedades de los determinantes
+
+```{.matlab filename="lab03_s32_propiedades.m"}
+A = [2 1; 3 4];                     % det = 5
+A1 = A([2 1],:);   det(A1)          % intercambio de filas   -> -5
+A2 = A; A2(1,:) = 3*A2(1,:); det(A2)            % fila por 3 -> 15
+A3 = A; A3(2,:) = A3(2,:) + 2*A3(1,:); det(A3)  % F2 + 2F1  -> 5
+
+% Propiedades con matrices aleatorias 4x4
+X = randi([-5 5], 4);  Y = randi([-5 5], 4);
+[det(X*Y), det(X)*det(Y)]           % iguales
+[det(X'),  det(X)]                  % iguales
+[det(3*X), 3^4*det(X)]              % det(cA) = c^n det(A)
+[det(X+Y), det(X)+det(Y)]           % en general DISTINTOS
+
+% Determinante por reducción a forma triangular (sin rref, que normaliza)
+F = [1 2 3 4; 2 5 7 9; -1 0 2 3; 3 6 10 15];
+[Lf, Uf, Pf] = lu(F);              % factorización P*F = L*U
+det(Pf) * prod(diag(Uf))            % 4 (det(Pf) = +-1 cuenta los intercambios)
+det(F)                              % 4
+```
+
+**Actividad.** Construya una matriz antisimétrica $5\times5$ (`K = X - X'` con `X = randi(9,5)`) y calcule su determinante. Explique el resultado con la clase 9.
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+`det(K)` es $0$ (salvo redondeo). Si $K^T=-K$ con $n$ impar: $\det K=\det K^T=\det(-K)=(-1)^5\det K=-\det K$, luego $\det K=0$.
+:::
+
+## 3.3 Determinantes e inversas: la matriz adjunta
+
+```{.matlab filename="lab03_s33_adjunta.m"}
+A = [3 -2 1; 5 6 2; 1 0 -3];
+n = size(A,1);
+cofactor = @(A,i,j) (-1)^(i+j) * det(A([1:i-1, i+1:end], [1:j-1, j+1:end]));
+
+C = zeros(n);                 % matriz de cofactores
+for i = 1:n
+    for j = 1:n
+        C(i,j) = cofactor(A,i,j);
+    end
+end
+adjA = round(C')              % adjunta = transpuesta de los cofactores
+% [-18 -6 -10; 17 -10 -1; -6 -2 28]
+
+A * adjA                      % det(A) * I = -94 * I
+Ainv = adjA / det(A);
+norm(Ainv - inv(A))           % ~ 0
+
+% det(adj A) = det(A)^(n-1)
+[det(adjA), det(A)^(n-1)]
+```
+
+::: {.callout-note}
+## Dato
+Las versiones recientes de MATLAB (R2020a o posterior) incluyen `adjoint(A)`, que calcula la adjunta directamente. El ciclo anterior funciona en cualquier versión y en Octave.
+:::
+
+## 3.4 Regla de Cramer
+
+```{.matlab filename="lab03_s34_cramer.m"}
+A = [-2 3 -1; 1 2 -1; -2 -1 1];
+b = [1; 4; -3];
+n = length(b);
+D = det(A);                   % -2
+x = zeros(n,1);
+for i = 1:n
+    Ai = A;
+    Ai(:,i) = b;              % reemplaza la columna i por b
+    x(i) = det(Ai) / D;
+end
+x                             % [2; 3; 4]
+A \ b                         % mismo resultado
+
+% Cramer con parámetro: k*x + y = 1, x + k*y = 1
+for k = [-2 0 0.5 2 3]
+    Ak = [k 1; 1 k];
+    xk = det([1 1; 1 k]) / det(Ak);
+    fprintf('k = %4.1f:  x = %8.4f  (1/(k+1) = %8.4f)\n', k, xk, 1/(k+1));
+end
+```
+
+**Actividad.** Compare el tiempo de `A\b` con el de Cramer para una matriz aleatoria $200\times200$ usando `tic` y `toc`. ¿Cuál es más rápido? ¿Por qué?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+`A\b` es mucho más rápido: Cramer calcula $n+1=201$ determinantes (cada uno con costo parecido a una eliminación), mientras que `A\b` hace **una sola** eliminación gaussiana.
+:::
+
+## Resumen de comandos
+
+| Comando | Para qué sirve |
+|---|---|
+| `det(A)` | determinante |
+| `A([1:i-1, i+1:end], :)` | borrar la fila $i$ |
+| `prod(diag(U))` | producto de la diagonal (matriz triangular) |
+| `[L,U,P] = lu(A)` | factorización usada para calcular determinantes |
+| `round` | limpiar errores de redondeo en resultados enteros |
+| `tic`, `toc` | medir tiempos |
+
+[← Laboratorio 02](lab_02.qmd) · [Volver al curso](../algebra_lineal.qmd) · [Laboratorio 04 →](lab_04.qmd)

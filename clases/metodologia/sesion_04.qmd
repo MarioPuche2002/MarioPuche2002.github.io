@@ -1,0 +1,126 @@
+---
+title: "Sesión 4 · Búsqueda de literatura I: bases de datos y estrategias"
+subtitle: "Metodología de la Investigación"
+---
+
+## Objetivo de la sesión
+
+Diseñar y ejecutar una estrategia de búsqueda de literatura científica en bases de datos académicas, usando vocabulario controlado, operadores booleanos y filtros.
+
+## Contenidos
+
+### ¿Por qué buscar literatura?
+
+La revisión de la literatura permite:
+
+- Verificar que la brecha planteada realmente existe.
+- Conocer qué se ha hecho, con qué métodos y con qué resultados.
+- Fundamentar el problema con cifras y evidencia.
+- Anticipar lo que podría ocurrir en el estudio y facilitar la interpretación de los resultados.
+- Demostrar a los evaluadores que el investigador conoce su campo.
+
+### Tipos de fuentes
+
+| Tipo | Descripción | Ejemplos |
+|---|---|---|
+| **Primarias** | Reportan resultados originales. | Artículos de investigación, tesis, patentes. |
+| **Secundarias** | Sintetizan o analizan fuentes primarias. | Revisiones narrativas, revisiones sistemáticas, metaanálisis. |
+| **Terciarias** | Organizan y remiten a otras fuentes. | Enciclopedias, bases de datos, catálogos. |
+| **Literatura gris** | Producción no publicada por editoriales comerciales. | Informes técnicos, tesis, memorias de congresos, registros de ensayos clínicos. |
+
+Para un anteproyecto se privilegian los **artículos revisados por pares** (*peer-reviewed*), es decir, evaluados por expertos antes de su publicación.
+
+### Bases de datos académicas
+
+Un sistema de recuperación de información organiza los documentos mediante **metadatos**: título, autores, resumen, palabras clave, revista, año, tipo de publicación y DOI. La **indexación** es el proceso de asignar esos metadatos, y puede ser:
+
+- **Automática:** por la frecuencia de las palabras en el texto, como en los buscadores generales.
+- **Manual con vocabulario controlado:** especialistas asignan términos normalizados de un tesauro.
+
+Bases de datos de uso frecuente:
+
+| Base de datos | Área |
+|---|---|
+| PubMed / MEDLINE | Ciencias de la salud y biomedicina |
+| Scopus | Multidisciplinaria |
+| Web of Science | Multidisciplinaria |
+| IEEE Xplore | Ingeniería eléctrica, electrónica y computación |
+| ScienceDirect | Multidisciplinaria |
+| SciELO y Redalyc | Revistas de América Latina, en acceso abierto |
+| Google Académico | Buscador general de literatura académica |
+
+### Vocabulario controlado
+
+Un **tesauro** es un vocabulario normalizado y jerárquico que agrupa sinónimos bajo un único término. El más conocido es **MeSH** (*Medical Subject Headings*), usado en PubMed, que contiene decenas de miles de descriptores organizados en árboles temáticos. Su equivalente en español y portugués es **DeCS** (*Descriptores en Ciencias de la Salud*).
+
+Usar el término controlado recupera todos los artículos indexados con ese concepto, sin importar cómo lo hayan escrito los autores. Por ejemplo, el descriptor MeSH `Hypertension` recupera artículos que hablan de *high blood pressure*.
+
+### Identificar los términos de búsqueda
+
+1. **Dividir la pregunta en conceptos**, idealmente no más de tres.
+2. Para cada concepto, buscar el **término controlado** y los **términos libres** (sinónimos, variantes, abreviaturas, singular y plural).
+3. Considerar diferencias de ortografía, terminaciones (*lesión, lesiones, lesionado*) y abreviaturas (*IA*, *inteligencia artificial*).
+
+**Ejemplo.** Pregunta: ¿Cuál es la exactitud de los modelos de aprendizaje profundo para detectar retinopatía diabética en fotografías de fondo de ojo?
+
+| Tipo de término | Concepto 1 | Concepto 2 | Concepto 3 |
+|---|---|---|---|
+| | Aprendizaje profundo | Retinopatía diabética | Exactitud diagnóstica |
+| **Controlado (MeSH)** | `"Deep Learning"[Mesh]` | `"Diabetic Retinopathy"[Mesh]` | `"Sensitivity and Specificity"[Mesh]` |
+| **Libre** | deep learning, convolutional neural network*, CNN | diabetic retinopathy, DR | accuracy, sensitivity, specificity, AUC |
+
+### Combinar los términos
+
+| Herramienta | Uso | Ejemplo |
+|---|---|---|
+| `OR` | Une sinónimos de un **mismo** concepto (amplía). | `"deep learning" OR CNN` |
+| `AND` | Une conceptos **distintos** (restringe). | `"deep learning" AND "diabetic retinopathy"` |
+| `NOT` | Excluye un término (usar con precaución). | `retinopathy NOT prematurity` |
+| Paréntesis | Agrupan y definen el orden de las operaciones. | `(A OR B) AND (C OR D)` |
+| Comillas | Buscan la frase exacta. | `"neural network"` |
+| Truncamiento `*` | Recupera todas las terminaciones de una raíz. | `classif*` → classification, classifier |
+
+**Ecuación de búsqueda del ejemplo:**
+
+```
+("Deep Learning"[Mesh] OR "deep learning" OR "convolutional neural network*" OR CNN)
+AND ("Diabetic Retinopathy"[Mesh] OR "diabetic retinopathy")
+AND ("Sensitivity and Specificity"[Mesh] OR accuracy OR sensitivity OR specificity)
+```
+
+### Filtros
+
+Los filtros más útiles son el **año de publicación** (generalmente los últimos cinco años), el **idioma**, el **tipo de artículo** (por ejemplo, revisiones o ensayos clínicos) y la **especie** (humanos o animales).
+
+### Pasos para una búsqueda efectiva
+
+1. Definir el tema y los conceptos de búsqueda.
+2. Identificar los términos controlados y libres.
+3. Combinar los términos y ejecutar la búsqueda.
+4. Recuperar el texto completo de los artículos relevantes.
+5. Gestionar las referencias (sesión 5).
+
+## Actividad en clase
+
+Taller en PubMed:
+
+1. Buscar el término MeSH correspondiente a "presión arterial alta". ¿En qué árboles temáticos aparece?
+2. Buscar `hypertension` como texto libre y luego como término MeSH. Registrar cuántos resultados se obtienen en cada caso y explicar la diferencia.
+3. Combinar con el término MeSH de "ejercicio" mediante `AND`. Registrar el número de resultados.
+4. Aplicar los filtros de los últimos cinco años, humanos, inglés y español. Registrar el número final de resultados.
+5. Repetir la búsqueda más afinada en una segunda base de datos y comparar.
+
+## Avance del anteproyecto
+
+1. Dividir el problema preliminar en sus **conceptos principales**.
+2. Construir la **tabla de términos** (controlados y libres) para cada concepto.
+3. Redactar la **ecuación de búsqueda** y ejecutarla en al menos dos bases de datos, registrando la fecha, los filtros aplicados y el número de resultados.
+
+## Lecturas recomendadas
+
+- Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. Capítulo 3.
+- Tutoriales de búsqueda de PubMed: <https://pubmed.ncbi.nlm.nih.gov/help/>
+
+---
+
+[← Sesión anterior](sesion_03.qmd) · [Programa del curso](../metodologia_investigacion.qmd) · [Sesión siguiente →](sesion_05.qmd)

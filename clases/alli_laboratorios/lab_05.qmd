@@ -1,0 +1,188 @@
+---
+title: "Laboratorio 05 · Espacios vectoriales"
+subtitle: "Álgebra Lineal · Unidad 5 · Secciones 5.1 a 5.7 y Gram-Schmidt en MATLAB"
+description: "Subespacios, espacio generado, independencia lineal, bases, coordenadas, cambio de base, rango, nulidad y Gram-Schmidt."
+author: "Mario Andrés Puche Ajiaco"
+---
+
+::: {.callout-note}
+## Antes de empezar
+Funciona en MATLAB y en GNU Octave. **Clases relacionadas:** [16](../algebra/clase_16.qmd) · [17](../algebra/clase_17.qmd) · [18](../algebra/clase_18.qmd) · [19](../algebra/clase_19.qmd) · [20](../algebra/clase_20.qmd) · [21](../algebra/clase_21.qmd)
+:::
+
+::: {.callout-tip}
+## Idea clave del laboratorio
+Casi todas las preguntas de esta unidad se responden con **una** herramienta: poner vectores como **columnas** de una matriz y usar `rref` o `rank`. Polinomios y matrices se convierten en vectores de coeficientes.
+:::
+
+## 5.1 y 5.2 Espacios vectoriales y subespacios: buscar contraejemplos
+
+Una computadora **no demuestra** que algo es subespacio, pero sí ayuda a encontrar **contraejemplos** rápidamente.
+
+```{.matlab filename="lab05_s51_contraejemplos.m"}
+% W = {(x,y): y = x + 4}: ¿cerrado bajo la suma?
+enW = @(p) abs(p(2) - (p(1) + 4)) < 1e-12;
+u = [3 7];  v = [2 6];
+[enW(u), enW(v), enW(u + v)]          % [1 1 0] -> no es subespacio
+
+% W = {A en M2x2 : det(A) = 0}
+A = [1 0; 0 0];  B = [0 0; 0 1];
+[det(A), det(B), det(A + B)]          % [0 0 1] -> no es subespacio
+
+% W = {(x,y,z): x = 2y - z} SÍ es subespacio: pruebas aleatorias no fallan
+enW3 = @(p) abs(p(1) - (2*p(2) - p(3))) < 1e-9;
+fallos = 0;
+for k = 1:1000
+    y1 = randn; z1 = randn; y2 = randn; z2 = randn; c = randn;
+    p = [2*y1 - z1, y1, z1];  q = [2*y2 - z2, y2, z2];
+    fallos = fallos + ~enW3(p + q) + ~enW3(c*p);
+end
+fallos                                 % 0 (evidencia, no demostración)
+```
+
+## 5.3 Combinación lineal y espacio generado
+
+```{.matlab filename="lab05_s53_generado.m"}
+format rat
+v1 = [1; 2; -1];  v2 = [3; 1; 2];
+rref([v1 v2 [5; 0; 5]])     % consistente: (5,0,5) = -1 v1 + 2 v2
+rref([v1 v2 [1; 1; 1]])     % fila [0 0 1]: (1,1,1) no está en gen{v1, v2}
+
+% Polinomios en P2 como vectores de coeficientes [constante; x; x^2]
+p1 = [1; 1; 0];  p2 = [0; 1; 1];  p3 = [1; 0; 1];   % 1+x, x+x^2, 1+x^2
+p  = [3; 5; 2];                                      % 3 + 5x + 2x^2
+rref([p1 p2 p3 p])          % coeficientes 3, 2, 0
+
+% ¿Generan R^3?  Basta comparar el rango con 3
+rank([1 1 0; 0 1 1; 1 0 1]')     % 3 -> sí generan
+rank([1 0 1; 2 1 3; 3 1 4]')     % 2 -> no (generan un plano)
+
+% Ecuación del plano gen{v1, v2}
+n = cross(v1, v2)'               % [5 -5 -5] -> x - y - z = 0
+format short
+```
+
+## 5.4 Independencia lineal
+
+```{.matlab filename="lab05_s54_independencia.m"}
+format rat
+% Vectores como columnas: LI <=> rank = número de vectores
+V = [1 2 0; -1 1 3; 1 5 3];      % columnas v1, v2, v3
+rank(V)                          % 2 < 3 -> LD
+rref(V)                          % [1 0 -2; 0 1 1; 0 0 0] -> v3 = -2 v1 + v2
+det(V)                           % 0
+
+% Polinomios: x - 2x^2, x^2 - 4x, -7x + 8x^2  (coeficientes [x; x^2])
+P = [1 -4 -7; -2 1 8];
+rank(P)                          % 2 < 3 -> LD
+rref(P)                          % [1 0 -25/7; 0 1 6/7] -> 25 p1 - 6 p2 + 7 p3 = 0
+format short
+```
+
+::: {.callout-note}
+## Sobre `null(A, 'r')`
+En MATLAB, `null(A,'r')` devuelve directamente una base "racional" del espacio nulo (como la que se obtiene a mano con `rref`); Octave todavía no implementa esa opción, por eso aquí se lee la relación desde `rref`. `null(A)` sin opciones funciona en ambos y devuelve una base ortonormal.
+:::
+
+```{.matlab filename="lab05_s54_parametro.m"}
+% ¿Para qué k son LD (1,2,k), (0,1,k-1), (3,4,3)?
+ks = -3:3;
+for k = ks
+    fprintf('k = %2d   det = %6.2f\n', k, det([1 0 3; 2 1 4; k k-1 3]));
+end
+% el determinante vale 1 - k: solo se anula en k = 1
+```
+
+## 5.5 Bases, dimensión y coordenadas
+
+```{.matlab filename="lab05_s55_bases.m"}
+format rat
+% Base y dimensión de W = {(a+c, a-b, b+c, -a+b)}
+G = [1 1 0 -1; 0 -1 1 1; 1 0 1 0]';   % generadores como columnas
+rank(G)                               % 2 -> dim W = 2 (un generador sobra)
+[~, piv] = rref(G);                   % columnas pivote
+base = G(:, piv)                      % base de W
+
+% Coordenadas de v en la base S (columnas de S)
+S = [1 1 0 0; 2 0 1 0; 0 1 2 -1; 0 1 -1 0]';
+v = [1; 2; -6; 2];
+vS = S \ v                            % [3; -1; -2; 1]
+
+% Matriz de transición P_{S<-T}: rref([S T]) -> [I  P]
+S = [2 0 1; 1 2 0; 1 1 1]';
+T = [6 3 3; 4 -1 3; 5 5 2]';
+R = rref([S T]);
+P_ST = R(:, 4:6)                      % [2 2 1; 1 -1 2; 1 1 1]
+P_TS = inv(P_ST)
+v = [4; -9; 5];
+vT = T \ v                            % [1; 2; -2]
+P_ST * vT                             % [4; -5; 1] = S \ v
+format short
+```
+
+## 5.7 Rango, nulidad, espacio renglón y espacio columna
+
+```{.matlab filename="lab05_s57_rango.m"}
+format rat
+A = [1 -2 1 3; 2 -4 3 7; -1 2 1 -1];
+[R, piv] = rref(A)        % piv = [1 3]: columnas pivote
+rango   = rank(A)         % 2
+nulidad = size(A,2) - rango   % 2  (teorema rango-nulidad)
+
+baseRenglon = R(1:rango, :)   % renglones no nulos de R
+baseColumna = A(:, piv)       % columnas pivote de A ORIGINAL
+
+% Base del espacio nulo leída de R: x2 = s, x4 = t libres
+baseNulo = [2 -2; 1 0; 0 -1; 0 1]   % columnas (2,1,0,0) y (-2,0,-1,1)
+A * baseNulo                         % matriz cero
+format short
+
+% Comparación con funciones de MATLAB (bases ortonormales)
+size(null(A), 2)          % 2 = nulidad
+size(orth(A), 2)          % 2 = rango
+```
+
+**Actividad.** Genere `A = randi([-3 3], 4, 6)` varias veces y verifique que siempre `rank(A) + size(null(A),2) == 6`. ¿Puede `rank(A)` ser 5?
+
+::: {.callout-tip collapse="true"}
+## Respuesta
+Siempre se cumple el teorema rango-nulidad. El rango no puede ser 5 porque hay solo 4 filas: $\rho(A)\le\min(4,6)=4$, y por tanto la nulidad es al menos 2.
+:::
+
+## Complemento: Gram-Schmidt
+
+```{.matlab filename="lab05_gram_schmidt.m"}
+U = [1 1 1; -1 0 -1; -1 2 3]';      % columnas u1, u2, u3
+[n, m] = size(U);
+V = zeros(n, m);
+for i = 1:m
+    v = U(:, i);
+    for j = 1:i-1
+        v = v - dot(U(:,i), V(:,j)) / dot(V(:,j), V(:,j)) * V(:,j);
+    end
+    V(:, i) = v;
+end
+V(abs(V) < 1e-12) = 0;  % limpiar errores de redondeo
+V                       % columnas (1,1,1), (-1/3,2/3,-1/3), (-2,0,2)
+round(V' * V * 1e10) / 1e10   % diagonal: columnas ortogonales
+W = V ./ vecnorm(V)     % normalizar cada columna (R2017b+; en Octave también)
+round(W' * W * 1e10) / 1e10   % identidad: base ortonormal
+
+% MATLAB lo hace con la factorización QR (columnas iguales salvo el signo)
+[Q, Rq] = qr(U);
+norm(abs(Q) - abs(W))   % ~ 0
+```
+
+## Resumen de comandos
+
+| Pregunta | Comando |
+|---|---|
+| ¿$\mathbf w\in\operatorname{gen}\{\mathbf v_i\}$? | `rref([V w])` |
+| ¿Son LI? ¿Generan $\mathbb R^n$? | `rank(V)` |
+| Base de un espacio generado | `[~,piv] = rref(V); V(:,piv)` |
+| Coordenadas en la base $S$ | `S \ v` |
+| Matriz de transición $P_{S\leftarrow T}$ | `rref([S T])` |
+| Espacio nulo / columna | `null(A)`, `orth(A)` |
+| Gram-Schmidt | ciclo anterior o `qr(U)` |
+
+[← Laboratorio 04](lab_04.qmd) · [Volver al curso](../algebra_lineal.qmd) · [Laboratorio 06 →](lab_06.qmd)
