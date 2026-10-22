@@ -11,16 +11,6 @@ subtitle: "Clase 2 · Sección 1.4 · Solución trivial, soluciones no triviales
 - Demostrar que la suma y los múltiplos de soluciones homogéneas son soluciones.
 - Relacionar las soluciones de $A\mathbf x=\mathbf b$ con las de $A\mathbf x=\mathbf 0$.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: Gauss-Jordan y variables libres |
-| 5 – 20 | Sistemas homogéneos; solución trivial y no trivial |
-| 20 – 35 | Ejemplos resueltos y el teorema de más incógnitas que ecuaciones |
-| 35 – 50 | Estructura de las soluciones: $\mathbf x=\mathbf x_p+\mathbf x_h$ (con figura) |
-| 50 – 70 | Aplicación (balanceo químico) y práctica en clase |
-
 ## Definición
 
 ::: {.definicion}

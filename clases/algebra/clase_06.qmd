@@ -11,16 +11,6 @@ subtitle: "Clase 6 · Sección 2.4 · Definición, cálculo por Gauss-Jordan y p
 - Resolver sistemas y ecuaciones matriciales usando la inversa.
 - Conocer el **teorema de la matriz invertible** (primera versión).
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: producto de matrices; ¿se puede “dividir” entre matrices? |
-| 5 – 20 | Definición, unicidad e interpretación geométrica; fórmula $2\times2$ |
-| 20 – 40 | Método de Gauss-Jordan $(A\mid I)\sim(I\mid A^{-1})$: ejemplos |
-| 40 – 55 | Propiedades, sistemas y ecuaciones matriciales; aplicación a criptografía |
-| 55 – 70 | Teorema de la matriz invertible y práctica en clase |
-
 ## Definición
 
 ::: {.definicion}

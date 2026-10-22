@@ -10,16 +10,6 @@ subtitle: "Clase 17 · Sección 5.3 · Combinaciones lineales, gen{v₁,…,vₖ
 - Describir geométricamente espacios generados en $\mathbb R^2$ y $\mathbb R^3$.
 - Determinar si un conjunto **genera** un espacio vectorial.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: subespacios |
-| 5 – 25 | Combinación lineal en $\mathbb R^n$, $P_n$ y $M_{m\times n}$ |
-| 25 – 40 | Espacio generado: definición, teorema e interpretación geométrica |
-| 40 – 55 | ¿Genera un conjunto todo el espacio? Criterio del determinante |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## Combinación lineal
 
 ::: {.definicion}

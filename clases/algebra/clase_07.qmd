@@ -11,16 +11,6 @@ subtitle: "Clase 7 · Sección 2.5 · Propiedades, matrices simétricas y antisi
 - Descomponer una matriz cuadrada como suma de una simétrica y una antisimétrica.
 - Repasar la unidad 2 con ejercicios de **verdadero o falso** con justificación.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: inversa y sus propiedades |
-| 5 – 20 | Definición de transpuesta (con figura) y propiedades |
-| 20 – 35 | Demostraciones de $(AB)^T=B^TA^T$ y $(A^T)^{-1}=(A^{-1})^T$ |
-| 35 – 55 | Matrices simétricas y antisimétricas; descomposición; $A^TA$ |
-| 55 – 70 | Repaso de la unidad 2: verdadero o falso y práctica |
-
 ## Definición
 
 ::: {.definicion}

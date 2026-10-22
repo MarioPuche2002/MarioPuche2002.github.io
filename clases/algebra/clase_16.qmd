@@ -10,16 +10,6 @@ subtitle: "Clase 16 · Secciones 5.1 y 5.2 · Axiomas, ejemplos, propiedades bá
 - Demostrar propiedades básicas a partir de los axiomas.
 - Usar el **criterio de subespacio** para decidir si un subconjunto es subespacio.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: lo común entre vectores, matrices, polinomios y funciones |
-| 5 – 25 | Axiomas de espacio vectorial; ejemplos y contraejemplos |
-| 25 – 35 | Propiedades que se deducen de los axiomas (demostraciones) |
-| 35 – 55 | Subespacios: criterio, interpretación geométrica y ejemplos |
-| 55 – 70 | Práctica en clase (taller 3.1) y cierre |
-
 ## ¿Por qué abstraer?
 
 En las unidades anteriores sumamos y multiplicamos por escalares **vectores de $\mathbb R^n$**, **matrices** y **soluciones de sistemas homogéneos**, y en todos los casos valieron las mismas propiedades.

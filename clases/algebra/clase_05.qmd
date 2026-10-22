@@ -10,16 +10,6 @@ subtitle: "Clase 5 · Sección 2.3 · Forma matricial, forma vectorial y partici
 - Multiplicar matrices **particionadas en bloques**.
 - Usar la notación matricial para razonar y demostrar.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: $A\mathbf x$ como combinación de columnas |
-| 5 – 20 | Forma matricial y forma vectorial de un sistema |
-| 20 – 40 | Consistencia y combinaciones lineales: ejemplos e interpretación geométrica |
-| 40 – 55 | Matrices particionadas y producto por bloques |
-| 55 – 70 | Práctica en clase y cierre (preparación de la evaluación intermedia) |
-
 ## Tres formas de escribir el mismo sistema
 
 $$

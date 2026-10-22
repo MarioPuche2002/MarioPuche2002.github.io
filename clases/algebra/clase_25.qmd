@@ -11,16 +11,6 @@ subtitle: "Clase 25 · Sección 8.1 · Polinomio característico, espacios propi
 - Distinguir multiplicidad **algebraica** y **geométrica**.
 - Demostrar propiedades: espacios propios son subespacios; vectores propios de valores distintos son LI.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: direcciones que una matriz solo estira |
-| 5 – 20 | Definición e interpretación geométrica (círculo → elipse) |
-| 20 – 40 | Polinomio característico y procedimiento; ejemplos $2\times2$ y $3\times3$ |
-| 40 – 55 | Multiplicidades; propiedades y demostraciones |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## Definición
 
 ::: {.definicion}

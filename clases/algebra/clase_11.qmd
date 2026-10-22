@@ -11,16 +11,6 @@ subtitle: "Clase 11 · Secciones 4.1 y 4.2 · Magnitud, dirección, ángulo y pr
 - Decidir si dos vectores son **paralelos** u **ortogonales**.
 - Calcular la **proyección ortogonal** de un vector sobre otro y demostrar sus propiedades.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: fuerzas, velocidades y desplazamientos |
-| 5 – 25 | Vectores en el plano: magnitud, dirección (con figura), unitarios |
-| 25 – 40 | Producto escalar, ángulo, paralelismo y ortogonalidad |
-| 40 – 55 | Proyección ortogonal: fórmula, deducción, ejemplos; Cauchy-Schwarz |
-| 55 – 70 | Aplicación (fuerza resultante) y práctica en clase |
-
 ## Vectores en el plano
 
 ::: {.definicion}

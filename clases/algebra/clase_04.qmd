@@ -11,16 +11,6 @@ subtitle: "Clase 4 · Sección 2.2 · Productos vectorial y matricial"
 - Conocer las propiedades del producto… y las que **no** se cumplen.
 - Calcular **potencias** de matrices y demostrar fórmulas por **inducción**.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: suma y producto por escalar |
-| 5 – 15 | Producto punto y sus propiedades |
-| 15 – 35 | Producto de matrices: definición, regla de tamaños, ejemplos y aplicación |
-| 35 – 50 | $A\mathbf x$ como combinación de columnas; propiedades y lo que no se cumple |
-| 50 – 70 | Potencias e inducción; práctica en clase |
-
 ## Producto punto
 
 ::: {.definicion}

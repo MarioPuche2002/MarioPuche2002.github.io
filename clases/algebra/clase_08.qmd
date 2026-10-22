@@ -11,16 +11,6 @@ subtitle: "Clase 8 · Sección 3.1 · Menores, cofactores y expansión de Laplac
 - Elegir la fila o columna más conveniente.
 - Demostrar que el determinante de una matriz triangular es el producto de su diagonal.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: un número que decide si una matriz es invertible |
-| 5 – 20 | Determinante $2\times2$ y su significado geométrico (área) |
-| 20 – 35 | Determinante $3\times3$: cofactores y regla de Sarrus |
-| 35 – 55 | Menores, cofactores y expansión de Laplace; caso $4\times4$; triangulares |
-| 55 – 70 | Aplicación (área de un triángulo) y práctica en clase |
-
 ## Determinante de una matriz $2\times 2$
 
 ::: {.definicion}

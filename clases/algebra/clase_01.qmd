@@ -11,17 +11,6 @@ subtitle: "Clase 1 · Secciones 1.1 y 1.2 · Eliminación de Gauss y Gauss-Jorda
 - Resolver sistemas con los métodos de **Gauss** y **Gauss-Jordan**.
 - Plantear y resolver problemas que se modelan con sistemas lineales.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: ¿dónde aparecen los sistemas lineales? |
-| 5 – 20 | Ecuaciones y sistemas lineales; interpretación geométrica en 2D y 3D |
-| 20 – 35 | Matriz aumentada, operaciones elementales y forma escalonada |
-| 35 – 55 | Gauss-Jordan: solución única, infinitas soluciones, sistema inconsistente |
-| 55 – 70 | Problemas de aplicación y práctica en clase |
-
-
 ## ¿Dónde aparecen los sistemas lineales?
 
 ::: {.columns}

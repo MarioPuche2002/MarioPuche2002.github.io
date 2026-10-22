@@ -10,16 +10,6 @@ subtitle: "Clase 10 · Secciones 3.3 y 3.4 · Matriz adjunta y solución de sist
 - Caracterizar las matrices invertibles por su determinante.
 - Resolver sistemas $n\times n$ con la **regla de Cramer** y demostrarla.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: cofactores y propiedades del determinante |
-| 5 – 25 | Matriz adjunta; teorema $A\,\mathrm{adj}A=(\det A)I$; inversa por la adjunta |
-| 25 – 35 | Teorema de la matriz invertible (versión 2) |
-| 35 – 55 | Regla de Cramer: interpretación geométrica, demostración y ejemplos de parcial |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## Matriz de cofactores y matriz adjunta
 
 ::: {.definicion}

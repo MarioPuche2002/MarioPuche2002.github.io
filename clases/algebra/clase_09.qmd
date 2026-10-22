@@ -10,16 +10,6 @@ subtitle: "Clase 9 · Sección 3.2 · Operaciones elementales, producto y transp
 - Aplicar $\det(AB)=\det A\det B$, $\det A^T=\det A$ y $\det(cA)=c^n\det A$.
 - Demostrar propiedades a partir de otras.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: cofactores y Laplace; ¿por qué buscar algo más rápido? |
-| 5 – 20 | Propiedades fundamentales e interpretación geométrica |
-| 20 – 35 | Demostraciones a partir de las operaciones elementales |
-| 35 – 55 | Reducción por filas; uso de propiedades sin calcular; Vandermonde |
-| 55 – 70 | Práctica en clase y cierre (evaluación final del primer tercio) |
-
 ## Las propiedades fundamentales
 
 ::: {.teorema}

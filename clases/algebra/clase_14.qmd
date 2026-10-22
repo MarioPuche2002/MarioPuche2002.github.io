@@ -10,17 +10,6 @@ subtitle: "Clase 14 · Sección 4.5 (parte 2) · Ecuación del plano, rectas y p
 - Hallar la **recta de intersección** de dos planos por dos métodos.
 - Resolver problemas que combinan rectas y planos: intersección, paralelismo, planos que contienen rectas.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: ecuaciones de la recta (clase 13) |
-| 5 – 15 | El vector normal y la ecuación del plano |
-| 15 – 35 | Ejemplos del cuaderno: planos con distintos datos |
-| 35 – 50 | Recta de intersección de dos planos (dos métodos) |
-| 50 – 62 | Rectas y planos combinados |
-| 62 – 70 | Práctica en clase y cierre |
-
 ## Repaso: lo que necesita cada objeto
 
 ::: {.columns}

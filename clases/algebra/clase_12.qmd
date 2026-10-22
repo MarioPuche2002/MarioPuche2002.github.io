@@ -10,16 +10,6 @@ subtitle: "Clase 12 · Secciones 4.3 y 4.4 · Cosenos directores, producto cruz,
 - Usar $\mathbf u\times\mathbf v$ para hallar vectores **ortogonales**, **áreas** de paralelogramos y triángulos.
 - Calcular **volúmenes** de paralelepípedos con el **triple producto escalar**.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: producto escalar y proyección en $\mathbb R^2$ |
-| 5 – 20 | Vectores en $\mathbb R^3$: magnitud, cosenos directores, ángulos |
-| 20 – 40 | Producto cruz: definición, regla de la mano derecha, propiedades |
-| 40 – 55 | Áreas y volúmenes (paralelogramo, triángulo, paralelepípedo) |
-| 55 – 70 | Aplicaciones y práctica en clase |
-
 ## Vectores en $\mathbb R^3$
 
 ::: {.definicion}

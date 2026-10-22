@@ -10,16 +10,6 @@ subtitle: "Clase 19 · Sección 5.5 · Bases, dimensión, vector de coordenadas 
 - Calcular el **vector de coordenadas** $[\mathbf v]_B$ respecto a una base.
 - Construir **matrices de transición** (cambio de base).
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: independencia y espacio generado |
-| 5 – 20 | Base y dimensión; bases canónicas |
-| 20 – 35 | Bases de subespacios: ejemplos y errores frecuentes |
-| 35 – 55 | Coordenadas (con figura) y matriz de transición |
-| 55 – 70 | Práctica en clase y cierre (evaluación intermedia 1 del tercer tercio) |
-
 ## Base
 
 ::: {.definicion}

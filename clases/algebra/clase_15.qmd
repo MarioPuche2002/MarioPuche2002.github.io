@@ -10,16 +10,6 @@ subtitle: "Clase 15 · Documento adicional · Distancias entre puntos, rectas y 
 - Calcular la distancia entre **planos paralelos** y entre **rectas que se cruzan**.
 - Deducir cada fórmula en lugar de memorizarla.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: proyecciones y producto cruz |
-| 5 – 25 | Distancia de un punto a un plano y a una recta en $\mathbb R^2$ |
-| 25 – 40 | Distancia de un punto a una recta en $\mathbb R^3$ (con figura) |
-| 40 – 55 | Distancias entre planos paralelos, rectas paralelas y rectas que se cruzan |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## La idea central
 
 ::: {.obs data-t="Principio"}

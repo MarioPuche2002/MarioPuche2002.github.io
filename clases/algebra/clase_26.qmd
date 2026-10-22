@@ -10,16 +10,6 @@ subtitle: "Clase 26 · Sección 8.3 · Semejanza, criterio de diagonalización y
 - Diagonalizar una matriz: hallar $P$ invertible y $D$ diagonal con $D=P^{-1}AP$.
 - Usar la diagonalización para calcular **potencias** $A^k$.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: valores y vectores propios |
-| 5 – 20 | Matrices semejantes y lo que comparten |
-| 20 – 40 | Diagonalización: criterio, demostración y procedimiento |
-| 40 – 55 | Ejemplos: valor propio repetido, matriz no diagonalizable |
-| 55 – 70 | Aplicaciones: potencias y cadenas de Markov; cierre del curso |
-
 ## Matrices semejantes
 
 ::: {.definicion}

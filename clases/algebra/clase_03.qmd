@@ -11,16 +11,6 @@ subtitle: "Clase 3 · Sección 2.1 · Definiciones generales, tipos de matrices 
 - Demostrar las propiedades algebraicas de estas operaciones.
 - Resolver **ecuaciones matriciales** y estudiar **combinaciones lineales** de matrices.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: datos organizados en tablas |
-| 5 – 20 | Vectores (con su geometría) y matrices; tipos especiales |
-| 20 – 35 | Igualdad, suma y producto por escalar; propiedades y demostraciones |
-| 35 – 55 | Ecuaciones matriciales, combinación lineal y aplicación |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## Vectores {.compacto}
 
 ::: {.definicion}

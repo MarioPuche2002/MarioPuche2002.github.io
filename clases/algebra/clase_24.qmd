@@ -10,16 +10,6 @@ subtitle: "Clase 24 · Sección 7.3 · Matriz estándar, matriz respecto a bases
 - Hallar la matriz de $T$ **respecto a bases** arbitrarias, incluso en $P_n$ y $M_{m\times n}$.
 - Relacionar la **composición** de transformaciones con el **producto** de matrices.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: núcleo, imagen y teorema de la dimensión |
-| 5 – 20 | Matriz estándar: columnas $T(\mathbf e_j)$; interpretación geométrica |
-| 20 – 35 | Galería: rotaciones, reflexiones, cizallas y proyecciones |
-| 35 – 50 | Matriz respecto a otras bases; la derivada como matriz |
-| 50 – 70 | Composición y producto; práctica en clase |
-
 ## Toda transformación lineal de $\mathbb R^n$ en $\mathbb R^m$ es matricial
 
 ::: {.teorema}

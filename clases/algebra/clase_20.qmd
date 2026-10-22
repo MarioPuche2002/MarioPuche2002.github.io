@@ -10,16 +10,6 @@ subtitle: "Clase 20 · Sección 5.7 · Los cuatro números de una matriz y el te
 - Usar el **teorema rango-nulidad** $\rho(A)+\nu(A)=n$.
 - Relacionar el rango con la invertibilidad y con la consistencia de sistemas.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: bases y dimensión |
-| 5 – 20 | Espacio nulo, imagen, espacio renglón; rango y nulidad (con diagrama) |
-| 20 – 40 | Cómo hallar las bases desde la forma escalonada: ejemplos |
-| 40 – 55 | Teorema rango-nulidad; rango y sistemas; matriz invertible (versión 3) |
-| 55 – 70 | Práctica en clase (taller 3.1) y cierre |
-
 ## Los cuatro conceptos
 
 ::: {.definicion}

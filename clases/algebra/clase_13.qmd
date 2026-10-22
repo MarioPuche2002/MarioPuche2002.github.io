@@ -10,16 +10,6 @@ subtitle: "Clase 13 · Sección 4.5 (parte 1) · Ecuaciones de la recta y posici
 - Decidir si dos rectas son **paralelas**, **perpendiculares**, **se cortan** o **se cruzan**.
 - Hallar el **punto de intersección** de dos rectas y el **ángulo** entre ellas.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: vectores, producto punto y producto cruz (clase 12) |
-| 5 – 20 | De la geometría a las ecuaciones: tres formas de la recta |
-| 20 – 40 | Ejemplos resueltos del cuaderno (rectas con punto y dirección, con dos puntos, lectura de simétricas) |
-| 40 – 58 | Posiciones relativas: paralelas, perpendiculares, intersección, rectas que se cruzan |
-| 58 – 70 | Práctica en clase y cierre |
-
 ## Repaso rápido
 
 ::: {.columns}

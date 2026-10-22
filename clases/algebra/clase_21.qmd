@@ -14,16 +14,6 @@ subtitle: "Clase 21 · Complemento de la unidad 5 · Conjuntos ortogonales, coor
 Este tema complementa las secciones 5.4–5.5 y conecta la geometría de la unidad 4 con los espacios vectoriales. Es la base de métodos como mínimos cuadrados y la factorización $QR$.
 :::
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: producto punto, proyección y bases |
-| 5 – 20 | Conjuntos ortogonales y ortonormales; ortogonalidad ⇒ independencia |
-| 20 – 30 | Coordenadas en bases ortonormales (sin resolver sistemas) |
-| 30 – 55 | Proceso de Gram-Schmidt: idea geométrica y ejemplos |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## Conjuntos ortogonales y ortonormales
 
 ::: {.definicion}

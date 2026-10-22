@@ -10,16 +10,6 @@ subtitle: "Clase 18 · Sección 5.4 · Dependencia, independencia y sus criterio
 - Usar el **determinante** para $n$ vectores de $\mathbb R^n$.
 - Demostrar los teoremas básicos: más de $n$ vectores en $\mathbb R^n$ son dependientes; dependencia $\iff$ un vector es combinación de los otros.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: espacio generado y vectores redundantes |
-| 5 – 20 | Dependencia e independencia lineal: definición e imagen geométrica |
-| 20 – 40 | Procedimiento con sistemas homogéneos; criterios en $\mathbb R^n$ |
-| 40 – 55 | Teorema: dependencia ⇔ un vector es combinación de los otros; polinomios y matrices |
-| 55 – 70 | Práctica en clase (taller 3.1) y cierre |
-
 ## Definición
 
 ::: {.definicion}

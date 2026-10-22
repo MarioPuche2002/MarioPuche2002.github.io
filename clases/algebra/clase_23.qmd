@@ -10,16 +10,6 @@ subtitle: "Clase 23 · Sección 7.2 · Núcleo, imagen, nulidad, rango e inyecti
 - Aplicar el **teorema de la dimensión**: $\nu(T)+\rho(T)=\dim V$.
 - Caracterizar las transformaciones **inyectivas** mediante el núcleo.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Repaso: transformaciones lineales y su matriz |
-| 5 – 20 | Núcleo e imagen: definiciones, figura y demostración de que son subespacios |
-| 20 – 40 | Ejemplos en $\mathbb R^n$, polinomios y matrices |
-| 40 – 55 | Teorema de la dimensión; inyectividad y sobreyectividad |
-| 55 – 70 | Práctica en clase y cierre |
-
 ## Definiciones
 
 ::: {.definicion}

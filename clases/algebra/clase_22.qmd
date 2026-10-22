@@ -10,17 +10,6 @@ subtitle: "Clase 22 · Sección 7.1 · Linealidad, ejemplos geométricos y algeb
 - Demostrar propiedades básicas: $T(\mathbf 0)=\mathbf 0$, $T(-\mathbf v)=-T(\mathbf v)$, preservación de combinaciones lineales.
 - Demostrar que una transformación lineal queda **determinada por sus valores en una base**.
 
-## Ruta de la clase (70 min)
-
-| Tiempo | Actividad |
-|:---:|---|
-| 0 – 5 | Motivación: funciones que respetan la suma y los escalares |
-| 5 – 15 | Definición: conservación de la suma y de los escalares |
-| 15 – 35 | Ejemplos 1 y 2 (lineales), con figura y forma matricial |
-| 35 – 50 | Ejemplos 3 y 4 (no lineales); tabla resumen y regla práctica |
-| 50 – 60 | Propiedades básicas y galería; una base determina la transformación |
-| 60 – 70 | Practiquemos y ejercicios |
-
 ## Definición
 
 ::: {.definicion}
