@@ -146,6 +146,17 @@ La columna **VERSION** debe decir **2**. Si dice 1: `wsl --set-version Ubuntu 2`
 En **Windows Terminal → Configuración → Inicio → Perfil predeterminado**, elija **Ubuntu** para que cada nueva pestaña abra Linux. También puede configurar la carpeta inicial y el tema de colores.
 :::
 
+### Saber en qué terminal se está
+
+Con WSL hay dos terminales en el mismo equipo y cada una entiende sus propios comandos. Antes de escribir un comando, mire el inicio de la línea (el *prompt*):
+
+| Terminal | Así se ve el prompt | Qué se escribe ahí |
+|---|---|---|
+| **PowerShell** (Windows) | `PS C:\Users\SuUsuario>` | Comandos `wsl ...`, `winget`, rutas `C:\...` |
+| **Ubuntu** (Linux) | `usuario@equipo:~$` | `ls`, `cd`, `sudo apt ...`, rutas `/home/...` y `/mnt/c/...` |
+
+En Windows Terminal cada pestaña muestra su nombre (**Windows PowerShell** o **Ubuntu**). Si una guía dice "en PowerShell" o "en Ubuntu", abra esa pestaña antes de pegar los comandos: un comando de Linux en PowerShell (o al revés) no hace lo esperado o da error.
+
 ### Comandos de `wsl` (se ejecutan en PowerShell)
 
 | Comando | Para qué sirve |
@@ -323,6 +334,52 @@ Ejecute `sudo apt update && sudo apt upgrade -y` una vez por semana, y `wsl --up
 Guarde los proyectos en los que trabaja desde Linux **dentro de Linux** (`~/proyectos`), no en `/mnt/c`. Leer y escribir archivos de Windows desde Linux es mucho más lento, y algunas herramientas (Git, `npm`, `pip`) se notan especialmente.
 :::
 
+### Encontrar una carpeta de Windows desde Linux
+
+Para llegar desde Ubuntu a una carpeta que está en Windows, vaya bajando nivel por nivel con `ls` y complete con **Tab**:
+
+1. Vea el nombre exacto de su usuario de Windows:
+
+   ```bash
+   ls /mnt/c/Users
+   ```
+
+2. Revise dónde está realmente el Escritorio. Si **OneDrive** respalda el Escritorio y Documentos, estas carpetas no están en `C:\Users\SuUsuario\Desktop` sino dentro de OneDrive:
+
+   ```bash
+   ls /mnt/c/Users/SuUsuario/Desktop             # Escritorio sin OneDrive
+   ls /mnt/c/Users/SuUsuario/OneDrive/Desktop    # Escritorio respaldado en OneDrive
+   ls /mnt/c/Users/SuUsuario/OneDrive/Escritorio # en algunos equipos en español
+   ```
+
+3. Entre a la carpeta. Si la ruta tiene **espacios**, escríbala **entre comillas**:
+
+   ```bash
+   cd "/mnt/c/Users/SuUsuario/OneDrive/Desktop/Mi carpeta"
+   ls -a     # comprobar que están los archivos esperados (incluidos los ocultos)
+   ```
+
+::: {.callout-tip}
+## Atajos para no escribir la ruta
+- Copie la ruta en el Explorador de Windows (clic derecho en la carpeta → **Copiar como ruta**) y conviértala: `wslpath 'C:\Users\SuUsuario\OneDrive\Desktop\Mi carpeta'`.
+- O haga lo contrario: abra la carpeta en el Explorador, escriba `wsl` en la barra de direcciones y Ubuntu se abre ya ubicado ahí.
+- Para trabajar a diario con esos archivos, cópielos a Linux (`cp -r "/mnt/c/.../Mi carpeta" ~/proyectos/`): será más rápido, según la regla de rendimiento.
+:::
+
+### Linux distingue mayúsculas y minúsculas
+
+En Windows, `Datos.txt` y `datos.txt` son el mismo archivo; en Linux son **dos archivos distintos**. Un programa que en Windows abre `requirements.txt` sin problema, en Linux no lo encuentra si el archivo se llama `Requirements.txt`.
+
+- Al copiar un proyecto de Windows a Linux, revise con `ls` que los nombres coincidan **exactamente** con los que usa el código.
+- Para corregir el nombre en un repositorio de Git, use `git mv` (si solo cambia mayúsculas, Git en Windows no detecta el cambio por sí solo):
+
+  ```bash
+  git mv Requirements.txt requirements.txt
+  git commit -m "Nombre de archivo en minúsculas"
+  ```
+
+- Las carpetas y archivos que empiezan por punto (`.git`, `.github`, `.env`) son **ocultos**: solo aparecen con `ls -a`. Revise que estén en la ubicación correcta, porque las herramientas los buscan en una ruta exacta.
+
 ### Ver los archivos de Linux desde Windows
 
 ```bash
@@ -370,6 +427,12 @@ gedit &          # el & devuelve la terminal mientras la ventana sigue abierta
 ### Red
 
 Un servidor que se ejecute en WSL (por ejemplo, Jupyter en el puerto 8888) se abre desde el navegador de Windows en `http://localhost:8888`.
+
+Cuando se deja un servidor corriendo:
+
+1. La terminal donde se inició queda **ocupada** mostrando sus mensajes; espere a que indique la dirección (por ejemplo, `Running on http://0.0.0.0:8000`) antes de abrir el navegador.
+2. Para seguir trabajando, abra **otra pestaña de Ubuntu** (en Windows Terminal: **Ctrl + Shift + T** o la flecha ▾) y vaya a la misma carpeta con `cd`.
+3. Para detener el servidor, vuelva a su pestaña y pulse **Ctrl + C**.
 
 ## Parte 7 · Herramientas de desarrollo
 
@@ -558,6 +621,8 @@ explorer.exe .
 | La instalación se queda en 0 % | `wsl --install --web-download -d Ubuntu`. |
 | `wsl -l -v` muestra VERSION 1 | `wsl --set-version Ubuntu 2`. |
 | Olvidé la contraseña de Linux | En PowerShell: `wsl -u root`, luego `passwd su_usuario`. |
+| `No such file or directory` con un archivo que sí existe | Revise mayúsculas y espacios en el nombre (`ls -a`), y ponga entre comillas las rutas con espacios. |
+| No encuentro mi Escritorio en `/mnt/c/Users/.../Desktop` | Puede estar en OneDrive: `ls /mnt/c/Users/SuUsuario/OneDrive`. |
 | Todo es muy lento con mis archivos | Mueva el proyecto de `/mnt/c/...` a `~/proyectos`. |
 | WSL consume mucha memoria | Limite `memory=` en `.wslconfig` y ejecute `wsl --shutdown` al terminar el día. |
 | Sin internet dentro de WSL (a veces con VPN) | Pruebe `networkingMode=mirrored` en `.wslconfig` (Windows 11) y `wsl --shutdown`. |
