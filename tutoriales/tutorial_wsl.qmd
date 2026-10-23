@@ -475,7 +475,7 @@ Vea los tutoriales de [uv](tutorial_uv.qmd) y de [Miniconda](tutorial_miniconda.
 
 ### Otros
 
-- **Docker:** instale Docker Desktop en Windows y active **Settings → Resources → WSL integration** para Ubuntu; luego use `docker` desde la terminal de Linux.
+- **Docker:** instale Docker Desktop en Windows y active **Settings → Resources → WSL integration** para Ubuntu; luego use `docker` desde la terminal de Linux (ver el [tutorial de Docker con WSL](tutorial_docker.qmd)).
 - **GNU Octave:** `sudo apt install octave` (ver el [tutorial de Octave](tutorial_octave.qmd)).
 - **GPU (NVIDIA):** WSL 2 permite usar CUDA con el controlador de Windows; no se instala un controlador de NVIDIA dentro de Linux.
 
