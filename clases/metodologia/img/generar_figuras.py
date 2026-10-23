@@ -213,7 +213,94 @@ def apa_vs_ieee():
     fig.savefig(OUT / "apa_vs_ieee.svg", bbox_inches="tight"); plt.close(fig)
 
 
+def _anot(ax, xy, xytext, texto, color=VINO, ha="left"):
+    ax.annotate(texto, xy=xy, xytext=xytext, fontsize=10.5, color=color, ha=ha, va="center",
+                arrowprops=dict(arrowstyle="-|>", color=color, lw=1.1))
+
+
+def _runs(ax, x, y, partes, fs=11):
+    """Escribe segmentos seguidos; partes = [(texto, cursiva)]."""
+    fig = ax.figure; r = fig.canvas.get_renderer(); inv = ax.transData.inverted()
+    for t, it in partes:
+        h = ax.text(x, y, t, fontsize=fs, fontfamily="DejaVu Serif", style="italic" if it else "normal")
+        bb = h.get_window_extent(renderer=r); x = inv.transform((bb.x1, bb.y0))[0]
+    return x
+
+
+def apa_tabla_ejemplo():
+    fig, ax = plt.subplots(figsize=(12, 6.4)); ax.axis("off"); ax.set_xlim(0, 12); ax.set_ylim(0, 8.4)
+    x0, x1 = 3.0, 10.0
+    ax.text(x0, 7.9, "Tabla 1", fontsize=13, fontweight="bold", fontfamily="DejaVu Serif")
+    ax.text(x0, 7.35, "Calidad del sueño según el uso de pantallas antes de dormir", fontsize=12, style="italic", fontfamily="DejaVu Serif")
+    filas = [("Uso de pantallas", "n", "M", "DE", "Mala calidad (%)"),
+             ("Menos de 30 min", "48", "5.1", "2.3", "29.2"),
+             ("30 a 60 min", "62", "6.8", "2.6", "45.2"),
+             ("Más de 60 min", "40", "8.9", "3.1", "72.5"),
+             ("Total", "150", "6.8", "3.0", "47.3")]
+    cols = [x0, x0 + 2.6, x0 + 3.5, x0 + 4.4, x0 + 5.3]
+    ys = [6.5, 5.75, 5.1, 4.45, 3.8]
+    for k, (fila, y) in enumerate(zip(filas, ys)):
+        for j, (c, v) in enumerate(zip(cols, fila)):
+            ax.text(c, y, v, fontsize=12, fontfamily="DejaVu Serif", style="italic" if k == 0 and j in (1, 2, 3) else "normal")
+    for y in (6.95, 6.15, 3.45):
+        ax.plot([x0 - 0.1, x1], [y, y], color=TINTA, lw=1.3)
+    _runs(ax, x0, 2.85, [("Nota. ", True), ("Mayor puntaje indica peor calidad del sueño (escala de 0 a 21). Datos ilustrativos.", False)], fs=11)
+    _anot(ax, (x0, 8.0), (0.1, 8.0), "Número en negrita", AZUL)
+    _anot(ax, (x0, 7.4), (0.1, 7.1), "Título en cursiva", AZUL)
+    _anot(ax, (x0 - 0.1, 6.5), (0.1, 6.0), "Encabezados\nde columna", AZUL)
+    _anot(ax, (x0 - 0.1, 4.8), (0.1, 4.6), "Cuerpo: solo líneas\nhorizontales", AZUL)
+    _anot(ax, (x0, 2.85), (0.1, 2.3), "Nota: fuente,\nabreviaturas", AZUL)
+    _anot(ax, (x1, 6.15), (10.3, 5.6), "Líneas arriba\ny bajo los\nencabezados", VINO)
+    _anot(ax, (x1, 3.45), (10.3, 3.9), "Línea al final", VINO)
+    ax.text(6, 1.5, "Sin líneas verticales · se menciona en el texto antes de aparecer", ha="center", fontsize=11, color=GRIS)
+    fig.savefig(OUT / "apa_tabla_ejemplo.svg", bbox_inches="tight"); plt.close(fig)
+
+
+def apa_figura_ejemplo():
+    fig = plt.figure(figsize=(12, 6.6))
+    axt = fig.add_axes([0, 0, 1, 1]); axt.axis("off"); axt.set_xlim(0, 12); axt.set_ylim(0, 8)
+    x0 = 3.0
+    axt.text(x0, 7.55, "Figura 1", fontsize=13, fontweight="bold", fontfamily="DejaVu Serif")
+    axt.text(x0, 7.05, "Mala calidad del sueño según el uso de pantallas", fontsize=12, style="italic", fontfamily="DejaVu Serif")
+    ax = fig.add_axes([x0 / 12 + 0.04, 0.3, 0.46, 0.52])
+    cats = ["< 30 min", "30–60 min", "> 60 min"]; vals = [29.2, 45.2, 72.5]
+    ax.bar(cats, vals, color=["#9ec5c9", "#4f9aa3", AZUL], width=0.6)
+    for i, v in enumerate(vals):
+        ax.text(i, v + 2, f"{v:.1f} %", ha="center", fontsize=11)
+    ax.set_ylabel("Mala calidad del sueño (%)", fontsize=11); ax.set_xlabel("Uso de pantallas antes de dormir", fontsize=11)
+    ax.set_ylim(0, 85); ax.spines[["top", "right"]].set_visible(False); ax.tick_params(labelsize=10.5)
+    _runs(axt, x0, 1.3, [("Nota. ", True), ("n = 150 estudiantes de primer semestre. Datos ilustrativos.", False)], fs=11)
+    _anot(axt, (x0, 7.6), (0.1, 7.6), "Número en negrita", AZUL)
+    _anot(axt, (x0, 7.05), (0.1, 6.6), "Título en cursiva", AZUL)
+    _anot(axt, (x0 + 0.4, 4.4), (0.1, 4.4), "Imagen: ejes y\nleyendas legibles", AZUL)
+    _anot(axt, (x0, 1.3), (0.1, 1.3), "Nota", AZUL)
+    _anot(axt, (9.2, 4.4), (9.6, 5.6), "Si es tomada o\nadaptada, indicarlo\nen la nota:\nAdaptado de\nAutor (año)", VINO)
+    fig.savefig(OUT / "apa_figura_ejemplo.svg", bbox_inches="tight"); plt.close(fig)
+
+
+def apa_lista_referencias():
+    fig, ax = plt.subplots(figsize=(12, 5.4)); ax.axis("off"); ax.set_xlim(0, 12); ax.set_ylim(0, 7.2)
+    x0 = 2.9
+    ax.text(7.2, 6.8, "Referencias", ha="center", fontsize=13, fontweight="bold", fontfamily="DejaVu Serif")
+    refs = [([("Creswell, J. W., & Creswell, J. D. (2018). ", False), ("Research design: Qualitative,", True)],
+             [("quantitative, and mixed methods approaches", True), (" (5th ed.). SAGE.", False)]),
+            ([("Hernández-Sampieri, R., & Mendoza, C. P. (2018). ", False), ("Metodología de la", True)],
+             [("investigación: Las rutas cuantitativa, cualitativa y mixta", True), (". McGraw-Hill.", False)]),
+            ([("Pérez, A., & Gómez, L. (2023). Calidad del sueño en universitarios. ", False), ("Revista", True)],
+             [("de Salud, 12", True), ("(3), 45–60. https://doi.org/10.xxxx/rs.2023.45", False)])]
+    y = 5.9
+    for l1, l2 in refs:
+        _runs(ax, x0, y, l1); xe = _runs(ax, x0 + 0.55, y - 0.5, l2)
+        y -= 1.5
+    _anot(ax, (x0, 5.95), (0.1, 6.3), "Orden alfabético por\nel primer apellido", AZUL)
+    _anot(ax, (x0 + 0.55, 5.4), (0.1, 5.0), "Sangría francesa\n(1,27 cm)", AZUL)
+    _anot(ax, (8.2, 6.85), (9.8, 6.85), "Título centrado\nen negrita", AZUL)
+    _anot(ax, (xe - 0.3, 2.75), (xe + 0.1, 1.8), "DOI como enlace", VINO)
+    ax.text(x0, 0.9, "Títulos de libros y nombres de revistas (con su volumen) en cursiva · interlineado doble", fontsize=11, color=VINO)
+    fig.savefig(OUT / "apa_lista_referencias.svg", bbox_inches="tight"); plt.close(fig)
+
+
 if __name__ == "__main__":
     for f in (gantt, limitaciones, delimitacion, embudo_delimitacion, marco_elementos, marco_funciones, marco_vs, errores_marco,
-              apa_pagina, apa_referencia, ieee_referencia, apa_vs_ieee):
-        f(); print("ok", f.__name__)
+              apa_pagina, apa_referencia, ieee_referencia, apa_vs_ieee, apa_tabla_ejemplo, apa_figura_ejemplo, apa_lista_referencias):
+        f()

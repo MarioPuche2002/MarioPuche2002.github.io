@@ -105,3 +105,8 @@ $presentation-h3-font-size: 1.1em;
 
 /* Figuras centradas: limitar altura para dejar espacio al texto */
 .reveal .quarto-figure-center img { max-height: 420px; width: auto !important; max-width: 100%; }
+
+/* Tablas de modelos de referencia */
+.reveal .slides section table td { vertical-align: top; }
+.reveal .slides section.refs table { font-size: .9em; }
+.reveal .slides section.refs table td:first-child { white-space: normal; }

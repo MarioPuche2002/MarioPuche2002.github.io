@@ -62,7 +62,7 @@ Muchas instituciones adaptan estos parámetros (por ejemplo, piden interlineado 
 **Método** (nivel 1) → **Participantes** (nivel 2) → ***Criterios de inclusión*** (nivel 3).
 :::
 
-## Tablas y figuras
+## Tablas y figuras: reglas generales
 
 ::: {.columns}
 ::: {.column width="50%"}
@@ -70,15 +70,16 @@ Muchas instituciones adaptan estos parámetros (por ejemplo, piden interlineado 
 
 1. **Número** en negrita: **Tabla 1**.
 2. **Título** en cursiva, una línea abajo.
-3. Cuerpo con **líneas horizontales** solamente (sin líneas verticales).
-4. **Nota** debajo, si hace falta: fuente, abreviaturas, aclaraciones.
+3. **Encabezados** de columna y cuerpo.
+4. Solo **líneas horizontales** (sin verticales).
+5. **Nota** debajo, si hace falta.
 :::
 ::: {.column width="50%"}
-**Figura**
+**Figura** (gráficos, diagramas, fotografías, mapas)
 
 1. **Número** en negrita: **Figura 1**.
 2. **Título** en cursiva, una línea abajo.
-3. La imagen (gráfico, diagrama, fotografía).
+3. La **imagen**, con ejes y leyendas legibles.
 4. **Nota** debajo, si hace falta.
 :::
 :::
@@ -86,7 +87,33 @@ Muchas instituciones adaptan estos parámetros (por ejemplo, piden interlineado 
 . . .
 
 ::: {.obs}
-Toda tabla y figura debe **mencionarse en el texto** antes de aparecer ("como se observa en la Tabla 1…"). Si se toma o adapta de otra fuente, se indica en la nota: *Adaptado de* Autor (año).
+Toda tabla y figura se **menciona en el texto** antes de aparecer ("como se observa en la Tabla 1…") y se numera en el orden en que se menciona. Tablas y figuras tienen numeraciones **independientes**.
+:::
+
+## Ejemplo de tabla en APA
+
+![](img/apa_tabla_ejemplo.svg){fig-align="center" width="92%"}
+
+## Ejemplo de figura en APA
+
+![](img/apa_figura_ejemplo.svg){fig-align="center" width="92%"}
+
+## Notas de tablas y figuras
+
+La **nota** va debajo, empieza con la palabra *Nota* en cursiva seguida de punto, y puede incluir:
+
+| Tipo de nota | Ejemplo |
+|---|---|
+| **General** (aclaraciones, abreviaturas) | *Nota.* M = media; DE = desviación estándar. |
+| **De fuente** (tomada de otra obra) | *Nota.* Tomado de *Título de la obra* (p. 12), por A. Pérez, 2023, Editorial. |
+| **De adaptación** (modificada) | *Nota.* Adaptado de "Título del artículo," por A. Pérez y L. Gómez, 2023, *Revista de Salud, 12*(3), p. 50. |
+| **Específica** (una celda o columna) | ª Datos de 2022. |
+| **De probabilidad** | \* *p* < .05. \*\* *p* < .01. |
+
+. . .
+
+::: {.obs data-t="Derechos de autor"}
+Si la tabla o figura se reproduce de otra fuente, además de citarla puede requerir **permiso** del titular de los derechos. Lo más seguro es elaborar una propia con los datos citados.
 :::
 
 ## Citas en el texto: dos formatos
@@ -182,37 +209,134 @@ Cada cita del texto tiene su referencia, y cada referencia aparece citada en el 
 - Hasta **20 autores**: se escriben todos. Con 21 o más, los 19 primeros, puntos suspensivos y el último.
 - Se incluye el **DOI** como enlace (https://doi.org/…) cuando existe.
 
+## Ejemplo de lista de referencias
+
+![](img/apa_lista_referencias.svg){fig-align="center" width="92%"}
+
 ## Anatomía de una referencia
 
 ![](img/apa_referencia.svg){fig-align="center" width="100%"}
 
-Toda referencia responde cuatro preguntas: **¿quién?** (autor), **¿cuándo?** (fecha), **¿qué?** (título) y **¿dónde?** (fuente).
+Toda referencia responde cuatro preguntas: **¿quién?** (autor), **¿cuándo?** (fecha), **¿qué?** (título) y **¿dónde?** (fuente). Los modelos que siguen cambian solo en **cómo se escribe cada parte** según el tipo de fuente.
 
-## Modelos de referencia (1)
+::: {.obs}
+Los ejemplos de las diapositivas siguientes son **ilustrativos**: los autores, títulos y direcciones web son ficticios y sirven solo para mostrar el formato.
+:::
+
+## Referencias: libros {.refs}
 
 | Tipo | Modelo y ejemplo |
-|---|---|
-| **Artículo de revista** | Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. *Nombre de la Revista, volumen*(número), pp–pp. https://doi.org/xxxx |
-| | Pérez, A., & Gómez, L. (2023). Calidad del sueño en universitarios. *Revista de Salud, 12*(3), 45–60. https://doi.org/10.xxxx/rs.2023.45 |
-| **Libro** | Apellido, A. A. (Año). *Título del libro* (ed.). Editorial. |
-| | Hernández-Sampieri, R., & Mendoza, C. P. (2018). *Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta*. McGraw-Hill. |
-| **Capítulo de libro** | Apellido, A. A. (Año). Título del capítulo. En E. Editor (Ed.), *Título del libro* (pp. xx–xx). Editorial. |
+|----------|------------------------------------------------|
+| **Libro impreso** | Apellido, A. A. (Año). *Título del libro*. Editorial.<br>*Ej.:* Pérez, A. (2021). *Introducción a la investigación*. Editorial Académica. |
+| **Libro electrónico** | Apellido, A. A. (Año). *Título del libro*. Editorial. https://doi.org/xxxx o URL<br>*Ej.:* Gómez, L., & Ruiz, M. (2022). *Estadística aplicada a la salud*. Editorial Académica. https://doi.org/10.xxxx/eas2022 |
+| **Edición distinta de la primera** | … *Título del libro* (3.ª ed.). Editorial.<br>*Ej.:* Torres, J. (2020). *Métodos cuantitativos* (3.ª ed.). Editorial Académica. |
+| **Libro con editores** | Apellido, A. A. (Ed.). (Año). *Título*. Editorial. (Con varios: Eds.)<br>*Ej.:* Díaz, R., & Mora, P. (Eds.). (2019). *Avances en educación*. Editorial Académica. |
+| **Autor corporativo** | Nombre de la organización. (Año). *Título*. Editorial (si es distinta del autor).<br>*Ej.:* Asociación de Investigadores en Salud. (2022). *Guía de buenas prácticas*. |
 
-## Modelos de referencia (2)
+. . .
 
-| Tipo | Modelo |
-|---|---|
-| **Tesis** | Apellido, A. A. (Año). *Título de la tesis* [Tesis de maestría, Nombre de la universidad]. Repositorio. URL |
-| **Ponencia** | Apellido, A. A. (Año, día de mes). *Título de la ponencia* [Presentación]. Nombre del evento, Ciudad, País. URL |
-| **Página web** | Autor u organización. (Año, día de mes). *Título de la página*. Nombre del sitio. URL |
-| **Ley o norma** | Nombre de la ley y número. (Año, día de mes). Nombre del diario oficial. URL |
-| **Video** | Autor o canal. (Año, día de mes). *Título del video* [Video]. Plataforma. URL |
-| **Software o base de datos** | Autor. (Año). *Nombre* (Versión x.x) [Software]. Editor. URL |
+En APA 7 **ya no** se escribe la ciudad de la editorial.
+
+## Referencias: capítulos y obras de consulta {.refs}
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Capítulo de libro editado (impreso)** | Apellido, A. A. (Año). Título del capítulo. En E. Editor (Ed.), *Título del libro* (pp. xx–xx). Editorial.<br>*Ej.:* Ramos, C. (2019). La entrevista en profundidad. En R. Díaz & P. Mora (Eds.), *Avances en educación* (pp. 30–56). Editorial Académica. |
+| **Capítulo de libro electrónico** | … (pp. xx–xx). Editorial. https://doi.org/xxxx o URL<br>*Ej.:* Ramos, C. (2019). La entrevista en profundidad. En R. Díaz & P. Mora (Eds.), *Avances en educación* (pp. 30–56). Editorial Académica. https://doi.org/10.xxxx/ae.c3 |
+| **Diccionario o enciclopedia en línea** | Autor o institución. (s. f.). Término. En *Nombre de la obra*. Recuperado el día de mes de año de URL<br>*Ej.:* Academia de la Lengua. (s. f.). Brecha. En *Diccionario general*. Recuperado el 5 de marzo de 2024 de https://www.ejemplo.org/brecha |
+
+. . .
+
+Se usa "Recuperado el … de" solo cuando el contenido **cambia con el tiempo** y no está archivado.
+
+## Referencias: revistas y periódicos {.refs}
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Artículo con DOI** | Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. *Revista, vol*(n.º), pp–pp. https://doi.org/xxxx<br>*Ej.:* Pérez, A., & Gómez, L. (2023). Calidad del sueño en universitarios. *Revista de Salud, 12*(3), 45–60. https://doi.org/10.xxxx/rs.2023.45 |
+| **Artículo sin DOI, con URL** | … *Revista, vol*(n.º), pp–pp. URL<br>*Ej.:* Ruiz, M. (2021). Hábitos de estudio en línea. *Revista de Educación Digital, 8*(2), 15–29. https://www.ejemplo.org/red/82 |
+| **Artículo sin DOI ni URL** | … *Revista, vol*(n.º), pp–pp.<br>*Ej.:* Torres, J. (2018). Ansiedad y rendimiento académico. *Psicología Hoy, 5*(1), 9–20. |
+| **Periódico impreso** | Apellido, A. A. (Año, día de mes). Título de la nota. *Nombre del Periódico*, p. x.<br>*Ej.:* Mora, P. (2023, 4 de agosto). Jóvenes duermen menos. *El Diario Nacional*, p. 12. |
+| **Periódico en línea** | Apellido, A. A. (Año, día de mes). Título de la nota. *Nombre del Periódico*. URL<br>*Ej.:* Mora, P. (2023, 4 de agosto). Jóvenes duermen menos. *El Diario Nacional*. https://www.ejemplo.com/sueno |
+
+## Referencias: trabajos académicos, eventos e informes {.refs}
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Tesis en repositorio** | Apellido, A. A. (Año). *Título* [Tesis de maestría, Nombre de la universidad]. Repositorio. URL<br>*Ej.:* Díaz, R. (2022). *Uso de pantallas y sueño en adolescentes* [Tesis de maestría, Universidad Ejemplo]. Repositorio Institucional. https://repositorio.ejemplo.edu/123 |
+| **Tesis no publicada** | Apellido, A. A. (Año). *Título* [Trabajo de grado no publicado]. Nombre de la universidad.<br>*Ej.:* Castro, E. (2021). *Hábitos de sueño en deportistas* [Trabajo de grado no publicado]. Universidad Ejemplo. |
+| **Ponencia o póster** | Apellido, A. A. (Año, días de mes). *Título* [Presentación de ponencia / Póster]. Nombre del evento, Ciudad, País. URL<br>*Ej.:* Gómez, L. (2023, 12–14 de octubre). *Sueño y rendimiento académico* [Presentación de ponencia]. Congreso de Investigación en Salud, Ciudad Ejemplo, País Ejemplo. |
+| **Informe de una organización** | Organización. (Año). *Título del informe* (Informe n.º x). URL<br>*Ej.:* Observatorio de Salud Juvenil. (2023). *Salud mental de los estudiantes universitarios* (Informe n.º 4). https://www.ejemplo.org/informe4 |
+
+## Referencias: documentos legales {.refs}
+
+APA 7 remite a las normas jurídicas de cada país. En español es frecuente esta **adaptación**: tipo y número de la norma, año, título o asunto, fecha, publicación oficial y URL.
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Constitución** | Nombre oficial de la constitución [Sigla]. (Año). Artículo citado. Fecha de promulgación. URL<br>*Ej.:* Constitución Política de País Ejemplo [Const.]. (1991). Art. 49. 7 de julio de 1991. |
+| **Ley** | Ley número de año. (Año, día de mes). Asunto. Publicación oficial n.º x. URL<br>*Ej.:* Ley 1234 de 2020. (2020, 10 de marzo). Por la cual se regula la investigación en salud. Diario Oficial n.º 51 234. |
+| **Decreto, resolución o acuerdo** | Tipo número de año [Entidad que lo expide]. (Año, día de mes). Asunto. Publicación oficial. URL<br>*Ej.:* Resolución 456 de 2021 [Ministerio de Salud]. (2021, 2 de junio). Por la cual se establecen normas éticas para la investigación. |
+| **Código** | Título oficial del código [Abreviatura]. Ley o decreto que lo adopta. Artículos citados. Fecha. URL<br>*Ej.:* Código Civil [C. C.]. Ley 57 de 1887. Art. 33. 15 de abril de 1887. |
 
 . . .
 
 ::: {.obs}
-Si la página web cambia con frecuencia, se agrega la fecha de consulta: *Recuperado el día de mes de año de* URL.
+Verifique si su institución tiene una guía propia para normas legales: este es el tipo de fuente con más variaciones.
+:::
+
+## Referencias: medios audiovisuales {.refs}
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Video en línea** | Autor o canal. (Año, día de mes). *Título del video* [Video]. Plataforma. URL<br>*Ej.:* Ciencia Fácil. (2022, 3 de mayo). *¿Qué es una hipótesis?* [Video]. YouTube. https://www.youtube.com/watch?v=xxxx |
+| **Película** | Apellido, A. A. (Director). (Año). *Título* [Película]. Productora.<br>*Ej.:* Ríos, D. (Director). (2019). *El experimento* [Película]. Producciones Ejemplo. |
+| **Episodio de pódcast** | Apellido, A. A. (Anfitrión). (Año, día de mes). Título del episodio (n.º x) [Episodio de pódcast]. En *Nombre del pódcast*. Productora. URL<br>*Ej.:* Vega, S. (Anfitriona). (2023, 1 de febrero). Cómo leer un artículo (n.º 12) [Episodio de pódcast]. En *Investigar sin miedo*. https://www.ejemplo.com/pod12 |
+| **Canción** | Artista. (Año). Título de la canción [Canción]. En *Título del álbum*. Sello discográfico.<br>*Ej.:* Grupo Ejemplo. (2018). Noches sin dormir [Canción]. En *Insomnio*. Sello Ejemplo. |
+| **Diapositivas** | Apellido, A. A. (Año). *Título* [Diapositivas de PowerPoint]. Sitio. URL<br>*Ej.:* Mora, P. (2022). *Diseño de encuestas* [Diapositivas de PowerPoint]. Repositorio Ejemplo. https://www.ejemplo.org/encuestas |
+
+## Referencias: redes sociales y páginas web {.refs}
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Publicación en X (Twitter)** | Autor [@usuario]. (Año, día de mes). *Hasta las primeras 20 palabras de la publicación* [Descripción de adjuntos] [Post]. X. URL<br>*Ej.:* Red de Sueño [@redsueno]. (2023, 15 de marzo). *Hoy es el Día Mundial del Sueño: dormir bien mejora la memoria* [Imagen adjunta] [Post]. X. https://x.com/redsueno/status/xxxx |
+| **Publicación en Facebook o Instagram** | Autor. (Año, día de mes). *Primeras 20 palabras* [Estado / Fotografía]. Facebook / Instagram. URL<br>*Ej.:* Red de Sueño. (2023, 15 de marzo). *Cinco hábitos para dormir mejor* [Estado de Facebook]. Facebook. https://www.facebook.com/xxxx |
+| **Página web con autor** | Apellido, A. A. (Año, día de mes). *Título de la página*. Nombre del sitio. URL<br>*Ej.:* Vega, S. (2022, 9 de septiembre). *Diez consejos para escribir un resumen*. Blog de Escritura Académica. https://www.ejemplo.org/resumen |
+| **Página web de una organización, sin fecha** | Organización. (s. f.). *Título de la página*. URL<br>*Ej.:* Observatorio de Salud Juvenil. (s. f.). *Preguntas frecuentes sobre el sueño*. https://www.ejemplo.org/faq |
+
+. . .
+
+Si el autor y el sitio son la misma organización, el nombre del sitio **se omite**.
+
+## Referencias: datos, software e inteligencia artificial {.refs}
+
+| Tipo | Modelo y ejemplo |
+|----------|------------------------------------------------|
+| **Conjunto de datos** | Autor. (Año). *Título* (Versión x) [Conjunto de datos]. Editor o repositorio. https://doi.org/xxxx o URL<br>*Ej.:* Observatorio de Salud Juvenil. (2023). *Encuesta de hábitos de sueño 2022* (Versión 2) [Conjunto de datos]. Repositorio de Datos Ejemplo. https://doi.org/10.xxxx/ehs22 |
+| **Software o aplicación** | Autor. (Año). *Nombre* (Versión x.x) [Software]. Editor. URL<br>*Ej.:* Equipo de Desarrollo Ejemplo. (2024). *AnalizaDatos* (Versión 3.1) [Software]. https://www.ejemplo.org/analizadatos |
+| **Herramienta de IA generativa** | Empresa. (Año). *Nombre de la herramienta* (versión del día de mes) [Modelo de lenguaje de gran tamaño]. URL<br>*Ej.:* Empresa Ejemplo. (2024). *AsistenteIA* (versión del 10 de mayo) [Modelo de lenguaje de gran tamaño]. https://www.ejemplo.com/asistente |
+
+. . .
+
+::: {.obs data-t="IA generativa"}
+Si usa una herramienta de IA, **declárelo** en el método o en una nota, describa cómo la usó y verifique cada dato y cita que produzca: estas herramientas pueden inventar referencias.
+:::
+
+## Casos especiales
+
+| Situación | Cómo se resuelve | Ejemplo en el texto |
+|---|---|---|
+| **Sin autor** | El título pasa al lugar del autor | (*Guía de sueño saludable*, 2020) |
+| **Sin fecha** | Se escribe s. f. | (Pérez, s. f.) |
+| **Mismo autor, mismo año** | Se agregan letras a, b, c al año | (Pérez, 2020a, 2020b) |
+| **Obra traducida** | Se indica el traductor y el año original | (Freud, 1900/2010) |
+| **Fuente secundaria** (citada por otro) | Solo se referencia la fuente que se leyó | (Ruiz, 1990, como se citó en Pérez, 2023) |
+| **Comunicación personal** (entrevista, correo) | Solo se cita en el texto, **no** va en referencias | (L. Gómez, comunicación personal, 3 de mayo de 2024) |
+
+. . .
+
+::: {.obs}
+Evite las fuentes secundarias cuando pueda conseguir la original: siempre es mejor citar lo que realmente se leyó.
 :::
 
 ## Gestores de referencias
@@ -231,9 +355,10 @@ Los gestores dependen de los metadatos importados: verifique mayúsculas, cursiv
 
 ## Actividad en clase
 
-1. Tomar tres fuentes de la matriz de literatura (un artículo, un libro y una página web) y escribir su referencia en APA.
+1. Tomar cinco fuentes de distinto tipo de la matriz de literatura (artículo, libro, capítulo, tesis y página web) y escribir su referencia en APA con los modelos vistos.
 2. Escribir para una de ellas una cita textual corta, una cita parentética y una cita narrativa.
-3. Intercambiar con otro grupo y revisar el formato con la tabla de citas según el número de autores.
+3. Elaborar en formato APA **una tabla** y **una figura** con datos de un artículo de la matriz, con número, título y nota de fuente.
+4. Intercambiar con otro grupo y revisar el formato de citas, referencias, tablas y figuras.
 
 ## Avance del anteproyecto
 

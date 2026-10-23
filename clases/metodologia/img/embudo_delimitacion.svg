@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-22T17:49:08.135965</dc:date>
+    <dc:date>2026-10-23T11:26:14.034288</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -36,7 +36,7 @@ L 444.672 46.008
 L 411.192 88.974 
 L 49.608 88.974 
 z
-" clip-path="url(#p152d774798)" style="fill: #0f4c5c; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p80918d68e9)" style="fill: #0f4c5c; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 40.68 95.904 
@@ -44,7 +44,7 @@ L 420.12 95.904
 L 386.64 138.87 
 L 74.16 138.87 
 z
-" clip-path="url(#p152d774798)" style="fill: #1d6a7a; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p80918d68e9)" style="fill: #1d6a7a; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 65.232 145.8 
@@ -52,7 +52,7 @@ L 395.568 145.8
 L 362.088 188.766 
 L 98.712 188.766 
 z
-" clip-path="url(#p152d774798)" style="fill: #2a9d8f; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p80918d68e9)" style="fill: #2a9d8f; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 89.784 195.696 
@@ -60,7 +60,7 @@ L 371.016 195.696
 L 337.536 238.662 
 L 123.264 238.662 
 z
-" clip-path="url(#p152d774798)" style="fill: #5bb5a8; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p80918d68e9)" style="fill: #5bb5a8; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 114.336 245.592 
@@ -68,7 +68,7 @@ L 346.464 245.592
 L 312.984 288.558 
 L 147.816 288.558 
 z
-" clip-path="url(#p152d774798)" style="fill: #8fd0c3; stroke: #ffffff; stroke-linejoin: miter"/>
+" clip-path="url(#p80918d68e9)" style="fill: #8fd0c3; stroke: #ffffff; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- Tema general -->
@@ -1322,7 +1322,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p152d774798">
+  <clipPath id="p80918d68e9">
    <rect x="7.2" y="7.2" width="446.4" height="277.2"/>
   </clipPath>
  </defs>
