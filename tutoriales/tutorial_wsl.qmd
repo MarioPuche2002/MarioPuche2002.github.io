@@ -1,0 +1,598 @@
+---
+title: "Linux en Windows con WSL"
+subtitle: "Instalación, configuración y uso diario del Subsistema de Windows para Linux"
+description: "Guía práctica de WSL 2: instalación en Windows 10 y 11, primer arranque, comandos básicos de Linux para el día a día, gestión de paquetes, archivos entre Windows y Linux, integración con VS Code y Windows Terminal, Python, Git y SSH, configuración con .wslconfig y wsl.conf, copias de seguridad y solución de problemas."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-10-23
+image: ../imagenes/portada_wsl.jpg
+categories: [Linux, WSL, Entornos]
+---
+
+## Introducción
+
+El **Subsistema de Windows para Linux (WSL)** permite ejecutar un sistema Linux completo (Ubuntu, Debian y otras distribuciones) **dentro de Windows**, sin máquina virtual tradicional ni arranque dual. Desde la misma computadora se pueden usar la terminal de Linux, sus herramientas de línea de comandos y sus programas, junto con las aplicaciones de Windows.
+
+Es la forma más sencilla de trabajar en Windows con herramientas pensadas para Linux: compiladores, servidores, Docker, bibliotecas científicas, scripts de bash o los entornos de desarrollo de la mayoría de los proyectos de inteligencia artificial y ciencia de datos.
+
+**Objetivos de aprendizaje.** Al finalizar este tutorial, el estudiante estará en capacidad de:
+
+1. Explicar qué es WSL y en qué se diferencia de una máquina virtual o del arranque dual.
+2. Instalar WSL 2 con una distribución de Linux y crear su usuario.
+3. Usar los comandos esenciales de Linux para navegar, manipular archivos, buscar texto y administrar procesos.
+4. Instalar y actualizar programas con `apt`.
+5. Trabajar con archivos entre Windows y Linux, y abrir proyectos de WSL en VS Code.
+6. Configurar Git, SSH y un entorno de Python dentro de WSL.
+7. Ajustar memoria, red y arranque con `.wslconfig` y `wsl.conf`, y respaldar o mover una distribución.
+
+## Parte 1 · Conceptos
+
+### ¿Qué es WSL?
+
+| Opción | Cómo funciona | Ventajas | Desventajas |
+|---|---|---|---|
+| **Arranque dual** | Dos sistemas instalados; se elige uno al encender | Rendimiento nativo | Hay que reiniciar para cambiar de sistema |
+| **Máquina virtual** (VirtualBox, VMware) | Un computador completo emulado dentro de Windows | Aislamiento total | Consume más recursos; integración limitada |
+| **WSL 2** | Un núcleo Linux real en una máquina virtual ligera administrada por Windows | Arranca en segundos, comparte archivos y red con Windows, usa poca memoria | Las aplicaciones gráficas pesadas y algunos controladores tienen limitaciones |
+
+### WSL 1 y WSL 2
+
+**WSL 2** es la versión actual y la que se instala por defecto. Usa un núcleo Linux real, por lo que es compatible con casi todo el software de Linux (incluido Docker) y es mucho más rápido con archivos dentro de Linux. **WSL 1** traduce las llamadas de Linux a Windows; hoy solo se usa en casos muy particulares.
+
+### Vocabulario básico
+
+- **Distribución (distro):** la "versión" de Linux que se instala (Ubuntu, Debian, openSUSE…). Se pueden tener varias a la vez.
+- **Terminal o shell:** programa donde se escriben comandos. En Ubuntu, por defecto es **bash**.
+- **Prompt:** la línea que espera un comando, por ejemplo `usuario@equipo:~$`. El símbolo `~` es la carpeta personal y `$` indica usuario normal.
+- **sudo:** antepuesto a un comando, lo ejecuta con permisos de administrador.
+- **Paquete:** programa que se instala con el gestor de paquetes (`apt` en Ubuntu y Debian).
+
+## Parte 2 · Instalación
+
+### Requisitos
+
+- **Windows 11**, o **Windows 10 versión 2004 (compilación 19041) o posterior**. Para verlo: tecla Windows + R, escriba `winver` y pulse Enter.
+- **Virtualización activada** en el BIOS/UEFI. Casi todos los equipos recientes la traen activa; puede comprobarse en **Administrador de tareas → Rendimiento → CPU → Virtualización: Habilitado**.
+- Unos 2 GB libres en disco (más según lo que instale).
+
+### Paso 1 · Activar los componentes de Windows (antes de instalar Ubuntu)
+
+Ubuntu (o cualquier distribución) es solo la "aplicación"; para abrir necesita que Windows tenga activada la **base**: el componente **Subsistema de Windows para Linux** y la **Plataforma de máquina virtual**. Activarlos primero evita que la distribución se instale pero no arranque.
+
+1. Abra **PowerShell como administrador**: clic derecho en el botón Inicio → **Terminal (Administrador)** o **Windows PowerShell (Administrador)**.
+2. Ejecute estos dos comandos:
+
+   ```powershell
+   dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+   ```
+
+   Cada uno debe terminar con *"La operación se completó correctamente"*.
+3. **Reinicie** el equipo. Este reinicio es obligatorio: sin él los componentes no quedan activos.
+
+::: {.callout-tip}
+## Alternativa con ventanas
+Menú Inicio → escriba **"Activar o desactivar las características de Windows"** → marque **Subsistema de Windows para Linux** y **Plataforma de máquina virtual** → Aceptar → Reiniciar.
+:::
+
+### Paso 2 · Actualizar WSL e instalar Ubuntu
+
+Después del reinicio, de nuevo en **PowerShell como administrador**:
+
+```powershell
+wsl --update                 # versión más reciente de WSL y su núcleo
+wsl --set-default-version 2  # las distribuciones nuevas usarán WSL 2
+wsl --install -d Ubuntu      # instala Ubuntu
+```
+
+Al terminar, Ubuntu se abre solo y pide crear el usuario (ver más abajo).
+
+::: {.callout-note}
+## ¿Y `wsl --install` a secas?
+En equipos actualizados, `wsl --install` hace todo en un solo paso. Aun así, activar primero los componentes (Paso 1) es la ruta más segura: si Ubuntu se instaló desde Microsoft Store antes de tener la base activada, el ícono aparece en el menú Inicio pero la ventana se cierra o muestra un error al abrir.
+:::
+
+### Elegir otra distribución
+
+```powershell
+wsl --list --online          # distribuciones disponibles (forma corta: wsl -l -o)
+wsl --install -d Debian      # instalar una en particular
+```
+
+Si la descarga se queda en 0 %, use `wsl --install --web-download -d Ubuntu`.
+
+### Primer arranque: usuario y contraseña
+
+Al abrir Ubuntu por primera vez (menú Inicio → **Ubuntu**), espere a que se descompriman los archivos y cree:
+
+- Un **nombre de usuario** de Linux, en minúsculas y sin espacios (no tiene que ser igual al de Windows).
+- Una **contraseña**. Al escribirla **no se ven caracteres**: es normal. Se pedirá cada vez que use `sudo`.
+
+Después actualice el sistema:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+### Comprobar la instalación
+
+En PowerShell:
+
+```powershell
+wsl --list --verbose     # forma corta: wsl -l -v
+wsl --version
+wsl --status
+```
+
+```
+  NAME      STATE           VERSION
+* Ubuntu    Running         2
+```
+
+La columna **VERSION** debe decir **2**. Si dice 1: `wsl --set-version Ubuntu 2`.
+
+## Parte 3 · Abrir y administrar WSL
+
+### Formas de entrar a Linux
+
+| Desde | Cómo |
+|---|---|
+| Menú Inicio | Abrir **Ubuntu** |
+| **Windows Terminal** (recomendado) | Flecha ▾ junto a la pestaña → **Ubuntu** |
+| PowerShell o CMD | Escribir `wsl` (entra en la carpeta actual) o `wsl ~` (entra en la carpeta personal de Linux) |
+| Explorador de archivos | Escribir `wsl` en la barra de direcciones de una carpeta |
+
+::: {.callout-tip}
+## Windows Terminal como predeterminado
+En **Windows Terminal → Configuración → Inicio → Perfil predeterminado**, elija **Ubuntu** para que cada nueva pestaña abra Linux. También puede configurar la carpeta inicial y el tema de colores.
+:::
+
+### Comandos de `wsl` (se ejecutan en PowerShell)
+
+| Comando | Para qué sirve |
+|---|---|
+| `wsl -l -v` | Distribuciones instaladas, estado y versión |
+| `wsl -d Debian` | Abrir una distribución distinta de la predeterminada |
+| `wsl --set-default Ubuntu` | Cambiar la distribución predeterminada |
+| `wsl -u root` | Entrar como administrador (útil si olvidó la contraseña) |
+| `wsl --shutdown` | Apagar todas las distribuciones y la máquina virtual |
+| `wsl --terminate Ubuntu` | Apagar solo una distribución |
+| `wsl --update` | Actualizar WSL |
+| `wsl --export` / `wsl --import` | Respaldar y restaurar una distribución (Parte 9) |
+| `wsl --unregister Ubuntu` | **Borrar** una distribución con todos sus datos |
+
+::: {.callout-warning}
+## Cuidado con `--unregister`
+Elimina la distribución y **todos sus archivos** sin pedir confirmación. Haga una copia con `wsl --export` antes.
+:::
+
+## Parte 4 · Comandos de Linux para el día a día
+
+### Moverse por las carpetas
+
+```bash
+pwd                 # ¿en qué carpeta estoy?
+ls                  # listar el contenido
+ls -la              # listar todo, con detalles y archivos ocultos
+cd proyectos        # entrar a una carpeta
+cd ..               # subir un nivel
+cd ~                # ir a la carpeta personal (también: cd)
+cd -                # volver a la carpeta anterior
+```
+
+::: {.callout-tip}
+## Dos trucos que ahorran tiempo
+**Tab** completa nombres de archivos y comandos (púlselo dos veces para ver opciones). **Flecha arriba** recupera comandos anteriores; **Ctrl + R** busca en el historial.
+:::
+
+### Crear, copiar, mover y borrar
+
+```bash
+mkdir datos                     # crear una carpeta
+mkdir -p proyecto/src/utils     # crear varias carpetas anidadas
+touch notas.txt                 # crear un archivo vacío
+cp notas.txt copia.txt          # copiar un archivo
+cp -r proyecto respaldo         # copiar una carpeta completa
+mv copia.txt datos/             # mover
+mv viejo.txt nuevo.txt          # renombrar
+rm archivo.txt                  # borrar un archivo
+rm -r carpeta                   # borrar una carpeta y su contenido
+```
+
+::: {.callout-warning}
+## En la terminal no hay papelera
+`rm` borra **definitivamente**. Revise dos veces antes de usar `rm -r`, y nunca ejecute `sudo rm -rf /` ni comandos que no entienda copiados de internet.
+:::
+
+### Ver y editar archivos
+
+```bash
+cat notas.txt         # mostrar el contenido completo
+less registro.log     # leer un archivo largo (q para salir, / para buscar)
+head -n 20 datos.csv  # primeras 20 líneas
+tail -n 20 datos.csv  # últimas 20 líneas
+tail -f app.log       # seguir un archivo mientras crece (Ctrl + C para salir)
+nano notas.txt        # editor sencillo en la terminal
+code notas.txt        # abrir en VS Code (Parte 6)
+```
+
+En **nano**: Ctrl + O guarda, Ctrl + X sale, Ctrl + W busca.
+
+### Buscar archivos y texto
+
+```bash
+find . -name "*.py"               # archivos .py desde la carpeta actual
+find ~ -type d -name "datos"      # carpetas llamadas datos
+grep "error" app.log              # líneas que contienen "error"
+grep -rn "import pandas" .        # buscar en todos los archivos, con número de línea
+grep -i "warning" app.log         # ignorando mayúsculas
+```
+
+### Tuberías y redirecciones
+
+La salida de un comando puede enviarse a otro con `|` o a un archivo con `>`:
+
+```bash
+ls -la | less                         # paginar una lista larga
+grep "error" app.log | wc -l          # contar cuántas líneas tienen "error"
+history | grep apt                    # buscar comandos apt que usé
+ls *.csv > lista.txt                  # guardar la salida en un archivo (sobrescribe)
+echo "nueva línea" >> notas.txt       # agregar al final del archivo
+```
+
+### Permisos
+
+```bash
+ls -l script.sh
+# -rw-r--r-- 1 ana ana 120 oct 23 10:00 script.sh
+chmod +x script.sh      # dar permiso de ejecución
+./script.sh             # ejecutar un script de la carpeta actual
+sudo chown ana:ana archivo   # cambiar el dueño de un archivo
+```
+
+Los permisos se leen en grupos de tres: **dueño**, **grupo** y **otros**; `r` = leer, `w` = escribir, `x` = ejecutar.
+
+### Procesos y sistema
+
+```bash
+top                 # procesos en tiempo real (q para salir); htop es más amigable
+ps aux | grep python
+kill 1234           # terminar el proceso con PID 1234
+df -h               # espacio en disco
+free -h             # memoria
+uname -a            # versión del núcleo
+lsb_release -a      # versión de Ubuntu
+```
+
+Un programa que se quedó "colgado" en la terminal se detiene con **Ctrl + C**.
+
+### Atajos útiles
+
+| Atajo | Acción |
+|---|---|
+| **Tab** | Completar nombres |
+| **Ctrl + C** | Cancelar el comando actual |
+| **Ctrl + L** o `clear` | Limpiar la pantalla |
+| **Ctrl + A** / **Ctrl + E** | Ir al inicio / final de la línea |
+| **Ctrl + R** | Buscar en el historial |
+| **Ctrl + Shift + C / V** | Copiar y pegar en Windows Terminal |
+
+## Parte 5 · Instalar programas con `apt`
+
+```bash
+sudo apt update                    # actualizar la lista de paquetes (hacerlo primero)
+sudo apt upgrade -y                # actualizar lo instalado
+sudo apt install git curl htop     # instalar uno o varios programas
+apt search octave                  # buscar un paquete
+apt show python3                   # información de un paquete
+sudo apt remove htop               # desinstalar
+sudo apt autoremove                # limpiar dependencias que ya no se usan
+```
+
+Paquetes recomendados para empezar:
+
+```bash
+sudo apt install -y build-essential git curl wget unzip htop tree
+```
+
+| Paquete | Para qué |
+|---|---|
+| `build-essential` | Compiladores de C/C++ (`gcc`, `make`), necesarios para muchas librerías |
+| `git` | Control de versiones |
+| `curl`, `wget` | Descargar archivos desde la terminal |
+| `unzip` | Descomprimir archivos .zip |
+| `htop` | Monitor de procesos |
+| `tree` | Ver carpetas en forma de árbol |
+
+::: {.callout-tip}
+## Rutina semanal
+Ejecute `sudo apt update && sudo apt upgrade -y` una vez por semana, y `wsl --update` en PowerShell de vez en cuando.
+:::
+
+## Parte 6 · Windows y Linux trabajando juntos
+
+### Dos sistemas de archivos
+
+| Ubicación | Ruta en Linux | Ruta en Windows |
+|---|---|---|
+| Carpeta personal de Linux | `/home/usuario` (`~`) | `\\wsl.localhost\Ubuntu\home\usuario` |
+| Disco C: de Windows | `/mnt/c` | `C:\` |
+| Escritorio de Windows | `/mnt/c/Users/SuUsuario/Desktop` | `C:\Users\SuUsuario\Desktop` |
+
+::: {.callout-important}
+## Regla de rendimiento
+Guarde los proyectos en los que trabaja desde Linux **dentro de Linux** (`~/proyectos`), no en `/mnt/c`. Leer y escribir archivos de Windows desde Linux es mucho más lento, y algunas herramientas (Git, `npm`, `pip`) se notan especialmente.
+:::
+
+### Ver los archivos de Linux desde Windows
+
+```bash
+explorer.exe .      # abrir la carpeta actual de Linux en el Explorador de Windows
+```
+
+En el Explorador también aparece **Linux** en el panel izquierdo, con cada distribución.
+
+### Ejecutar programas de Windows desde Linux (y al revés)
+
+```bash
+notepad.exe notas.txt          # abrir un archivo de Linux en el Bloc de notas
+cat resultados.txt | clip.exe  # copiar al portapapeles de Windows
+wslpath 'C:\Users\Ana\Desktop' # convertir una ruta de Windows a Linux → /mnt/c/Users/Ana/Desktop
+```
+
+Y desde PowerShell se pueden ejecutar comandos de Linux:
+
+```powershell
+wsl ls -la
+wsl grep -c "error" app.log
+```
+
+### VS Code con WSL
+
+1. Instale **VS Code en Windows** (no dentro de Linux) y la extensión **WSL** de Microsoft.
+2. En la terminal de Ubuntu, vaya a su proyecto y escriba:
+
+   ```bash
+   cd ~/proyectos/mi-proyecto
+   code .
+   ```
+
+3. VS Code se abre conectado a WSL (abajo a la izquierda dice **WSL: Ubuntu**). La terminal integrada, las extensiones y el depurador funcionan **dentro de Linux**.
+
+### Aplicaciones con interfaz gráfica
+
+WSL incluye soporte para aplicaciones gráficas de Linux (**WSLg**). Al instalar una, aparece en el menú Inicio de Windows:
+
+```bash
+sudo apt install -y gedit
+gedit &          # el & devuelve la terminal mientras la ventana sigue abierta
+```
+
+### Red
+
+Un servidor que se ejecute en WSL (por ejemplo, Jupyter en el puerto 8888) se abre desde el navegador de Windows en `http://localhost:8888`.
+
+## Parte 7 · Herramientas de desarrollo
+
+### Git
+
+```bash
+git config --global user.name "Su Nombre"
+git config --global user.email "su_correo@ejemplo.com"
+git config --global init.defaultBranch main
+git config --global core.autocrlf input    # evita problemas de fin de línea entre Windows y Linux
+```
+
+### Llave SSH para GitHub o GitLab
+
+```bash
+ssh-keygen -t ed25519 -C "su_correo@ejemplo.com"   # Enter para aceptar la ruta
+cat ~/.ssh/id_ed25519.pub | clip.exe               # copiar la llave pública
+```
+
+Pegue la llave en **GitHub → Settings → SSH and GPG keys → New SSH key** y compruebe:
+
+```bash
+ssh -T git@github.com
+git clone git@github.com:usuario/repositorio.git
+```
+
+### Python
+
+Ubuntu trae Python 3. Para proyectos, se recomienda un gestor de entornos:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh    # instalar uv
+source ~/.bashrc
+uv init mi-analisis && cd mi-analisis
+uv add numpy pandas matplotlib
+uv run python main.py
+```
+
+Vea los tutoriales de [uv](tutorial_uv.qmd) y de [Miniconda](tutorial_miniconda.qmd) para más detalles; ambos funcionan igual dentro de WSL.
+
+### Otros
+
+- **Docker:** instale Docker Desktop en Windows y active **Settings → Resources → WSL integration** para Ubuntu; luego use `docker` desde la terminal de Linux.
+- **GNU Octave:** `sudo apt install octave` (ver el [tutorial de Octave](tutorial_octave.qmd)).
+- **GPU (NVIDIA):** WSL 2 permite usar CUDA con el controlador de Windows; no se instala un controlador de NVIDIA dentro de Linux.
+
+## Parte 8 · Configuración
+
+WSL tiene dos archivos de configuración. Los cambios se aplican después de **apagar WSL** con `wsl --shutdown` en PowerShell y volver a abrir la distribución.
+
+### `.wslconfig`: recursos de la máquina virtual (global)
+
+Se crea en `C:\Users\SuUsuario\.wslconfig` (no existe por defecto). Ejemplo para un equipo de 16 GB de RAM:
+
+```ini
+[wsl2]
+memory=6GB              # RAM máxima para WSL (por defecto, la mitad de la del equipo)
+processors=4            # núcleos asignados
+swap=4GB                # memoria de intercambio
+networkingMode=mirrored # la red de Linux replica la de Windows (Windows 11 22H2+)
+
+[experimental]
+autoMemoryReclaim=gradual   # devolver a Windows la memoria que WSL ya no usa
+```
+
+::: {.callout-tip}
+## Configuración gráfica
+En Windows 11 está la aplicación **WSL Settings** (menú Inicio), que modifica estas opciones sin editar el archivo.
+:::
+
+### `/etc/wsl.conf`: comportamiento de cada distribución
+
+Se edita dentro de Linux con `sudo nano /etc/wsl.conf`:
+
+```ini
+[boot]
+systemd=true            # habilita systemd (servicios como docker, ssh o cron)
+
+[user]
+default=ana             # usuario con el que se entra por defecto
+
+[interop]
+appendWindowsPath=true  # permite ejecutar programas de Windows sin la ruta completa
+```
+
+Después, en PowerShell: `wsl --shutdown`, y vuelva a abrir Ubuntu.
+
+### Personalizar la terminal
+
+El archivo `~/.bashrc` se ejecuta cada vez que abre la terminal. Puede agregar **alias** (atajos) al final:
+
+```bash
+nano ~/.bashrc
+```
+
+```bash
+alias ll='ls -alF'
+alias actualizar='sudo apt update && sudo apt upgrade -y'
+alias proyectos='cd ~/proyectos'
+alias abrir='explorer.exe .'
+```
+
+Guarde y recargue con `source ~/.bashrc`. Ahora `actualizar` hace todo el mantenimiento con una palabra.
+
+## Parte 9 · Copias de seguridad y espacio en disco
+
+### Respaldar y restaurar
+
+En PowerShell:
+
+```powershell
+wsl --shutdown
+wsl --export Ubuntu D:\respaldos\ubuntu-2026-10.tar          # crear el respaldo
+wsl --import Ubuntu-Restaurada D:\WSL\Ubuntu2 D:\respaldos\ubuntu-2026-10.tar   # restaurar
+```
+
+El respaldo incluye todo: programas, configuración y archivos de la carpeta personal.
+
+### Mover la distribución a otro disco
+
+Si el disco C: se llena, se puede exportar la distribución, eliminarla e importarla en otra unidad:
+
+```powershell
+wsl --export Ubuntu D:\respaldos\ubuntu.tar
+wsl --unregister Ubuntu
+wsl --import Ubuntu D:\WSL\Ubuntu D:\respaldos\ubuntu.tar
+```
+
+Una distribución importada entra como `root`. Defina su usuario en `/etc/wsl.conf` (`[user] default=ana`) y reinicie con `wsl --shutdown`. En versiones recientes también existe `wsl --manage Ubuntu --move D:\WSL\Ubuntu`; compruébelo con `wsl --help`.
+
+### Liberar espacio dentro de Linux
+
+```bash
+du -sh ~/* | sort -h      # qué carpetas ocupan más
+sudo apt autoremove && sudo apt clean
+```
+
+## Flujo de trabajo recomendado
+
+```bash
+# 1. Abrir Windows Terminal (pestaña Ubuntu) e ir al proyecto
+cd ~/proyectos/mi-analisis
+
+# 2. Traer los últimos cambios
+git pull
+
+# 3. Abrir el editor
+code .
+
+# 4. Trabajar y ejecutar
+uv run python main.py
+
+# 5. Guardar los cambios
+git add .
+git commit -m "Describe el cambio"
+git push
+
+# 6. Ver los resultados en Windows si hace falta
+explorer.exe .
+```
+
+## Referencia rápida
+
+| Tarea | Comando |
+|---|---|
+| Instalar WSL (PowerShell, administrador) | `wsl --install` |
+| Ver distribuciones y versión | `wsl -l -v` |
+| Apagar WSL | `wsl --shutdown` |
+| Actualizar WSL | `wsl --update` |
+| Actualizar Linux | `sudo apt update && sudo apt upgrade -y` |
+| Instalar un programa | `sudo apt install nombre` |
+| ¿Dónde estoy? / listar / entrar | `pwd`, `ls -la`, `cd carpeta` |
+| Crear / copiar / mover / borrar | `mkdir`, `cp`, `mv`, `rm` |
+| Buscar texto en archivos | `grep -rn "texto" .` |
+| Abrir la carpeta en Windows | `explorer.exe .` |
+| Abrir en VS Code | `code .` |
+| Disco C: desde Linux | `cd /mnt/c` |
+| Respaldar la distribución | `wsl --export Ubuntu archivo.tar` |
+
+## Problemas frecuentes
+
+| Problema | Solución |
+|---|---|
+| Error `0x80370102` o "la virtualización no está habilitada" | Active la virtualización (Intel VT-x o AMD-V/SVM) en el BIOS/UEFI y la característica **Plataforma de máquina virtual** de Windows. |
+| Ubuntu aparece en el menú Inicio pero no abre (se cierra o dice que falta el componente opcional) | Falta la base de WSL: haga el **Paso 1** de la instalación (activar los dos componentes), reinicie y ejecute `wsl --update`. |
+| La instalación se queda en 0 % | `wsl --install --web-download -d Ubuntu`. |
+| `wsl -l -v` muestra VERSION 1 | `wsl --set-version Ubuntu 2`. |
+| Olvidé la contraseña de Linux | En PowerShell: `wsl -u root`, luego `passwd su_usuario`. |
+| Todo es muy lento con mis archivos | Mueva el proyecto de `/mnt/c/...` a `~/proyectos`. |
+| WSL consume mucha memoria | Limite `memory=` en `.wslconfig` y ejecute `wsl --shutdown` al terminar el día. |
+| Sin internet dentro de WSL (a veces con VPN) | Pruebe `networkingMode=mirrored` en `.wslconfig` (Windows 11) y `wsl --shutdown`. |
+| `code .` no funciona | Instale VS Code en Windows con la opción "Agregar a PATH" y la extensión **WSL**; cierre y abra la terminal. |
+| Los cambios de configuración no se aplican | Cierre todas las terminales y ejecute `wsl --shutdown` en PowerShell. |
+| Un script de Windows da error `\r: command not found` | Tiene finales de línea de Windows: `sudo apt install dos2unix` y `dos2unix script.sh`. |
+
+## Ejercicio práctico
+
+1. Instale WSL con Ubuntu, cree su usuario y verifique con `wsl -l -v` que la versión es 2.
+2. Actualice el sistema e instale `git`, `htop` y `tree`.
+3. Cree la estructura `~/proyectos/practica/{datos,src}` con un solo comando y verifíquela con `tree ~/proyectos`.
+4. Cree en `datos` un archivo `registro.log` con tres líneas (use `echo` y `>>`), dos de ellas con la palabra "error". Cuente esas líneas con `grep` y `wc -l`.
+5. Abra la carpeta en el Explorador de Windows y en VS Code.
+6. Agregue a su `~/.bashrc` el alias `actualizar` y pruébelo.
+7. Configure Git con su nombre y correo.
+
+::: {.callout-tip collapse="true"}
+## Solución de los puntos 3 y 4
+```bash
+mkdir -p ~/proyectos/practica/{datos,src}
+tree ~/proyectos
+
+cd ~/proyectos/practica/datos
+echo "inicio del proceso" > registro.log
+echo "error: archivo no encontrado" >> registro.log
+echo "error: permiso denegado" >> registro.log
+grep "error" registro.log | wc -l     # 2
+```
+:::
+
+## Referencias
+
+- Microsoft. *Cómo instalar Linux en Windows con WSL*. <https://learn.microsoft.com/es-es/windows/wsl/install>
+- Microsoft. *Comandos básicos para WSL*. <https://learn.microsoft.com/es-es/windows/wsl/basic-commands>
+- Microsoft. *Configuración avanzada en WSL*. <https://learn.microsoft.com/es-es/windows/wsl/wsl-config>
+- Microsoft. *Configuración de un entorno de desarrollo de WSL*. <https://learn.microsoft.com/es-es/windows/wsl/setup/environment>
+- Microsoft. *Introducción al uso de VS Code con WSL*. <https://learn.microsoft.com/es-es/windows/wsl/tutorials/wsl-vscode>
