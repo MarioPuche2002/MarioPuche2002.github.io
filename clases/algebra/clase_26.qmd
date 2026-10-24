@@ -192,6 +192,32 @@ $$
 
 A largo plazo A tiene $\tfrac23$ del mercado y B $\tfrac13$, sin importar el reparto inicial. Comprobación con $k=2$: $\tfrac23-\tfrac{0.49}{6}=0.585$, igual a $P^2\mathbf x_0$ ✓.
 
+## La cadena de Markov en una gráfica {.nostretch}
+
+![](img/app_markov.svg){fig-align="center" width="62%"}
+
+Con la fórmula diagonalizada $\;x_A(k)=\tfrac23-\tfrac16(0.7)^k$ se ve que el término $(0.7)^k$ se apaga: en pocos meses el mercado se estabiliza en $\tfrac23$ y $\tfrac13$. El mismo modelo se usa para el clima, el tráfico web o el texto predictivo del celular.
+
+## Machine learning: análisis de componentes principales {.compacto .nostretch}
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.ml data-t="PCA"}
+La matriz de covarianza de unos datos con dos características es simétrica: $\;C=\begin{pmatrix}3&1\\1&3\end{pmatrix}$.
+:::
+
+Se diagonaliza: $\lambda_1=4$ con $\mathbf v_1=(1,1)$ y $\lambda_2=2$ con $\mathbf v_2=(1,-1)$, ortogonales.
+
+- $\mathbf v_1$ es la dirección en la que los datos **más varían**: concentra $\tfrac{4}{4+2}\approx67\,\%$ de la variación.
+- Proyectar sobre $\mathbf v_1$ reduce de 2 a 1 característica perdiendo poca información.
+:::
+::: {.column width="45%"}
+![](img/app_pca.svg){width="100%"}
+:::
+::::
+
+Con cientos de características, PCA es la forma clásica de **reducir la dimensión** de los datos antes de entrenar o de graficarlos.
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

@@ -316,6 +316,16 @@ A^{-1}\begin{pmatrix}14\\43\end{pmatrix}=\begin{pmatrix}98-86\\-42+43\end{pmatri
 $$
 Se recupera HOLA. Sin conocer $A^{-1}$ es difícil descifrar el mensaje.
 
+## En la vida real: deshacer un filtro con la inversa {.nostretch}
+
+![](img/app_inversa.png){fig-align="center" width="90%"}
+
+Se "cifra" cada píxel con $\mathbf y=M\mathbf x$, donde $M=\begin{pmatrix}0.2&0.7&0.1\\0.5&0.1&0.4\\0.3&0.3&0.4\end{pmatrix}$ es invertible. Quien conoce $M^{-1}$ recupera la foto exacta: $\mathbf x=M^{-1}\mathbf y$.
+
+::: {.obs}
+Si $M$ no fuera invertible, dos colores distintos darían el mismo resultado y la foto original **no** se podría recuperar.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

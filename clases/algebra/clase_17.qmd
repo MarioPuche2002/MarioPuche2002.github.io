@@ -94,6 +94,16 @@ $\operatorname{gen}\{\mathbf v_1,\dots,\mathbf v_k\}$ es un **subespacio** de $V
 Contiene a $\mathbf 0=0\mathbf v_1+\cdots+0\mathbf v_k$. Si $\mathbf u=\sum a_i\mathbf v_i$ y $\mathbf w=\sum b_i\mathbf v_i$, entonces $\mathbf u+\mathbf w=\sum(a_i+b_i)\mathbf v_i$ y $c\,\mathbf u=\sum(ca_i)\mathbf v_i$ son combinaciones lineales. Por el criterio, es subespacio. Cualquier subespacio que contenga a los $\mathbf v_i$ contiene, por cerradura, todas sus combinaciones lineales.
 :::
 
+## En la vida real: la pantalla mezcla colores {.nostretch}
+
+![](img/app_mezcla_colores.svg){fig-align="center" width="95%"}
+
+Cada píxel de una pantalla tiene tres luces: roja $R=(1,0,0)$, verde $G=(0,1,0)$ y azul $B=(0,0,1)$. **Todo color es una combinación lineal** $aR+bG+cB$: por eso $\operatorname{gen}\{R,G,B\}=\mathbb R^3$.
+
+. . .
+
+Con solo dos luces, roja y verde, se generan los colores $(a,b,0)$: un **plano**. Sin luz azul no hay forma de mostrar el cian $(0,1,1)$.
+
 ## Interpretación geométrica
 
 | Generadores | $\operatorname{gen}$ |

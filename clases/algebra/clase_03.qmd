@@ -58,6 +58,24 @@ $C=\begin{pmatrix}-3&5&1&-3&1\\2&6&1&2&2\\-1&0&4&-4&9\end{pmatrix}$ es $3\times 
 
 Las entradas pueden ser reales, complejas, racionales…: $\begin{pmatrix}2+i&-3i\\7i&5-i\end{pmatrix}\in M_{2\times2}(\mathbb C)$. En este curso trabajamos con reales.
 
+## En la vida real: una imagen es una matriz {.nostretch}
+
+![](img/app_imagen_matriz.png){fig-align="center" width="92%"}
+
+Una foto en escala de grises es una matriz $A$ de tamaño $300\times451$: cada entrada $a_{ij}$ es el **brillo** del píxel en la fila $i$ y la columna $j$, de $0$ (negro) a $255$ (blanco).
+
+[Las fotografías de ejemplo del curso provienen de la colección de imágenes de scikit-image (dominio público y CC0).]{.chico .muted}
+
+## En la vida real: una foto a color son tres matrices {.nostretch}
+
+![](img/app_rgb.png){fig-align="center" width="95%"}
+
+Una imagen a color guarda **tres matrices del mismo tamaño**: cuánto rojo ($R$), verde ($G$) y azul ($B$) tiene cada píxel. Una cámara de 12 megapíxeles produce tres matrices de unos $3000\times4000$.
+
+::: {.ml}
+Las redes neuronales que reconocen imágenes reciben exactamente estas matrices como entrada.
+:::
+
 ## Tipos especiales de matrices {.compacto}
 
 | Tipo | Condición | Ejemplo |
@@ -98,6 +116,14 @@ $$
 4\begin{pmatrix}-2&0\\3&-5\\12&-8\end{pmatrix}=\begin{pmatrix}-8&0\\12&-20\\48&-32\end{pmatrix}.
 $$
 :::
+
+## En la vida real: editar una foto es operar matrices {.nostretch}
+
+![](img/app_operaciones.png){fig-align="center" width="100%"}
+
+- **Brillo:** sumar una constante a todas las entradas ($J$ es la matriz de unos).
+- **Negativo:** $255J-A$. **Contraste:** multiplicar por un escalar alrededor del gris medio.
+- **Fundido** entre dos fotos del mismo tamaño: la combinación lineal $\tfrac12A+\tfrac12B$. Los valores que pasan de $255$ se recortan.
 
 ## Ejemplo: igualdad de matrices
 
@@ -246,6 +272,26 @@ $$
 ::: {.obs}
 La suma y el producto por escalar "entrada a entrada" tienen un significado concreto: se suman cantidades del **mismo producto en la misma sucursal**. Por eso solo tiene sentido sumar matrices del mismo tamaño.
 :::
+
+## Machine learning: los datos son una matriz {.compacto .nostretch}
+
+::: {.ml data-t="Matriz de datos"}
+En aprendizaje automático, los datos se organizan en una matriz $X$: **cada fila es un ejemplo** y **cada columna una característica**.
+:::
+
+| | Horas de estudio | Asistencia (%) | Nota parcial 1 |
+|---|---|---|---|
+| Estudiante 1 | 6 | 90 | 3.8 |
+| Estudiante 2 | 2 | 60 | 2.5 |
+| Estudiante 3 | 4 | 85 | 4.1 |
+
+$$
+X=\begin{pmatrix}6&90&3.8\\2&60&2.5\\4&85&4.1\end{pmatrix}\in M_{3\times3}.
+$$
+
+. . .
+
+Una imagen de $28\times28$ píxeles (como los dígitos escritos a mano del conjunto MNIST) se "aplana" en un vector de $784$ entradas, y $60\,000$ imágenes forman una matriz de $60\,000\times784$.
 
 ## Práctica en clase
 

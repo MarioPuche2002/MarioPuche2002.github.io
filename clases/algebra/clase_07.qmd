@@ -43,6 +43,12 @@ $$
 
 La diagonal principal **no cambia**; cada entrada $a_{ij}$ se intercambia con $a_{ji}$ (mismo color). Los renglones de $A$ pasan a ser las columnas de $A^T$.
 
+## En la vida real: transponer una foto {.nostretch}
+
+![](img/app_transpuesta.png){fig-align="center" width="88%"}
+
+$A^T$ refleja la foto respecto a su diagonal: las filas pasan a ser columnas y una foto horizontal queda vertical. Si además se invierte el orden de las columnas, se obtiene la foto **girada 90°**. Así rotan las imágenes los programas de edición.
+
 ## Propiedades de la transpuesta
 
 ::: {.teorema}
@@ -221,6 +227,25 @@ $$
 . . .
 
 Ambas son simétricas, aunque tienen tamaños distintos. Las entradas de $A^TA$ son los productos punto entre las **columnas** de $A$: por ejemplo, $(A^TA)_{11}=1^2+0^2+1^2=2$. Esta matriz aparece en mínimos cuadrados y en estadística.
+
+## En la vida real y en ML: matrices simétricas {.compacto .nostretch}
+
+::: {.aplicacion data-t="Tabla de distancias"}
+Una tabla de distancias entre ciudades es **simétrica**: la distancia de $i$ a $j$ es la misma que de $j$ a $i$, y la diagonal es cero.
+$$
+D=\begin{pmatrix}0&120&310\\120&0&240\\310&240&0\end{pmatrix}=D^T .
+$$
+:::
+
+. . .
+
+::: {.ml data-t="La matriz XᵀX"}
+Con la matriz de datos $X$, el producto $X^TX$ aparece en la regresión lineal y siempre es simétrico, pues $(X^TX)^T=X^T(X^T)^T=X^TX$. Por ejemplo,
+$$
+X=\begin{pmatrix}1&2\\1&3\\1&5\end{pmatrix}\;\Rightarrow\;X^TX=\begin{pmatrix}3&10\\10&38\end{pmatrix}.
+$$
+Su entrada $(i,j)$ es el producto punto de las columnas $i$ y $j$: mide cómo se relacionan dos características.
+:::
 
 ## Repaso de la unidad: ¿verdadero o falso?
 

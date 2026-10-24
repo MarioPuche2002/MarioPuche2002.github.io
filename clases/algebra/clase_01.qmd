@@ -141,6 +141,34 @@ Sustituyendo en la primera: $2 + y = 5 \Rightarrow y = 3$.
 En el caso $2\times 2$, si $a_{11}a_{22}-a_{12}a_{21}\neq 0$ el sistema tiene solución única. Esta cantidad es el **determinante** del sistema (unidad 3).
 :::
 
+## En la vida real: la trayectoria de un balón {.compacto .nostretch}
+
+::: {.aplicacion data-t="Física"}
+Un balón pasa por los puntos $(0,1)$, $(1,4)$ y $(3,4)$ (en metros). Su trayectoria es una parábola $y=ax^2+bx+c$. ¿Cuál?
+:::
+
+:::: {.columns}
+::: {.column width="48%"}
+Cada punto da una **ecuación lineal** en $a,b,c$:
+$$
+\begin{aligned}
+c&=1\\ a+b+c&=4\\ 9a+3b+c&=4
+\end{aligned}
+$$
+
+Solución: $a=-1,\;b=4,\;c=1$, es decir $y=-x^2+4x+1$. Altura máxima: $5$ m en $x=2$.
+:::
+::: {.column width="52%"}
+![](img/app_parabola.svg){width="100%"}
+:::
+::::
+
+. . .
+
+::: {.ml}
+**Entrenar** un modelo es, en su forma más simple, esto mismo: encontrar los coeficientes que hacen que el modelo pase por (o cerca de) los datos.
+:::
+
 ## Matriz de coeficientes y matriz aumentada
 
 Un sistema se codifica por sus coeficientes. Para

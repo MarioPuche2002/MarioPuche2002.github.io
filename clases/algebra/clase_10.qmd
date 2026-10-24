@@ -121,6 +121,16 @@ Para $A$ de tamaño $n\times n$ son equivalentes:
 
 $\det P = k^3 - 3k + 2 = (k-1)^2(k+2)$. $P$ es invertible si y solo si $k\neq1$ y $k\neq-2$.
 
+## En la vida real: cuando $\det A=0$ se pierde información {.nostretch}
+
+![](img/app_det_cero.png){fig-align="center" height="300px"}
+
+Con $A=\begin{pmatrix}1&0.5\\0.5&0.25\end{pmatrix}$ ($\det A=0$), **toda la foto cae sobre una recta**: miles de píxeles distintos van al mismo punto, y no hay forma de deshacerlo. Por eso una matriz con determinante cero **no tiene inversa**.
+
+::: {.ml}
+Si dos columnas de la matriz de datos dicen lo mismo (por ejemplo, la misma medida en dos unidades), $\det(X^TX)=0$ y la regresión lineal no tiene solución única.
+:::
+
 ## Regla de Cramer
 
 ::: {.teorema}

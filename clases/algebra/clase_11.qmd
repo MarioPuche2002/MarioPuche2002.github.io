@@ -111,6 +111,27 @@ $|\mathbf v-\mathbf u|^2=(\mathbf v-\mathbf u)\cdot(\mathbf v-\mathbf u)=|\mathb
 Igualando: $\;-2\,\mathbf u\cdot\mathbf v = -2|\mathbf u||\mathbf v|\cos\varphi$.
 :::
 
+## En la vida real: el viento y el avión {.nostretch}
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.aplicacion data-t="Navegación"}
+Un avión vuela hacia el norte a $200$ km/h respecto al aire y sopla viento hacia el este a $40$ km/h.
+:::
+
+La velocidad real es la **suma de vectores**:
+$$
+\mathbf v+\mathbf w=(0,200)+(40,0)=(40,200).
+$$
+
+- Rapidez: $\|(40,200)\|=\sqrt{41\,600}\approx204$ km/h.
+- Desvío: $\tan\theta=\tfrac{40}{200}\Rightarrow\theta\approx11.3^\circ$ al este del norte.
+:::
+::: {.column width="40%"}
+![](img/app_avion.svg){width="95%"}
+:::
+::::
+
 ## Paralelismo y ortogonalidad
 
 ::: {.definicion}
@@ -132,6 +153,29 @@ Dos vectores no nulos $\mathbf u$, $\mathbf v$ son
 
 ::: {.ejemplo}
 Halle $\alpha$ para que $(3,-2)$ y $(\alpha, 6)$ sean ortogonales: $3\alpha - 12 = 0\Rightarrow\alpha=4$.
+:::
+
+## Machine learning: similitud entre gustos {.compacto .nostretch}
+
+::: {.ml data-t="Sistemas de recomendación"}
+Cada persona califica cuatro películas de 0 a 5: $\;\mathbf u=(5,1,0,4)$, $\;\mathbf v=(4,0,1,5)$, $\;\mathbf w=(0,5,4,1)$. Las tres tienen norma $\sqrt{42}$.
+:::
+
+La **similitud coseno** es el coseno del ángulo entre los vectores:
+$$
+\cos(\mathbf u,\mathbf v)=\frac{\mathbf u\cdot\mathbf v}{\|\mathbf u\|\|\mathbf v\|}=\frac{20+0+0+20}{42}\approx0.95,
+\qquad
+\cos(\mathbf u,\mathbf w)=\frac{0+5+0+4}{42}\approx0.21 .
+$$
+
+. . .
+
+$\mathbf u$ y $\mathbf v$ "apuntan" casi en la misma dirección: tienen gustos parecidos, y a $\mathbf u$ se le recomiendan películas que le gustaron a $\mathbf v$. Los buscadores y los asistentes de IA comparan textos de la misma forma, representándolos como vectores.
+
+. . .
+
+::: {.aplicacion data-t="Trabajo"}
+Arrastrar una maleta $10$ m con una fuerza de $50$ N inclinada $30^\circ$: $\;W=\mathbf F\cdot\mathbf d=50\cdot10\cos30^\circ\approx433$ J. Solo cuenta la **proyección** de la fuerza sobre el desplazamiento.
 :::
 
 ## Proyección ortogonal

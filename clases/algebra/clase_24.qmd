@@ -169,6 +169,16 @@ $S\circ T$ significa "primero $T$, luego $S$", y su matriz es $A_SA_T$ (la de $T
 
 Primero se aplica $T$ (cizalla), luego $S$ (rotación). El resultado es la transformación con matriz $A_SA_T$: el orden de las matrices es el **inverso** al orden en que se leen "primero $T$, luego $S$".
 
+## En la vida real: el orden de las transformaciones importa {.compacto .nostretch}
+
+![](img/app_composicion.png){fig-align="center" height="270px"}
+
+Con $R$ la rotación de $45^\circ$ y $C=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ una cizalla, **rotar y luego inclinar** ($CR$) no da lo mismo que **inclinar y luego rotar** ($RC$), porque $CR\neq RC$.
+
+::: {.aplicacion data-t="Gráficos por computador"}
+Los programas de diseño y los videojuegos guardan cada objeto con una matriz que es el **producto** de todas sus transformaciones. Para incluir traslaciones usan matrices $3\times3$ en **coordenadas homogéneas**: $\begin{pmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{pmatrix}$.
+:::
+
 ## Ejemplo resuelto: rotación de un vector
 
 ::: {.ejemplo}

@@ -107,6 +107,16 @@ En la forma escalonada de $A$, cada una de las $n$ columnas tiene pivote o corre
 Si $A$ es $5\times7$ y $\rho(A)=3$, entonces $\nu(A)=4$: el sistema $A\mathbf x=\mathbf 0$ tiene soluciones con 4 parámetros.
 :::
 
+## En la vida real: comprimir con rango bajo {.nostretch}
+
+![](img/app_rango.png){fig-align="center" width="100%"}
+
+Toda matriz de rango $k$ se escribe como suma de $k$ matrices de la forma $\mathbf u\mathbf v^T$ (columna por fila). La foto de $300\times451$ se aproxima con matrices de **rango bajo**: con rango $20$ se guardan $20(300+451+1)=15\,040$ números en lugar de $135\,300$ (11 %).
+
+::: {.ml data-t="Recomendaciones"}
+La matriz usuarios × películas con calificaciones tiene casi rango bajo: unos pocos "gustos" (acción, comedia…) explican todo. Llenar sus huecos con una aproximación de rango bajo es la base de los sistemas de recomendación.
+:::
+
 ## Rango y sistemas de ecuaciones
 
 ::: {.teorema}

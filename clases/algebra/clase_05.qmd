@@ -113,6 +113,28 @@ Reducir $(A\mid\mathbf b)$ responde a la vez **si** hay combinación y **cuáles
 
 Las columnas $\mathbf a_1,\mathbf a_2,\mathbf a_3$ generan un **plano**. $A\mathbf x=\mathbf b$ tiene solución porque $\mathbf b$ está en ese plano; $A\mathbf x=\mathbf c$ no, porque $\mathbf c$ está fuera.
 
+## En la vida real: economía de insumo-producto {.compacto .nostretch}
+
+::: {.aplicacion data-t="Modelo de Leontief"}
+Dos sectores: agricultura y energía. Para producir \$1 de agricultura se usan \$0.2 de agricultura y \$0.4 de energía; para \$1 de energía, \$0.3 de agricultura y \$0.1 de energía. La demanda externa es $\mathbf d=(50,30)$ millones. ¿Cuánto debe producir cada sector?
+:::
+
+. . .
+
+Producción = consumo interno + demanda: $\;\mathbf x=C\mathbf x+\mathbf d$, es decir $(I-C)\mathbf x=\mathbf d$:
+$$
+\begin{pmatrix}0.8&-0.3\\-0.4&0.9\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}=\begin{pmatrix}50\\30\end{pmatrix}
+\;\Rightarrow\;
+x_1=90,\quad x_2=\tfrac{220}{3}\approx73.3 .
+$$
+
+. . .
+
+::: {.ml data-t="Predicciones"}
+Un modelo lineal predice $\hat{\mathbf y}=X\mathbf w$: las predicciones son una **combinación lineal de las columnas** de $X$. Con columnas (1, área en m², habitaciones) y $\mathbf w=(20,\,1.5,\,10)$:
+$X=\begin{pmatrix}1&80&2\\1&120&3\\1&60&1\end{pmatrix}\Rightarrow \hat{\mathbf y}=20\begin{pmatrix}1\\1\\1\end{pmatrix}+1.5\begin{pmatrix}80\\120\\60\end{pmatrix}+10\begin{pmatrix}2\\3\\1\end{pmatrix}=\begin{pmatrix}160\\230\\120\end{pmatrix}$ millones.
+:::
+
 ## Partición de matrices en bloques
 
 ::: {.definicion}

@@ -147,6 +147,16 @@ En $P_1$ sean $S=\{t,1\}$ y $T=\{t+1,\;t-1\}$. Halle las coordenadas de $p(t)=5t
 
 $[p]_S=\begin{pmatrix}5\\-2\end{pmatrix}$. Para $T$: $x(t+1)+y(t-1)=5t-2\Rightarrow x+y=5,\;x-y=-2$, de donde $x=\tfrac32$, $y=\tfrac72$, y $[p]_T=\begin{pmatrix}3/2\\7/2\end{pmatrix}$.
 
+## En la vida real: el JPEG cambia de base {.nostretch}
+
+![](img/app_jpeg.png){fig-align="center" width="100%"}
+
+Un bloque de $8\times8$ píxeles es un vector de $\mathbb R^{64}$. La base usual es "un píxel encendido a la vez". El formato **JPEG** usa otra base de $64$ imágenes (izquierda) y guarda las **coordenadas** del bloque en esa base.
+
+. . .
+
+En la base JPEG casi todas las coordenadas son muy pequeñas: se descartan las de detalle fino y la foto se ve casi igual ocupando mucho menos espacio. **Cambiar de base** es lo que permite comprimir.
+
 ## Matriz de transición (cambio de base)
 
 ::: {.teorema}

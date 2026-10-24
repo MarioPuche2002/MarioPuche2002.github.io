@@ -202,6 +202,30 @@ $$
 
 Consecuencia: el determinante es $0$ si y solo si dos de los números $a,b,c$ coinciden (dos columnas iguales).
 
+## En la vida real: el área de un lote {.compacto .nostretch}
+
+:::: {.columns}
+::: {.column width="58%"}
+::: {.aplicacion data-t="Topografía"}
+Las esquinas de un lote, medidas con GPS en decenas de metros, son $P_1(1,1)$, $P_2(7,2)$, $P_3(6,6)$ y $P_4(2,5)$.
+:::
+
+Sumando los determinantes de vértices consecutivos (**fórmula del zapato**):
+$$
+\text{Área}=\tfrac12\left|\,\begin{vmatrix}1&7\\1&2\end{vmatrix}+\begin{vmatrix}7&6\\2&6\end{vmatrix}+\begin{vmatrix}6&2\\6&5\end{vmatrix}+\begin{vmatrix}2&1\\5&1\end{vmatrix}\,\right|
+$$
+$$
+=\tfrac12\,|-5+30+18-3|=20 .
+$$
+El lote mide $20\times100=2\,000\ \text{m}^2$.
+:::
+::: {.column width="42%"}
+![](img/app_lote.svg){width="100%"}
+:::
+::::
+
+Funciona porque cada determinante es el área (con signo) de un triángulo con vértice en el origen, y los signos cancelan lo que sobra. Así calculan áreas los programas de mapas.
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}

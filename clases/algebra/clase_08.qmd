@@ -38,6 +38,12 @@ $|\det A|$ es el **área** del paralelogramo generado por las columnas de $A$. S
 
 $|\det A|$ es el **área** del paralelogramo que forman las columnas. El **signo** indica la orientación: al intercambiar las columnas el área es la misma y el signo cambia.
 
+## En la vida real: ¿cuánto crece una imagen? {.nostretch}
+
+![](img/app_det_imagen.png){fig-align="center" width="100%"}
+
+Al aplicar una matriz $2\times2$ a una imagen, **su área se multiplica por $|\det A|$**. Escalar al doble da $\det=4$: la foto ocupa cuatro veces más. La cizalla deforma sin cambiar el área ($\det=1$), y un **determinante negativo** indica que la imagen quedó **en espejo**.
+
 ## Determinante de una matriz $3\times 3$
 
 ::: {.definicion}

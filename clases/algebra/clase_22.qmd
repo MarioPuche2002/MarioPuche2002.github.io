@@ -236,6 +236,16 @@ c) Por inducción sobre $n$: el caso $n=1$ es (ii). Si vale para $n$, entonces $
 | Transposición $M_{m\times n}\to M_{n\times m}$ | $T(A)=A^T$ | — |
 | Integral $C[0,1]\to\mathbb R$ | $T(f)=\int_0^1 f(x)\,dx$ | — |
 
+## En la vida real: transformar una foto {.nostretch}
+
+![](img/app_tl_gato.png){fig-align="center" height="290px"}
+
+Rotar, escalar, inclinar o reflejar una foto son **transformaciones lineales** de $\mathbb R^2$: a cada punto $(x,y)$ de la imagen se le aplica $T(x,y)=A\begin{pmatrix}x\\y\end{pmatrix}$. Las flechas son las imágenes de $\mathbf e_1$ y $\mathbf e_2$, que bastan para saber dónde va todo lo demás.
+
+::: {.ml data-t="Aumento de datos"}
+Para que una red reconozca un gato aunque la foto esté girada, se entrena también con copias **rotadas, escaladas y reflejadas** de cada imagen.
+:::
+
 ## ¿Por qué la derivada y la transpuesta son lineales?
 
 ::: {.demo data-t="Derivación"}

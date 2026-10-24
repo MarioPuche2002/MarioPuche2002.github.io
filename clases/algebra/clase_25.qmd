@@ -157,6 +157,18 @@ Para cada valor propio: $\;1\le\text{mult. geométrica}\le\text{mult. algebraica
 
 En el segundo caso, $A-3I=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ da $y=0$: solo $E_3=\operatorname{gen}\{(1,0)\}$. "Faltan" vectores propios; esto impedirá diagonalizar (clase 26).
 
+## En la vida real: cómo ordena Google las páginas {.compacto .nostretch}
+
+![](img/app_pagerank.svg){fig-align="center" height="260px"}
+
+Cada página reparte su "importancia" por igual entre las páginas a las que enlaza. La importancia $\mathbf r$ cumple $M\mathbf r=\mathbf r$: es un **vector propio con $\lambda=1$**.
+$$
+M=\begin{pmatrix}0&0&1&\tfrac12\\\tfrac13&0&0&0\\\tfrac13&1&0&\tfrac12\\\tfrac13&0&0&0\end{pmatrix}
+\;\Rightarrow\;
+\mathbf r=\tfrac1{15}(6,\,2,\,5,\,2).
+$$
+La página A es la más importante: la enlazan C y D, que a su vez son importantes. Es la idea original del algoritmo **PageRank**.
+
 ## Propiedades y demostraciones
 
 ::: {.teorema}

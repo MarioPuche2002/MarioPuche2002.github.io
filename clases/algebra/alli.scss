@@ -36,7 +36,7 @@ $presentation-h3-font-size: 1.1em;
 
 /* Cajas de contenido */
 .reveal .definicion, .reveal .teorema, .reveal .demo, .reveal .ejemplo,
-.reveal .ejercicio, .reveal .solucion, .reveal .obs {
+.reveal .ejercicio, .reveal .solucion, .reveal .obs, .reveal .aplicacion, .reveal .ml {
   position: relative;
   border-left: 6px solid;
   border-radius: 6px;
@@ -46,7 +46,7 @@ $presentation-h3-font-size: 1.1em;
 }
 .reveal .definicion::before, .reveal .teorema::before, .reveal .demo::before,
 .reveal .ejemplo::before, .reveal .ejercicio::before, .reveal .solucion::before,
-.reveal .obs::before {
+.reveal .obs::before, .reveal .aplicacion::before, .reveal .ml::before {
   display: block;
   font-weight: 700;
   font-size: .8em;
@@ -84,7 +84,15 @@ $presentation-h3-font-size: 1.1em;
 
 .reveal .definicion p:last-child, .reveal .teorema p:last-child, .reveal .demo p:last-child,
 .reveal .ejemplo p:last-child, .reveal .ejercicio p:last-child, .reveal .solucion p:last-child,
-.reveal .obs p:last-child { margin-bottom: 0; }
+.reveal .obs p:last-child, .reveal .aplicacion p:last-child, .reveal .ml p:last-child { margin-bottom: 0; }
+
+/* Aplicaciones: vida real y machine learning */
+.reveal .aplicacion { border-color: #c2410c; background: #fff4ec; }
+.reveal .aplicacion::before { content: "En la vida real"; color: #c2410c; }
+.reveal .aplicacion[data-t]::before { content: "En la vida real · " attr(data-t); }
+.reveal .ml { border-color: #0e7490; background: #ebf7fa; }
+.reveal .ml::before { content: "Machine learning"; color: #0e7490; }
+.reveal .ml[data-t]::before { content: "Machine learning · " attr(data-t); }
 
 .reveal .chico { font-size: .8em; }
 .reveal .muted { color: #6b7280; }

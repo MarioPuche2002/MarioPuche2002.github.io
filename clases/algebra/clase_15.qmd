@@ -61,6 +61,20 @@ $$
 D=\frac{|2(1)-2+2(-1)-5|}{\sqrt{4+1+4}}=\frac{|-7|}{3}=\frac73 .
 $$
 
+## Machine learning: el margen de un clasificador {.nostretch}
+
+::: {.ml data-t="Máquinas de soporte vectorial"}
+Para el clasificador con frontera $2x-y+z-3=0$, la distancia de un dato $\mathbf x_0$ a la frontera es
+$$
+d=\frac{|\mathbf w\cdot\mathbf x_0+b|}{\|\mathbf w\|}.
+$$
+Para $\mathbf x_0=(2,1,1)$: $\;d=\dfrac{|1|}{\sqrt6}\approx0.41$.
+:::
+
+. . .
+
+Un dato muy cerca de la frontera es una predicción **dudosa**; uno lejos, una predicción **segura**. Las máquinas de soporte vectorial (SVM) eligen el plano que deja la **mayor distancia** posible a los datos de ambas clases.
+
 ## Distancia de un punto a una recta en $\mathbb R^2$
 
 ::: {.teorema}
@@ -195,6 +209,28 @@ $$
 ::: {.obs}
 La fórmula de rectas que se cruzan **no** sirve aquí: $\mathbf v_1\times\mathbf v_2=\mathbf 0$ y se dividiría por cero.
 :::
+
+## Machine learning: la regresión lineal es una proyección {.compacto .nostretch}
+
+:::: {.columns}
+::: {.column width="55%"}
+Horas de estudio y nota de cinco estudiantes:
+$x=(1,2,3,4,5)$, $\;y=(2.0,2.8,3.1,3.9,4.5)$.
+
+Ninguna recta pasa por todos los puntos: $X\mathbf w=\mathbf y$ no tiene solución. Se busca el $X\mathbf w$ **más cercano** a $\mathbf y$, que es la **proyección** de $\mathbf y$ sobre el espacio columna de $X$:
+$$
+X^TX\,\mathbf w=X^T\mathbf y\;\Rightarrow\;
+\begin{pmatrix}5&15\\15&55\end{pmatrix}\mathbf w=\begin{pmatrix}16.3\\55\end{pmatrix}.
+$$
+:::
+::: {.column width="45%"}
+![](img/app_minimos.svg){width="100%"}
+:::
+::::
+
+. . .
+
+Resultado: $\;\hat y=1.43+0.61x$. Las líneas punteadas son las **distancias** que se minimizan (mínimos cuadrados). Con 3.5 horas se predice una nota de $1.43+0.61(3.5)\approx3.6$.
 
 ## Resumen de fórmulas
 

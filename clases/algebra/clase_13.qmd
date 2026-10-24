@@ -69,6 +69,28 @@ $$
 El **punto** es lo que se **resta** en cada numerador; el **vector director** son los **denominadores**. Ojo: el coeficiente de $x$, $y$, $z$ en el numerador debe ser $1$.
 :::
 
+## En la vida real: la ruta de un dron {.nostretch}
+
+:::: {.columns}
+::: {.column width="52%"}
+::: {.aplicacion data-t="Movimiento rectilíneo"}
+Un dron despega de $P(2,1,0)$ y cada segundo se desplaza $\mathbf d=(3,2,4)$ metros.
+:::
+
+Su posición es la recta
+$$
+\mathbf r(t)=(2,1,0)+t(3,2,4),
+$$
+donde el parámetro $t$ es el **tiempo**.
+
+- A los 2 s está en $(8,5,8)$.
+- Llega a $20$ m de altura cuando $4t=20$, es decir en $t=5$ s, en $(17,11,20)$.
+:::
+::: {.column width="48%"}
+![](img/app_dron.svg){width="100%"}
+:::
+::::
+
 ## Ejemplo 1 (cuaderno)
 
 ::: {.ejemplo}

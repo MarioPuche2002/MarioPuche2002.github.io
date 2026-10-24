@@ -87,6 +87,25 @@ $c_3=t$ es libre: $c_1=2t$, $c_2=-t$. Con $t=1$: $\;2\mathbf v_1-\mathbf v_2+\ma
 $\det\begin{pmatrix}1&2&0\\-1&1&3\\1&5&3\end{pmatrix}=0$, lo cual ya indica dependencia (teorema de la diapositiva siguiente).
 :::
 
+## En la vida real y en ML: información repetida {.compacto .nostretch}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.aplicacion data-t="Colores"}
+Rojo, verde y amarillo son **dependientes**: amarillo $=$ rojo $+$ verde. Una pantalla con esas tres luces no muestra más colores que con dos.
+:::
+:::
+::: {.column width="50%"}
+![](img/app_colores_dependientes.svg){width="100%"}
+:::
+::::
+
+. . .
+
+::: {.ml data-t="Características redundantes"}
+Si una tabla de datos tiene el precio en pesos y también en dólares, con 1 dólar = 4 000 pesos, las columnas cumplen $\mathbf c_{\text{pesos}}=4000\,\mathbf c_{\text{dólares}}$: son **linealmente dependientes**. La segunda columna no aporta información nueva, y en regresión hace que $X^TX$ no sea invertible. Por eso se eliminan las columnas dependientes antes de entrenar.
+:::
+
 ## Criterios en $\mathbb R^n$ {.compacto}
 
 ::: {.teorema}

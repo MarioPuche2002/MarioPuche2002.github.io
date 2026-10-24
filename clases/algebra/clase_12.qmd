@@ -77,6 +77,30 @@ Verificación: $(-1,5,3)\cdot(1,-1,2)=-1-5+6=0$ y $(-1,5,3)\cdot(2,1,-1)=-2+5-3=
 
 $\mathbf u\times\mathbf v$ es perpendicular al plano de $\mathbf u$ y $\mathbf v$; su longitud es el área del paralelogramo que forman, y su sentido lo da el pulgar derecho al girar los dedos de $\mathbf u$ hacia $\mathbf v$.
 
+## En la vida real: iluminación en videojuegos {.compacto .nostretch}
+
+:::: {.columns}
+::: {.column width="58%"}
+Los objetos 3D se dibujan con triángulos. Para saber qué tan iluminado está uno, se calcula su **normal** con el producto cruz:
+$$
+\mathbf n=\overrightarrow{PQ}\times\overrightarrow{PR}=(-1,2,0)\times(-1,0,2)=(4,2,2),
+$$
+para $P(1,0,0)$, $Q(0,2,0)$, $R(0,0,2)$.
+
+Si la luz llega en la dirección $\mathbf L=(1,1,1)$, el brillo es
+$$
+\cos\theta=\frac{\mathbf n\cdot\mathbf L}{\|\mathbf n\|\|\mathbf L\|}=\frac{8}{\sqrt{24}\sqrt3}\approx0.94 .
+$$
+:::
+::: {.column width="42%"}
+![](img/app_normal.svg){width="100%"}
+:::
+::::
+
+::: {.aplicacion data-t="Torque"}
+Una llave de $0.25$ m con fuerza de $40$ N perpendicular: $\;\boldsymbol\tau=\mathbf r\times\mathbf F=(0.25,0,0)\times(0,40,0)=(0,0,10)$ N·m.
+:::
+
 ## Propiedades del producto cruz
 
 ::: {.teorema}

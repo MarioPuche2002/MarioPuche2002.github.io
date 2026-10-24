@@ -71,6 +71,17 @@ Sea $\mathbf v=\sum c_i\mathbf u_i$. Haciendo producto punto con $\mathbf u_j$: 
 Con la base ortonormal anterior y $\mathbf v=(3,4,1)$: $\;\mathbf v\cdot\mathbf u_1=\tfrac{5}{\sqrt5}=\sqrt5$, $\;\mathbf v\cdot\mathbf u_2=\tfrac{-5}{\sqrt5}=-\sqrt5$, $\;\mathbf v\cdot\mathbf u_3=4$. **Sin resolver sistemas.**
 :::
 
+## En la vida real: separar un sonido en tonos {.compacto .nostretch}
+
+![](img/app_senal.svg){fig-align="center" width="88%"}
+
+Las funciones $\operatorname{sen}t,\;\operatorname{sen}2t,\;\operatorname{sen}3t,\dots$ son **ortogonales**. Como en una base ortonormal, cada coeficiente se obtiene con un **producto punto**, sin resolver sistemas:
+$$
+c_k=\frac{\langle f,\operatorname{sen}kt\rangle}{\langle\operatorname{sen}kt,\operatorname{sen}kt\rangle}
+\;\Rightarrow\; c_1=2,\;c_2=-1,\;c_3=0.5,\;c_4=0 .
+$$
+Así, $f=2\operatorname{sen}t-\operatorname{sen}2t+0.5\operatorname{sen}3t$. Los ecualizadores de música, el reconocimiento de voz y la compresión MP3 hacen esto con miles de tonos.
+
 ## El proceso de Gram-Schmidt
 
 ::: {.definicion data-t="Algoritmo"}
