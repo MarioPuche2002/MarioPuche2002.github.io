@@ -215,6 +215,100 @@ $$
 
 $x=1$, $y=2$, $z=3$. **Solo (B) es verdadera.** (A) falla porque $D=7$; (C) intercambia $x$ e $y$; (D) da $z=3$.
 
+## Ejemplo 1 · Fácil: regla de Cramer $2\times2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Resuelva con Cramer: $\quad 2x+3y=8,\qquad x-y=-1.$
+:::
+
+. . .
+
+**Paso 1 · Determinante del sistema:** $\;D=\begin{vmatrix}2&3\\1&-1\end{vmatrix}=-2-3=-5\neq0$, así que hay solución única.
+
+. . .
+
+**Paso 2 · Reemplazar una columna por $\mathbf b=(8,-1)$:**
+$$
+D_x=\begin{vmatrix}8&3\\-1&-1\end{vmatrix}=-8+3=-5,\qquad
+D_y=\begin{vmatrix}2&8\\1&-1\end{vmatrix}=-2-8=-10 .
+$$
+
+. . .
+
+**Paso 3.** $\;x=\dfrac{D_x}{D}=1,\qquad y=\dfrac{D_y}{D}=2.$
+
+::: {.solucion}
+$(x,y)=(1,2)$. Comprobación: $2+6=8$ ✓, $\;1-2=-1$ ✓.
+:::
+
+## Ejemplo 2 · Fácil: adjunta e inversa $2\times2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle la adjunta y la inversa de $A=\begin{pmatrix}4&3\\1&2\end{pmatrix}$ usando $A^{-1}=\dfrac{1}{\det A}\operatorname{adj}A$.
+:::
+
+. . .
+
+**Paso 1 · Cofactores:** $C_{11}=2$, $C_{12}=-1$, $C_{21}=-3$, $C_{22}=4$.
+
+. . .
+
+**Paso 2 · La adjunta es la transpuesta de la matriz de cofactores:**
+$\;\operatorname{adj}A=\begin{pmatrix}2&-3\\-1&4\end{pmatrix}.$
+
+. . .
+
+**Paso 3.** $\det A=8-3=5$, así que $A^{-1}=\dfrac15\begin{pmatrix}2&-3\\-1&4\end{pmatrix}$.
+
+::: {.solucion}
+Es la misma regla de "intercambiar la diagonal y cambiar signos", ahora justificada con cofactores. Comprobación: $A\,\operatorname{adj}A=\begin{pmatrix}5&0\\0&5\end{pmatrix}=5I$ ✓.
+:::
+
+## Ejemplo 3 · Medio: Cramer en un sistema $3\times3$ {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Resuelva con Cramer: $\quad x+2y-z=2,\qquad 2x-y+z=3,\qquad 3x+y+2z=7.$
+:::
+
+. . .
+
+**Paso 1.** $\;D=\begin{vmatrix}1&2&-1\\2&-1&1\\3&1&2\end{vmatrix}=-10\neq0$ (por ejemplo, expandiendo por la primera fila: $1(-3)-2(1)+(-1)(5)=-10$).
+
+. . .
+
+**Paso 2 · Un determinante por incógnita**, cambiando su columna por $\mathbf b=(2,3,7)$:
+$$
+D_x=\begin{vmatrix}2&2&-1\\3&-1&1\\7&1&2\end{vmatrix}=-14,\quad
+D_y=\begin{vmatrix}1&2&-1\\2&3&1\\3&7&2\end{vmatrix}=-8,\quad
+D_z=\begin{vmatrix}1&2&2\\2&-1&3\\3&1&7\end{vmatrix}=-10 .
+$$
+
+. . .
+
+::: {.solucion}
+$x=\tfrac{-14}{-10}=\tfrac75$, $\;y=\tfrac{-8}{-10}=\tfrac45$, $\;z=1$. Comprobación en la primera ecuación: $\tfrac75+\tfrac85-1=2$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: invertibilidad con parámetro {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Sea $A=\begin{pmatrix}1&2&k\\0&1&1\\k&0&1\end{pmatrix}$. (a) ¿Para qué $k$ es invertible? (b) Para $k=1$, halle $A^{-1}$ con la adjunta.
+:::
+
+. . .
+
+**Paso 1 · Determinante** (expansión por la columna 1): $\;\det A=1(1-0)+k(2-k)=-k^2+2k+1.$ Se anula cuando $k^2-2k-1=0$, es decir $k=1\pm\sqrt2$.
+
+. . .
+
+**Paso 2 · Cofactores para $k=1$** ($\det A=2$), por ejemplo $C_{11}=\begin{vmatrix}1&1\\0&1\end{vmatrix}=1$, $\;C_{12}=-\begin{vmatrix}0&1\\1&1\end{vmatrix}=1$, $\;C_{13}=\begin{vmatrix}0&1\\1&0\end{vmatrix}=-1$. Con los nueve y transponiendo: $\;\operatorname{adj}A=\begin{pmatrix}1&-2&1\\1&0&-1\\-1&2&1\end{pmatrix}.$
+
+. . .
+
+::: {.solucion}
+**(a)** Invertible para todo $k\neq1\pm\sqrt2$. **(b)** $A^{-1}=\dfrac12\begin{pmatrix}1&-2&1\\1&0&-1\\-1&2&1\end{pmatrix}$. Comprobación de la entrada $(1,1)$ de $AA^{-1}$: $\tfrac12(1+2-1)=1$ ✓.
+:::
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}

@@ -259,6 +259,96 @@ $W=\{f\in C[0,1]: f(0)=0\}$.
 
 La función cero está en $W$. Si $f(0)=g(0)=0$, entonces $(f+g)(0)=0$ y $(cf)(0)=c\cdot0=0$. **Es subespacio** de $C[0,1]$. En cambio, $\{f: f(0)=1\}$ **no** lo es: no contiene a la función cero.
 
+## Ejemplo 1 · Fácil: una recta por el origen {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Es $W=\{(x,y)\in\mathbb R^2:\;y=3x\}$ un subespacio de $\mathbb R^2$?
+:::
+
+. . .
+
+**Paso 1 · ¿Contiene al cero?** $0=3\cdot0$ ✓.
+
+. . .
+
+**Paso 2 · ¿Cerrado bajo la suma?** Si $(x_1,3x_1)$ y $(x_2,3x_2)$ están en $W$, su suma $(x_1+x_2,\;3(x_1+x_2))$ también cumple $y=3x$ ✓.
+
+. . .
+
+**Paso 3 · ¿Cerrado bajo escalares?** $c(x,3x)=(cx,\;3(cx))$ ✓.
+
+::: {.solucion}
+Sí: $W$ es un subespacio. Es la recta generada por $(1,3)$.
+:::
+
+## Ejemplo 2 · Fácil: una recta que no pasa por el origen {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Es $W=\{(x,y)\in\mathbb R^2:\;y=x+1\}$ un subespacio?
+:::
+
+. . .
+
+**Paso 1 · Revisar primero el cero** (es la prueba más rápida): $(0,0)$ no cumple $0=0+1$.
+
+. . .
+
+**Paso 2 · Un contraejemplo más,** para ver qué falla: $(0,1)$ y $(1,2)$ están en $W$, pero su suma $(1,3)$ no ($3\neq2$).
+
+::: {.solucion}
+No es subespacio. **Regla práctica:** si el conjunto no contiene al vector cero, se descarta de inmediato.
+:::
+
+## Ejemplo 3 · Medio: polinomios con una raíz fija {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+¿Es $W=\{p\in P_2:\;p(1)=0\}$ un subespacio de $P_2$? Dé dos elementos de $W$.
+:::
+
+. . .
+
+**Paso 1 · Cero.** El polinomio cero cumple $0(1)=0$ ✓.
+
+. . .
+
+**Paso 2 · Suma.** Si $p(1)=0$ y $q(1)=0$, entonces $(p+q)(1)=p(1)+q(1)=0$ ✓.
+
+. . .
+
+**Paso 3 · Escalar.** $(cp)(1)=c\,p(1)=c\cdot0=0$ ✓.
+
+::: {.solucion}
+Sí es subespacio. Ejemplos: $x-1$ y $x^2-1$, que se anulan en $x=1$. Lo que hace funcionar la prueba es que **evaluar en un punto** respeta sumas y múltiplos.
+:::
+
+## Ejemplo 4 · Difícil: las matrices que conmutan con $B$ {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Sea $B=\begin{pmatrix}1&1\\0&1\end{pmatrix}$. Demuestre que $W=\{A\in M_{2\times2}:\;AB=BA\}$ es un subespacio y descríbalo.
+:::
+
+. . .
+
+**Paso 1 · Cero:** $0B=0=B0$ ✓.
+
+. . .
+
+**Paso 2 · Suma y escalares**, usando las propiedades del producto:
+$$
+(A_1+A_2)B=A_1B+A_2B=BA_1+BA_2=B(A_1+A_2),\qquad (cA)B=c(AB)=c(BA)=B(cA)\;✓ .
+$$
+
+. . .
+
+**Paso 3 · Describirlo.** Con $A=\begin{pmatrix}a&b\\c&d\end{pmatrix}$, la igualdad $AB=BA$ da $c=0$ y $d=a$ (clase 4):
+$$
+W=\left\{\begin{pmatrix}a&b\\0&a\end{pmatrix}\right\}=\left\{a\begin{pmatrix}1&0\\0&1\end{pmatrix}+b\begin{pmatrix}0&1\\0&0\end{pmatrix}\right\}.
+$$
+
+::: {.solucion}
+$W$ es un subespacio de $M_{2\times2}$ generado por $I$ y $\begin{pmatrix}0&1\\0&0\end{pmatrix}$. La prueba general (pasos 1 y 2) sirve para **cualquier** $B$.
+:::
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}

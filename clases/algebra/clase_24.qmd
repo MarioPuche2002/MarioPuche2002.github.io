@@ -196,6 +196,94 @@ $$
 
 Comprobación: $\|(\sqrt3,1)\|=2$ (la rotación conserva longitudes) y el ángulo con el eje $x$ es $\arctan\frac{1}{\sqrt3}=30^\circ$ ✓. Además $\det R_\theta=\cos^2\theta+\operatorname{sen}^2\theta=1$: conserva áreas.
 
+## Ejemplo 1 · Fácil: la matriz de una transformación {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle la matriz estándar de $T(x,y)=(2x+y,\;x-3y)$ y úsela para calcular $T(1,2)$.
+:::
+
+. . .
+
+**Paso 1 · Las columnas de la matriz son $T(\mathbf e_1)$ y $T(\mathbf e_2)$:** $\;T(1,0)=(2,1)$, $\;T(0,1)=(1,-3)$.
+$$
+A_T=\begin{pmatrix}2&1\\1&-3\end{pmatrix}.
+$$
+
+. . .
+
+**Paso 2.** $\;A_T\begin{pmatrix}1\\2\end{pmatrix}=\begin{pmatrix}2+2\\1-6\end{pmatrix}=\begin{pmatrix}4\\-5\end{pmatrix}.$
+
+::: {.solucion}
+$T(1,2)=(4,-5)$, igual que con la fórmula: $(2+2,\;1-6)$ ✓.
+:::
+
+## Ejemplo 2 · Fácil: reflexión y rotación {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle las matrices de la reflexión respecto al eje $x$ y de la rotación de $90^\circ$, y aplíquelas a $(3,1)$.
+:::
+
+. . .
+
+**Paso 1 · Reflexión:** $\mathbf e_1\mapsto(1,0)$, $\mathbf e_2\mapsto(0,-1)$: $\;R_x=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$, $\;R_x(3,1)=(3,-1)$.
+
+. . .
+
+**Paso 2 · Rotación de $90^\circ$:** $\mathbf e_1\mapsto(0,1)$, $\mathbf e_2\mapsto(-1,0)$: $\;R_{90}=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$, $\;R_{90}(3,1)=(-1,3)$.
+
+::: {.solucion}
+Basta pensar **a dónde van $\mathbf e_1$ y $\mathbf e_2$** y escribirlos como columnas. Comprobación: $(-1,3)\cdot(3,1)=0$, y en efecto el giro es de $90^\circ$.
+:::
+
+## Ejemplo 3 · Medio: de $\mathbb R^3$ a $\mathbb R^2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Halle la matriz de $T(x,y,z)=(x+2z,\;y-z)$, su tamaño, y calcule $T(1,2,3)$ de dos formas.
+:::
+
+. . .
+
+**Paso 1 · Columnas** $T(\mathbf e_1)=(1,0)$, $T(\mathbf e_2)=(0,1)$, $T(\mathbf e_3)=(2,-1)$:
+$$
+A_T=\begin{pmatrix}1&0&2\\0&1&-1\end{pmatrix}\qquad(2\times3:\text{ sale de }\mathbb R^3,\text{ llega a }\mathbb R^2).
+$$
+
+. . .
+
+**Paso 2.** Con la matriz: $A_T(1,2,3)^T=(1+6,\;2-3)=(7,-1)$. Con la fórmula: $(1+2\cdot3,\;2-3)=(7,-1)$ ✓.
+
+::: {.solucion}
+Una transformación de $\mathbb R^n$ en $\mathbb R^m$ tiene matriz $m\times n$: tantas **columnas** como dimensión del espacio de **salida**.
+:::
+
+## Ejemplo 4 · Difícil: la matriz de un operador en polinomios {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Sea $T:P_2\to P_2$, $\;T(p)=p+p'$. Halle su matriz en la base $\{1,x,x^2\}$ y úsela para calcular $T(3-x+2x^2)$.
+:::
+
+. . .
+
+**Paso 1 · Imagen de cada vector de la base**, en coordenadas:
+$$
+T(1)=1\to(1,0,0),\qquad T(x)=x+1\to(1,1,0),\qquad T(x^2)=x^2+2x\to(0,2,1).
+$$
+
+. . .
+
+**Paso 2 · Ponerlas como columnas:** $\;A_T=\begin{pmatrix}1&1&0\\0&1&2\\0&0&1\end{pmatrix}$.
+
+. . .
+
+**Paso 3 · Aplicar** a las coordenadas $(3,-1,2)$:
+$$
+A_T\begin{pmatrix}3\\-1\\2\end{pmatrix}=\begin{pmatrix}3-1\\-1+4\\2\end{pmatrix}=\begin{pmatrix}2\\3\\2\end{pmatrix}\;\to\;2+3x+2x^2 .
+$$
+
+::: {.solucion}
+Directamente: $p'=-1+4x$, y $p+p'=2+3x+2x^2$ ✓. Con la matriz, derivar y sumar se convierte en multiplicar matriz por vector.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

@@ -213,6 +213,92 @@ $A=\begin{pmatrix}a&b\\b&c\end{pmatrix}=a\begin{pmatrix}1&0\\0&0\end{pmatrix}+b\
 
 Las tres matrices generan $W$ y son LI (la combinación es $O$ solo si $a=b=c=0$). **Base de 3 matrices, $\dim W=3$**, dentro de $M_{2\times2}$, que tiene dimensión 4.
 
+## Ejemplo 1 · Fácil: base de $\mathbb R^2$ y coordenadas {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Verifique que $B=\{(1,1),(1,-1)\}$ es una base de $\mathbb R^2$ y halle las coordenadas de $\mathbf v=(5,1)$ en esa base.
+:::
+
+. . .
+
+**Paso 1 · Base.** Son dos vectores en un espacio de dimensión $2$ y no son paralelos ($\det=-2\neq0$): forman una base.
+
+. . .
+
+**Paso 2 · Coordenadas.** $c_1(1,1)+c_2(1,-1)=(5,1)$: $\;c_1+c_2=5$, $\;c_1-c_2=1\Rightarrow c_1=3$, $c_2=2$.
+
+::: {.solucion}
+$[\mathbf v]_B=(3,2)$: "3 pasos en la dirección $(1,1)$ y 2 en la dirección $(1,-1)$". Comprobación: $(3+2,\;3-2)=(5,1)$ ✓.
+:::
+
+## Ejemplo 2 · Fácil: base y dimensión de un plano {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle una base y la dimensión de $W=\{(x,y,z):\;x+2y-z=0\}$.
+:::
+
+. . .
+
+**Paso 1 · Despejar** una variable: $z=x+2y$, con $x$ e $y$ libres.
+
+. . .
+
+**Paso 2 · Separar por variables libres:**
+$$
+(x,\;y,\;x+2y)=x(1,0,1)+y(0,1,2).
+$$
+
+::: {.solucion}
+Base $\{(1,0,1),(0,1,2)\}$ y $\dim W=2$: hay tantos vectores en la base como **variables libres**. Ambos cumplen $x+2y-z=0$ ✓.
+:::
+
+## Ejemplo 3 · Medio: coordenadas de un polinomio {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Halle las coordenadas de $p=2+3x+x^2$ en la base $B=\{1,\;1+x,\;1+x+x^2\}$.
+:::
+
+. . .
+
+**Paso 1 · Plantear** $c_1\cdot1+c_2(1+x)+c_3(1+x+x^2)=2+3x+x^2$ e igualar coeficientes:
+$$
+x^2:\;c_3=1,\qquad x:\;c_2+c_3=3,\qquad\text{constante: }c_1+c_2+c_3=2 .
+$$
+
+. . .
+
+**Paso 2 · De arriba hacia abajo:** $c_3=1$, $\;c_2=2$, $\;c_1=2-2-1=-1$.
+
+::: {.solucion}
+$[p]_B=(-1,2,1)$. Comprobación: $-1+2(1+x)+(1+x+x^2)=2+3x+x^2$ ✓. Las coordenadas dependen de la base: en la base usual $\{1,x,x^2\}$ serían $(2,3,1)$.
+:::
+
+## Ejemplo 4 · Difícil: matriz de cambio de base {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Sean $B=\{(1,1),(1,2)\}$ y $B'=\{(2,1),(1,1)\}$. Halle la matriz de transición de $B$ a $B'$ y úsela con $[\mathbf v]_B=(2,1)$.
+:::
+
+. . .
+
+**Paso 1 · Idea.** La columna $j$ de la matriz es el vector $j$ de $B$ **escrito en coordenadas de $B'$**.
+
+. . .
+
+**Paso 2 · Calcular** con las matrices $M_B=\begin{pmatrix}1&1\\1&2\end{pmatrix}$, $M_{B'}=\begin{pmatrix}2&1\\1&1\end{pmatrix}$:
+$$
+P_{B\to B'}=M_{B'}^{-1}M_B=\begin{pmatrix}1&-1\\-1&2\end{pmatrix}\begin{pmatrix}1&1\\1&2\end{pmatrix}=\begin{pmatrix}0&-1\\1&3\end{pmatrix}.
+$$
+Por ejemplo, $(1,1)=0\cdot(2,1)+1\cdot(1,1)$: primera columna $(0,1)$ ✓.
+
+. . .
+
+**Paso 3 · Aplicar:** $\;[\mathbf v]_{B'}=P\,[\mathbf v]_B=\begin{pmatrix}0&-1\\1&3\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}=\begin{pmatrix}-1\\5\end{pmatrix}.$
+
+::: {.solucion}
+Comprobación con el vector real: $2(1,1)+1(1,2)=(3,4)$ y $-1(2,1)+5(1,1)=(3,4)$ ✓. Es el mismo vector, medido con otra cuadrícula.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

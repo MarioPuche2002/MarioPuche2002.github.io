@@ -45,7 +45,7 @@ $$
 
 . . .
 
-(b) $\left(\begin{array}{cc|c}1&3&1\\2&1&1\\-1&2&1\end{array}\right)\sim\left(\begin{array}{cc|c}1&0&0\\0&1&0\\0&0&1\end{array}\right)$: la última fila es $0=1$. **No** es combinación lineal.
+**(b)** $\left(\begin{array}{cc|c}1&3&1\\2&1&1\\-1&2&1\end{array}\right)\sim\left(\begin{array}{cc|c}1&0&0\\0&1&0\\0&0&1\end{array}\right)$: la última fila es $0=1$. **No** es combinación lineal.
 
 ## Ejemplo resuelto: en $P_2$
 
@@ -143,8 +143,8 @@ Generan $\mathbb R^n$ $\iff$ $A\mathbf c=\mathbf b$ es consistente para todo $\m
 . . .
 
 ::: {.ejemplo}
-(a) $\{(1,1,0),(0,1,1),(1,0,1)\}$: $\;\begin{vmatrix}1&0&1\\1&1&0\\0&1&1\end{vmatrix}=2\neq0$. **Genera** $\mathbb R^3$.
-(b) $\{(1,0,1),(2,1,3),(3,1,4)\}$: el determinante es $0$ (el tercero es la suma de los dos primeros). **No** genera $\mathbb R^3$; genera un plano.
+**(a)** $\{(1,1,0),(0,1,1),(1,0,1)\}$: $\;\begin{vmatrix}1&0&1\\1&1&0\\0&1&1\end{vmatrix}=2\neq0$. **Genera** $\mathbb R^3$.
+**(b)** $\{(1,0,1),(2,1,3),(3,1,4)\}$: el determinante es $0$ (el tercero es la suma de los dos primeros). **No** genera $\mathbb R^3$; genera un plano.
 :::
 
 ## Ejemplo: conjuntos generadores de $P_2$ y $M_{2\times2}$
@@ -171,11 +171,98 @@ Determine si cada conjunto genera $\mathbb R^3$: (a) $\{(1,2,0),(0,1,-1),(2,1,1)
 
 . . .
 
-(a) $\det\begin{pmatrix}1&0&2\\2&1&1\\0&-1&1\end{pmatrix}=1(1+1)-0+2(-2-0)=-2\neq0$: **genera** $\mathbb R^3$.
+**(a)** $\det\begin{pmatrix}1&0&2\\2&1&1\\0&-1&1\end{pmatrix}=1(1+1)-0+2(-2-0)=-2\neq0$: **genera** $\mathbb R^3$.
 
 . . .
 
-(b) $\det\begin{pmatrix}1&0&1\\2&1&3\\0&-1&-1\end{pmatrix}=1(-1+3)-0+1(-2)=0$: **no** genera $\mathbb R^3$. En efecto, $(1,3,-1)=(1,2,0)+(0,1,-1)$: el tercero es redundante y los tres están en un plano.
+**(b)** $\det\begin{pmatrix}1&0&1\\2&1&3\\0&-1&-1\end{pmatrix}=1(-1+3)-0+1(-2)=0$: **no** genera $\mathbb R^3$. En efecto, $(1,3,-1)=(1,2,0)+(0,1,-1)$: el tercero es redundante y los tres están en un plano.
+
+## Ejemplo 1 · Fácil: combinación lineal en $\mathbb R^2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Escriba $\mathbf v=(7,5)$ como combinación lineal de $\mathbf u_1=(1,1)$ y $\mathbf u_2=(2,1)$.
+:::
+
+. . .
+
+**Paso 1 · Plantear** $c_1(1,1)+c_2(2,1)=(7,5)$:
+$\quad c_1+2c_2=7,\qquad c_1+c_2=5.$
+
+. . .
+
+**Paso 2.** Restando: $c_2=2$; luego $c_1=3$.
+
+::: {.solucion}
+$\mathbf v=3\mathbf u_1+2\mathbf u_2=(3+4,\;3+2)=(7,5)$ ✓.
+:::
+
+## Ejemplo 2 · Fácil: ¿está en el espacio generado? {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Pertenece $\mathbf w=(1,2,3)$ a $\operatorname{gen}\{(1,0,1),(0,1,1)\}$?
+:::
+
+. . .
+
+**Paso 1.** Hay que encontrar $c_1,c_2$ con $c_1(1,0,1)+c_2(0,1,1)=(1,2,3)$. Las dos primeras coordenadas dan directamente $c_1=1$, $c_2=2$.
+
+. . .
+
+**Paso 2 · Verificar la tercera:** $c_1+c_2=3$ ✓.
+
+::: {.solucion}
+Sí: $(1,2,3)=(1,0,1)+2(0,1,1)$. En cambio $(1,2,4)$ **no** estaría, porque la tercera coordenada exigiría $c_1+c_2=4$.
+:::
+
+## Ejemplo 3 · Medio: combinación de polinomios {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+¿Es $p(x)=2+3x+x^2$ combinación lineal de $q_1=1+x$, $q_2=x+x^2$, $q_3=1-x^2$?
+:::
+
+. . .
+
+**Paso 1 · Igualar coeficientes** de $c_1q_1+c_2q_2+c_3q_3=p$:
+$$
+\text{constante: } c_1+c_3=2,\qquad x:\; c_1+c_2=3,\qquad x^2:\; c_2-c_3=1 .
+$$
+
+. . .
+
+**Paso 2 · Reducir.** La tercera ecuación es la segunda menos la primera, así que sobra: hay **infinitas** soluciones. Con $c_1=t$: $\;c_3=2-t$, $\;c_2=3-t$.
+
+. . .
+
+**Paso 3 · Por qué.** $q_1-q_2=1-x^2=q_3$: un polinomio del conjunto ya es combinación de los otros.
+
+::: {.solucion}
+Sí; por ejemplo con $t=0$: $\;p=3(x+x^2)+2(1-x^2)=2+3x+x^2$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: ¿qué genera un conjunto? {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Describa $\operatorname{gen}\{\mathbf v_1,\mathbf v_2,\mathbf v_3\}$ con $\mathbf v_1=(1,2,1)$, $\mathbf v_2=(2,1,-1)$, $\mathbf v_3=(1,-1,-2)$. ¿Es todo $\mathbb R^3$?
+:::
+
+. . .
+
+**Paso 1 · Buscar dependencias.** $\mathbf v_2-\mathbf v_1=(1,-1,-2)=\mathbf v_3$. Entonces $\mathbf v_3$ no aporta nada: $\operatorname{gen}\{\mathbf v_1,\mathbf v_2,\mathbf v_3\}=\operatorname{gen}\{\mathbf v_1,\mathbf v_2\}$.
+
+. . .
+
+**Paso 2 · Dos vectores no paralelos generan un plano por el origen.** Su normal:
+$$
+\mathbf v_1\times\mathbf v_2=(2(-1)-1\cdot1,\;-(1(-1)-1\cdot2),\;1\cdot1-2\cdot2)=(-3,3,-3)\;\parallel\;(1,-1,1).
+$$
+
+. . .
+
+**Paso 3 · Ecuación del plano:** $\;x-y+z=0$. Verificación: $1-2+1=0$, $2-1-1=0$, $1+1-2=0$ ✓.
+
+::: {.solucion}
+El conjunto genera el **plano** $x-y+z=0$, no todo $\mathbb R^3$. Por ejemplo, $(1,0,0)$ no se puede obtener ($1\neq0$).
+:::
 
 ## Práctica en clase
 

@@ -226,6 +226,95 @@ El lote mide $20\times100=2\,000\ \text{m}^2$.
 
 Funciona porque cada determinante es el área (con signo) de un triángulo con vértice en el origen, y los signos cancelan lo que sobra. Así calculan áreas los programas de mapas.
 
+## Ejemplo 1 · Fácil: matriz triangular y cambio de filas {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Calcule $\det A$ para $A=\begin{pmatrix}2&7&-1\\0&3&5\\0&0&-4\end{pmatrix}$, y el de la matriz que resulta al intercambiar sus filas 1 y 3.
+:::
+
+. . .
+
+**Paso 1 · Triangular.** El determinante es el producto de la diagonal: $\;2\cdot3\cdot(-4)=-24$. No hace falta expandir.
+
+. . .
+
+**Paso 2 · Intercambio de filas.** Cada intercambio **cambia el signo** del determinante.
+
+::: {.solucion}
+$\det A=-24$ y, tras el intercambio, $\det=+24$.
+:::
+
+## Ejemplo 2 · Fácil: usar las propiedades {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+$A$ es $3\times3$ y $\det A=3$. Calcule $\det(2A)$, $\det(A^T)$, $\det(A^{-1})$ y $\det(A^2)$.
+:::
+
+. . .
+
+- $\det(2A)=2^3\det A=24$. **Cuidado:** el $2$ multiplica las **tres** filas, por eso sale $2^3$ y no $2$.
+- $\det(A^T)=\det A=3$: transponer no cambia el determinante.
+
+. . .
+
+- $\det(A^{-1})=\dfrac{1}{\det A}=\dfrac13$, porque $\det A\cdot\det A^{-1}=\det I=1$.
+- $\det(A^2)=\det A\cdot\det A=9$.
+
+::: {.solucion}
+$24,\;3,\;\tfrac13,\;9$.
+:::
+
+## Ejemplo 3 · Medio: determinante $4\times4$ reduciendo por filas {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Calcule $\det\begin{pmatrix}1&2&0&1\\2&5&1&3\\1&3&2&0\\0&1&4&2\end{pmatrix}$ llevando la matriz a forma triangular.
+:::
+
+. . .
+
+**Idea.** Sumar a una fila un múltiplo de otra **no cambia** el determinante.
+
+. . .
+
+**Paso 1** ($F_2-2F_1$, $F_3-F_1$), **paso 2** ($F_3-F_2$, $F_4-F_2$) y **paso 3** ($F_4-3F_3$):
+$$
+\begin{pmatrix}1&2&0&1\\0&1&1&1\\0&1&2&-1\\0&1&4&2\end{pmatrix}\sim
+\begin{pmatrix}1&2&0&1\\0&1&1&1\\0&0&1&-2\\0&0&3&1\end{pmatrix}\sim
+\begin{pmatrix}1&2&0&1\\0&1&1&1\\0&0&1&-2\\0&0&0&7\end{pmatrix}.
+$$
+
+::: {.solucion}
+Solo se usaron operaciones del tipo "sumar un múltiplo": $\det=1\cdot1\cdot1\cdot7=7$. Con cofactores se necesitarían varios menores $3\times3$.
+:::
+
+## Ejemplo 4 · Difícil: un determinante sin calcular {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Demuestre que, para cualesquiera $a,b,c$: $\quad\begin{vmatrix}1&a&b+c\\1&b&c+a\\1&c&a+b\end{vmatrix}=0.$
+:::
+
+. . .
+
+**Paso 1 · Buscar una operación que simplifique.** Sumar la columna 2 a la columna 3 **no cambia** el determinante:
+$$
+\begin{vmatrix}1&a&b+c\\1&b&c+a\\1&c&a+b\end{vmatrix}=\begin{vmatrix}1&a&a+b+c\\1&b&a+b+c\\1&c&a+b+c\end{vmatrix}.
+$$
+
+. . .
+
+**Paso 2 · Sacar el factor común** de la columna 3:
+$$
+=(a+b+c)\begin{vmatrix}1&a&1\\1&b&1\\1&c&1\end{vmatrix}.
+$$
+
+. . .
+
+**Paso 3.** El último determinante tiene **dos columnas iguales** (la 1 y la 3), así que vale $0$.
+
+::: {.solucion}
+El determinante es $(a+b+c)\cdot0=0$ para cualesquiera $a,b,c$. Con propiedades se evita expandir un determinante con letras.
+:::
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}

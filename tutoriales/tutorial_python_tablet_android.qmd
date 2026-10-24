@@ -244,6 +244,29 @@ chmod +x /usr/local/bin/vscode
 - `--bind-addr 127.0.0.1:8080`: solo acepta conexiones desde la misma tablet, en el puerto 8080.
 - `--auth none`: no pide contraseña. Es seguro **solo** porque está limitado a `127.0.0.1`; nadie de la red Wi-Fi puede entrar.
 
+**Comando para registrar notebooks.** En Debian dentro de Termux, el comando habitual `python -m ipykernel install` falla con `shutil.Error ... Invalid argument`, porque no puede copiar unos íconos. Para evitarlo se crea un comando propio, `registrar-kernel`, que hace el mismo registro sin copiar íconos. Copia y pega todo el bloque (de `cat` hasta el último `EOF`) en Debian:
+
+```bash
+cat > /usr/local/bin/registrar-kernel <<'EOF'
+#!/bin/sh
+# Registra el .venv del proyecto actual como kernel de Jupyter (sin copiar íconos)
+exec uv run python - <<'PY'
+import json, os, sys
+nombre = os.path.basename(os.getcwd())
+carpeta = os.path.expanduser(f"~/.local/share/jupyter/kernels/{nombre}")
+os.makedirs(carpeta, exist_ok=True)
+spec = {"argv": [sys.executable, "-m", "ipykernel_launcher", "-f", "{connection_file}"],
+        "display_name": f"Python ({nombre})", "language": "python"}
+with open(os.path.join(carpeta, "kernel.json"), "w") as f:
+    json.dump(spec, f, indent=1)
+print(f"Kernel registrado: Python ({nombre})")
+PY
+EOF
+chmod +x /usr/local/bin/registrar-kernel
+```
+
+Se usa **dentro de la carpeta de cada proyecto** (que debe tener `ipykernel` instalado con `uv add ipykernel`): escribe `registrar-kernel` y aparece el kernel *Python (nombre-de-la-carpeta)*.
+
 ## Parte 6 · Abrir y configurar VS Code
 
 1. En Debian, escribe:
@@ -436,10 +459,10 @@ uv run main.py
 
 ### Notebook con el entorno del proyecto
 
-Registra el entorno como kernel de Jupyter (una vez por proyecto):
+Registra el entorno como kernel de Jupyter (una vez por proyecto), con el comando creado en la Parte 5:
 
 ```bash
-uv run python -m ipykernel install --user --name iris-clasificador --display-name "Python (iris-clasificador)"
+registrar-kernel
 ```
 
 Crea `exploracion.ipynb`, haz clic en **Select Kernel → Jupyter Kernel → Python (iris-clasificador)** y ejecuta:
@@ -544,7 +567,7 @@ cd mi-proyecto
 uv add numpy pandas matplotlib ipykernel
 mkdir -p .vscode
 echo '{"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python"}' > .vscode/settings.json
-uv run python -m ipykernel install --user --name mi-proyecto --display-name "Python (mi-proyecto)"
+registrar-kernel
 ```
 
 | Comando | Qué hace |
@@ -552,7 +575,7 @@ uv run python -m ipykernel install --user --name mi-proyecto --display-name "Pyt
 | `uv init mi-proyecto` | Crea la carpeta con `pyproject.toml`, `main.py`, `README.md` y `.gitignore`. |
 | `uv add ...` | Crea el `.venv` e instala las librerías. |
 | `echo '...' > .vscode/settings.json` | Crea la configuración del intérprete en una sola línea (`>` crea o reemplaza el archivo). |
-| `ipykernel install` | Registra el proyecto como kernel para notebooks. |
+| `registrar-kernel` | Registra el proyecto como kernel para notebooks (comando creado en la Parte 5). |
 
 Luego, en VS Code: *Menú ☰ → File → Open Folder* → `/root/proyectos/mi-proyecto`.
 
@@ -594,7 +617,7 @@ uv sync
 - `gh repo clone`: descarga el repositorio. Para los tuyos basta el nombre: `gh repo clone nombre-del-repo`.
 - `uv sync`: crea el `.venv` e instala todo lo que el proyecto declara.
 
-Si el proyecto usa notebooks, registra el kernel con `uv run python -m ipykernel install --user --name nombre-del-repo`.
+Si el proyecto usa notebooks, registra el kernel con `registrar-kernel` (dentro de la carpeta del proyecto).
 
 ### Caso D · Convertir una carpeta existente en proyecto uv
 
@@ -665,6 +688,8 @@ Cortos y en presente: *"Agrega gráfica de importancia de variables"*. Un commit
 | Chrome no carga `localhost:8080` | Verificar que `vscode` esté corriendo en Termux. |
 | Termux se cierra solo | Activar el wakelock. En Android 14, también *Ajustes → Opciones de desarrollador → Desactivar restricciones de procesos secundarios*. |
 | VS Code no detecta el `.venv` | Revisar que se abrió la carpeta del proyecto y que existe `.vscode/settings.json`. |
-| El notebook no importa las librerías | Registrar el kernel con `ipykernel install` y elegirlo en *Select Kernel → Jupyter Kernel*. |
+| El notebook no importa las librerías | Registrar el kernel con `registrar-kernel` y elegirlo en *Select Kernel → Jupyter Kernel*. |
+| `shutil.Error ... Invalid argument` al registrar un kernel | No usar `python -m ipykernel install` en Termux: usar `registrar-kernel` (Parte 5), o en VS Code *Select Kernel → Python Environments → .venv*. |
+| `registrar-kernel: command not found` | Crear el comando (Parte 5); si ya existe, verificar que se está dentro de Debian. |
 | `gh auth login` no abre el navegador | Entrar manualmente a github.com/login/device y escribir el código. |
 | `git push` pide usuario y contraseña | Ejecutar `gh auth setup-git`. |

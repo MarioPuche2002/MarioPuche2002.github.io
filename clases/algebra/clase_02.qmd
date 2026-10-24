@@ -228,6 +228,109 @@ $$
 
 Es la relación **particular + homogénea** de esta clase: dos entradas dan la misma salida si y solo si su diferencia es solución del sistema homogéneo. Con más características que salidas ($n>m$) siempre existen esas direcciones "invisibles".
 
+## Ejemplo 1 · Fácil: ¿solo la solución trivial? {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Resuelva el sistema homogéneo $\quad x-y=0,\qquad x+y=0.$
+:::
+
+. . .
+
+**Paso 1.** Todo sistema homogéneo tiene al menos la solución $x=y=0$. La pregunta es si hay **otras**.
+
+. . .
+
+**Paso 2.** Sumando: $2x=0\Rightarrow x=0$, y entonces $y=x=0$.
+
+. . .
+
+**Paso 3 · Interpretación.** Las rectas $y=x$ y $y=-x$ pasan por el origen con pendientes distintas: solo se cortan en $(0,0)$. El determinante $\begin{vmatrix}1&-1\\1&1\end{vmatrix}=2\neq0$ lo confirma.
+
+::: {.solucion}
+Solo la **solución trivial** $(0,0)$.
+:::
+
+## Ejemplo 2 · Fácil: infinitas soluciones {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Resuelva $\quad x+2y=0,\qquad 3x+6y=0.$
+:::
+
+. . .
+
+**Paso 1.** La segunda ecuación es $3$ veces la primera: $F_2-3F_1$ da la fila $(0\;\;0\mid0)$. Queda **una sola** ecuación con dos incógnitas.
+
+. . .
+
+**Paso 2 · Variable libre.** Se toma $y=t$ (libre) y se despeja $x=-2t$.
+
+. . .
+
+**Paso 3 · Escribir la solución como vector:**
+$$
+\begin{pmatrix}x\\y\end{pmatrix}=t\begin{pmatrix}-2\\1\end{pmatrix},\qquad t\in\mathbb R .
+$$
+Por ejemplo, $t=1$ da $(-2,1)$: $\;-2+2=0$ ✓ y $-6+6=0$ ✓.
+
+::: {.solucion}
+Infinitas soluciones: todos los múltiplos de $(-2,1)$, es decir, la recta $x+2y=0$.
+:::
+
+## Ejemplo 3 · Medio: más incógnitas que ecuaciones {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Resuelva $\quad x_1+x_2-x_3+2x_4=0,\qquad 2x_1+3x_2+x_3+x_4=0.$
+:::
+
+. . .
+
+**Paso 1 · Saber qué esperar.** Hay $2$ ecuaciones y $4$ incógnitas: como máximo hay $2$ pivotes, así que quedan **al menos $2$ variables libres**. Habrá infinitas soluciones.
+
+. . .
+
+**Paso 2 · Gauss-Jordan** ($F_2-2F_1$, luego $F_1-F_2$):
+$$
+\begin{pmatrix}1&1&-1&2\\2&3&1&1\end{pmatrix}\sim
+\begin{pmatrix}1&1&-1&2\\0&1&3&-3\end{pmatrix}\sim
+\begin{pmatrix}1&0&-4&5\\0&1&3&-3\end{pmatrix}.
+$$
+
+. . .
+
+**Paso 3 · Despejar los pivotes** con $x_3=s$, $x_4=t$ libres: $\;x_1=4s-5t$, $\;x_2=-3s+3t$.
+
+::: {.solucion}
+$$
+\mathbf x=s\begin{pmatrix}4\\-3\\1\\0\end{pmatrix}+t\begin{pmatrix}-5\\3\\0\\1\end{pmatrix}.
+$$
+Comprobación de $(4,-3,1,0)$: $4-3-1+0=0$ ✓ y $8-9+1+0=0$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: ¿para qué $k$ hay soluciones no triviales? {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Halle los valores de $k$ para los que $\;x+ky+z=0,\;\;kx+y+z=0,\;\;x+y+kz=0\;$ tiene soluciones no triviales, y descríbalas.
+:::
+
+. . .
+
+**Paso 1 · Criterio.** Un sistema homogéneo cuadrado tiene soluciones no triviales **si y solo si** $\det A=0$.
+$$
+\det\begin{pmatrix}1&k&1\\k&1&1\\1&1&k\end{pmatrix}=-(k-1)^2(k+2).
+$$
+
+. . .
+
+**Paso 2 · Caso $k=1$.** Las tres ecuaciones son $x+y+z=0$: dos variables libres, $\;\mathbf x=s(-1,1,0)+t(-1,0,1)$ (un **plano**).
+
+. . .
+
+**Paso 3 · Caso $k=-2$.** Reduciendo $\begin{pmatrix}1&-2&1\\-2&1&1\\1&1&-2\end{pmatrix}\sim\begin{pmatrix}1&0&-1\\0&1&-1\\0&0&0\end{pmatrix}$: $\;x=z$, $y=z$, es decir $\mathbf x=t(1,1,1)$ (una **recta**). Comprobación: $1-2+1=0$ ✓.
+
+::: {.solucion}
+Hay soluciones no triviales solo si $k=1$ (un plano de soluciones) o $k=-2$ (una recta). Para cualquier otro $k$, solo la trivial.
+:::
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}

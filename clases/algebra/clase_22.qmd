@@ -305,6 +305,91 @@ $$
 
 $T(3,1)=(7,7)$. Comprobación: $T(1,1)=(3,1)$ ✓, $T(1,-1)=(1,5)$ ✓.
 
+## Ejemplo 1 · Fácil: probar que una transformación es lineal {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Demuestre que $T(x,y)=(2x,\;x+y)$ es lineal.
+:::
+
+. . .
+
+**Paso 1 · Suma.** Con $\mathbf u=(x_1,y_1)$, $\mathbf v=(x_2,y_2)$:
+$$
+T(\mathbf u+\mathbf v)=(2(x_1+x_2),\;x_1+x_2+y_1+y_2)=(2x_1,x_1+y_1)+(2x_2,x_2+y_2)=T(\mathbf u)+T(\mathbf v)\;✓
+$$
+
+. . .
+
+**Paso 2 · Escalar.** $T(c\mathbf u)=(2cx_1,\;cx_1+cy_1)=c\,(2x_1,x_1+y_1)=c\,T(\mathbf u)$ ✓.
+
+::: {.solucion}
+Es lineal. De hecho $T(\mathbf x)=\begin{pmatrix}2&0\\1&1\end{pmatrix}\mathbf x$: toda transformación de la forma $A\mathbf x$ es lineal.
+:::
+
+## Ejemplo 2 · Fácil: una traslación no es lineal {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Es lineal $T(x,y)=(x+1,\;y)$?
+:::
+
+. . .
+
+**Paso 1 · Prueba rápida:** toda transformación lineal cumple $T(\mathbf 0)=\mathbf 0$. Aquí $T(0,0)=(1,0)\neq(0,0)$.
+
+. . .
+
+**Paso 2 · Confirmar con la suma:** $T(1,0)+T(0,1)=(2,0)+(1,1)=(3,1)$, pero $T(1,1)=(2,1)$.
+
+::: {.solucion}
+No es lineal: es una **traslación**, que mueve el origen.
+:::
+
+## Ejemplo 3 · Medio: un producto de variables {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+¿Es lineal $T:\mathbb R^3\to\mathbb R^2$, $\;T(x,y,z)=(x-y,\;yz)$?
+:::
+
+. . .
+
+**Paso 1 · El cero no basta.** $T(0,0,0)=(0,0)$: la prueba rápida no la descarta. Hay que mirar las propiedades.
+
+. . .
+
+**Paso 2 · Sospechar del término $yz$** (un producto de variables) y probar con escalares. Con $\mathbf u=(0,1,1)$ y $c=2$:
+$$
+T(2\mathbf u)=T(0,2,2)=(-2,\;4),\qquad 2\,T(\mathbf u)=2(-1,\;1)=(-2,\;2).
+$$
+
+::: {.solucion}
+$T(2\mathbf u)\neq2T(\mathbf u)$: **no** es lineal. Productos, potencias o constantes sumadas suelen romper la linealidad; un **contraejemplo concreto** basta para demostrarlo.
+:::
+
+## Ejemplo 4 · Difícil: la transformación a partir de una base {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+$T:\mathbb R^2\to\mathbb R^2$ es lineal, con $T(1,1)=(3,1)$ y $T(1,-1)=(1,-1)$. Halle $T(4,2)$ y la fórmula general $T(x,y)$.
+:::
+
+. . .
+
+**Paso 1 · Escribir el vector en la base** $\{(1,1),(1,-1)\}$: $\;(4,2)=3(1,1)+1(1,-1)$.
+
+. . .
+
+**Paso 2 · Usar la linealidad:** $\;T(4,2)=3T(1,1)+T(1,-1)=3(3,1)+(1,-1)=(10,2)$.
+
+. . .
+
+**Paso 3 · En general:** $(x,y)=\tfrac{x+y}{2}(1,1)+\tfrac{x-y}{2}(1,-1)$, así que
+$$
+T(x,y)=\tfrac{x+y}{2}(3,1)+\tfrac{x-y}{2}(1,-1)=(2x+y,\;y).
+$$
+
+::: {.solucion}
+$T(4,2)=(10,2)$ y $T(x,y)=(2x+y,\;y)$. Comprobación: $T(1,1)=(3,1)$ ✓ y $T(1,-1)=(1,-1)$ ✓. Basta conocer $T$ en una base para conocerla en todas partes.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}
@@ -312,7 +397,7 @@ Decida si son lineales: (a) $T(x,y,z)=(x-2y,\;3z)$; (b) $T(x,y)=(xy,\;x)$; (c) $
 :::
 
 ::: {.solucion .fragment}
-(a) **Sí** (es $A\mathbf x$ con $A=\begin{pmatrix}1&-2&0\\0&0&3\end{pmatrix}$). (b) **No**: $T(2(1,1))=(4,2)\neq2T(1,1)=(2,2)$. (c) **Sí**: $t(p+q)'=tp'+tq'$ y $t(\alpha p)'=\alpha\,tp'$ (y $tp'$ sigue en $P_2$).
+**(a)** **Sí** (es $A\mathbf x$ con $A=\begin{pmatrix}1&-2&0\\0&0&3\end{pmatrix}$). **(b)** **No**: $T(2(1,1))=(4,2)\neq2T(1,1)=(2,2)$. **(c)** **Sí**: $t(p+q)'=tp'+tq'$ y $t(\alpha p)'=\alpha\,tp'$ (y $tp'$ sigue en $P_2$).
 :::
 
 ## Ejercicios propuestos

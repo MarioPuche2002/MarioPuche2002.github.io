@@ -210,6 +210,90 @@ $$
 $$
 **Son LD.**
 
+## Ejemplo 1 · Fácil: dos vectores paralelos {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Son linealmente independientes $\mathbf u=(1,2)$ y $\mathbf v=(2,4)$?
+:::
+
+. . .
+
+**Paso 1.** Con dos vectores basta mirar si uno es múltiplo del otro: $\mathbf v=2\mathbf u$.
+
+. . .
+
+**Paso 2 · Combinación no trivial que da cero:** $\;2\mathbf u-\mathbf v=\mathbf 0$.
+
+::: {.solucion}
+Son **dependientes**: están sobre la misma recta. También $\det\begin{pmatrix}1&2\\2&4\end{pmatrix}=0$.
+:::
+
+## Ejemplo 2 · Fácil: tres vectores "escalonados" {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Son independientes $(1,0,0)$, $(1,1,0)$ y $(1,1,1)$?
+:::
+
+. . .
+
+**Paso 1 · Plantear** $c_1(1,0,0)+c_2(1,1,0)+c_3(1,1,1)=\mathbf 0$:
+$\quad c_1+c_2+c_3=0,\quad c_2+c_3=0,\quad c_3=0.$
+
+. . .
+
+**Paso 2 · De abajo hacia arriba:** $c_3=0$, luego $c_2=0$, luego $c_1=0$.
+
+::: {.solucion}
+Solo la solución trivial: son **independientes**. La matriz con esos vectores como columnas es triangular con diagonal $1,1,1$ (determinante $1\neq0$).
+:::
+
+## Ejemplo 3 · Medio: independencia de polinomios {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+¿Son linealmente independientes $p_1=1+x$, $p_2=x+x^2$ y $p_3=1+x^2$ en $P_2$?
+:::
+
+. . .
+
+**Paso 1 · Pasar a coordenadas** en la base $\{1,x,x^2\}$: $\;p_1\to(1,1,0)$, $p_2\to(0,1,1)$, $p_3\to(1,0,1)$.
+
+. . .
+
+**Paso 2 · Determinante** de la matriz con esas columnas:
+$$
+\begin{vmatrix}1&0&1\\1&1&0\\0&1&1\end{vmatrix}=1(1-0)-0+1(1-0)=2\neq0 .
+$$
+
+::: {.solucion}
+Son **independientes**. Compare con la clase 17: $\{1+x,\;x+x^2,\;1-x^2\}$ es dependiente; un solo signo cambia la respuesta.
+:::
+
+## Ejemplo 4 · Difícil: ¿para qué $k$ son dependientes? {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Halle $k$ para que $\mathbf v_1=(1,0,k)$, $\mathbf v_2=(0,1,1)$, $\mathbf v_3=(k,1,2)$ sean dependientes, y escriba la relación entre ellos.
+:::
+
+. . .
+
+**Paso 1 · Determinante** (expansión por la primera fila de la matriz con los vectores como filas):
+$$
+\begin{vmatrix}1&0&k\\0&1&1\\k&1&2\end{vmatrix}=1(2-1)-0+k(0-k)=1-k^2 .
+$$
+Son dependientes si y solo si $1-k^2=0$, es decir, $k=\pm1$.
+
+. . .
+
+**Paso 2 · Caso $k=1$:** $\mathbf v_3=(1,1,2)=(1,0,1)+(0,1,1)=\mathbf v_1+\mathbf v_2$.
+
+. . .
+
+**Paso 3 · Caso $k=-1$:** $\mathbf v_3=(-1,1,2)$ y $-\mathbf v_1+\mathbf v_2=(-1,0,1)+(0,1,1)=(-1,1,2)$ ✓.
+
+::: {.solucion}
+Dependientes solo si $k=1$ ($\mathbf v_3=\mathbf v_1+\mathbf v_2$) o $k=-1$ ($\mathbf v_3=-\mathbf v_1+\mathbf v_2$). Para cualquier otro $k$ son independientes y forman una base de $\mathbb R^3$.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

@@ -326,6 +326,99 @@ Se "cifra" cada píxel con $\mathbf y=M\mathbf x$, donde $M=\begin{pmatrix}0.2&0
 Si $M$ no fuera invertible, dos colores distintos darían el mismo resultado y la foto original **no** se podría recuperar.
 :::
 
+## Ejemplo 1 · Fácil: inversa de una matriz $2\times2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle la inversa de $A=\begin{pmatrix}2&1\\5&3\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · ¿Existe?** $\det A=2\cdot3-1\cdot5=1\neq0$: sí es invertible.
+
+. . .
+
+**Paso 2 · Fórmula:** intercambiar la diagonal, cambiar el signo de la otra diagonal y dividir entre el determinante:
+$$
+A^{-1}=\frac{1}{1}\begin{pmatrix}3&-1\\-5&2\end{pmatrix}.
+$$
+
+. . .
+
+**Paso 3 · Comprobar siempre:** $\;AA^{-1}=\begin{pmatrix}6-5&-2+2\\15-15&-5+6\end{pmatrix}=I$ ✓.
+
+::: {.solucion}
+$A^{-1}=\begin{pmatrix}3&-1\\-5&2\end{pmatrix}$.
+:::
+
+## Ejemplo 2 · Fácil: comprobar una inversa y detectar una singular {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+**(a)** ¿Es $B=\begin{pmatrix}1&-2\\0&1\end{pmatrix}$ la inversa de $A=\begin{pmatrix}1&2\\0&1\end{pmatrix}$? **(b)** ¿Tiene inversa $C=\begin{pmatrix}2&4\\1&2\end{pmatrix}$?
+:::
+
+. . .
+
+**(a)** Basta multiplicar: $\;AB=\begin{pmatrix}1&-2+2\\0&1\end{pmatrix}=I$. Para matrices cuadradas, $AB=I$ ya garantiza $BA=I$. **Sí.**
+
+. . .
+
+**(b)** $\det C=4-4=0$. Además, la fila 1 es el doble de la fila 2: al reducir $(C\mid I)$ aparece una fila de ceros a la izquierda y nunca se llega a $I$.
+
+::: {.solucion}
+**(a)** Sí, $B=A^{-1}$. **(b)** $C$ es **singular**: no tiene inversa.
+:::
+
+## Ejemplo 3 · Medio: inversa $3\times3$ por Gauss-Jordan {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Halle $A^{-1}$ para $A=\begin{pmatrix}1&0&2\\2&1&0\\0&1&1\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · Escribir $(A\mid I)$ y hacer ceros en la columna 1** ($F_2-2F_1$), luego en la columna 2 ($F_3-F_2$):
+$$
+\left(\begin{array}{ccc|ccc}1&0&2&1&0&0\\0&1&-4&-2&1&0\\0&0&5&2&-1&1\end{array}\right).
+$$
+
+. . .
+
+**Paso 2 · Pivote 1 en la fila 3** ($\tfrac15F_3$) y ceros arriba ($F_2+4F_3$, $\;F_1-2F_3$):
+$$
+\left(\begin{array}{ccc|ccc}1&0&0&\tfrac15&\tfrac25&-\tfrac25\\0&1&0&-\tfrac25&\tfrac15&\tfrac45\\0&0&1&\tfrac25&-\tfrac15&\tfrac15\end{array}\right).
+$$
+
+::: {.solucion}
+$A^{-1}=\dfrac15\begin{pmatrix}1&2&-2\\-2&1&4\\2&-1&1\end{pmatrix}$. Comprobación de la entrada $(1,1)$ de $AA^{-1}$: $\tfrac15(1\cdot1+0+2\cdot2)=1$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: despejar una matriz {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Halle $X$ tal que $\;AX+B=2X$, con $A=\begin{pmatrix}3&1\\1&4\end{pmatrix}$ y $B=\begin{pmatrix}1&0\\2&2\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · Agrupar $X$ a un lado.** $AX-2X=-B$. Para sacar $X$ como factor hay que escribir $2X=2IX$:
+$$
+(A-2I)X=-B .
+$$
+Error típico: escribir $(A-2)X$; restar un número a una matriz no tiene sentido.
+
+. . .
+
+**Paso 2 · Invertir por la izquierda** (el orden importa): $\;A-2I=\begin{pmatrix}1&1\\1&2\end{pmatrix}$, $\det=1$, $\;(A-2I)^{-1}=\begin{pmatrix}2&-1\\-1&1\end{pmatrix}$.
+
+. . .
+
+**Paso 3 · Calcular** $\;X=(A-2I)^{-1}(-B)=\begin{pmatrix}2&-1\\-1&1\end{pmatrix}\begin{pmatrix}-1&0\\-2&-2\end{pmatrix}=\begin{pmatrix}0&2\\-1&-2\end{pmatrix}.$
+
+::: {.solucion}
+$X=\begin{pmatrix}0&2\\-1&-2\end{pmatrix}$. Comprobación: $AX+B=\begin{pmatrix}-1&4\\-4&-6\end{pmatrix}+\begin{pmatrix}1&0\\2&2\end{pmatrix}=\begin{pmatrix}0&4\\-2&-4\end{pmatrix}=2X$ ✓.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

@@ -293,6 +293,98 @@ $$
 
 Una imagen de $28\times28$ píxeles (como los dígitos escritos a mano del conjunto MNIST) se "aplana" en un vector de $784$ entradas, y $60\,000$ imágenes forman una matriz de $60\,000\times784$.
 
+## Ejemplo 1 · Fácil: suma y producto por escalar {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Con $A=\begin{pmatrix}2&-1\\0&3\end{pmatrix}$ y $B=\begin{pmatrix}1&4\\-2&5\end{pmatrix}$, calcule $A+B$ y $3A-2B$.
+:::
+
+. . .
+
+**Paso 1 · Revisar tamaños.** Ambas son $2\times2$: se pueden sumar. Las operaciones se hacen **entrada por entrada**.
+
+. . .
+
+**Paso 2.** $\;A+B=\begin{pmatrix}2+1&-1+4\\0-2&3+5\end{pmatrix}=\begin{pmatrix}3&3\\-2&8\end{pmatrix}.$
+
+. . .
+
+**Paso 3.** Primero los escalares, luego la resta:
+$$
+3A=\begin{pmatrix}6&-3\\0&9\end{pmatrix},\quad 2B=\begin{pmatrix}2&8\\-4&10\end{pmatrix}\;\Rightarrow\;3A-2B=\begin{pmatrix}4&-11\\4&-1\end{pmatrix}.
+$$
+
+::: {.solucion}
+$A+B=\begin{pmatrix}3&3\\-2&8\end{pmatrix}$, $\;3A-2B=\begin{pmatrix}4&-11\\4&-1\end{pmatrix}$. Error típico: olvidar que $-2B$ cambia el signo de **todas** las entradas de $B$.
+:::
+
+## Ejemplo 2 · Fácil: igualdad de matrices {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle $x$ e $y$ tales que $\begin{pmatrix}x+y&2\\3&x-y\end{pmatrix}=\begin{pmatrix}5&2\\3&1\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · Qué significa "iguales".** Dos matrices son iguales si tienen el mismo tamaño y **cada entrada coincide**. Las entradas $(1,2)$ y $(2,1)$ ya coinciden; las otras dan ecuaciones:
+$$
+x+y=5,\qquad x-y=1 .
+$$
+
+. . .
+
+**Paso 2.** Sumando: $2x=6\Rightarrow x=3$; luego $y=2$.
+
+::: {.solucion}
+$x=3,\;y=2$. Comprobación: $x+y=5$ ✓, $x-y=1$ ✓.
+:::
+
+## Ejemplo 3 · Medio: una ecuación matricial {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Halle la matriz $X$ que cumple $\;2X+A=3B$, con $A=\begin{pmatrix}1&-2&0\\3&1&4\end{pmatrix}$, $\;B=\begin{pmatrix}2&0&-1\\1&1&2\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · Despejar como en los números**, usando las propiedades de la suma y del producto por escalar:
+$$
+2X=3B-A\quad\Rightarrow\quad X=\tfrac12\,(3B-A).
+$$
+
+. . .
+
+**Paso 2 · Calcular.**
+$$
+3B-A=\begin{pmatrix}6&0&-3\\3&3&6\end{pmatrix}-\begin{pmatrix}1&-2&0\\3&1&4\end{pmatrix}=\begin{pmatrix}5&2&-3\\0&2&2\end{pmatrix}.
+$$
+
+::: {.solucion}
+$X=\begin{pmatrix}5/2&1&-3/2\\0&1&1\end{pmatrix}$. Comprobación de la entrada $(1,1)$: $2\cdot\tfrac52+1=6=3\cdot2$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: ¿es combinación lineal de dos matrices? {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Sean $M_1=\begin{pmatrix}1&0\\1&1\end{pmatrix}$, $M_2=\begin{pmatrix}0&1\\-1&2\end{pmatrix}$. (a) Escriba $C=\begin{pmatrix}3&2\\1&7\end{pmatrix}$ como $aM_1+bM_2$. (b) ¿Se puede con $D=\begin{pmatrix}3&2\\1&6\end{pmatrix}$?
+:::
+
+. . .
+
+**Paso 1 · Plantear.** $\;aM_1+bM_2=\begin{pmatrix}a&b\\a-b&a+2b\end{pmatrix}$. Igualar entrada por entrada da **4 ecuaciones con 2 incógnitas**.
+
+. . .
+
+**Paso 2 · Parte (a).** Las entradas $(1,1)$ y $(1,2)$ fijan $a=3$, $b=2$. Hay que **verificar las otras dos**: $a-b=1$ ✓ y $a+2b=7$ ✓. Entonces $C=3M_1+2M_2$.
+
+. . .
+
+**Paso 3 · Parte (b).** Otra vez $a=3$, $b=2$ son obligatorios, pero la entrada $(2,2)$ exigiría $a+2b=6$, y da $7$. **Contradicción.**
+
+::: {.solucion}
+**(a)** $C=3M_1+2M_2$. **(b)** $D$ **no** es combinación lineal de $M_1$ y $M_2$. Lección: con más ecuaciones que incógnitas, encontrar valores no basta; hay que comprobar **todas** las ecuaciones.
+:::
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}

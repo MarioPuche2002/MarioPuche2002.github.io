@@ -176,6 +176,85 @@ $T(a+bt+ct^2)=a+b+c$. Es lineal: $(p+q)(1)=p(1)+q(1)$ y $(\alpha p)(1)=\alpha p(
 
 $\nu+\rho=2+1=3=\dim P_2$ ✓. El núcleo son los polinomios con raíz en $t=1$ (taller 3.1, $W_3$).
 
+## Ejemplo 1 · Fácil: núcleo e imagen de una proyección {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle el núcleo y la imagen de $T(x,y)=(x-y,\;2x-2y)$.
+:::
+
+. . .
+
+**Paso 1 · Núcleo:** $T(x,y)=(0,0)\iff x-y=0$. Son los vectores $(t,t)$: la recta $y=x$.
+
+. . .
+
+**Paso 2 · Imagen:** $T(x,y)=(x-y)(1,2)$. Todo lo que sale es múltiplo de $(1,2)$: la recta $y=2x$.
+
+::: {.solucion}
+$\operatorname{nu}T=\operatorname{gen}\{(1,1)\}$, $\;\operatorname{im}T=\operatorname{gen}\{(1,2)\}$. Dimensiones $1+1=2=\dim\mathbb R^2$ ✓.
+:::
+
+## Ejemplo 2 · Fácil: núcleo trivial {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle el núcleo y la imagen de $T(x,y)=(x+y,\;x-y)$. ¿Es inyectiva?
+:::
+
+. . .
+
+**Paso 1 · Núcleo:** $x+y=0$ y $x-y=0$ dan $x=y=0$. $\;\operatorname{nu}T=\{\mathbf 0\}$.
+
+. . .
+
+**Paso 2 · Imagen:** por el teorema de la dimensión, $\dim\operatorname{im}T=2-0=2$, así que $\operatorname{im}T=\mathbb R^2$.
+
+::: {.solucion}
+$T$ es inyectiva (núcleo trivial) y sobreyectiva: es invertible.
+:::
+
+## Ejemplo 3 · Medio: de $\mathbb R^3$ a $\mathbb R^2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Para $T(x,y,z)=(x+y,\;y+z)$, halle una base del núcleo y la imagen, y verifique el teorema de la dimensión.
+:::
+
+. . .
+
+**Paso 1 · Núcleo:** $x+y=0$, $y+z=0$. Con $y=t$: $x=-t$, $z=-t$. $\;\operatorname{nu}T=\operatorname{gen}\{(-1,1,-1)\}$, dimensión $1$.
+
+. . .
+
+**Paso 2 · Imagen:** generada por las imágenes de la base canónica: $T(\mathbf e_1)=(1,0)$, $T(\mathbf e_2)=(1,1)$, $T(\mathbf e_3)=(0,1)$. Ya $(1,0)$ y $(0,1)$ generan $\mathbb R^2$.
+
+::: {.solucion}
+$\dim\operatorname{nu}T+\dim\operatorname{im}T=1+2=3=\dim\mathbb R^3$ ✓. $T$ es sobreyectiva pero no inyectiva.
+:::
+
+## Ejemplo 4 · Difícil: $T(A)=A-A^T$ {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Sea $T:M_{2\times2}\to M_{2\times2}$, $\;T(A)=A-A^T$. Halle su núcleo y su imagen con sus dimensiones.
+:::
+
+. . .
+
+**Paso 1 · Calcular $T$ en general:**
+$$
+T\begin{pmatrix}a&b\\c&d\end{pmatrix}=\begin{pmatrix}a&b\\c&d\end{pmatrix}-\begin{pmatrix}a&c\\b&d\end{pmatrix}=\begin{pmatrix}0&b-c\\c-b&0\end{pmatrix}=(b-c)\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+$$
+
+. . .
+
+**Paso 2 · Núcleo:** $T(A)=0\iff b=c\iff A$ es **simétrica**. Las simétricas $\begin{pmatrix}a&b\\b&d\end{pmatrix}$ tienen 3 parámetros: dimensión $3$.
+
+. . .
+
+**Paso 3 · Imagen:** todos los múltiplos de $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$, es decir, las **antisimétricas**: dimensión $1$.
+
+::: {.solucion}
+$\operatorname{nu}T=$ simétricas ($\dim 3$), $\operatorname{im}T=$ antisimétricas ($\dim1$), y $3+1=4=\dim M_{2\times2}$ ✓.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

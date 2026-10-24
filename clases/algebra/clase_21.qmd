@@ -171,6 +171,93 @@ $\mathbf v_3=(0,1,2,1)-\tfrac22(1,0,1,0)-\tfrac22(0,1,0,1)=(-1,0,1,0)$.
 
 Base ortonormal: $\left\{\tfrac1{\sqrt2}(1,0,1,0),\;\tfrac1{\sqrt2}(0,1,0,1),\;\tfrac1{\sqrt2}(-1,0,1,0)\right\}$, y $\dim W=3$.
 
+## Ejemplo 1 · Fácil: ¿ortogonal? ¿ortonormal? {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+¿Es $\{(1,1),(1,-1)\}$ un conjunto ortogonal? Conviértalo en ortonormal.
+:::
+
+. . .
+
+**Paso 1 · Ortogonal:** $(1,1)\cdot(1,-1)=1-1=0$ ✓.
+
+. . .
+
+**Paso 2 · Ortonormal:** además cada vector debe tener norma $1$. Ambos tienen norma $\sqrt2$, así que se divide cada uno entre $\sqrt2$.
+
+::: {.solucion}
+$\left\{\tfrac{1}{\sqrt2}(1,1),\;\tfrac{1}{\sqrt2}(1,-1)\right\}$ es una base ortonormal de $\mathbb R^2$: los ejes usuales girados $45^\circ$.
+:::
+
+## Ejemplo 2 · Fácil: coordenadas con producto punto {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Con la base ortonormal $\mathbf u_1=(\tfrac35,\tfrac45)$, $\mathbf u_2=(-\tfrac45,\tfrac35)$, halle las coordenadas de $\mathbf v=(2,1)$.
+:::
+
+. . .
+
+**Paso 1 · Ventaja de una base ortonormal:** cada coordenada es un producto punto, $c_i=\mathbf v\cdot\mathbf u_i$; no hay que resolver un sistema.
+
+. . .
+
+**Paso 2.** $\;c_1=\tfrac{6+4}{5}=2,\qquad c_2=\tfrac{-8+3}{5}=-1.$
+
+::: {.solucion}
+$[\mathbf v]=(2,-1)$. Comprobación: $2(\tfrac35,\tfrac45)-(-\tfrac45,\tfrac35)=(\tfrac{10}{5},\tfrac55)=(2,1)$ ✓.
+:::
+
+## Ejemplo 3 · Medio: Gram-Schmidt en $\mathbb R^2$ {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Aplique Gram-Schmidt a $\mathbf v_1=(3,4)$, $\mathbf v_2=(1,0)$.
+:::
+
+. . .
+
+**Paso 1 · Normalizar el primero:** $\|\mathbf v_1\|=5$, $\;\mathbf u_1=(\tfrac35,\tfrac45)$.
+
+. . .
+
+**Paso 2 · Quitarle a $\mathbf v_2$ su parte en la dirección de $\mathbf u_1$:**
+$$
+\mathbf w_2=\mathbf v_2-(\mathbf v_2\cdot\mathbf u_1)\mathbf u_1=(1,0)-\tfrac35\left(\tfrac35,\tfrac45\right)=\left(\tfrac{16}{25},-\tfrac{12}{25}\right).
+$$
+
+. . .
+
+**Paso 3 · Normalizar:** $\|\mathbf w_2\|=\tfrac{20}{25}=\tfrac45$, $\;\mathbf u_2=\tfrac54\mathbf w_2=(\tfrac45,-\tfrac35)$.
+
+::: {.solucion}
+$\{\mathbf u_1,\mathbf u_2\}=\{(\tfrac35,\tfrac45),(\tfrac45,-\tfrac35)\}$. Comprobación: $\tfrac{12}{25}-\tfrac{12}{25}=0$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: Gram-Schmidt en $\mathbb R^3$ {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Ortonormalice $\mathbf v_1=(1,0,1)$, $\mathbf v_2=(1,1,0)$, $\mathbf v_3=(0,1,1)$.
+:::
+
+. . .
+
+**Paso 1.** $\mathbf w_1=\mathbf v_1=(1,0,1)$, $\;\mathbf w_1\cdot\mathbf w_1=2$.
+
+**Paso 2.** $\mathbf w_2=\mathbf v_2-\tfrac{\mathbf v_2\cdot\mathbf w_1}{2}\mathbf w_1=(1,1,0)-\tfrac12(1,0,1)=(\tfrac12,1,-\tfrac12)$. Para evitar fracciones se usa el múltiplo $(1,2,-1)$, con $\|\cdot\|^2=6$.
+
+. . .
+
+**Paso 3.** Se restan las proyecciones sobre **los dos** anteriores:
+$$
+\mathbf w_3=(0,1,1)-\tfrac{1}{2}(1,0,1)-\tfrac{1}{6}(1,2,-1)=\left(-\tfrac23,\tfrac23,\tfrac23\right)\;\parallel\;(-1,1,1).
+$$
+Aquí $\mathbf v_3\cdot\mathbf w_1=1$ y $\mathbf v_3\cdot(1,2,-1)=1$.
+
+. . .
+
+::: {.solucion}
+Base ortonormal: $\;\tfrac{1}{\sqrt2}(1,0,1),\;\;\tfrac{1}{\sqrt6}(1,2,-1),\;\;\tfrac{1}{\sqrt3}(-1,1,1)$. Comprobación: $(1,0,1)\cdot(-1,1,1)=0$ y $(1,2,-1)\cdot(-1,1,1)=0$ ✓.
+:::
+
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

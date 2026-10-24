@@ -247,12 +247,100 @@ $$
 Su entrada $(i,j)$ es el producto punto de las columnas $i$ y $j$: mide cómo se relacionan dos características.
 :::
 
+## Ejemplo 1 · Fácil: calcular una transpuesta {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle $A^T$ y $(A^T)^T$ para $A=\begin{pmatrix}1&4&-2\\0&3&5\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · Regla.** La **fila $i$** de $A$ se escribe como **columna $i$** de $A^T$. Como $A$ es $2\times3$, $A^T$ será $3\times2$.
+$$
+A^T=\begin{pmatrix}1&0\\4&3\\-2&5\end{pmatrix}.
+$$
+
+. . .
+
+**Paso 2.** Transponer otra vez devuelve las filas a su lugar: $(A^T)^T=A$.
+
+::: {.solucion}
+$A^T=\begin{pmatrix}1&0\\4&3\\-2&5\end{pmatrix}$ y $(A^T)^T=A$. Comprobación rápida: la entrada $(1,2)$ de $A$ (que es $4$) aparece en la posición $(2,1)$ de $A^T$ ✓.
+:::
+
+## Ejemplo 2 · Fácil: ¿simétrica o antisimétrica? {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Clasifique $\;S=\begin{pmatrix}2&-1&4\\-1&0&3\\4&3&5\end{pmatrix}\;$ y $\;K=\begin{pmatrix}0&2&-1\\-2&0&6\\1&-6&0\end{pmatrix}$.
+:::
+
+. . .
+
+**Paso 1 · Simétrica** ($S^T=S$): cada entrada es igual a su "espejo" respecto a la diagonal. En $S$: $s_{12}=s_{21}=-1$, $s_{13}=s_{31}=4$, $s_{23}=s_{32}=3$ ✓.
+
+. . .
+
+**Paso 2 · Antisimétrica** ($K^T=-K$): cada entrada es el **opuesto** de su espejo, y por eso la diagonal debe ser $0$. En $K$: $k_{12}=2=-k_{21}$, $k_{13}=-1=-k_{31}$, $k_{23}=6=-k_{32}$, diagonal nula ✓.
+
+::: {.solucion}
+$S$ es simétrica y $K$ es antisimétrica.
+:::
+
+## Ejemplo 3 · Medio: comprobar $(AB)^T=B^TA^T$ {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Con $A=\begin{pmatrix}1&2&0\\-1&1&3\end{pmatrix}$ y $B=\begin{pmatrix}2&1\\0&-1\\1&4\end{pmatrix}$, verifique que $(AB)^T=B^TA^T$ y que $A^TB^T$ no sirve.
+:::
+
+. . .
+
+**Paso 1.** $\;AB=\begin{pmatrix}2+0+0&1-2+0\\-2+0+3&-1-1+12\end{pmatrix}=\begin{pmatrix}2&-1\\1&10\end{pmatrix}\;\Rightarrow\;(AB)^T=\begin{pmatrix}2&1\\-1&10\end{pmatrix}.$
+
+. . .
+
+**Paso 2.** $\;B^TA^T=\begin{pmatrix}2&0&1\\1&-1&4\end{pmatrix}\begin{pmatrix}1&-1\\2&1\\0&3\end{pmatrix}=\begin{pmatrix}2&1\\-1&10\end{pmatrix}$ ✓.
+
+. . .
+
+**Paso 3 · ¿Y $A^TB^T$?** $A^T$ es $3\times2$ y $B^T$ es $2\times3$: el producto es $3\times3$, ni siquiera del tamaño correcto.
+
+::: {.solucion}
+$(AB)^T=B^TA^T$: al transponer un producto, **se invierte el orden**, como al quitarse los zapatos y luego las medias.
+:::
+
+## Ejemplo 4 · Difícil: antisimétricas con $A^2=-I$ {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Halle todas las matrices $2\times2$ antisimétricas que cumplen $A^2=-I$. ¿Qué hacen geométricamente?
+:::
+
+. . .
+
+**Paso 1 · Forma general.** $A^T=-A$ obliga a que la diagonal sea $0$ y $a_{21}=-a_{12}$:
+$\;A=\begin{pmatrix}0&b\\-b&0\end{pmatrix}.$
+
+. . .
+
+**Paso 2 · Imponer la condición.**
+$$
+A^2=\begin{pmatrix}0&b\\-b&0\end{pmatrix}\begin{pmatrix}0&b\\-b&0\end{pmatrix}=\begin{pmatrix}-b^2&0\\0&-b^2\end{pmatrix}=-b^2I .
+$$
+Entonces $A^2=-I\iff b^2=1\iff b=\pm1$.
+
+. . .
+
+**Paso 3 · Interpretar.** $\begin{pmatrix}0&-1\\1&0\end{pmatrix}$ gira cada vector $90^\circ$; aplicarla dos veces gira $180^\circ$, que es multiplicar por $-1$.
+
+::: {.solucion}
+$A=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$ o $A=\begin{pmatrix}0&-1\\1&0\end{pmatrix}$: las rotaciones de $\mp90^\circ$. Es la versión matricial de $i^2=-1$.
+:::
+
 ## Repaso de la unidad: ¿verdadero o falso?
 
 Justifique: si es verdadero, demuéstrelo; si es falso, dé un contraejemplo.
 
 ::: {.ejercicio data-t="1"}
-(a) Si $AB = O$ entonces $A = O$ o $B = O$. $\quad$ (b) Si $AB = CB$ entonces $A = C$.
+**(a)** Si $AB = O$ entonces $A = O$ o $B = O$. $\quad$ **(b)** Si $AB = CB$ entonces $A = C$.
 :::
 
 ::: {.solucion .fragment}
@@ -262,11 +350,11 @@ Ambas **falsas**. (a) $\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\
 ## Repaso de la unidad: ¿verdadero o falso?
 
 ::: {.ejercicio data-t="2"}
-(a) Si $A$ es triangular superior, $A^T$ es triangular inferior. $\quad$ (b) Si $A^2 = I$ entonces $A = \pm I$.
+**(a)** Si $A$ es triangular superior, $A^T$ es triangular inferior. $\quad$ **(b)** Si $A^2 = I$ entonces $A = \pm I$.
 :::
 
 ::: {.solucion .fragment}
-(a) **Verdadera:** si $i<j$, $(A^T)_{ij} = a_{ji}$ con $j>i$, que es $0$ por ser $A$ triangular superior. (b) **Falsa:** $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ cumple $A^2=I$.
+**(a)** **Verdadera:** si $i<j$, $(A^T)_{ij} = a_{ji}$ con $j>i$, que es $0$ por ser $A$ triangular superior. **(b)** **Falsa:** $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ cumple $A^2=I$.
 :::
 
 ## Ejercicios propuestos

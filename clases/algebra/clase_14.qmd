@@ -437,6 +437,99 @@ $$
 
 $\cos\theta=\dfrac{|(1,1,0)\cdot(0,1,1)|}{\sqrt2\sqrt2}=\dfrac12$, de modo que $\theta=60^\circ$.
 
+## Ejemplo 1 · Fácil: plano con punto y normal {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Halle la ecuación del plano que pasa por $P(1,2,3)$ y tiene vector normal $\mathbf n=(2,-1,4)$.
+:::
+
+. . .
+
+**Paso 1 · Idea.** Un punto $X(x,y,z)$ está en el plano si $\overrightarrow{PX}$ es perpendicular a $\mathbf n$: $\;\mathbf n\cdot\overrightarrow{PX}=0$.
+
+. . .
+
+**Paso 2.** $\;2(x-1)-1(y-2)+4(z-3)=0\;\Rightarrow\;2x-y+4z-12=0.$
+
+::: {.solucion}
+$2x-y+4z=12$. Comprobación con $P$: $2-2+12=12$ ✓. Los coeficientes de $x,y,z$ son siempre las componentes de la normal.
+:::
+
+## Ejemplo 2 · Fácil: leer un plano {.compacto}
+
+::: {.ejemplo data-t="Nivel fácil"}
+Para el plano $3x+2y-z=6$: halle un vector normal, sus cortes con los ejes y decida si $Q(1,1,-1)$ está en él.
+:::
+
+. . .
+
+**Paso 1 · Normal:** se lee de los coeficientes: $\mathbf n=(3,2,-1)$.
+
+. . .
+
+**Paso 2 · Cortes con los ejes:** se anulan las otras dos variables. Eje $x$: $3x=6\Rightarrow(2,0,0)$; eje $y$: $(0,3,0)$; eje $z$: $-z=6\Rightarrow(0,0,-6)$.
+
+. . .
+
+**Paso 3 · ¿$Q$ está?** $\;3(1)+2(1)-(-1)=6$ ✓.
+
+::: {.solucion}
+$\mathbf n=(3,2,-1)$; cortes $(2,0,0)$, $(0,3,0)$, $(0,0,-6)$; $Q$ sí pertenece al plano. Con los tres cortes se puede dibujar el plano a mano.
+:::
+
+## Ejemplo 3 · Medio: plano por tres puntos {.compacto}
+
+::: {.ejemplo data-t="Nivel medio"}
+Halle el plano que pasa por $A(1,0,0)$, $B(0,2,0)$ y $C(0,0,3)$.
+:::
+
+. . .
+
+**Paso 1 · Dos vectores dentro del plano:** $\;\overrightarrow{AB}=(-1,2,0)$, $\;\overrightarrow{AC}=(-1,0,3)$.
+
+. . .
+
+**Paso 2 · La normal es perpendicular a ambos:**
+$$
+\mathbf n=\overrightarrow{AB}\times\overrightarrow{AC}=(2\cdot3-0\cdot0,\;-((-1)\cdot3-0\cdot(-1)),\;(-1)\cdot0-2\cdot(-1))=(6,3,2).
+$$
+
+. . .
+
+**Paso 3 · Usar el punto $A$:** $\;6(x-1)+3y+2z=0\Rightarrow 6x+3y+2z=6$.
+
+::: {.solucion}
+$6x+3y+2z=6$, o $\;\dfrac x1+\dfrac y2+\dfrac z3=1$. Comprobación con $B$: $0+6+0=6$ ✓ y con $C$: $0+0+6=6$ ✓.
+:::
+
+## Ejemplo 4 · Difícil: dos planos, su recta y su ángulo {.compacto}
+
+::: {.ejemplo data-t="Nivel difícil"}
+Para $\Pi_1:\;x+y+z=6$ y $\Pi_2:\;2x-y+z=3$, halle la recta de intersección y el ángulo entre los planos.
+:::
+
+. . .
+
+**Paso 1 · Dirección de la recta:** está en ambos planos, así que es perpendicular a ambas normales:
+$$
+\mathbf d=\mathbf n_1\times\mathbf n_2=(1,1,1)\times(2,-1,1)=(1\cdot1-1\cdot(-1),\;-(1\cdot1-1\cdot2),\;1\cdot(-1)-1\cdot2)=(2,1,-3).
+$$
+
+. . .
+
+**Paso 2 · Un punto común:** con $z=0$: $x+y=6$, $2x-y=3\Rightarrow x=3$, $y=3$. Punto $(3,3,0)$.
+
+. . .
+
+**Paso 3 · Ángulo entre planos = ángulo entre normales:**
+$$
+\cos\theta=\frac{|\mathbf n_1\cdot\mathbf n_2|}{\|\mathbf n_1\|\|\mathbf n_2\|}=\frac{2}{\sqrt3\sqrt6}=\frac{\sqrt2}{3}\approx0.471\;\Rightarrow\;\theta\approx61.9^\circ .
+$$
+
+::: {.solucion}
+Recta: $(x,y,z)=(3,3,0)+t(2,1,-3)$; ángulo $\approx61.9^\circ$. Comprobación con $t=1$, punto $(5,4,-3)$: $5+4-3=6$ ✓ y $10-4-3=3$ ✓.
+:::
+
 ## Práctica en clase
 
 ::: {.ejercicio data-t="1"}
