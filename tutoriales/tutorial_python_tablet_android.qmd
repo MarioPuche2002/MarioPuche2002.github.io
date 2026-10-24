@@ -103,18 +103,28 @@ proot-distro install debian
 
 Instala la herramienta y luego descarga Debian. Tarda unos minutos.
 
-**Atajo para entrar a Debian con una palabra:**
+**Comando corto para entrar a Debian.** El comando completo para entrar es `proot-distro login debian`. Para no escribirlo cada vez, se crea un comando nuevo llamado `debian` (copia y pega las dos líneas tal cual, en Termux):
 
 ```bash
-echo "alias debian='proot-distro login debian'" >> $HOME/.bashrc
-source $HOME/.bashrc
+printf '#!/data/data/com.termux/files/usr/bin/sh\nexec proot-distro login debian "$@"\n' > $PREFIX/bin/debian
+chmod +x $PREFIX/bin/debian
 ```
 
-- `echo "..."`: imprime un texto.
-- `>>`: agrega ese texto al final de un archivo sin borrar su contenido.
-- `.bashrc`: archivo de configuración que se lee cada vez que abres la terminal.
-- `alias`: nombre corto para un comando largo.
-- `source`: recarga el archivo para que el cambio funcione de inmediato.
+- `printf '...' > $PREFIX/bin/debian`: crea un archivo llamado `debian` en la carpeta de programas de Termux (`$PREFIX/bin`), con una sola instrucción: entrar a Debian.
+- `chmod +x`: lo marca como ejecutable, es decir, como un comando.
+
+Pruébalo ya mismo:
+
+```bash
+debian
+```
+
+Si el prompt cambia a `root@localhost:~#`, funciona. Escribe `exit` para volver a Termux.
+
+::: {.callout-note}
+## Si `debian` dice *command not found*
+Revisa que copiaste las dos líneas completas y que estás en **Termux** (no dentro de Debian). Mientras tanto, siempre puedes entrar con el comando completo: `proot-distro login debian`. Si ese también falla, Debian no quedó instalado: ejecuta `proot-distro install debian`.
+:::
 
 **Opcional: agregar teclas útiles a la barra de Termux** (`~`, `|`):
 
@@ -224,11 +234,11 @@ Descarga y ejecuta el instalador oficial. Detecta Debian ARM64 e instala el paqu
 code-server --version
 ```
 
-**Atajo para arrancarlo:**
+**Comando corto para arrancarlo.** Igual que con `debian`, se crea un comando llamado `vscode`, esta vez **dentro de Debian**:
 
 ```bash
-echo "alias vscode='code-server --bind-addr 127.0.0.1:8080 --auth none'" >> $HOME/.bashrc
-source $HOME/.bashrc
+printf '#!/bin/sh\nexec code-server --bind-addr 127.0.0.1:8080 --auth none "$@"\n' > /usr/local/bin/vscode
+chmod +x /usr/local/bin/vscode
 ```
 
 - `--bind-addr 127.0.0.1:8080`: solo acepta conexiones desde la misma tablet, en el puerto 8080.
@@ -460,22 +470,66 @@ Si `git status` responde `not a git repository`, ejecuta antes `git init`. Con e
 
 ## Parte 9 · Rutina diaria
 
+Cada vez que vayas a programar haces lo mismo. Lo importante es saber **en qué terminal estás**, porque cada comando funciona solo en su lugar:
+
+| Dónde estás | Así se ve la línea | Qué comandos van ahí |
+|---|---|---|
+| **Termux** (Android) | `~ $` | `debian`, `pkg ...`, `termux-...` |
+| **Debian** (Linux) | `root@localhost:~#` | `vscode`, `apt ...`, `uv ...`, `git ...` |
+
 ### Iniciar una sesión de trabajo
 
-| Paso | Dónde | Qué hacer |
-|---|---|---|
-| 1 | Tablet | Abrir **Termux**. |
-| 2 | Termux | Escribir `debian`. |
-| 3 | Termux | Escribir `vscode` y esperar `HTTP server listening…`. |
-| 4 | Notificación | Tocar **Acquire wakelock**. |
-| 5 | Tablet | Abrir el ícono de **VS Code** de la pantalla principal (o Chrome en `localhost:8080`). |
-| 6 | VS Code | Abrir la terminal: *Menú ☰ → Terminal → New Terminal*. |
+**1. Abre la app Termux.** Verás la línea `~ $`.
+
+**2. Entra a Debian:**
+
+```bash
+debian
+```
+
+La línea cambia a `root@localhost:~#`. Si en cambio aparece `debian: command not found`, escribe el comando completo `proot-distro login debian` (y, para la próxima vez, crea el comando corto como en la [Parte 2](#parte-2-preparar-termux)).
+
+**3. Arranca VS Code** (ya dentro de Debian):
+
+```bash
+vscode
+```
+
+Empiezan a salir mensajes. Espera la línea:
+
+```text
+HTTP server listening on http://127.0.0.1:8080/
+```
+
+**No escribas nada más en esa pantalla ni presiones Ctrl + C**: mientras los mensajes estén ahí, VS Code está funcionando.
+
+**4. Evita que Android lo cierre.** Baja la barra de notificaciones y, en la notificación de Termux, toca **Acquire wakelock**.
+
+**5. Abre VS Code.** Sin cerrar Termux, toca el ícono de **VS Code** de la pantalla principal (o entra en Chrome a `http://localhost:8080`).
+
+**6. Abre tu proyecto y la terminal.** En VS Code: *Menú ☰ → File → Open Recent* (o *Open Folder* → `/root/proyectos/...`) y luego *Menú ☰ → Terminal → New Terminal*. Esa terminal ya está en Debian: ahí se escriben `uv`, `git`, `python`, etc.
+
+::: {.callout-tip}
+## Resumen en una línea
+Termux → `debian` → `vscode` → wakelock → ícono de VS Code.
+:::
 
 ### Terminar la sesión
 
 1. Guarda el trabajo en GitHub (ver [Parte 11](#parte-11-guardar-el-trabajo-en-github)).
-2. En Termux, presiona **Ctrl + C** para detener VS Code.
-3. Escribe `exit` para salir de Debian y libera el wakelock desde la notificación.
+2. Vuelve a **Termux** y presiona **Ctrl + C** para detener VS Code. La línea vuelve a `root@localhost:~#`.
+3. Escribe `exit` para salir de Debian (la línea vuelve a `~ $`).
+4. En la notificación de Termux, toca **Release wakelock** y luego **Exit**.
+
+### Si algo no responde
+
+| Lo que pasa | Qué hacer |
+|---|---|
+| `debian: command not found` | Estás en Termux sin el comando corto: usa `proot-distro login debian`. |
+| `vscode: command not found` | No estás dentro de Debian (la línea dice `~ $`): primero escribe `debian`. |
+| `debian` no hace nada útil dentro de Debian | Ya estás en Debian (la línea dice `root@localhost`): sigue con `vscode`. |
+| VS Code en Chrome dice que no se puede conectar | En Termux no está corriendo `vscode`, o se detuvo: vuelve al paso 3. |
+| `address already in use` al escribir `vscode` | Ya había un VS Code abierto en otra sesión de Termux: úsalo, o ciérralo con Ctrl + C en esa sesión. |
 
 ## Parte 10 · Crear o abrir proyectos con uv
 
@@ -605,6 +659,8 @@ Cortos y en presente: *"Agrega gráfica de importancia de variables"*. Un commit
 | Termux no se instala desde F-Droid en Android 14 | Instalar la versión de Google Play. |
 | `pkg update` falla al descargar | Ejecutar `termux-change-repo` y elegir otro grupo de servidores. |
 | No se puede escribir `~` | Usar `$HOME` o `/root`, o agregar la tecla a Termux (Parte 2). |
+| `debian: command not found` | Crear el comando corto (Parte 2) o entrar con `proot-distro login debian`. |
+| `vscode: command not found` | Entrar primero a Debian con `debian`; si persiste, crear el comando corto (Parte 5). |
 | `uv: command not found` | `source $HOME/.local/bin/env` |
 | Chrome no carga `localhost:8080` | Verificar que `vscode` esté corriendo en Termux. |
 | Termux se cierra solo | Activar el wakelock. En Android 14, también *Ajustes → Opciones de desarrollador → Desactivar restricciones de procesos secundarios*. |
