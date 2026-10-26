@@ -87,6 +87,7 @@ Códigos en **GNU Octave** (gratuito y de código abierto; el mismo código func
 - [**Corte 2 · Evaluación intermedia:** regla de Cramer, matriz adjunta, vectores y proyecciones](alli_evaluaciones/parciales/corte2_intermedio.pdf)
 - [**Corte 2 · Parcial final:** rectas y planos, regla de Cramer y matriz adjunta](alli_evaluaciones/parciales/corte2_final.pdf)
 - [**Corte 2 · Supletorio:** rectas y planos, sistemas con parámetro y demostración con la adjunta](alli_evaluaciones/parciales/corte2_supletorio.pdf)
+- [**Corte 3 · Parcial intermedio:** coordenadas en una base, subespacios, rango y nulidad](alli_evaluaciones/parciales/corte3_intermedio.pdf)
 
 **Talleres**
 

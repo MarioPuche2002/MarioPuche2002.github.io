@@ -23,6 +23,7 @@ Material de evaluación de **Álgebra Lineal (ALLI)** del periodo 2026-2, en la 
 | 2 | Evaluación intermedia | Regla de Cramer, matriz adjunta, vectores en el plano y proyecciones | [PDF](parciales/corte2_intermedio.pdf) |
 | 2 | Parcial final | Rectas y planos, regla de Cramer, matriz adjunta | [PDF](parciales/corte2_final.pdf) |
 | 2 | Supletorio del parcial final | Rectas y planos, sistemas con parámetro, demostración con la adjunta | [PDF](parciales/corte2_supletorio.pdf) |
+| 3 | Parcial intermedio | Coordenadas en una base, subespacios, rango y nulidad | [PDF](parciales/corte3_intermedio.pdf) |
 
 ## Talleres
 
