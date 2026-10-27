@@ -3,6 +3,18 @@ title: "Núcleo e imagen de una transformación lineal"
 subtitle: "Clase 23 · Sección 7.2 · Núcleo, imagen, nulidad, rango e inyectividad"
 ---
 
+## En la vida diaria: lo que la transformación no ve {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Al pasar una foto a blanco y negro, un naranja y un verde pueden verse exactamente del mismo gris. ¿Qué información se pierde?
+:::
+
+![](img/app_nucleo_gris.svg){fig-align="center" height="160px"}
+
+Lo que una transformación convierte en cero es su **núcleo**: los cambios que "no ve". Lo que puede producir es su **imagen**.
+
+**En esta clase:** aprenderá a calcular el núcleo y la imagen y qué dicen sobre la transformación.
+
 ## Objetivos de la clase
 
 - Definir el **núcleo** y la **imagen** de una transformación lineal y demostrar que son subespacios.

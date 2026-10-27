@@ -3,6 +3,18 @@ title: "Transpuesta de una matriz"
 subtitle: "Clase 7 · Sección 2.5 · Propiedades, matrices simétricas y antisimétricas"
 ---
 
+## En la vida diaria: girar una foto {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Cuando gira una foto en el celular, una foto horizontal queda vertical. ¿Qué le pasa a la tabla de números que la representa?
+:::
+
+![](img/app_transpuesta.png){fig-align="center" height="230px"}
+
+Las filas de la tabla se convierten en columnas: eso es la **transpuesta**. También aparece en tablas que son iguales leídas por filas o por columnas, como una tabla de distancias entre ciudades.
+
+**En esta clase:** aprenderá a transponer matrices, sus propiedades y qué son las matrices simétricas.
+
 ## Objetivos de la clase
 
 - Calcular la **transpuesta** de una matriz.

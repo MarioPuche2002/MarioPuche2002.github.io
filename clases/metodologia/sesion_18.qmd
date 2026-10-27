@@ -3,42 +3,56 @@ title: "Sesión 18 · Análisis de datos II: pruebas no paramétricas y selecci�
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Aplicar pruebas no paramétricas y seleccionar la prueba estadística adecuada según el objetivo, el tipo de variable y el tipo de muestra.
+::: {.analogia data-t="Una carrera"}
+Para saber quién ganó una carrera no hace falta el tiempo exacto de cada corredor: basta con saber **en qué puesto** llegó cada uno.
+:::
 
-## ¿Cuándo usar pruebas no paramétricas?
+. . .
 
-Las pruebas no paramétricas, o de distribución libre, **no requieren suponer** que los datos siguen una distribución normal y pueden analizar variables **ordinales o nominales**. La mayoría trabaja con los **rangos** (el orden) de los datos en lugar de sus valores.
+Las pruebas **no paramétricas** trabajan así: en lugar de los valores exactos, usan el **orden** (los puestos) de los datos. Por eso sirven cuando los datos no tienen forma de campana o son escalas como "poco, regular, mucho".
 
-| Pruebas paramétricas | Pruebas no paramétricas |
+## ¿Qué vamos a lograr hoy?
+
+- Saber cuándo usar pruebas **no paramétricas**.
+- Conocer la prueba equivalente a cada prueba paramétrica.
+- Escoger la prueba correcta para su proyecto.
+
+## Paramétricas frente a no paramétricas
+
+| Paramétricas | No paramétricas |
 |---|---|
-| Suponen normalidad y homogeneidad de varianzas. | Tienen supuestos menos exigentes. |
-| Requieren variables cuantitativas. | Admiten variables ordinales y nominales. |
-| Tienen mayor potencia estadística cuando se cumplen los supuestos. | Son útiles con muestras pequeñas o datos con valores extremos. |
-| Comparan medias. | Comparan medianas o distribuciones. |
+| Necesitan datos **normales** (en campana). | **No** necesitan que los datos sean normales. |
+| Solo variables **numéricas**. | También variables **ordinales** y **nominales**. |
+| Más "potentes" si se cumplen sus condiciones. | Útiles con **pocos datos** o con **valores extremos**. |
+| Comparan **promedios**. | Comparan **medianas** o **puestos**. |
 
-Como regla general, se prefieren las pruebas paramétricas cuando sus supuestos se cumplen razonablemente, y las no paramétricas cuando no se cumplen, cuando la muestra es pequeña o cuando los datos son ordinales.
+. . .
 
-## Equivalencias
+::: {.simple data-t="Regla práctica"}
+Si los datos son numéricos y normales, use la **paramétrica**. Si no son normales, la muestra es pequeña o la variable es una escala ordinal, use la **no paramétrica**.
+:::
 
-| Situación | Prueba paramétrica | Alternativa no paramétrica |
+## Cada prueba tiene su "pareja"
+
+| Situación | Paramétrica | No paramétrica |
 |---|---|---|
-| Dos grupos independientes | t para muestras independientes | U de Mann–Whitney |
-| Dos mediciones pareadas | t para muestras pareadas | Rangos con signo de Wilcoxon |
-| Tres o más grupos independientes | ANOVA de un factor | Kruskal–Wallis |
-| Tres o más mediciones pareadas | ANOVA de medidas repetidas | Friedman |
-| Relación entre dos variables | Correlación de Pearson | Correlación de Spearman |
-| Relación entre dos variables categóricas | — | Chi cuadrado (o exacta de Fisher con frecuencias pequeñas) |
+| Dos grupos distintos | t para muestras independientes | U de Mann–Whitney |
+| Las mismas personas, antes y después | t pareada | Wilcoxon |
+| Tres o más grupos distintos | ANOVA | Kruskal–Wallis |
+| Las mismas personas, tres o más veces | ANOVA de medidas repetidas | Friedman |
+| Relación entre dos variables | Pearson | Spearman |
+| Relación entre dos variables de categorías | — | Chi cuadrado (o exacta de Fisher si hay pocos datos) |
 
-## ¿Cómo elegir la prueba? {.compacto}
+## ¿Cómo escoger la prueba? Cuatro preguntas
 
-Se responden cuatro preguntas:
+1. **¿Qué busca?** ¿**Comparar** grupos o **relacionar** variables?
+2. **¿Qué tipo de variable es el resultado?** ¿Categorías o números?
+3. **¿Cuántos grupos o mediciones hay?** ¿Uno, dos, o tres o más?
+4. **¿Son personas distintas o las mismas?** ¿Grupos **independientes** o **relacionados** (antes y después)?
 
-1. **¿Cuál es el objetivo?** Comparar grupos (diferencias) o medir la relación entre variables (asociación).
-2. **¿Qué tipo de variable es el resultado?** Categórica (nominal u ordinal) o numérica (discreta o continua).
-3. **¿Cuántos grupos o mediciones hay?** Uno, dos, o tres o más.
-4. **¿Las muestras son independientes o relacionadas?** Independientes: personas distintas en cada grupo. Relacionadas: las mismas personas medidas varias veces, o casos emparejados.
+## El árbol de decisión
 
 ```
 ¿Qué se busca?
@@ -59,7 +73,20 @@ Se responden cuatro preguntas:
     └── Ambas categóricas → Chi cuadrado
 ```
 
-Como recordaba el estadístico George Box, *todos los modelos son incorrectos, pero algunos son útiles*: la elección de la prueba implica verificar los supuestos y justificar la decisión.
+## Practiquemos la elección
+
+::: {.ejemplo}
+| Situación | Prueba |
+|---|---|
+| Satisfacción (1 a 5) en dos sedes distintas | Mann–Whitney |
+| Peso de las mismas personas antes y después de una dieta (datos normales) | t pareada |
+| ¿Fumar (sí/no) se relaciona con tener tos (sí/no)? | Chi cuadrado |
+| Estatura y peso de 200 personas (datos normales) | Pearson |
+:::
+
+. . .
+
+El estadístico George Box decía: *todos los modelos son incorrectos, pero algunos son útiles*. Escoger la prueba es revisar las condiciones y **justificar** la decisión.
 
 ## Práctica en Python · 1. U de Mann–Whitney
 
@@ -79,7 +106,7 @@ print(f"U = {U}, p = {p:.4f}")
 U = 5.5, p = 0.0008
 ```
 
-La escala de dolor es ordinal; por eso se usa Mann–Whitney y no la prueba t. Como *p* < 0.05, el dolor difiere entre las técnicas.
+**Cómo se lee:** el dolor es una escala de 0 a 10 (ordinal), por eso se usa Mann–Whitney y no la t. Como *p* < 0.05, las dos técnicas producen niveles de dolor distintos: con la técnica A duele menos.
 
 ## Práctica en Python · 2. Rangos con signo de Wilcoxon
 
@@ -137,7 +164,7 @@ Frecuencias esperadas:
  [37.5 22.5]]
 ```
 
-La prueba requiere que las frecuencias esperadas sean, en general, de 5 o más. Si no se cumple en una tabla de 2 × 2, se usa la prueba exacta de Fisher: `stats.fisher_exact(tabla)`.
+**Cómo se lee:** *p* < 0.05, así que la intervención y la adherencia están relacionadas: con intervención, 45 de 60 fueron adherentes; sin ella, solo 30 de 60. La prueba requiere que las frecuencias esperadas sean, en general, de 5 o más. Si no se cumple en una tabla de 2 × 2, se usa la prueba exacta de Fisher: `stats.fisher_exact(tabla)`.
 
 ## Práctica en Python · 5. Correlación de Spearman
 
@@ -157,7 +184,7 @@ rho = 0.976, p = 0.000001
 
 ## Cómo reportar un resultado
 
-Un resultado estadístico se reporta con el nombre de la prueba, el estadístico, los grados de libertad cuando aplican, el valor *p* y, de ser posible, el tamaño del efecto. Por ejemplo:
+Al escribir un resultado se dice: **qué prueba** se usó, el **valor del estadístico**, los grados de libertad (si aplica), el **valor *p*** y, si se puede, el **tamaño del efecto**. Primero se cuenta en palabras qué pasó y luego se ponen los números:
 
 > El tiempo de reacción fue menor en el grupo entrenado (*M* = 283.9 ms, *DE* = 11.8) que en el grupo control (*M* = 314.8 ms, *DE* = 16.2), *t*(22) = 5.35, *p* < .001, *d* = 2.18.
 

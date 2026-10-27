@@ -3,6 +3,18 @@ title: "Vectores en el plano, producto escalar y proyecciones"
 subtitle: "Clase 11 · Secciones 4.1 y 4.2 · Magnitud, dirección, ángulo y proyección ortogonal"
 ---
 
+## En la vida diaria: el viento y el avión {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Un avión apunta al norte, pero el viento lo empuja hacia el este. ¿Hacia dónde avanza en realidad y qué tan rápido?
+:::
+
+![](img/app_avion.svg){fig-align="center" height="250px"}
+
+Velocidades, fuerzas y desplazamientos tienen **tamaño y dirección**: son **vectores**, y se combinan sumándolos. El ángulo entre dos vectores también sirve para comparar gustos en las apps de recomendaciones.
+
+**En esta clase:** aprenderá a medir vectores, calcular ángulos entre ellos y proyectar uno sobre otro.
+
 ## Objetivos de la clase
 
 - Representar vectores de $\mathbb R^2$ como segmentos dirigidos y calcular su **magnitud** y **dirección**.

@@ -3,6 +3,18 @@ title: "Rectas en el espacio"
 subtitle: "Clase 13 · Sección 4.5 (parte 1) · Ecuaciones de la recta y posiciones relativas"
 ---
 
+## En la vida diaria: la ruta de un dron {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Un dron despega y avanza siempre en la misma dirección. ¿Dónde estará dentro de 5 segundos? ¿Pasará por encima de cierto edificio?
+:::
+
+![](img/app_dron.svg){fig-align="center" height="250px"}
+
+Su trayectoria es una **recta en el espacio**: un punto de partida más un número de pasos en una dirección fija. Lo mismo describe un rayo láser o la trayectoria de un satélite en un tramo corto.
+
+**En esta clase:** aprenderá a escribir rectas en el espacio y a decidir si dos rectas se cortan.
+
 ## Objetivos de la clase
 
 - Deducir las ecuaciones **vectorial**, **paramétricas** y **simétricas** de una recta en $\mathbb R^3$.

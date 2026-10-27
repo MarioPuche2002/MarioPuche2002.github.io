@@ -3,64 +3,167 @@ title: "Sesión 1 · La investigación científica"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Comprender qué es la investigación científica, cuáles son sus características y cómo se relacionan los conceptos de método, metodología y técnica, para iniciar la identificación de ideas de investigación.
+::: {.analogia data-t="Un detective"}
+Un detective no adivina quién fue el culpable: observa la escena, se hace preguntas, revisa pistas, propone una sospecha y la pone a prueba. Si la prueba falla, vuelve a empezar.
+:::
+
+. . .
+
+Investigar es parecido: es una forma **ordenada** de responder preguntas con **pruebas**, en lugar de opiniones.
+
+## ¿Qué vamos a lograr hoy?
+
+- Entender qué es investigar y en qué se diferencia de "buscar en internet".
+- Conocer los pasos del método científico.
+- Distinguir tres palabras que suelen confundirse: **método**, **técnica** y **metodología**.
+- Encontrar ideas para su propio proyecto.
 
 ## ¿Qué es investigar?
 
-La **investigación** es una actividad orientada a la obtención de conocimiento nuevo y a su aplicación en la solución de problemas o interrogantes de carácter científico. Se caracteriza por ser:
+::: {.simple}
+**Investigar** es buscar conocimiento nuevo, de forma ordenada, para responder una pregunta o resolver un problema.
+:::
 
-- **Sistemática:** sigue un proceso ordenado de etapas.
-- **Crítica:** evalúa la evidencia de forma rigurosa y busca errores en sus propios planteamientos.
-- **Empírica:** se apoya en datos obtenidos de la observación o la experimentación.
-- **Comunicable y verificable:** sus resultados pueden ser revisados y reproducidos por otros investigadores.
+. . .
 
-Junto a la investigación científica, la **investigación tecnológica** emplea el conocimiento científico para desarrollar productos, procesos o servicios, tanto en tecnologías *duras* (dispositivos, materiales, software) como *blandas* (métodos de gestión, protocolos, modelos organizacionales).
+No es lo mismo que "consultar":
 
-## El método científico
+| Consultar | Investigar |
+|---|---|
+| Busca una respuesta que **alguien ya tiene**. | Busca una respuesta que **todavía nadie tiene** (o no del todo). |
+| Ejemplo: ¿cuál es la capital de Perú? | Ejemplo: ¿por qué los estudiantes de primer semestre abandonan más que los de quinto? |
 
-El método científico es el procedimiento general mediante el cual se produce conocimiento válido. Sus etapas se pueden resumir así:
+## Las cuatro características de una investigación
 
-1. **Observación** de un fenómeno.
-2. **Formulación de una pregunta** sobre ese fenómeno.
-3. **Revisión de lo que ya se sabe** (literatura).
-4. **Planteamiento de una hipótesis** o respuesta tentativa.
-5. **Diseño y ejecución** de un estudio para contrastarla.
-6. **Análisis** de los datos obtenidos.
-7. **Conclusiones** y comunicación de los resultados.
+Una investigación es:
 
-El proceso no es lineal: con frecuencia es necesario regresar a una etapa anterior. El planteamiento de una investigación siempre está en evolución y es susceptible de ajustarse.
+- **Ordenada (sistemática):** sigue pasos, no improvisa.
+- **Crítica:** desconfía de sus propias ideas y busca errores.
+- **Basada en evidencia (empírica):** se apoya en datos que se pueden observar o medir.
+- **Verificable:** otra persona puede revisar lo que se hizo y repetirlo.
 
-## Método, metodología y técnica
+. . .
 
-| Concepto | Definición | Ejemplo |
+::: {.ejemplo data-t="¿Es investigación?"}
+"Le pregunté a tres amigos y todos dicen que el café les quita el sueño" **no** es investigación: no hay orden, ni suficiente evidencia, ni forma de verificarlo.
+:::
+
+## Investigación científica y tecnológica
+
+| | Científica | Tecnológica |
 |---|---|---|
-| **Método** | Procedimiento o conjunto de procedimientos que sirven para alcanzar los fines de la investigación. | Método experimental. |
-| **Técnica** | Medio auxiliar, más específico que el método, que contribuye a la misma finalidad. | Encuesta, entrevista, observación, medición con un instrumento. |
-| **Metodología** | Descripción, análisis y justificación de los métodos y técnicas empleados. Se interesa más por el proceso de investigación que por los resultados. | Capítulo de metodología de un proyecto. |
+| ¿Qué busca? | **Entender** cómo funciona algo. | **Crear o mejorar** algo usando ese conocimiento. |
+| Ejemplo | ¿Cómo afecta el ruido a la concentración? | Diseñar unos audífonos que bloqueen el ruido. |
 
-## Fuentes de ideas de investigación
+. . .
 
-Las ideas de investigación surgen de diversas fuentes: la experiencia personal o profesional, la observación de problemas en el entorno, la lectura de artículos científicos, las conversaciones con expertos, las tesis y proyectos previos, y las necesidades de la sociedad o de la industria. Una buena idea es aquella que despierta interés genuino, es novedosa en algún aspecto y puede convertirse en un problema investigable.
+La tecnología puede ser **dura** (aparatos, materiales, software) o **blanda** (métodos de trabajo, protocolos, formas de organizar una empresa).
+
+## El método científico paso a paso
+
+1. **Observar** algo que llama la atención.
+2. **Preguntar** por qué ocurre.
+3. **Averiguar** qué se sabe ya del tema (leer).
+4. **Proponer** una respuesta posible (hipótesis).
+5. **Probar** esa respuesta con un estudio.
+6. **Analizar** los datos.
+7. **Concluir** y **contar** los resultados.
+
+## El método científico con un ejemplo cotidiano
+
+::: {.ejemplo data-t="La planta que se marchita"}
+1. **Observo:** mi planta se está marchitando.
+2. **Pregunto:** ¿por qué?
+3. **Averiguo:** leo que puede ser por falta o exceso de agua, o por poca luz.
+4. **Propongo:** creo que es por exceso de agua.
+5. **Pruebo:** riego menos durante dos semanas.
+6. **Analizo:** la planta mejora.
+7. **Concluyo:** el exceso de agua era la causa probable.
+:::
+
+. . .
+
+::: {.obs}
+El proceso **no es una línea recta**: muchas veces hay que devolverse a un paso anterior. Es normal ajustar la idea varias veces.
+:::
+
+## Método, técnica y metodología
+
+Tres palabras parecidas que significan cosas distintas:
+
+::: {.simple}
+- **Método:** el **camino** general para llegar a la respuesta.
+- **Técnica:** la **herramienta** concreta que se usa en el camino.
+- **Metodología:** la **explicación** de qué camino y qué herramientas se usaron, y por qué.
+:::
+
+## Método, técnica y metodología: una analogía
+
+::: {.analogia data-t="Cocinar"}
+- **Método:** hornear (en lugar de freír o hervir).
+- **Técnica:** usar el termómetro, la balanza, la batidora.
+- **Metodología:** la receta escrita que explica qué se hizo y por qué, para que otro la repita.
+:::
+
+. . .
+
+| Concepto | Ejemplo en investigación |
+|---|---|
+| Método | Método experimental |
+| Técnica | Encuesta, entrevista, observación, medición |
+| Metodología | El capítulo del proyecto que describe y justifica todo lo anterior |
+
+## ¿De dónde salen las ideas?
+
+Las ideas de investigación aparecen en lugares comunes:
+
+- **Su experiencia:** algo que le pasa en el trabajo, en la casa o en la universidad.
+- **Lo que observa:** un problema en su barrio, su empresa o su comunidad.
+- **Lo que lee:** un artículo, una noticia, una tesis.
+- **Lo que conversa:** con profesores, expertos o compañeros.
+- **Lo que la sociedad necesita:** salud, empleo, ambiente, tecnología.
+
+## ¿Qué hace buena a una idea?
+
+Una buena idea:
+
+- Le **interesa de verdad** (va a trabajar con ella todo el semestre).
+- Tiene algo **nuevo**: un lugar, un grupo de personas o un enfoque poco estudiado.
+- Se puede convertir en una **pregunta** que se responda con datos.
+
+. . .
+
+::: {.ejemplo}
+- Idea vaga: "la tecnología en la educación".
+- Idea más útil: "el uso del celular durante las clases y las notas de los estudiantes de primer semestre".
+:::
 
 ## El producto del curso: el anteproyecto
 
-Un **anteproyecto** es la propuesta preliminar de una investigación: plantea qué se quiere investigar, por qué, para qué y cómo. A lo largo del curso se construirá un anteproyecto en [formato Brief](../metodologia_brief/formato_brief.qmd), un documento conciso de máximo 1500 palabras que resume los elementos esenciales de la propuesta. Cada sesión aporta una de sus secciones.
+::: {.simple}
+Un **anteproyecto** es el **plan** de una investigación, antes de hacerla: qué se quiere investigar, por qué, para qué y cómo.
+:::
+
+. . .
+
+- Durante el curso se construirá un anteproyecto en [formato Brief](../metodologia_brief/formato_brief.qmd): un documento corto, de máximo 1500 palabras.
+- Cada sesión aporta **una parte**. Al final del semestre, las partes se juntan.
 
 ## Actividad en clase
 
-1. En grupos, cada estudiante comparte un problema de su entorno académico, profesional o cotidiano que le genere curiosidad.
+1. En grupos, cada persona cuenta un problema de su entorno (estudio, trabajo, casa) que le genere curiosidad.
 2. El grupo clasifica cada problema según su origen: experiencia, observación, lectura o necesidad social.
-3. Se discute cuáles de ellos podrían abordarse mediante investigación y cuáles requieren otro tipo de intervención.
+3. Discutan: ¿cuáles se pueden investigar con datos? ¿Cuáles necesitan otro tipo de solución (por ejemplo, una decisión administrativa)?
 
 ## Avance del anteproyecto
 
-Redactar **tres ideas de investigación** en un párrafo cada una, indicando:
+Escriba **tres ideas de investigación**, un párrafo cada una, respondiendo:
 
-- El fenómeno o situación que llama la atención.
-- Por qué se considera importante.
-- En qué contexto se presenta.
+- ¿Qué situación le llama la atención?
+- ¿Por qué cree que es importante?
+- ¿Dónde ocurre (lugar, grupo de personas)?
 
 ## Lecturas recomendadas
 

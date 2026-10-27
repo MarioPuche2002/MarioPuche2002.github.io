@@ -3,6 +3,18 @@ title: "Bases y dimensión"
 subtitle: "Clase 19 · Sección 5.5 · Bases, dimensión, vector de coordenadas y cambio de base"
 ---
 
+## En la vida diaria: ¿cómo comprime el celular las fotos? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Una foto en formato JPEG ocupa mucho menos espacio que la original y casi no se nota la diferencia. ¿Cómo lo logra?
+:::
+
+![](img/app_jpeg.png){fig-align="center" height="220px"}
+
+Describe cada pedazo de la foto con **otro conjunto de imágenes de referencia** (otra **base**), en el que casi todos los números son pequeños y se pueden descartar. Cambiar de base es como medir con otra cuadrícula.
+
+**En esta clase:** aprenderá qué es una base, la dimensión de un espacio y cómo cambiar de coordenadas.
+
 ## Objetivos de la clase
 
 - Definir **base** y **dimensión** de un espacio vectorial.

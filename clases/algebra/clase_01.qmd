@@ -3,6 +3,18 @@ title: "Sistemas de ecuaciones lineales"
 subtitle: "Clase 1 · Secciones 1.1 y 1.2 · Eliminación de Gauss y Gauss-Jordan"
 ---
 
+## En la vida diaria: ¿cuánto cuesta cada cosa? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+En la cafetería, 2 empanadas y 1 jugo cuestan \$7 000, y 1 empanada y 1 jugo cuestan \$4 500. ¿Cuánto vale cada cosa?
+:::
+
+![](img/sistemas_2x2.svg){fig-align="center" height="230px"}
+
+Cada dato es una **ecuación** con dos incógnitas (precio de la empanada y del jugo). Juntas forman un **sistema de ecuaciones lineales**. Restando: la empanada vale \$2 500 y el jugo \$2 000. Con este mismo tipo de cálculo el GPS ubica el celular, los bancos reparten inversiones y los ingenieros calculan corrientes en un circuito.
+
+**En esta clase:** aprenderá a resolver sistemas de cualquier tamaño de forma ordenada, y a saber cuándo tienen una, infinitas o ninguna solución.
+
 ## Objetivos de la clase
 
 - Reconocer una **ecuación lineal** y un **sistema de ecuaciones lineales** $m\times n$.

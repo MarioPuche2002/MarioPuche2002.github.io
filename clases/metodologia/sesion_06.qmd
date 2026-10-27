@@ -3,26 +3,46 @@ title: "Sesión 6 · Normas APA (7.ª edición)"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Aplicar las normas APA, séptima edición, para dar formato a un trabajo escrito, citar las fuentes en el texto y elaborar la lista de referencias.
-
-## ¿Qué son las normas APA?
-
-::: {.definicion}
-Las **normas APA** son un conjunto de estándares de la *American Psychological Association* para **unificar la forma de presentar trabajos escritos** y **reconocer el trabajo de los autores** citados. La versión vigente es la **séptima edición** (APA, 2020).
+::: {.analogia data-t="Las reglas del fútbol"}
+En cualquier país, una cancha de fútbol tiene las mismas medidas y el mismo reglamento. Por eso un jugador de otro país entiende el partido sin explicaciones.
 :::
 
 . . .
 
-Se usan sobre todo en ciencias sociales, de la salud, educación y administración. En ingeniería es frecuente el estilo **IEEE** (sesión 7).
+Las **normas APA** son el "reglamento" de los trabajos escritos: si todos citan y presentan igual, cualquier lector entiende el documento y encuentra las fuentes.
+
+## ¿Qué vamos a lograr hoy?
+
+- Dar formato a un documento según APA (márgenes, letra, títulos).
+- Presentar tablas y figuras correctamente.
+- Citar dentro del texto.
+- Escribir la lista de referencias para distintos tipos de fuentes.
+
+## ¿Qué son las normas APA?
+
+::: {.simple}
+Son unas **reglas para escribir trabajos académicos**: cómo presentar el documento, cómo mencionar a los autores que se usaron y cómo hacer la lista de fuentes al final.
+:::
 
 . . .
 
+- Las publica la *American Psychological Association* (APA). La versión actual es la **séptima edición** (APA, 2020).
+- Se usan sobre todo en ciencias sociales, salud, educación y administración. En ingeniería es común el estilo **IEEE** (sesión 7).
+
+## ¿Para qué sirven?
+
 ::: {.obs data-t="¿Para qué sirven?"}
-- Dar crédito a las ideas de otros y **evitar el plagio**.
-- Permitir que el lector **encuentre** cada fuente.
-- Presentar el documento con un formato **claro y uniforme**.
+- **Dar crédito** a las ideas de otras personas y **evitar el plagio**.
+- Que el lector pueda **encontrar** cada fuente que usted usó.
+- Que el documento se vea **ordenado y uniforme**.
+:::
+
+. . .
+
+::: {.ejemplo}
+Si escribe "un estudio dice que dormir poco baja las notas", el lector no sabe cuál estudio. Si escribe "(Pérez, 2023)", puede buscarlo en su lista de referencias y leerlo.
 :::
 
 ## Formato general del documento
@@ -116,6 +136,18 @@ La **nota** va debajo, empieza con la palabra *Nota* en cursiva seguida de punto
 Si la tabla o figura se reproduce de otra fuente, además de citarla puede requerir **permiso** del titular de los derechos. Lo más seguro es elaborar una propia con los datos citados.
 :::
 
+## ¿Qué es una cita?
+
+::: {.simple}
+Una **cita** es una marca corta **dentro del texto** que dice de quién es la idea: apellido del autor y año, por ejemplo (Pérez, 2023). Al final del documento, en las **referencias**, aparecen los datos completos de esa fuente.
+:::
+
+. . .
+
+::: {.analogia}
+La cita es como la **etiqueta** de un producto en la estantería; la referencia es la **ficha completa** del producto en el catálogo.
+:::
+
 ## Citas en el texto: dos formatos
 
 | Cita **parentética** | Cita **narrativa** |
@@ -129,6 +161,9 @@ Si la tabla o figura se reproduce de otra fuente, además de citarla puede reque
 Toda cita incluye al menos **apellido del autor** y **año**. Si es textual, también la **página** (p. 45) o, si no hay páginas, el párrafo (párr. 3).
 
 ## Citas directas (textuales)
+
+Una cita **directa** copia **palabra por palabra** lo que escribió el autor. Por eso lleva comillas y número de página.
+
 
 ::: {.definicion data-t="Cita corta · menos de 40 palabras"}
 Se integra en el párrafo **entre comillas**, con autor, año y página.

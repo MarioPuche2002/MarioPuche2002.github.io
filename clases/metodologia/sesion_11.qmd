@@ -3,100 +3,135 @@ title: "Sesión 11 · Justificación, viabilidad e introducción"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Argumentar la importancia y la viabilidad de la investigación, y redactar la introducción del anteproyecto.
+::: {.analogia data-t="Pedir un préstamo"}
+Para que el banco le preste dinero, usted debe explicar **por qué** lo necesita, **para qué** le va a servir y demostrar que **puede pagarlo**.
+:::
 
-## Justificación: el "por qué" de la investigación
+. . .
 
-::: {.definicion}
-La **justificación** es la descripción organizada de las **necesidades y motivaciones** que sustentan la realización de la investigación. Expone las razones por las que se eligió el tema y las ventajas o beneficios de realizar el estudio.
+Un proyecto de investigación pide algo parecido: tiempo, dinero y esfuerzo. La **justificación** explica por qué vale la pena, y la **viabilidad** demuestra que se puede hacer.
+
+## ¿Qué vamos a lograr hoy?
+
+- Escribir la **justificación**: por qué vale la pena investigar.
+- Revisar la **viabilidad**: si se puede hacer con lo que hay.
+- Escribir la **introducción** del anteproyecto.
+
+## ¿Qué es la justificación?
+
+::: {.simple}
+Es la parte donde se explica **por qué vale la pena** hacer la investigación: qué necesidad hay y quién se beneficia.
 :::
 
 . . .
 
 ::: {.obs data-t="No confundir"}
-La justificación responde **por qué** se investiga. El **para qué** (lo que se quiere lograr) corresponde a los **objetivos**.
+- La **justificación** responde **¿por qué?** investigar.
+- Los **objetivos** responden **¿para qué?**, es decir, qué se quiere lograr.
+:::
+
+## Preguntas que ayudan a escribirla
+
+- ¿Por qué este tema?
+- ¿Por qué estas personas o casos?
+- ¿Por qué en este lugar y en este momento?
+- ¿Por qué con este enfoque?
+
+. . .
+
+Y las cuatro preguntas clave:
+
+1. ¿Por qué es **importante** el problema?
+2. ¿Por qué vale la pena **invertir tiempo y recursos** en él?
+3. ¿Por qué hacerlo **de esta forma**?
+4. ¿Qué **aporta de nuevo**?
+
+## ¿Qué hace fuerte una justificación?
+
+| Aspecto | En palabras sencillas |
+|---|---|
+| **Importancia** | Por qué el problema importa al área o a la comunidad. |
+| **Originalidad** | Qué tiene de nuevo frente a lo que ya se sabe (la brecha). |
+| **Utilidad práctica** | Cómo se van a usar los resultados. |
+| **Beneficio social** | Quién se beneficia y cómo. |
+| **Aporte al conocimiento** | Qué hueco ayuda a llenar. |
+
+. . .
+
+Siempre que pueda, apoye cada argumento con **datos y citas**.
+
+## Criterios para mostrar que es importante
+
+| Criterio | Pregunta para responder |
+|---|---|
+| **Conveniencia** | ¿Para qué sirve? |
+| **Relevancia social** | ¿Quién se beneficia y cómo? |
+| **Utilidad práctica** | ¿Ayuda a resolver un problema real? |
+| **Valor teórico** | ¿Llena un hueco de conocimiento? |
+| **Utilidad metodológica** | ¿Aporta un nuevo instrumento o forma de medir? |
+
+. . .
+
+No hace falta cumplirlos **todos**: basta argumentar bien los que aplican a su proyecto.
+
+## Justificación: débil frente a fuerte
+
+::: {.ejemplo}
+- **Débil:** "Este tema es muy interesante y nadie lo ha estudiado".
+- **Fuerte:** "En la universidad, la deserción en primer semestre de ingeniería supera el 25 %, y no hay estudios que relacionen el tiempo de viaje con las fallas a primera hora. Identificar esa relación permitiría ajustar horarios y reducir la deserción" *(datos ilustrativos)*.
+:::
+
+## Viabilidad: ¿se puede hacer?
+
+::: {.simple}
+Un proyecto es **viable** cuando se puede realizar con el tiempo y los recursos que hay.
+:::
+
+Revise:
+
+- **Tiempo** disponible.
+- **Dinero**.
+- **Personas**: conocimientos y disponibilidad del equipo.
+- **Equipos y materiales**: laboratorios, computadores, software.
+- **Acceso** a los datos o a los participantes.
+- **Aspectos éticos y legales**.
+
+## Ambicioso, pero realista
+
+::: {.obs}
+Si un proyecto tarda más de lo previsto, sus resultados pueden llegar tarde: otro estudio ya respondió la pregunta o la situación cambió.
 :::
 
 . . .
 
-Preguntas que ayudan a construirla:
-
-::: {.columns}
-::: {.column width="50%"}
-- ¿Por qué ese tema?
-- ¿Por qué estos eventos o fenómenos?
-- ¿Por qué estas unidades de estudio?
-:::
-::: {.column width="50%"}
-- ¿Por qué esta perspectiva temporal?
-- ¿Por qué este enfoque teórico?
-- ¿Por qué este nivel de investigación?
-:::
+::: {.analogia}
+Es mejor preparar **un plato** bien hecho a tiempo que un banquete que nunca sale de la cocina.
 :::
 
-## Aspectos que fortalecen una justificación
-
-| Aspecto | Qué se argumenta |
-|---|---|
-| **Significado** | Qué importancia tiene el problema para el campo o la comunidad. |
-| **Originalidad** | Qué aporta de nuevo frente a lo que ya se sabe (la brecha). |
-| **Aplicabilidad** | Cómo se podrán usar los resultados en la práctica. |
-| **Interés social** | Quiénes se benefician y de qué manera. |
-| **Aportes teóricos** | Qué vacío de conocimiento ayuda a llenar. |
-| **Factibilidad** | Por qué es posible realizarla con los recursos disponibles. |
-
-Una justificación clara y objetiva responde estos aspectos con argumentos y, cuando es posible, con **datos y citas**.
-
-## Criterios de importancia
-
-La justificación expone **por qué vale la pena** realizar la investigación. Debe responder:
-
-- ¿Por qué es importante el problema?
-- ¿Por qué deben invertirse tiempo y recursos en esta investigación?
-- ¿Por qué debe realizarse de la forma propuesta?
-- ¿Cuál es el aporte original al campo del conocimiento?
-
-**Criterios para valorar la importancia de una investigación:**
-
-| Criterio | Pregunta orientadora |
-|---|---|
-| **Conveniencia** | ¿Para qué sirve la investigación? |
-| **Relevancia social** | ¿Quiénes se beneficiarán y de qué manera? |
-| **Implicaciones prácticas** | ¿Ayudará a resolver un problema real? |
-| **Valor teórico** | ¿Llenará algún vacío de conocimiento? ¿Aportará a una teoría? |
-| **Utilidad metodológica** | ¿Contribuirá con un nuevo instrumento, método o forma de estudiar una población? |
-
-No es necesario cumplir todos los criterios, pero sí argumentar con claridad los que aplican.
-
-## Viabilidad o factibilidad
-
-Una investigación es **viable** cuando puede realizarse con los recursos disponibles. Se consideran:
-
-- **Tiempo** disponible para el proyecto.
-- **Recursos financieros.**
-- **Recursos humanos**: conocimientos y disponibilidad del equipo.
-- **Infraestructura y materiales**: equipos, laboratorios, software.
-- **Acceso a los datos o a los participantes.**
-- **Aspectos éticos y legales.**
-
-Las investigaciones que se extienden más allá de lo previsto pueden perder utilidad: sus resultados pueden quedar superados por otros estudios o el contexto puede haber cambiado. Por eso, un anteproyecto debe ser ambicioso en su pregunta pero realista en su alcance.
+Un anteproyecto puede tener una pregunta ambiciosa, pero su **alcance** debe ser realista.
 
 ## La introducción
 
-En el Brief, la introducción presenta de manera general el **campo de estudio**: a qué se refiere, por qué el tema es relevante para la investigación y qué problemas se presentan en él. Va de lo general a lo particular y prepara al lector para la descripción del problema. Se apoya en fuentes válidas.
+::: {.simple}
+La **introducción** es la "puerta de entrada" del documento: presenta el tema en general, explica por qué es relevante y menciona qué problemas hay en él.
+:::
+
+- Va de **lo general a lo particular**.
+- Prepara al lector para la descripción del problema.
+- También se apoya en **fuentes**.
 
 ## Actividad en clase
 
-1. Cada grupo revisa su problema y sus objetivos, y elige los criterios de justificación que aplican a su proyecto.
-2. Redacta un borrador de justificación que responda las cuatro preguntas orientadoras.
-3. Evalúa la viabilidad del proyecto con la lista de recursos (tiempo, dinero, personas, equipos, acceso a datos, aspectos éticos).
+1. Cada grupo revisa su problema y sus objetivos, y escoge los criterios de justificación que aplican.
+2. Escriba un borrador de justificación que responda las cuatro preguntas clave.
+3. Revise la viabilidad del proyecto con la lista: tiempo, dinero, personas, equipos, acceso a datos y ética.
 
 ## Avance del anteproyecto
 
 1. **Introducción** (máximo 150 palabras).
-2. **Justificación** (máximo 150 palabras), que responda las cuatro preguntas orientadoras.
+2. **Justificación** (máximo 150 palabras), que responda las cuatro preguntas clave.
 
 ## Lecturas recomendadas
 

@@ -3,29 +3,54 @@ title: "Sesión 20 · Integración y sustentación del anteproyecto"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Integrar los avances en un anteproyecto coherente en formato Brief, redactar el título y el resumen, y presentar oralmente la propuesta.
+::: {.analogia data-t="Armar un rompecabezas"}
+Durante el semestre se construyeron muchas piezas: problema, pregunta, objetivos, marco teórico, método. Ahora hay que **armarlas** y revisar que encajen: si una pieza no corresponde, se nota.
+:::
 
-## La coherencia interna
+. . .
 
-Un anteproyecto es coherente cuando todas sus partes se corresponden. Antes de la entrega final se recomienda revisar esta **matriz de coherencia**:
+Hoy se integra todo en un solo documento y se prepara la **sustentación**.
 
-| Problema | Pregunta | Objetivo general | Objetivos específicos | Fase metodológica | Análisis | Resultado esperado |
+## ¿Qué vamos a lograr hoy?
+
+- Revisar que todas las partes del anteproyecto **encajen** (coherencia).
+- Escribir el **título** y el **resumen**.
+- Revisar la **redacción**.
+- Preparar la **presentación oral**.
+
+## ¿Qué es la coherencia?
+
+::: {.simple}
+Un anteproyecto es **coherente** cuando todas sus partes hablan **de lo mismo**: la pregunta responde al problema, los objetivos responden a la pregunta y el método permite cumplir los objetivos.
+:::
+
+## La matriz de coherencia
+
+Se revisa con una tabla que conecta todas las partes:
+
+| Problema | Pregunta | Objetivo general | Objetivos específicos | Fase del método | Análisis | Resultado esperado |
 |---|---|---|---|---|---|---|
-| ¿Qué falta saber? | ¿Qué se responderá? | ¿Qué se logrará? | Logro 1, 2 y 3 | ¿Cómo se alcanzará cada logro? | ¿Con qué técnica o prueba? | ¿Qué producto se obtendrá? |
+| ¿Qué falta saber? | ¿Qué se responderá? | ¿Qué se logrará? | Logros 1, 2 y 3 | ¿Cómo se logra cada uno? | ¿Con qué técnica o prueba? | ¿Qué producto sale? |
 
-Preguntas de verificación:
+## Preguntas para revisar la coherencia
 
-- ¿El objetivo general responde directamente la pregunta?
-- ¿Cada objetivo específico tiene una fase metodológica y una técnica de análisis asociadas?
-- ¿El diseño es adecuado para el alcance declarado?
-- ¿Las variables de los objetivos son las mismas que se operacionalizaron y se analizarán?
-- ¿El cronograma incluye todas las fases y es realista?
+- ¿El **objetivo general** responde directamente la **pregunta**?
+- ¿Cada **objetivo específico** tiene su **fase** del método y su **análisis**?
+- ¿El **diseño** sirve para el **nivel de alcance** que se declaró?
+- ¿Las **variables** de los objetivos son las mismas que se van a medir y analizar?
+- ¿El **cronograma** incluye todas las fases y es realista?
 
 ## El título
 
-El título debe ser **conciso, pero lo más informativo posible**: indica el contenido de forma explícita y precisa. Suele incluir el fenómeno o las variables, la población y el contexto. Se evitan las abreviaturas, las expresiones vagas ("Estudio sobre…", "Análisis de…" sin especificar) y las preguntas.
+::: {.simple}
+El título debe ser **corto pero informativo**: que con solo leerlo se sepa qué se estudia, en quiénes y dónde.
+:::
+
+. . .
+
+Evite abreviaturas, títulos vagos ("Estudio sobre…") y títulos en forma de pregunta.
 
 | Débil | Mejor |
 |---|---|
@@ -34,40 +59,66 @@ El título debe ser **conciso, pero lo más informativo posible**: indica el con
 
 ## El resumen y el *abstract*
 
-El resumen se escribe **al final**, cuando el documento está completo. En el Brief tiene un máximo de 150 palabras, en español y en inglés, e incluye: tema, problema, contexto, método, técnicas e instrumentos, población, cronograma y proyección de costos. Se acompaña de tres a cinco **palabras clave**, preferiblemente tomadas de un tesauro (sesión 4).
+::: {.simple}
+El **resumen** cuenta todo el proyecto en un párrafo. Se escribe **al final**, cuando el documento está terminado.
+:::
 
-## Escritura académica
+- Máximo **150 palabras**, en español y en inglés (*abstract*).
+- Incluye: tema, problema, contexto, método, técnicas e instrumentos, población, cronograma y costos.
+- Va con **3 a 5 palabras clave**, idealmente de un tesauro (sesión 4).
+
+## Consejos de redacción (1)
 
 - **Lenguaje impersonal:** "se propone", "se analizará", en lugar de "yo propongo".
-- **Un párrafo, una idea**, con una oración inicial que la anuncie.
-- **Oraciones cortas y directas.** Como referencia, las guías de legibilidad para textos científicos sugieren promedios cercanos a 18 a 20 palabras por oración.
-- **Precisión:** evitar adjetivos innecesarios ("muy importante", "gran cantidad") y reemplazarlos por datos.
-- **Tiempos verbales:** presente para lo que se sabe y para el problema; futuro para lo que se hará.
-- **Citas:** toda afirmación que no sea propia debe estar citada en APA, séptima edición.
+- **Un párrafo, una idea**, y la primera oración anuncia esa idea.
+- **Oraciones cortas y directas**: como referencia, unas 18 a 20 palabras por oración.
 
-## Revisión por pares
+. . .
 
-Antes de la entrega final, cada grupo revisa el anteproyecto de otro con la [lista de verificación del Brief](../metodologia_brief/formato_brief.qmd#lista-de-verificación). La revisión entre pares reproduce el proceso que siguen las revistas científicas y ayuda a detectar vacíos que el autor no ve.
+::: {.ejemplo}
+- ✗ "Es muy importante destacar que existe una gran cantidad de estudiantes que tienen problemas para dormir bien."
+- ✓ "El 40 % de los estudiantes duerme menos de seis horas (García, 2023)." *(cita ficticia, solo como modelo)*
+:::
 
-## La sustentación
+## Consejos de redacción (2)
 
-Una sustentación de 10 minutos puede organizarse así:
+- **Precisión:** cambie adjetivos como "muy importante" o "gran cantidad" por **datos**.
+- **Tiempos verbales:** **presente** para lo que ya se sabe y para el problema; **futuro** para lo que se hará.
+- **Citas:** toda idea que no sea suya va citada en APA, séptima edición.
+
+## Revisión entre compañeros
+
+Antes de entregar, cada grupo revisa el anteproyecto de otro con la [lista de verificación del Brief](../metodologia_brief/formato_brief.qmd#lista-de-verificación).
+
+. . .
+
+::: {.analogia}
+Es como pedirle a alguien que lea su mensaje antes de enviarlo: los demás ven errores que uno mismo ya no ve. Las revistas científicas hacen lo mismo con la **revisión por pares**.
+:::
+
+## La sustentación: 10 minutos
 
 | Momento | Contenido | Tiempo |
 |---|---|:-:|
 | 1 | Título, contexto y problema | 2 min |
 | 2 | Pregunta y objetivos | 1 min |
-| 3 | Marco referencial y estado del arte (brecha) | 2 min |
-| 4 | Diseño metodológico y plan de análisis | 3 min |
-| 5 | Consideraciones éticas, cronograma y costos | 1 min |
+| 3 | Marco teórico y brecha | 2 min |
+| 4 | Método y plan de análisis | 3 min |
+| 5 | Ética, cronograma y costos | 1 min |
 | 6 | Resultados esperados y cierre | 1 min |
 
-Recomendaciones: una idea por diapositiva, poco texto, figuras legibles, y preparación de respuestas a las preguntas más probables sobre la viabilidad y el diseño.
+## Consejos para la presentación
+
+- **Una idea por diapositiva.**
+- **Poco texto**: la diapositiva acompaña, no reemplaza lo que usted dice.
+- Figuras y tablas **legibles** desde el fondo del salón.
+- Ensaye con reloj.
+- Prepare respuestas para las preguntas más probables: **¿es viable?** y **¿por qué ese diseño?**
 
 ## Actividad en clase
 
-1. Cada grupo completa la matriz de coherencia de su proyecto y corrige las inconsistencias.
-2. Revisión por pares con la lista de verificación del Brief.
+1. Cada grupo completa la matriz de coherencia de su proyecto y corrige lo que no encaja.
+2. Revisión entre compañeros con la lista de verificación del Brief.
 3. Sustentación oral de los anteproyectos y retroalimentación.
 
 ## Avance del anteproyecto

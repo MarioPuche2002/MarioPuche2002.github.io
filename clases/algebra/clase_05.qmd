@@ -3,6 +3,16 @@ title: "Matrices y sistemas de ecuaciones lineales"
 subtitle: "Clase 5 · Sección 2.3 · Forma matricial, forma vectorial y partición de matrices"
 ---
 
+## En la vida diaria: ¿se puede lograr esta mezcla? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Un batido A tiene 2 g de proteína y 5 g de azúcar; un batido B, 4 g de proteína y 1 g de azúcar. ¿Cuánto de cada uno hay que mezclar para obtener 10 g de proteína y 7 g de azúcar?
+:::
+
+Se busca cuántas veces tomar cada "receta" para obtener el resultado: $c_1(2,5)+c_2(4,1)=(10,7)$. La respuesta es 1 batido A y 2 batidos B. Preguntarse si un resultado se puede obtener mezclando ciertas recetas es preguntarse si un vector es **combinación lineal** de otros.
+
+**En esta clase:** verá que resolver un sistema es exactamente buscar esa mezcla, y cómo saber si existe.
+
 ## Objetivos de la clase
 
 - Escribir un sistema lineal en **forma matricial** $A\mathbf x = \mathbf b$ y en **forma vectorial**.

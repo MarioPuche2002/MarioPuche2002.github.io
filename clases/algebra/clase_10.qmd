@@ -3,6 +3,18 @@ title: "Determinantes, inversas y regla de Cramer"
 subtitle: "Clase 10 · Secciones 3.3 y 3.4 · Matriz adjunta y solución de sistemas"
 ---
 
+## En la vida diaria: lo que no se puede deshacer {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Si una transformación aplasta toda una foto sobre una línea, miles de puntos distintos caen en el mismo lugar. ¿Se puede recuperar la foto?
+:::
+
+![](img/app_det_cero.png){fig-align="center" height="220px"}
+
+No: se perdió información. El determinante avisa cuándo pasa esto (vale **cero**), y cuando no es cero, permite calcular la inversa y resolver sistemas con fórmulas directas (**regla de Cramer**).
+
+**En esta clase:** aprenderá a usar el determinante para invertir matrices y resolver sistemas.
+
 ## Objetivos de la clase
 
 - Construir la **matriz adjunta** $\operatorname{adj}A$ a partir de los cofactores.

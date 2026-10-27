@@ -3,6 +3,18 @@ title: "Bases ortonormales y proceso de Gram-Schmidt"
 subtitle: "Clase 21 · Complemento de la unidad 5 · Conjuntos ortogonales, coordenadas y ortonormalización"
 ---
 
+## En la vida diaria: separar un sonido en tonos {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Una app de música muestra barras que suben y bajan según los graves y los agudos de la canción. ¿Cómo separa el sonido en tonos?
+:::
+
+![](img/app_senal.svg){fig-align="center" height="210px"}
+
+Descompone la señal en ondas que son **perpendiculares entre sí** (ortogonales). Con direcciones perpendiculares, cada parte se calcula con un simple producto punto. Así funcionan los ecualizadores y la compresión MP3.
+
+**En esta clase:** aprenderá qué son las bases ortonormales y cómo construirlas.
+
 ## Objetivos de la clase
 
 - Definir conjuntos **ortogonales** y **ortonormales** en $\mathbb R^n$.

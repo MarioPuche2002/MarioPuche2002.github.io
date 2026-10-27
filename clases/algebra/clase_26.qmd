@@ -3,6 +3,18 @@ title: "Matrices semejantes y diagonalización"
 subtitle: "Clase 26 · Sección 8.3 · Semejanza, criterio de diagonalización y potencias de matrices"
 ---
 
+## En la vida diaria: ¿qué pasará a largo plazo? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Cada mes, algunos clientes cambian de compañía de celular. Si esto sigue así por años, ¿cómo quedará repartido el mercado?
+:::
+
+![](img/app_markov.svg){fig-align="center" height="220px"}
+
+Para responder hay que multiplicar una matriz por sí misma muchas veces. **Diagonalizar** la matriz convierte ese cálculo largo en elevar números a una potencia.
+
+**En esta clase:** aprenderá cuándo y cómo diagonalizar una matriz y a calcular potencias grandes.
+
 ## Objetivos de la clase
 
 - Definir **matrices semejantes** y demostrar qué comparten.

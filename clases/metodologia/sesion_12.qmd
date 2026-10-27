@@ -3,19 +3,31 @@ title: "Sesión 12 · Alcance, delimitación y cronograma"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Delimitar la investigación en sus dimensiones temática, espacial, temporal y de unidades de estudio, reconocer sus limitaciones y planificarla en el tiempo con un diagrama de Gantt.
-
-## Alcance y delimitación
-
-::: {.definicion}
-**Delimitar** es precisar **qué abarca y qué no abarca** la investigación. Al final de la fase exploratoria, el tema debe quedar delimitado de manera que pueda resolverse en **un solo estudio**.
+::: {.analogia data-t="Organizar una fiesta"}
+Para organizar una fiesta hay que decidir **a quiénes** se invita (y a quiénes no), **dónde** y **qué día**. Después se hace una lista de tareas con fechas: comprar, decorar, cocinar.
 :::
 
 . . .
 
-El investigador debe tener claro **qué le interesa realmente** de los múltiples aspectos que podría estudiar sobre el tema.
+En un proyecto pasa igual: la **delimitación** dice hasta dónde llega el estudio y el **cronograma** dice qué se hará y cuándo.
+
+## ¿Qué vamos a lograr hoy?
+
+- Delimitar el proyecto: qué abarca y qué **no**.
+- Reconocer sus **limitaciones**.
+- Organizar las actividades en el tiempo con un **diagrama de Gantt**.
+
+## Alcance y delimitación
+
+::: {.simple}
+**Delimitar** es decir con precisión **qué incluye y qué no incluye** el estudio, para que se pueda hacer en **una sola investigación**.
+:::
+
+. . .
+
+De todo lo que se podría estudiar sobre un tema, hay que escoger **lo que realmente interesa**.
 
 . . .
 
@@ -54,8 +66,8 @@ Cada nivel **reduce** el universo del estudio hasta un problema que se puede inv
 
 ## Limitaciones
 
-::: {.definicion}
-Las **limitaciones** son las condiciones, fuera del control del investigador, que **restringen** los resultados o su generalización. Reconocerlas da **transparencia** y credibilidad al estudio.
+::: {.simple}
+Las **limitaciones** son los problemas que **no dependen de usted** y que pueden afectar los resultados: por ejemplo, pocos participantes o datos que dependen de lo que las personas recuerdan. Reconocerlas hace el estudio más **honesto y creíble**.
 :::
 
 . . .
@@ -78,13 +90,13 @@ Por cada limitación, indique **cómo se mitigará**: por ejemplo, "para reducir
 
 ## El cronograma
 
-::: {.definicion}
-El **cronograma** organiza en el tiempo las actividades necesarias para cumplir los objetivos. Muestra **qué** se hará, **cuándo** y en qué **orden**, y permite verificar que el proyecto es **viable** en el plazo disponible.
+::: {.simple}
+El **cronograma** es la **agenda** del proyecto: dice **qué** se hará, **cuándo** y en qué **orden**. Sirve para comprobar que el proyecto cabe en el tiempo disponible.
 :::
 
 . . .
 
-La forma más usada es el **diagrama de Gantt**: una tabla de doble entrada con las **actividades** en las filas, el **tiempo** en las columnas y una **barra** que indica la duración de cada actividad.
+La forma más usada es el **diagrama de Gantt**: una tabla con las **actividades** en las filas, el **tiempo** en las columnas y una **barra** que muestra cuánto dura cada actividad.
 
 ## El diagrama de Gantt
 

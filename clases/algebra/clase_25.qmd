@@ -3,6 +3,18 @@ title: "Valores y vectores propios"
 subtitle: "Clase 25 · Sección 8.1 · Polinomio característico, espacios propios y multiplicidades"
 ---
 
+## En la vida diaria: ¿cómo ordena Google las páginas? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Al buscar algo en internet aparecen primero las páginas "más importantes". ¿Cómo se decide cuál es más importante?
+:::
+
+![](img/app_pagerank.svg){fig-align="center" height="200px"}
+
+Una página es importante si la enlazan páginas importantes. Esa idea lleva a buscar un vector que la matriz de enlaces **no cambia de dirección**: un **vector propio**.
+
+**En esta clase:** aprenderá a calcular valores y vectores propios.
+
 ## Objetivos de la clase
 
 - Definir **valor propio** (característico) y **vector propio** de una matriz cuadrada.

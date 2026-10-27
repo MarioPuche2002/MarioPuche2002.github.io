@@ -3,6 +3,18 @@ title: "Representación matricial de una transformación lineal"
 subtitle: "Clase 24 · Sección 7.3 · Matriz estándar, matriz respecto a bases y composición"
 ---
 
+## En la vida diaria: el orden importa {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+En un programa de diseño, no es lo mismo girar y luego inclinar una imagen que inclinarla y luego girarla.
+:::
+
+![](img/app_composicion.png){fig-align="center" height="220px"}
+
+Cada transformación tiene una **matriz**, y hacer una después de otra es **multiplicar** sus matrices. Como el producto de matrices no conmuta, el orden cambia el resultado.
+
+**En esta clase:** aprenderá a encontrar la matriz de una transformación y a combinar transformaciones.
+
 ## Objetivos de la clase
 
 - Construir la **matriz estándar** $A_T$ de una transformación lineal $T:\mathbb R^n\to\mathbb R^m$.

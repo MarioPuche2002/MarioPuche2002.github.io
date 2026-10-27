@@ -3,72 +3,125 @@ title: "Sesión 3 · Del tema al problema: la brecha de conocimiento"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Diferenciar tema, brecha de conocimiento y problema de investigación, y aplicar esa distinción para acotar la idea seleccionada.
+::: {.analogia data-t="El mapa con un hueco"}
+Imagine un mapa de su ciudad en el que falta un barrio. Todo lo demás está dibujado, pero esa parte está en blanco. Investigar es ir a dibujar **justo esa parte**.
+:::
 
-## Tema, brecha y problema
+. . .
 
-Uno de los errores más frecuentes al iniciar una investigación es confundir el **tema** con el **problema**. Son niveles distintos de especificidad:
+Ese espacio en blanco es la **brecha de conocimiento**: lo que todavía no se sabe. Un buen proyecto no estudia "un tema", sino **un hueco concreto** dentro de un tema.
+
+## ¿Qué vamos a lograr hoy?
+
+- Diferenciar **tema**, **brecha**, **problema** y **pregunta**.
+- Reconocer los tipos de brecha.
+- Recortar su idea para que sea investigable en un semestre.
+
+## Cuatro niveles, de lo general a lo concreto
 
 | Nivel | Qué es | Pregunta que responde |
 |---|---|---|
-| **Tema** | Área general de interés. | ¿Sobre qué quiero investigar? |
-| **Brecha de conocimiento** | Aquello que la literatura no ha explicado suficientemente, o donde hay contradicciones, limitaciones o incertidumbres. | ¿Qué conocimiento sigue faltando? |
-| **Problema de investigación** | Formulación explícita de la situación que requiere investigarse para cerrar la brecha. | ¿Cuál es la incertidumbre que debe resolverse? |
-| **Pregunta de investigación** | Interrogante concreta que guía el estudio. | ¿Qué voy a responder exactamente? |
+| **Tema** | El área general que le interesa. | ¿Sobre qué quiero investigar? |
+| **Brecha** | Lo que **todavía no se sabe** de ese tema. | ¿Qué falta por saber? |
+| **Problema** | La situación concreta que hay que estudiar para llenar ese hueco. | ¿Qué incertidumbre hay que resolver? |
+| **Pregunta** | Lo que va a responder exactamente. | ¿Qué voy a averiguar? |
 
-## Ejemplo: del tema a la pregunta
+. . .
 
-- **Tema:** inteligencia artificial en el diagnóstico por imágenes.
-- **Brecha:** la mayoría de los modelos de clasificación de lesiones de piel se han entrenado con imágenes de personas de piel clara; hay poca evidencia sobre su desempeño en otros fototipos.
-- **Problema:** se desconoce si la exactitud de los modelos de clasificación de lesiones de piel se mantiene en poblaciones con fototipos de piel oscura.
-- **Pregunta:** ¿Cuál es la diferencia en la sensibilidad de un modelo de clasificación de melanoma entre imágenes de fototipos claros y oscuros?
+::: {.obs data-t="Error frecuente"}
+Confundir el **tema** con el **problema**. "La inteligencia artificial" es un tema; no se puede investigar completo.
+:::
 
-Una investigación no se justifica solo porque el tema sea interesante: se justifica porque existe una brecha relevante y porque cerrarla aporta conocimiento útil.
+## Del tema a la pregunta: un ejemplo
 
-## Tipos de brecha
+::: {.ejemplo data-t="Inteligencia artificial y piel"}
+- **Tema:** inteligencia artificial para analizar imágenes médicas.
+- **Brecha:** casi todos los programas que detectan cáncer de piel se entrenaron con fotos de personas de piel clara; se sabe poco de cómo funcionan en piel oscura.
+- **Problema:** no se sabe si estos programas aciertan igual en personas de piel oscura.
+- **Pregunta:** ¿cuánto cambia el porcentaje de aciertos de un programa que detecta melanoma entre fotos de piel clara y de piel oscura?
+:::
 
-| Brecha | Descripción |
+## Otro ejemplo, más cercano
+
+::: {.ejemplo data-t="Estudiantes y transporte"}
+- **Tema:** transporte de los estudiantes universitarios.
+- **Brecha:** hay estudios sobre cuánto tardan en llegar, pero pocos sobre cómo afecta eso la asistencia a clases de las 7 a. m.
+- **Problema:** se desconoce si el tiempo de viaje se relaciona con las fallas a primera hora.
+- **Pregunta:** ¿existe relación entre el tiempo de viaje y el número de fallas a clases de las 7 a. m. en estudiantes de primer semestre?
+:::
+
+. . .
+
+::: {.simple}
+Una investigación no se justifica porque el tema sea **interesante**, sino porque hay un **hueco** y llenarlo **sirve para algo**.
+:::
+
+## ¿Qué tipos de huecos existen?
+
+| Brecha | En palabras sencillas |
 |---|---|
-| **Teórica** | Las teorías existentes no explican adecuadamente un fenómeno. |
-| **Metodológica** | Los métodos disponibles tienen limitaciones para estudiar el fenómeno. |
-| **Empírica o de evidencia** | Los resultados de estudios previos son escasos, inconsistentes o contradictorios. |
-| **Poblacional o contextual** | El fenómeno no se ha estudiado en una población, región o contexto particular. |
-| **Tecnológica o de implementación** | Hay conocimiento, pero no se ha llevado a la práctica o no se ha evaluado su aplicación. |
+| **Teórica** | Las explicaciones que existen no alcanzan para entender el fenómeno. |
+| **Metodológica** | Las formas de medir o estudiar el tema tienen fallas. |
+| **De evidencia** | Hay pocos estudios, o se contradicen entre sí. |
+| **De población o contexto** | No se ha estudiado en cierto grupo de personas, país o región. |
+| **De aplicación** | Se sabe algo, pero no se ha llevado a la práctica o no se ha evaluado. |
 
-## Investigación orientada a desafíos
+## Problemas que vienen de la realidad
 
-Los problemas de investigación no surgen solo de vacíos en la literatura. También provienen de **desafíos sociales, productivos o ambientales** que requieren conocimiento nuevo: el acceso a la salud, la seguridad alimentaria, la transición energética, la educación. Las investigaciones de mayor impacto suelen conectar una brecha de conocimiento con un desafío real.
+Los problemas no solo salen de huecos en los libros. También salen de **retos de la sociedad**:
 
-## Acotar la idea
+- Acceso a la salud.
+- Alimentación y agricultura.
+- Energía y ambiente.
+- Educación y empleo.
 
-Para pasar de una idea amplia a un problema investigable, se reduce progresivamente el alcance precisando:
+. . .
 
-- **Qué** aspecto específico del fenómeno se estudiará.
-- **En quiénes** o en qué objetos.
-- **Dónde** (contexto, lugar).
-- **Cuándo** (periodo).
+Las investigaciones con más impacto **unen** las dos cosas: un hueco en el conocimiento **y** un problema real que afecta a personas.
 
-Un problema bien acotado es más fácil de investigar con los recursos y el tiempo disponibles.
+## Recortar la idea
+
+Una idea amplia no se alcanza a investigar en un semestre. Hay que **recortarla** respondiendo cuatro preguntas:
+
+- **¿Qué?** ¿Qué aspecto exacto del tema?
+- **¿En quiénes?** ¿Qué personas, objetos o casos?
+- **¿Dónde?** ¿En qué lugar o contexto?
+- **¿Cuándo?** ¿En qué periodo?
+
+## Recortar la idea: ejemplo
+
+::: {.ejemplo}
+| | Muy amplio | Recortado |
+|---|---|---|
+| ¿Qué? | El estrés | El estrés antes de los exámenes finales |
+| ¿En quiénes? | En los estudiantes | En estudiantes de primer semestre de ingeniería |
+| ¿Dónde? | En el país | En una universidad de la ciudad |
+| ¿Cuándo? | Siempre | Durante el segundo semestre de este año |
+:::
+
+. . .
+
+Un problema bien recortado es más fácil de investigar con el tiempo y los recursos que hay.
 
 ## Actividad en clase
 
-Cada grupo toma su idea seleccionada y construye la cadena **tema → brecha → problema**. Luego intercambia el trabajo con otro grupo, que debe verificar:
+Cada grupo construye la cadena **tema → brecha → problema** con su idea. Luego la intercambia con otro grupo, que revisa:
 
-- ¿Está claro el tema?
-- ¿La brecha es verificable en la literatura, o es una suposición?
-- ¿El problema es específico y delimitado?
+- ¿Se entiende el tema?
+- ¿La brecha se puede comprobar leyendo, o es solo una suposición?
+- ¿El problema está recortado (qué, quiénes, dónde, cuándo)?
 
 ## Avance del anteproyecto
 
-Redactar:
+Escriba:
 
 1. El **tema** en una línea.
-2. La **brecha** preliminar en un párrafo, indicando de qué tipo es.
-3. Un **problema preliminar** en una o dos oraciones, delimitado en qué, en quiénes, dónde y cuándo.
+2. La **brecha** en un párrafo, diciendo de qué tipo es.
+3. El **problema** en una o dos oraciones, recortado en qué, en quiénes, dónde y cuándo.
 
-La brecha se verificará con la búsqueda de literatura de las sesiones 4 y 5.
+En las sesiones 4 y 5 se comprobará, leyendo, que la brecha sí existe.
 
 ## Lecturas recomendadas
 

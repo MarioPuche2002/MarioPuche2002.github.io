@@ -3,67 +3,152 @@ title: "Sesión 2 · Enfoques y tipos de investigación"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Diferenciar los enfoques cuantitativo, cualitativo y mixto, así como los principales tipos de investigación, para seleccionar el enfoque preliminar de la propia propuesta.
+::: {.analogia data-t="El médico"}
+Cuando va al médico, le toman la presión, el peso y unos exámenes de sangre (**números**). Pero también le preguntan cómo se siente, desde cuándo y qué le preocupa (**palabras**).
+:::
 
-## Enfoques de la investigación
+. . .
 
-A lo largo de la historia han surgido diversas corrientes de pensamiento sobre cómo se produce el conocimiento: empirismo, positivismo, fenomenología, estructuralismo, entre otras. Desde el siglo XX, estas corrientes se agrupan en dos grandes enfoques, **cuantitativo** y **cualitativo**, y en su combinación, el enfoque **mixto**.
+Con los números el médico **mide**; con las palabras **comprende**. La investigación también tiene esas dos formas de mirar: el enfoque **cuantitativo** y el **cualitativo**.
 
-Ambos enfoques comparten cinco fases generales:
+## ¿Qué vamos a lograr hoy?
 
-1. Observan y evalúan fenómenos.
-2. Establecen suposiciones o ideas a partir de esa observación.
-3. Demuestran el grado en que esas ideas tienen fundamento.
-4. Revisan las ideas con base en las pruebas o el análisis.
-5. Proponen nuevas observaciones para esclarecer, modificar o fundamentar las ideas.
+- Diferenciar los enfoques **cuantitativo**, **cualitativo** y **mixto**.
+- Conocer los principales **tipos** de investigación.
+- Escoger el enfoque preliminar de su proyecto.
 
-## Diferencias entre los enfoques {.compacto}
+## Lo que todos los enfoques comparten
 
-| Aspecto | Cuantitativo | Cualitativo |
+Sin importar el enfoque, toda investigación:
+
+1. **Observa** algo.
+2. Se hace una **idea** de lo que pasa.
+3. **Revisa** si esa idea tiene fundamento.
+4. **Ajusta** la idea con lo que encontró.
+5. Propone **nuevas preguntas**.
+
+. . .
+
+Lo que cambia es **qué tipo de datos** usa y **cómo los analiza**.
+
+## Enfoque cuantitativo
+
+::: {.simple}
+Trabaja con **números**. Mide, cuenta y compara para encontrar patrones que se puedan generalizar.
+:::
+
+- Parte de una teoría y la pone a prueba con datos (va **de la teoría a los datos**).
+- Usa encuestas con respuestas cerradas, mediciones, experimentos.
+- Analiza con **estadística**.
+- El investigador intenta ser **neutral**.
+
+. . .
+
+::: {.ejemplo}
+¿Qué porcentaje de estudiantes duerme menos de 6 horas antes de un parcial?
+:::
+
+## Enfoque cualitativo
+
+::: {.simple}
+Trabaja con **palabras, relatos e imágenes**. Busca comprender en profundidad cómo viven y entienden las personas una situación.
+:::
+
+- Parte de los datos y de ahí construye ideas (va **de los datos a la teoría**).
+- Usa entrevistas, grupos focales, observación, diarios.
+- Analiza **interpretando**: agrupa lo que dicen las personas en temas.
+- El investigador reconoce que su punto de vista influye.
+
+. . .
+
+::: {.ejemplo}
+¿Cómo viven los estudiantes la semana de parciales?
+:::
+
+## Cuantitativo frente a cualitativo {.compacto}
+
+| | Cuantitativo | Cualitativo |
 |---|---|---|
-| Marco filosófico | Positivismo, pospositivismo | Fenomenología, constructivismo, interpretativismo |
-| Realidad | Objetiva y única, externa al investigador | Múltiples realidades construidas por los participantes |
-| Lógica | Deductiva: de la teoría a los datos | Inductiva: de los datos a la teoría |
-| Posición del investigador | Neutral; busca la objetividad | Explícita; reconoce su subjetividad |
-| Uso de la literatura | Identifica variables que se van a medir | Orienta, pero el proceso mismo revela los conceptos clave |
-| Naturaleza de los datos | Numéricos | Textos, narraciones, significados, imágenes |
-| Análisis | Estadístico | Interpretativo, por categorías y temas |
-| Propósito | Medir, generalizar, establecer patrones | Comprender en profundidad, en el contexto natural |
-| Reporte | Tono objetivo e impersonal | Tono descriptivo, que incluye la voz de los participantes |
+| Datos | Números | Palabras, relatos, imágenes |
+| Pregunta típica | ¿Cuánto? ¿Cuántos? ¿Qué relación hay? | ¿Cómo? ¿Por qué? ¿Qué significa? |
+| Recorrido | De la teoría a los datos | De los datos a la teoría |
+| Herramientas | Encuestas cerradas, mediciones, experimentos | Entrevistas, observación, grupos focales |
+| Análisis | Estadístico | Por temas y categorías |
+| Propósito | Medir y generalizar | Comprender en profundidad |
+| Cómo se escribe el informe | Tono objetivo e impersonal | Incluye la voz de los participantes |
 
-Ningún enfoque es superior al otro: la elección depende de la pregunta. Un diagnóstico clínico, por ejemplo, combina análisis de laboratorio (cuantitativo) con la entrevista al paciente (cualitativo). El **enfoque mixto** integra ambos para obtener una visión más completa del fenómeno.
+## Un mismo tema, dos preguntas
 
-**Ejemplo con un mismo tema: la adherencia al tratamiento en pacientes con diabetes.**
+::: {.ejemplo data-t="Tratamiento de la diabetes"}
+- **Cuantitativa:** ¿Qué factores (edad, ingresos, nivel educativo) se relacionan con que los pacientes con diabetes tipo 2 sigan su tratamiento?
+- **Cualitativa:** ¿Cómo describen los pacientes con diabetes tipo 2 su experiencia de seguir el tratamiento en la vida diaria?
+:::
 
-- **Pregunta cuantitativa:** ¿Qué factores sociodemográficos se asocian con el nivel de adherencia al tratamiento en pacientes con diabetes tipo 2?
-- **Pregunta cualitativa:** ¿Cómo describen los pacientes con diabetes tipo 2 su experiencia con el cumplimiento del tratamiento en la vida cotidiana?
+. . .
 
-## Tipos de investigación
+::: {.obs}
+**Ningún enfoque es mejor que el otro.** Se escoge el que mejor responde la pregunta.
+:::
 
-| Criterio | Tipo | Característica principal |
+## Enfoque mixto
+
+::: {.simple}
+Combina **números y palabras** en el mismo estudio para tener una visión más completa.
+:::
+
+. . .
+
+::: {.ejemplo}
+1. Una encuesta muestra que el 40 % de los estudiantes deja de asistir a las tutorías (cuantitativo).
+2. Luego se entrevista a algunos de ellos para entender **por qué** (cualitativo).
+:::
+
+. . .
+
+Como el médico del inicio: los exámenes y la conversación juntos dan un mejor diagnóstico.
+
+## Tipos de investigación según su finalidad
+
+| Tipo | ¿Para qué sirve? | Ejemplo |
 |---|---|---|
-| **Según la finalidad** | Básica (pura o teórica) | Busca ampliar el conocimiento teórico, sin preocuparse por su aplicación inmediata. |
-| | Aplicada | Busca resolver problemas prácticos; su aporte teórico es secundario. |
-| **Según la dimensión temporal** | Histórica | Describe fenómenos del pasado a partir de documentos. |
-| | Descriptiva | Describe los fenómenos tal como se presentan en la actualidad. |
-| | Experimental | Predice qué ocurriría si se modificaran ciertas condiciones; manipula variables. |
-| **Según el lugar** | De laboratorio | En condiciones controladas. |
-| | De campo | En el ambiente natural donde ocurre el fenómeno. |
-| **Según los datos** | Cuantitativa | Datos numéricos y análisis estadístico. |
-| | Cualitativa | Datos no numéricos y análisis interpretativo. |
+| **Básica** (pura o teórica) | Para **entender** mejor algo, aunque no se use de inmediato. | Cómo aprende el cerebro un idioma nuevo. |
+| **Aplicada** | Para **resolver** un problema práctico. | Una app que ayude a aprender inglés en 10 minutos al día. |
+
+## Tipos según el momento que estudian
+
+| Tipo | ¿Qué hace? | Ejemplo |
+|---|---|---|
+| **Histórica** | Estudia el **pasado** con documentos. | Cómo cambió la matrícula universitaria entre 1990 y 2020. |
+| **Descriptiva** | Describe cómo están las cosas **hoy**. | Cuántas horas al día usan el celular los estudiantes. |
+| **Experimental** | **Cambia** algo a propósito y mide qué pasa. | Dar a un grupo clases con videos y a otro sin videos, y comparar notas. |
+
+## Tipos según el lugar y según los datos
+
+| Criterio | Tipo | ¿Qué significa? |
+|---|---|---|
+| Lugar | **De laboratorio** | En condiciones controladas. |
+| | **De campo** | Donde ocurre naturalmente el fenómeno (un colegio, una empresa, una calle). |
+| Datos | **Cuantitativa** | Números y estadística. |
+| | **Cualitativa** | Palabras e interpretación. |
+
+. . .
+
+::: {.obs}
+Una misma investigación tiene **varios** tipos a la vez. Por ejemplo: aplicada, descriptiva, de campo y cuantitativa.
+:::
 
 ## Actividad en clase
 
-1. Cada grupo recibe un tema común y redacta una pregunta con enfoque cuantitativo y otra con enfoque cualitativo.
-2. Se identifica el tipo de investigación de cada pregunta según su finalidad y su dimensión temporal.
-3. Plenaria: ¿qué aporta cada enfoque al mismo tema?
+1. Cada grupo recibe un tema común y escribe **una pregunta cuantitativa** y **una cualitativa**.
+2. Clasifiquen cada pregunta: ¿básica o aplicada? ¿Histórica, descriptiva o experimental?
+3. Socialización: ¿qué aporta cada enfoque al mismo tema?
 
 ## Avance del anteproyecto
 
-1. Seleccionar **una** de las tres ideas de la sesión anterior y justificar la elección en un párrafo.
-2. Indicar el **enfoque preliminar** (cuantitativo, cualitativo o mixto) y el **tipo de investigación** (básica o aplicada), explicando por qué.
+1. Escoja **una** de sus tres ideas de la sesión anterior y explique en un párrafo por qué la eligió.
+2. Indique el **enfoque preliminar** (cuantitativo, cualitativo o mixto) y el **tipo de investigación** (básica o aplicada), con una razón para cada uno.
 
 ## Lecturas recomendadas
 

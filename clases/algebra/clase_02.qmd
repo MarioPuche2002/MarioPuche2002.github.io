@@ -3,6 +3,16 @@ title: "Sistemas homogéneos"
 subtitle: "Clase 2 · Sección 1.4 · Solución trivial, soluciones no triviales y estructura de las soluciones"
 ---
 
+## En la vida diaria: balancear una reacción química {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+La llama de la estufa quema gas propano con oxígeno y produce dióxido de carbono y agua. ¿Cuántas moléculas de cada una intervienen?
+:::
+
+Los átomos no se crean ni se destruyen: lo que entra **es igual** a lo que sale. Pasando todo a un lado, cada elemento da una ecuación igualada a **cero**. Un sistema así se llama **homogéneo**: siempre tiene la respuesta "todo cero", y la pregunta interesante es si tiene otras.
+
+**En esta clase:** verá cuándo un sistema homogéneo tiene soluciones distintas de cero y cómo describirlas todas.
+
 ## Objetivos de la clase
 
 - Reconocer un **sistema homogéneo** y su solución trivial.

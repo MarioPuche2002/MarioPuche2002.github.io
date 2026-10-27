@@ -36,7 +36,7 @@ $presentation-h3-font-size: 1.1em;
 
 /* Cajas de contenido */
 .reveal .definicion, .reveal .teorema, .reveal .demo, .reveal .ejemplo,
-.reveal .ejercicio, .reveal .solucion, .reveal .obs {
+.reveal .ejercicio, .reveal .solucion, .reveal .obs, .reveal .simple, .reveal .analogia {
   position: relative;
   border-left: 6px solid;
   border-radius: 6px;
@@ -46,7 +46,7 @@ $presentation-h3-font-size: 1.1em;
 }
 .reveal .definicion::before, .reveal .teorema::before, .reveal .demo::before,
 .reveal .ejemplo::before, .reveal .ejercicio::before, .reveal .solucion::before,
-.reveal .obs::before {
+.reveal .obs::before, .reveal .simple::before, .reveal .analogia::before {
   display: block;
   font-weight: 700;
   font-size: .8em;
@@ -84,7 +84,16 @@ $presentation-h3-font-size: 1.1em;
 
 .reveal .definicion p:last-child, .reveal .teorema p:last-child, .reveal .demo p:last-child,
 .reveal .ejemplo p:last-child, .reveal .ejercicio p:last-child, .reveal .solucion p:last-child,
-.reveal .obs p:last-child { margin-bottom: 0; }
+.reveal .obs p:last-child, .reveal .simple p:last-child, .reveal .analogia p:last-child { margin-bottom: 0; }
+
+/* Explicaciones sencillas */
+.reveal .simple { border-color: #0e7490; background: #ebf7fa; }
+.reveal .simple::before { content: "En palabras sencillas"; color: #0e7490; }
+.reveal .simple[data-t]::before { content: attr(data-t); }
+.reveal .analogia { border-color: #c2410c; background: #fff4ec; }
+.reveal .analogia::before { content: "Piénselo así"; color: #c2410c; }
+.reveal .analogia[data-t]::before { content: "Piénselo así · " attr(data-t); }
+.reveal .grande { font-size: 1.15em; }
 
 .reveal .chico { font-size: .8em; }
 .reveal .muted { color: #6b7280; }

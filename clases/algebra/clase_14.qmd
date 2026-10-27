@@ -3,6 +3,18 @@ title: "Planos en el espacio"
 subtitle: "Clase 14 · Sección 4.5 (parte 2) · Ecuación del plano, rectas y planos combinados"
 ---
 
+## En la vida diaria: dibujar una escena 3D {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+En las películas animadas, cada punto de la pantalla se pinta según el lugar donde un "rayo" desde la cámara choca con el piso, una pared o un objeto.
+:::
+
+![](img/app_rayo.svg){fig-align="center" height="250px"}
+
+Pisos, paredes, techos y pantallas son **planos**. Saber dónde choca una recta con un plano es la base del *ray tracing*. Y un clasificador de inteligencia artificial separa dos grupos de datos con un plano.
+
+**En esta clase:** aprenderá a escribir la ecuación de un plano y a encontrar intersecciones con rectas y con otros planos.
+
 ## Objetivos de la clase
 
 - Deducir la ecuación de un plano a partir de un **punto** y un **vector normal**.

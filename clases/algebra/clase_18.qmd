@@ -3,6 +3,18 @@ title: "Independencia lineal"
 subtitle: "Clase 18 · Sección 5.4 · Dependencia, independencia y sus criterios"
 ---
 
+## En la vida diaria: información repetida {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Una pantalla con luces roja, verde y amarilla no muestra más colores que una con solo roja y verde, porque el amarillo ya se obtiene mezclando rojo y verde.
+:::
+
+![](img/app_colores_dependientes.svg){fig-align="center" height="180px"}
+
+Cuando un vector se puede obtener de los demás, el conjunto es **dependiente**: hay información repetida. En una tabla de datos, una columna con el precio en pesos y otra con el precio en dólares dicen lo mismo.
+
+**En esta clase:** aprenderá a reconocer cuándo un conjunto de vectores es independiente.
+
 ## Objetivos de la clase
 
 - Definir **dependencia** e **independencia lineal**.

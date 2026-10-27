@@ -3,81 +3,174 @@ title: "Sesión 14 · Nivel de alcance del estudio, hipótesis y variables"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Definir el alcance del estudio, formular hipótesis cuando correspondan e identificar y operacionalizar las variables de la investigación.
+::: {.analogia data-t="La consulta médica"}
+El médico puede limitarse a **anotar** sus síntomas, **relacionar** dos cosas ("cuando come esto le duele"), o **explicar la causa** ("le duele porque tiene una infección"). Antes de los exámenes, el médico ya tiene una **sospecha**.
+:::
 
-## Nivel de alcance de la investigación
+. . .
 
-No confundir con la **delimitación** (sesión 12): aquí "alcance" se refiere a la **profundidad** con la que el estudio aborda el fenómeno.
+En investigación: qué tan profundo llega el estudio es el **nivel de alcance**, la sospecha es la **hipótesis** y lo que se mide son las **variables**.
 
+## ¿Qué vamos a lograr hoy?
 
-| Alcance | Propósito | Cuándo se usa |
+- Definir el **nivel de alcance** del estudio.
+- Escribir **hipótesis** cuando el estudio las necesite.
+- Identificar las **variables** y explicar cómo se van a medir.
+
+## ¿Qué es el nivel de alcance?
+
+::: {.simple}
+Es **qué tan profundo** llega el estudio: si solo explora, si describe, si relaciona o si explica causas.
+:::
+
+. . .
+
+::: {.obs data-t="No confundir"}
+- **Delimitación** (sesión 12): **hasta dónde** llega el estudio (qué, quiénes, dónde, cuándo).
+- **Nivel de alcance** (hoy): **qué tan profundo** va.
+:::
+
+## Los cuatro niveles de alcance
+
+| Nivel | ¿Qué hace? | Ejemplo |
 |---|---|---|
-| **Exploratorio** | Examinar un tema poco estudiado o novedoso. | Cuando hay poca literatura o el fenómeno es reciente. |
-| **Descriptivo** | Especificar propiedades y características de un fenómeno, grupo o población. | Cuando se requiere conocer cómo es o cómo se manifiesta algo. |
-| **Correlacional** | Conocer la relación o el grado de asociación entre dos o más variables. | Cuando interesa saber si las variables cambian conjuntamente. |
-| **Explicativo** | Establecer las causas de los fenómenos. | Cuando se busca explicar por qué ocurre algo y en qué condiciones. |
+| **Exploratorio** | Mira un tema **poco estudiado** o nuevo. | ¿Cómo usan los adultos mayores las apps de pago? |
+| **Descriptivo** | Dice **cómo es** algo. | ¿Cuántas horas duermen los estudiantes? |
+| **Correlacional** | Mira si dos cosas **cambian juntas**. | ¿Los que duermen menos tienen peores notas? |
+| **Explicativo** | Busca **por qué** pasa algo (causas). | ¿Dormir poco **causa** peores notas? |
 
-Un mismo estudio puede incluir varios alcances; el alcance final lo define el objetivo general.
+. . .
 
-## Las hipótesis
+Un estudio puede tener varios niveles; el que manda es el del **objetivo general**.
 
-Una **hipótesis** es una respuesta tentativa a la pregunta de investigación, formulada como proposición que puede contrastarse con datos.
+## ¿Qué es una hipótesis?
 
-No todas las investigaciones cuantitativas plantean hipótesis. Se formulan cuando el alcance es correlacional o explicativo, o cuando un estudio descriptivo intenta pronosticar un dato o valor. Los estudios exploratorios generalmente no las incluyen.
+::: {.simple}
+Una **hipótesis** es una **respuesta posible** a la pregunta de investigación, escrita de forma que se pueda **comprobar con datos**.
+:::
 
-## Tipos de hipótesis {.compacto}
+. . .
 
-| Tipo | Descripción | Ejemplo |
+::: {.ejemplo}
+- **Pregunta:** ¿Qué relación hay entre el uso de pantallas antes de dormir y la calidad del sueño?
+- **Hipótesis:** A más tiempo de pantallas antes de dormir, peor calidad del sueño.
+:::
+
+## ¿Siempre hay hipótesis?
+
+**No.** Se escriben cuando el estudio:
+
+- **Relaciona** variables (correlacional), o
+- **Explica** causas (explicativo), o
+- Quiere **pronosticar** un dato o un valor.
+
+. . .
+
+Los estudios **exploratorios** y la mayoría de los **cualitativos** normalmente **no** llevan hipótesis.
+
+## Tipos de hipótesis (1)
+
+| Tipo | ¿Qué dice? | Ejemplo |
 |---|---|---|
-| **De investigación descriptiva** | Pronostica un valor o dato. | La prevalencia de sobrepeso en los estudiantes de primer semestre es superior al 30 %. |
-| **De investigación correlacional** | Plantea una asociación entre variables. | A mayor tiempo de uso de pantallas antes de dormir, menor calidad del sueño. |
-| **De diferencia de grupos** | Plantea que los grupos difieren. | La exactitud del modelo A es diferente de la del modelo B. |
-| **Causal** | Plantea una relación de causa y efecto. | El entrenamiento con realidad virtual mejora la precisión del gesto quirúrgico. |
-| **Nula (H₀)** | Niega la relación o la diferencia planteada. | No existe diferencia en la exactitud entre el modelo A y el modelo B. |
-| **Alternativa (H₁)** | Ofrece una posibilidad distinta de la nula; suele coincidir con la hipótesis de investigación. | Existe diferencia en la exactitud entre el modelo A y el modelo B. |
-| **Estadística** | Traduce las anteriores a términos estadísticos. | H₀: μ_A = μ_B; H₁: μ_A ≠ μ_B |
+| **Descriptiva** | Pronostica un valor. | Más del 30 % de los estudiantes de primer semestre tiene sobrepeso. |
+| **Correlacional** | Dos variables se relacionan. | A más pantallas antes de dormir, peor sueño. |
+| **De diferencia de grupos** | Dos grupos son distintos. | La exactitud del modelo A es diferente de la del modelo B. |
+| **Causal** | Una cosa causa otra. | Entrenar con realidad virtual mejora la precisión en una cirugía. |
 
-Las hipótesis no se demuestran como verdaderas o falsas: se determina si los datos de un estudio particular las **apoyan o no**. Que los datos no apoyen la hipótesis no significa que la investigación haya fracasado; también es conocimiento.
+## Tipos de hipótesis (2): nula y alternativa
 
-## Variables
+::: {.simple}
+- **Hipótesis nula (H₀):** dice que **no** hay relación o **no** hay diferencia.
+- **Hipótesis alternativa (H₁):** dice que **sí** la hay. Suele coincidir con la hipótesis de investigación.
+:::
 
-Una **variable** es una propiedad que puede variar y cuya variación puede medirse u observarse.
+. . .
 
-| Clasificación | Tipo | Descripción |
+::: {.ejemplo}
+- **H₀:** No hay diferencia en la exactitud entre el modelo A y el modelo B.
+- **H₁:** Sí hay diferencia en la exactitud entre el modelo A y el modelo B.
+- **En términos estadísticos:** H₀: μ_A = μ_B; H₁: μ_A ≠ μ_B.
+:::
+
+## Las hipótesis no se "demuestran"
+
+::: {.obs}
+Con los datos no se dice que una hipótesis es "verdadera" o "falsa": se dice si los datos **la apoyan o no**.
+:::
+
+. . .
+
+Si los datos no apoyan la hipótesis, **la investigación no fracasó**: también es un resultado que aporta conocimiento.
+
+## ¿Qué es una variable?
+
+::: {.simple}
+Una **variable** es una característica que **cambia** de una persona (u objeto) a otra y que se puede **medir u observar**.
+:::
+
+. . .
+
+::: {.ejemplo}
+Edad, horas de sueño, nota final, tipo de sangre, nivel de satisfacción, temperatura.
+:::
+
+## Variables según su función
+
+| Tipo | ¿Qué papel cumple? | Ejemplo |
 |---|---|---|
-| **Por su función** | Independiente | La que se manipula o se considera causa. |
-| | Dependiente | La que se mide como efecto o resultado. |
-| | Interviniente o de confusión | La que puede influir en la relación y debe controlarse. |
-| **Por su naturaleza** | Cualitativa nominal | Categorías sin orden: sexo, tipo de sangre. |
-| | Cualitativa ordinal | Categorías con orden: nivel de dolor leve, moderado, severo. |
-| | Cuantitativa discreta | Valores enteros: número de hijos, número de lesiones. |
-| | Cuantitativa continua | Cualquier valor en un intervalo: peso, temperatura, tiempo. |
+| **Independiente** | La que se cree que es la **causa**, o la que se cambia a propósito. | Horas de pantalla antes de dormir |
+| **Dependiente** | La que se mide como **efecto** o resultado. | Calidad del sueño |
+| **Interviniente** (de confusión) | Otra que puede **influir** y hay que controlar. | Consumo de café |
 
-## Operacionalización de variables
+. . .
 
-Para medir una variable se requieren dos definiciones:
+::: {.analogia}
+Si riega una planta (independiente) y mide cuánto crece (dependiente), la cantidad de sol (interviniente) también influye en el crecimiento.
+:::
 
-- **Conceptual:** describe la esencia o las características de la variable, generalmente a partir de la literatura.
-- **Operacional:** describe el procedimiento concreto para medirla en el estudio.
+## Variables según su naturaleza
 
-**Matriz de operacionalización (ejemplo):**
+| Tipo | ¿Cómo son sus valores? | Ejemplo |
+|---|---|---|
+| **Cualitativa nominal** | Categorías **sin orden**. | Tipo de sangre, carrera que estudia |
+| **Cualitativa ordinal** | Categorías **con orden**. | Dolor leve, moderado, fuerte |
+| **Cuantitativa discreta** | Números **enteros** (se cuentan). | Número de hermanos, materias perdidas |
+| **Cuantitativa continua** | Cualquier valor, con decimales (se miden). | Peso, estatura, tiempo |
 
-| Variable | Definición conceptual | Definición operacional | Tipo | Indicador o escala | Instrumento |
+## ¿Cómo se va a medir? Operacionalizar
+
+Para medir una variable se escriben **dos definiciones**:
+
+::: {.simple}
+- **Conceptual:** **qué es** la variable, según los autores (como en un diccionario).
+- **Operacional:** **cómo se va a medir** en su estudio (con qué instrumento y en qué unidad).
+:::
+
+. . .
+
+::: {.ejemplo data-t="Estrés"}
+- **Conceptual:** respuesta del cuerpo y la mente ante situaciones que se perciben como amenazantes.
+- **Operacional:** puntaje en un cuestionario validado de estrés percibido.
+:::
+
+## La matriz de operacionalización {.compacto}
+
+| Variable | Definición conceptual | Definición operacional | Tipo | Escala | Instrumento |
 |---|---|---|---|---|---|
-| Calidad del sueño | Satisfacción subjetiva con el sueño, que incluye duración, latencia y eficiencia. | Puntaje total del índice de calidad de sueño de Pittsburgh. | Cuantitativa discreta | 0 a 21 puntos | Cuestionario autoaplicado |
-| Uso de pantallas | Tiempo de exposición a dispositivos con pantalla. | Minutos diarios de uso reportados por la aplicación de bienestar digital del teléfono. | Cuantitativa continua | Minutos por día | Registro del dispositivo |
+| Calidad del sueño | Satisfacción con el sueño: duración, tiempo para dormirse, interrupciones. | Puntaje total del índice de calidad de sueño de Pittsburgh. | Cuantitativa discreta | 0 a 21 puntos | Cuestionario |
+| Uso de pantallas | Tiempo frente a dispositivos con pantalla. | Minutos diarios que reporta la app de bienestar digital del celular. | Cuantitativa continua | Minutos por día | Registro del celular |
 
 ## Actividad en clase
 
-1. Cada grupo identifica el alcance de su estudio a partir del objetivo general.
-2. Si el alcance lo requiere, formula la hipótesis de investigación, la nula y la alternativa.
-3. Construye la matriz de operacionalización con al menos tres variables.
+1. Cada grupo identifica el nivel de alcance de su estudio a partir del objetivo general.
+2. Si aplica, escriba la hipótesis de investigación, la nula y la alternativa.
+3. Construya la matriz de operacionalización con al menos tres variables.
 
 ## Avance del anteproyecto
 
-1. **Alcance** del estudio, justificado en un párrafo.
+1. **Nivel de alcance** del estudio, explicado en un párrafo.
 2. **Hipótesis** de investigación, nula y alternativa, si aplican.
 3. **Matriz de operacionalización** de las variables principales.
 

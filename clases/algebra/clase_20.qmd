@@ -3,6 +3,18 @@ title: "Rango, nulidad, espacio renglón y espacio columna"
 subtitle: "Clase 20 · Sección 5.7 · Los cuatro números de una matriz y el teorema rango-nulidad"
 ---
 
+## En la vida diaria: ¿cuánta información tiene una tabla? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Una foto de 300 × 451 tiene más de 135 000 números, pero con unos 15 000 bien escogidos se ve casi igual.
+:::
+
+![](img/app_rango.png){fig-align="center" height="200px"}
+
+El **rango** mide cuánta información realmente distinta tiene una matriz. Las plataformas de películas lo usan para adivinar qué le gustará a cada persona a partir de unos pocos "gustos" básicos.
+
+**En esta clase:** aprenderá a calcular el rango y la nulidad y qué dicen sobre los sistemas de ecuaciones.
+
 ## Objetivos de la clase
 
 - Definir el **espacio nulo**, la **nulidad**, la **imagen** (espacio columna) y el **rango** de una matriz.

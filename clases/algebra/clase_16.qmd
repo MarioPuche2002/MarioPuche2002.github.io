@@ -3,6 +3,18 @@ title: "Espacios vectoriales y subespacios"
 subtitle: "Clase 16 · Secciones 5.1 y 5.2 · Axiomas, ejemplos, propiedades básicas y subespacios"
 ---
 
+## En la vida diaria: los colores de la pantalla {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Cada color de una pantalla se forma con tres luces: roja, verde y azul. Sumar luz y hacerla más intensa da otros colores.
+:::
+
+![](img/app_cubo_rgb.svg){fig-align="center" height="250px"}
+
+Los colores se comportan como **vectores**: se suman y se multiplican por números. Las funciones, los polinomios, los sonidos y las fotos también. Un conjunto donde se puede hacer eso con buenas reglas es un **espacio vectorial**.
+
+**En esta clase:** verá qué condiciones debe cumplir un conjunto para ser espacio vectorial o subespacio.
+
 ## Objetivos de la clase
 
 - Enunciar los **axiomas** de espacio vectorial y verificarlos en ejemplos.

@@ -3,29 +3,43 @@ title: "Sesión 7 · Normas IEEE"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Aplicar el estilo IEEE para citar fuentes en el texto y elaborar la lista de referencias, y diferenciarlo del estilo APA.
-
-## ¿Qué es el estilo IEEE?
-
-::: {.definicion}
-El **estilo IEEE** es el sistema de citación del *Institute of Electrical and Electronics Engineers*. Es un estilo **numérico**: en el texto cada fuente se identifica con un **número entre corchetes**, y la lista de referencias se ordena por **orden de aparición**.
+::: {.analogia data-t="Los turnos del banco"}
+En el banco, a cada persona le dan un **número** según el orden de llegada, y la llaman por ese número, no por su nombre.
 :::
 
 . . .
 
-Se usa en **ingeniería** (eléctrica, electrónica, sistemas, biomédica, mecatrónica), **computación** y ciencias aplicadas, y en las revistas y congresos de esas áreas.
+El estilo **IEEE** funciona igual: cada fuente recibe un número según el **orden en que aparece** en el texto, y se cita con ese número entre corchetes, por ejemplo [1].
+
+## ¿Qué vamos a lograr hoy?
+
+- Citar con números en el estilo IEEE.
+- Escribir la lista de referencias en IEEE.
+- Diferenciar IEEE de APA.
+
+## ¿Qué es el estilo IEEE?
+
+::: {.simple}
+Es la forma de citar del *Institute of Electrical and Electronics Engineers* (IEEE). En el texto se pone un **número entre corchetes**, y al final se hace la lista de fuentes **en el orden en que se citaron**.
+:::
+
+. . .
+
+Se usa en **ingeniería** (eléctrica, electrónica, sistemas, biomédica, mecatrónica), **computación** y ciencias aplicadas.
 
 . . .
 
 ::: {.obs data-t="¿APA o IEEE?"}
-El estilo lo define la **institución, la revista o el congreso** al que se envía el trabajo. Lo importante es usar **uno solo** de forma consistente en todo el documento.
+Lo decide la **institución, la revista o el congreso** donde se presenta el trabajo. Lo importante es usar **un solo estilo** en todo el documento.
 :::
 
 ## APA frente a IEEE
 
 ![](img/apa_vs_ieee.svg){fig-align="center" width="95%"}
+
+## APA frente a IEEE: las diferencias clave
 
 | | APA | IEEE |
 |---|---|---|

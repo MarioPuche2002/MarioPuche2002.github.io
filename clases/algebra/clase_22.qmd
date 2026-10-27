@@ -3,6 +3,18 @@ title: "Transformaciones lineales: definición y ejemplos"
 subtitle: "Clase 22 · Sección 7.1 · Linealidad, ejemplos geométricos y algebraicos"
 ---
 
+## En la vida diaria: editar una foto {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Rotar, ampliar, inclinar o reflejar una foto en el celular: cada punto de la imagen se mueve a otro lugar.
+:::
+
+![](img/app_tl_gato.png){fig-align="center" height="220px"}
+
+Esas son **transformaciones lineales**: reglas que mueven vectores respetando sumas y escalas. Las redes neuronales están hechas de muchas transformaciones lineales encadenadas.
+
+**En esta clase:** aprenderá a reconocer cuándo una transformación es lineal.
+
 ## Objetivos de la clase
 
 - Definir **transformación lineal** y verificar la linealidad de una función.

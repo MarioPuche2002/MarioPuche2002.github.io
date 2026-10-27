@@ -3,6 +3,18 @@ title: "Vectores en el espacio y producto cruz"
 subtitle: "Clase 12 · Secciones 4.3 y 4.4 · Cosenos directores, producto cruz, áreas y volúmenes"
 ---
 
+## En la vida diaria: la luz en los videojuegos {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+En un videojuego, ¿cómo sabe el computador qué tan iluminada debe verse cada cara de un objeto?
+:::
+
+![](img/app_normal.svg){fig-align="center" height="250px"}
+
+Calcula una flecha perpendicular a cada cara (su **normal**) y la compara con la dirección de la luz. Esa flecha perpendicular se obtiene con el **producto cruz**, que también da el giro de una llave al apretar un tornillo.
+
+**En esta clase:** aprenderá a trabajar con vectores en el espacio y a usar el producto cruz para áreas y volúmenes.
+
 ## Objetivos de la clase
 
 - Trabajar con vectores en $\mathbb R^3$: magnitud, distancia, **cosenos directores**.

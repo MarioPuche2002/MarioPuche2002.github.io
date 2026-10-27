@@ -3,6 +3,18 @@ title: "Combinación lineal y espacio generado"
 subtitle: "Clase 17 · Sección 5.3 · Combinaciones lineales, gen{v₁,…,vₖ} y conjuntos generadores"
 ---
 
+## En la vida diaria: mezclar colores {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Con luz roja, verde y azul en distintas cantidades, la pantalla muestra millones de colores. Con solo roja y verde, ¿qué colores se pueden mostrar?
+:::
+
+![](img/app_mezcla_colores.svg){fig-align="center" height="180px"}
+
+Todo lo que se obtiene mezclando ciertos vectores en distintas cantidades es su **espacio generado**. Con las tres luces se genera todo; con dos, solo una parte (un plano).
+
+**En esta clase:** aprenderá a decidir si un vector es combinación de otros y qué genera un conjunto de vectores.
+
 ## Objetivos de la clase
 
 - Decidir si un vector es **combinación lineal** de otros y hallar los coeficientes.

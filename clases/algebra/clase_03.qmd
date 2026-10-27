@@ -3,6 +3,18 @@ title: "Vectores y matrices"
 subtitle: "Clase 3 · Sección 2.1 · Definiciones generales, tipos de matrices y operaciones"
 ---
 
+## En la vida diaria: una foto es una tabla de números {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Cada foto del celular se guarda como una tabla gigante de números: uno por cada punto (píxel) de la imagen.
+:::
+
+![](img/app_imagen_matriz.png){fig-align="center" height="250px"}
+
+Esa tabla es una **matriz**. Subir el brillo es sumarle un número a todas sus entradas, y mezclar dos fotos es sumar matrices. Los datos de una encuesta, las notas de un curso o las ventas de una tienda también se guardan en matrices.
+
+**En esta clase:** aprenderá qué son los vectores y las matrices y cómo se suman y se multiplican por un número.
+
 ## Objetivos de la clase
 
 - Definir **vectores** de $\mathbb R^n$ (renglón y columna) y **matrices** $m\times n$.

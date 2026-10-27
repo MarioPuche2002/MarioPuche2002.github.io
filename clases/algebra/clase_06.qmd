@@ -3,6 +3,18 @@ title: "Inversa de una matriz cuadrada"
 subtitle: "Clase 6 · Sección 2.4 · Definición, cálculo por Gauss-Jordan y propiedades"
 ---
 
+## En la vida diaria: deshacer lo que se hizo {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Si un programa "cifra" una foto mezclando sus colores, ¿se puede recuperar la original? Si un mensaje se codifica multiplicando por una matriz, ¿cómo se descifra?
+:::
+
+![](img/app_inversa.png){fig-align="center" height="200px"}
+
+Se necesita una operación que **deshaga** la anterior, como dividir deshace multiplicar. Para las matrices esa operación es la **matriz inversa**, y no todas la tienen.
+
+**En esta clase:** aprenderá a calcular la inversa, a reconocer cuándo no existe y a usarla para resolver sistemas.
+
 ## Objetivos de la clase
 
 - Definir la **inversa** de una matriz cuadrada y demostrar que es **única**.

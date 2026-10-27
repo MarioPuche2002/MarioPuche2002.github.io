@@ -3,104 +3,169 @@ title: "Sesión 19 · Ética de la investigación, cronograma y costos"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Identificar las implicaciones éticas de la investigación propuesta y planificar su ejecución en el tiempo y en recursos.
+::: {.analogia data-t="Participar en un estudio"}
+Imagine que lo invitan a un estudio. Usted querría saber **qué le van a hacer**, si **tiene algún riesgo**, si puede **retirarse** cuando quiera y si **sus datos** quedarán protegidos.
+:::
 
-## ¿Por qué la ética?
+. . .
 
-Toda investigación tiene una responsabilidad con la sociedad que va más allá de su relevancia académica. Una actuación no ética puede causar daño a los participantes, hacer perder la confianza de la sociedad en la comunidad científica y generar consecuencias legales para los investigadores.
+La **ética de la investigación** garantiza exactamente eso: que los participantes sean tratados con respeto y que el estudio no cause daño.
 
-## Principios de la ética de la investigación
+## ¿Qué vamos a lograr hoy?
 
-| Principio | Significado | Cómo se aplica |
+- Conocer los principios éticos de la investigación.
+- Identificar el nivel de riesgo de su proyecto.
+- Saber qué debe tener un **consentimiento informado**.
+- Planear el proyecto en **tiempo** (cronograma) y en **dinero** (costos).
+
+## ¿Por qué importa la ética?
+
+Una investigación sin ética puede:
+
+- **Hacer daño** a los participantes.
+- Hacer que la gente **pierda la confianza** en la ciencia.
+- Traer **problemas legales** a quienes investigan.
+
+. . .
+
+::: {.simple}
+Que un estudio sea importante **no justifica** hacerlo de cualquier manera.
+:::
+
+## Los cuatro principios éticos
+
+| Principio | En palabras sencillas | Cómo se aplica |
 |---|---|---|
-| **Respeto por las personas (autonomía)** | Las personas deciden libremente si participan. | Consentimiento informado; protección especial a personas con autonomía disminuida. |
-| **Beneficencia** | Maximizar los beneficios. | Diseñar estudios que produzcan conocimiento útil. |
-| **No maleficencia** | Minimizar los daños físicos, psicológicos, sociales o económicos. | Evaluar y reducir los riesgos. |
-| **Justicia** | Distribuir de forma equitativa los beneficios y las cargas. | Selección equitativa de participantes. |
+| **Respeto por las personas** | Cada persona decide libremente si participa. | Consentimiento informado; protección especial a quien no puede decidir solo. |
+| **Beneficencia** | El estudio debe servir para algo. | Diseñar estudios que den conocimiento útil. |
+| **No hacer daño** | Reducir al mínimo cualquier daño físico, emocional, social o económico. | Evaluar y reducir los riesgos. |
+| **Justicia** | Repartir de forma justa los beneficios y las cargas. | No escoger siempre a los mismos grupos para cargar con los riesgos. |
 
-Estos principios se recogen en documentos de referencia internacional como el Informe Belmont, la Declaración de Helsinki y las pautas éticas internacionales para la investigación relacionada con la salud. Además, cada país tiene normas propias sobre investigación con seres humanos, protección de datos personales y derechos de autor, que deben consultarse según el lugar donde se realice el estudio.
+## ¿De dónde vienen estas reglas?
 
-## Nivel de riesgo
+Los principios están en documentos internacionales como:
 
-| Nivel | Descripción | Ejemplos |
+- El **Informe Belmont**.
+- La **Declaración de Helsinki**.
+- Las **pautas éticas internacionales** para investigación en salud.
+
+. . .
+
+Además, **cada país** tiene sus propias normas sobre investigación con personas, protección de datos personales y derechos de autor. Hay que consultarlas según el lugar donde se haga el estudio.
+
+## ¿Qué tan riesgoso es el estudio?
+
+| Nivel | En palabras sencillas | Ejemplos |
 |---|---|---|
-| **Sin riesgo** | No hay intervención sobre los participantes. | Revisión de bases de datos anonimizadas, análisis documental. |
-| **Riesgo mínimo** | Procedimientos comunes que no suponen daño apreciable. | Encuestas, mediciones antropométricas, registros no invasivos. |
-| **Riesgo mayor que el mínimo** | Intervenciones con probabilidad de afectar al participante. | Ensayos con medicamentos o dispositivos, procedimientos invasivos. |
+| **Sin riesgo** | No se hace nada sobre las personas. | Revisar bases de datos sin nombres, analizar documentos. |
+| **Riesgo mínimo** | Procedimientos comunes que no causan daño apreciable. | Encuestas, medir peso y estatura. |
+| **Riesgo mayor que el mínimo** | Puede afectar a la persona. | Probar medicamentos o dispositivos, procedimientos invasivos. |
 
 ## El consentimiento informado
 
-Es el acuerdo, generalmente por escrito, mediante el cual una persona autoriza su participación con pleno conocimiento de lo que implica, con capacidad de libre elección y sin coacción. Debe incluir, como mínimo:
+::: {.simple}
+Es el **permiso** que da una persona para participar, **sabiendo** de qué se trata, **sin presiones** y pudiendo decir que no. Normalmente es por escrito.
+:::
 
-1. La justificación y los objetivos de la investigación.
-2. Los procedimientos que se realizarán y su propósito.
-3. Las molestias o riesgos esperados (o aclarar que no los hay).
-4. Los beneficios esperados (o aclarar que no los hay).
-5. Que la participación es voluntaria.
-6. Que la persona puede retirarse en cualquier momento sin consecuencias.
-7. La garantía de confidencialidad y de que no será identificada.
-8. Los datos de contacto del investigador y del comité de ética.
-9. Las firmas del participante o de su representante legal.
+. . .
 
-En la investigación con menores de edad se requiere el consentimiento de los padres o representantes y el **asentimiento** del menor.
+::: {.analogia}
+Es como leer y firmar las condiciones antes de una cirugía: nadie debería entrar a un quirófano sin saber qué le van a hacer.
+:::
 
-## Comités de ética
+## ¿Qué debe decir el consentimiento?
 
-Los **comités de ética en investigación** evalúan los proyectos antes de su ejecución. Se caracterizan por ser autónomos, interdisciplinarios y plurales. Todo proyecto con seres humanos, con sus datos personales o con animales debe someterse a su evaluación según las normas de la institución donde se realice.
+1. Por qué se hace el estudio y para qué.
+2. Qué se le va a hacer al participante.
+3. Qué molestias o riesgos puede tener (o que no los hay).
+4. Qué beneficios puede tener (o que no los hay).
+5. Que participar es **voluntario**.
+6. Que se puede **retirar** en cualquier momento, sin consecuencias.
+7. Que sus datos serán **confidenciales**.
+8. A quién contactar (investigador y comité de ética).
+9. Firmas.
 
-## Otros aspectos éticos
+. . .
 
-- **Protección de datos:** anonimizar o seudonimizar los datos, almacenarlos de forma segura y usarlos solo para los fines autorizados. Las bases de datos públicas también tienen condiciones de uso que deben respetarse.
-- **Investigación con animales:** aplicar el principio de las **3R**: reemplazar, reducir y refinar.
-- **Conflicto de intereses:** cualquier interés personal, financiero o profesional que pueda comprometer la objetividad del investigador debe declararse.
-- **Integridad científica:** se consideran faltas graves la **fabricación** de datos, la **falsificación** de datos o resultados y el **plagio**.
-- **Uso de herramientas de inteligencia artificial:** su uso en la escritura o el análisis debe declararse, y el investigador sigue siendo responsable de la veracidad del contenido y de las citas.
+Con **menores de edad**: firman los padres o representantes (**consentimiento**) y el menor también dice que acepta (**asentimiento**).
+
+## Los comités de ética
+
+::: {.simple}
+Un **comité de ética** es un grupo de personas de distintas áreas que **revisa** los proyectos **antes** de empezar, para verificar que respeten a los participantes.
+:::
+
+. . .
+
+Todo proyecto con **personas**, con sus **datos personales** o con **animales** debe pasar por un comité, según las normas de la institución donde se realice.
+
+## Otros cuidados éticos (1)
+
+- **Protección de datos:** quitar nombres y datos que identifiquen a las personas, guardar la información de forma segura y usarla solo para lo autorizado. Las bases de datos públicas también tienen condiciones de uso.
+- **Investigación con animales:** aplicar las **3R**: **r**eemplazar (usar otra alternativa si existe), **r**educir (usar los menos posibles) y **r**efinar (causar el menor sufrimiento).
+- **Conflicto de intereses:** declarar cualquier interés personal o económico que pueda influir en el estudio.
+
+## Otros cuidados éticos (2)
+
+- **Integridad científica:** son faltas graves
+  - **inventar** datos (fabricación),
+  - **alterar** datos o resultados (falsificación),
+  - **copiar** sin citar (plagio).
+- **Inteligencia artificial:** si usa herramientas de IA para escribir o analizar, **dígalo**. Usted sigue siendo responsable de que todo sea cierto y de que las citas existan.
 
 ## El cronograma {.compacto}
 
-El cronograma organiza en el tiempo las **actividades de cada fase metodológica** (sesión 15). Se presenta habitualmente como un **diagrama de Gantt**, cuya construcción paso a paso se vio en la sesión 12.
+El cronograma organiza en el tiempo las **actividades de cada fase** (sesión 15). Se presenta como un **diagrama de Gantt** (sesión 12).
 
-**Ejemplo para un proyecto de 16 semanas:**
+**Ejemplo para 16 semanas:**
 
 | Fase / actividad | S1–2 | S3–4 | S5–6 | S7–8 | S9–10 | S11–12 | S13–14 | S15–16 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | **Fase 1.** Aval del comité de ética | ■ | ■ | | | | | | |
 | **Fase 1.** Recolección de datos | | ■ | ■ | ■ | | | | |
-| **Fase 2.** Depuración y análisis descriptivo | | | | ■ | ■ | | | |
-| **Fase 3.** Análisis inferencial y modelado | | | | | ■ | ■ | ■ | |
-| **Fase 4.** Redacción del informe final | | | | | | | ■ | ■ |
-| Socialización de resultados | | | | | | | | ■ |
+| **Fase 2.** Limpieza y descripción de datos | | | | ■ | ■ | | | |
+| **Fase 3.** Análisis y modelos | | | | | ■ | ■ | ■ | |
+| **Fase 4.** Informe final | | | | | | | ■ | ■ |
+| Socialización | | | | | | | | ■ |
 
-## La proyección de costos
+## Los costos
 
-Presenta los **rubros** necesarios para ejecutar el proyecto y su valor estimado. Los rubros habituales son: personal, equipos, materiales e insumos, software, salidas de campo, servicios técnicos, publicación y divulgación, e imprevistos (generalmente un porcentaje pequeño del total).
+::: {.simple}
+La **proyección de costos** es el **presupuesto**: lista lo que se necesita comprar o pagar y cuánto cuesta.
+:::
 
-**Ejemplo (valores ilustrativos en unidades monetarias locales):**
+Rubros habituales: personal, equipos, materiales, software, salidas de campo, servicios técnicos, divulgación e **imprevistos** (un pequeño porcentaje del total).
+
+## Ejemplo de presupuesto {.compacto}
+
+*Valores ilustrativos, en unidades monetarias locales:*
 
 | Rubro | Descripción | Cantidad | Valor unitario | Valor total |
 |---|---|:-:|--:|--:|
 | Personal | Horas de investigador | 160 h | 25 000 | 4 000 000 |
 | Equipos | Sensor de medición | 2 | 350 000 | 700 000 |
 | Materiales | Insumos de laboratorio | 1 lote | 300 000 | 300 000 |
-| Software | Licencia de software estadístico | 0 | — | 0 (software libre) |
-| Divulgación | Inscripción a evento académico | 1 | 400 000 | 400 000 |
+| Software | Programa estadístico | 0 | — | 0 (software libre) |
+| Divulgación | Inscripción a un evento académico | 1 | 400 000 | 400 000 |
 | Imprevistos | 5 % del subtotal | — | — | 270 000 |
 | **Total** | | | | **5 670 000** |
 
-Es recomendable indicar la **fuente de financiación** de cada rubro (recursos propios, institucionales o externos) y preferir alternativas de software libre cuando sea posible.
+. . .
+
+Indique **quién paga** cada rubro (recursos propios, de la institución o externos) y prefiera **software libre** cuando sea posible.
 
 ## Actividad en clase
 
-1. Cada grupo identifica el nivel de riesgo de su proyecto y los aspectos éticos que debe atender.
-2. Si el proyecto incluye participantes humanos, redacta el borrador de los puntos clave del consentimiento informado.
-3. Elabora el cronograma por semanas y la tabla de costos.
+1. Cada grupo identifica el nivel de riesgo de su proyecto y los cuidados éticos que necesita.
+2. Si trabaja con personas, escriba un borrador de los puntos clave del consentimiento informado.
+3. Haga el cronograma por semanas y la tabla de costos.
 
 ## Avance del anteproyecto
 
-1. **Consideraciones éticas**: nivel de riesgo, consentimiento, protección de datos y aval de comité de ética, cuando apliquen.
-2. **Cronograma** con las actividades de cada fase metodológica.
+1. **Consideraciones éticas:** nivel de riesgo, consentimiento, protección de datos y aval del comité de ética, cuando apliquen.
+2. **Cronograma** con las actividades de cada fase.
 3. **Proyección de costos** por rubros.
 
 ## Lecturas recomendadas

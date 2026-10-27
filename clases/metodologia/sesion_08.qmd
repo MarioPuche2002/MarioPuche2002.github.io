@@ -3,39 +3,84 @@ title: "Sesión 8 · Planteamiento del problema"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Redactar la descripción del problema de investigación, sustentada en evidencia, con sus causas, su magnitud y su delimitación.
+::: {.analogia data-t="Llevar el carro al taller"}
+Si dice "el carro está raro", el mecánico no sabe por dónde empezar. Si dice "desde hace una semana, al frenar en bajada, suena un chillido en la rueda delantera derecha", ya sabe qué revisar.
+:::
+
+. . .
+
+**Plantear el problema** es describirlo así de claro: qué pasa, dónde, desde cuándo, qué tan grave es y por qué ocurre.
+
+## ¿Qué vamos a lograr hoy?
+
+- Entender qué es plantear un problema de investigación.
+- Conocer sus partes.
+- Usar el **árbol de problemas** para ordenar causas y efectos.
+- Escribir la descripción del problema de su proyecto.
 
 ## ¿Qué es plantear el problema?
 
-Plantear el problema es **afinar y estructurar formalmente la idea de investigación**. Un buen planteamiento muestra que existe una situación que requiere conocimiento nuevo, explica por qué ocurre, demuestra con datos que es real y relevante, y la delimita para que pueda estudiarse.
+::: {.simple}
+Es **explicar con claridad y con pruebas** la situación que se quiere investigar: qué pasa, por qué pasa, qué tan grande es y dónde y cuándo se va a estudiar.
+:::
 
-## Componentes de la descripción del problema
+. . .
 
-| Componente | Qué debe responder |
+Un buen planteamiento convence al lector de tres cosas:
+
+1. El problema **existe** (hay datos que lo muestran).
+2. Es **importante** (afecta a alguien).
+3. Se puede **estudiar** (está bien delimitado).
+
+## Las partes del planteamiento (1)
+
+| Parte | Pregunta que responde |
 |---|---|
-| **Contexto** | ¿En qué campo, situación y lugar se presenta el problema? |
-| **Naturaleza** | ¿En qué consiste exactamente el problema? ¿Cuáles son sus características? |
-| **Magnitud** | ¿Qué tan grande es? Cifras, datos y hechos que demuestren que existe. |
-| **Causas** | ¿Por qué se presenta? ¿Qué variables inciden en él? |
-| **Consecuencias** | ¿Qué ocurre si no se resuelve? |
-| **Situación actual y esperada** | ¿Cómo es la situación hoy y cómo sería una vez terminado el proyecto? |
+| **Contexto** | ¿En qué lugar y situación se presenta? |
+| **Naturaleza** | ¿En qué consiste exactamente el problema? |
+| **Magnitud** | ¿Qué tan grande es? (cifras y datos) |
+| **Causas** | ¿Por qué ocurre? |
+
+## Las partes del planteamiento (2)
+
+| Parte | Pregunta que responde |
+|---|---|
+| **Consecuencias** | ¿Qué pasa si no se resuelve? |
+| **Situación actual y esperada** | ¿Cómo está hoy y cómo estaría después del proyecto? |
 | **Delimitación** | ¿Dónde y en qué periodo se estudiará? |
 | **Pregunta de investigación** | Cierra el planteamiento (sesión 9). |
 
-::: {.callout-important}
-## Las afirmaciones se sustentan
-Cada afirmación del planteamiento debe apoyarse en fuentes válidas y recientes, preferiblemente de los últimos tres a cinco años. No se aceptan apreciaciones personales ni subjetivas como evidencia de que el problema existe.
+## Un ejemplo corto
+
+::: {.ejemplo data-t="Deserción en primer semestre (datos ilustrativos)"}
+- **Contexto:** programas de ingeniería de una universidad de la ciudad.
+- **Naturaleza:** muchos estudiantes abandonan en el primer año.
+- **Magnitud:** según el informe institucional de 2023, el 28 % no se matricula en segundo semestre.
+- **Causas:** dificultades en matemáticas, problemas económicos, poca orientación vocacional.
+- **Consecuencias:** pérdida de inversión para las familias y para la universidad.
+- **Delimitación:** cohortes de 2024 y 2025.
 :::
+
+## Todo se respalda con fuentes
+
+::: {.callout-important}
+## Nada de "yo creo"
+Cada afirmación debe apoyarse en **fuentes confiables y recientes** (idealmente de los últimos tres a cinco años). Una opinión personal **no** es prueba de que el problema existe.
+:::
+
+. . .
+
+| Débil | Fuerte (cita ficticia, solo como modelo) |
+|---|---|
+| "Es evidente que muchos jóvenes tienen ansiedad." | "El 32 % de los universitarios reporta síntomas de ansiedad moderada o grave (Pérez et al., 2023)." |
 
 ## El árbol de problemas
 
-El **árbol de problemas** es una herramienta para analizar un problema y organizar su descripción:
-
-- **Tronco:** el problema central.
-- **Raíces:** las causas directas e indirectas.
-- **Ramas:** los efectos o consecuencias.
+::: {.simple}
+Es un dibujo que ordena el problema como si fuera un árbol: el **tronco** es el problema, las **raíces** son las causas y las **ramas** son los efectos.
+:::
 
 ```
                  Efecto 1        Efecto 2        Efecto 3
@@ -47,43 +92,55 @@ El **árbol de problemas** es una herramienta para analizar un problema y organi
                  Causa 1         Causa 2         Causa 3
 ```
 
-Al redactar, cada causa se explica brevemente y se identifican las **variables** que intervienen en ella. Más adelante, el árbol de problemas se transforma en un árbol de objetivos (sesión 10): las causas se convierten en medios y el problema en el objetivo.
+## El árbol de problemas: ejemplo
 
-## Criterios para un buen planteamiento
+::: {.ejemplo data-t="Deserción en primer semestre"}
+- **Ramas (efectos):** pérdida económica para la familia, frustración del estudiante, menos profesionales formados.
+- **Tronco (problema):** alta deserción en primer semestre de ingeniería.
+- **Raíces (causas):** bajo nivel en matemáticas al ingresar, dificultades económicas, poca orientación sobre la carrera.
+:::
 
-**En el enfoque cuantitativo**, el problema:
+. . .
 
-- Expresa una relación entre dos o más conceptos o variables.
-- Se puede formular como una pregunta clara.
-- Permite una prueba empírica: es posible obtener datos para responderlo.
+Al escribir, cada causa se explica brevemente y se identifican las **variables** que intervienen en ella. En la sesión 10, este árbol se convierte en el **árbol de objetivos**.
 
-**En el enfoque cualitativo**, el planteamiento incluye el propósito, las preguntas de investigación, la justificación y una definición inicial del ambiente o contexto, y se espera que evolucione durante el estudio.
+## ¿Cómo saber si el planteamiento está bien?
 
-**Lista de verificación:**
+**En un enfoque cuantitativo**, el problema:
 
-- ¿Proviene de la revisión de la literatura?
-- ¿Hay una brecha claramente identificada?
-- ¿Está sustentado con evidencia y cifras?
-- ¿Es específico y está delimitado?
-- ¿Tiene relevancia científica, tecnológica o social?
-- ¿Puede transformarse en una pregunta de investigación?
+- Relaciona dos o más **variables** (por ejemplo, horas de sueño y notas).
+- Se puede convertir en una **pregunta** clara.
+- Se puede responder con **datos**.
 
-## Recomendaciones de redacción
+. . .
 
-- En una propuesta, el planteamiento se redacta en **tiempo presente o futuro**; en un informe final, en tiempo pasado.
-- Se avanza de lo general a lo particular: contexto, problema, causas, magnitud, delimitación y pregunta.
-- Se usa lenguaje **impersonal** ("se observa", "se propone").
-- Cada párrafo desarrolla una sola idea.
+**En un enfoque cualitativo**, el planteamiento presenta el propósito, las preguntas, por qué importa y el contexto. Se espera que **cambie** a medida que avanza el estudio.
+
+## Lista de chequeo
+
+- ¿Sale de lo que leyó en la literatura?
+- ¿Está claro el **hueco** (la brecha)?
+- ¿Tiene **datos y cifras** con su fuente?
+- ¿Está **delimitado** (dónde y cuándo)?
+- ¿Es **importante** para la ciencia, la tecnología o la sociedad?
+- ¿Se puede convertir en una **pregunta** de investigación?
+
+## Consejos para escribirlo
+
+- En un **anteproyecto** se escribe en **presente o futuro**; en un informe final, en pasado.
+- Vaya **de lo general a lo particular**: contexto → problema → causas → magnitud → delimitación → pregunta.
+- Use lenguaje **impersonal**: "se observa", "se propone".
+- **Una idea por párrafo.**
 
 ## Actividad en clase
 
-1. Cada grupo construye el **árbol de problemas** de su proyecto en una hoja o pizarra.
-2. Para cada causa, identifica al menos una fuente de la matriz de literatura que la respalde. Las causas sin respaldo se marcan para buscar evidencia adicional.
-3. Intercambio entre grupos: cada uno evalúa el árbol de otro con la lista de verificación.
+1. Cada grupo dibuja el **árbol de problemas** de su proyecto.
+2. Para cada causa, busque al menos una fuente de su matriz de literatura que la respalde. Marque las causas que aún no tienen respaldo.
+3. Intercambie el árbol con otro grupo, que lo revisa con la lista de chequeo.
 
 ## Avance del anteproyecto
 
-Redactar la **descripción del problema** (máximo 300 palabras) con contexto, naturaleza, magnitud con cifras, causas directas y sus variables, situación actual y esperada, y delimitación espacial y temporal. Incluir las citas correspondientes en APA.
+Escriba la **descripción del problema** (máximo 300 palabras) con: contexto, naturaleza, magnitud con cifras, causas y sus variables, situación actual y esperada, y delimitación en lugar y tiempo. Incluya las citas en APA.
 
 ## Lecturas recomendadas
 

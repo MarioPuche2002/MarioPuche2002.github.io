@@ -3,6 +3,18 @@ title: "Proyecciones y distancias"
 subtitle: "Clase 15 · Documento adicional · Distancias entre puntos, rectas y planos"
 ---
 
+## En la vida diaria: ¿a qué distancia está? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+¿Qué tan lejos está un dron del techo inclinado de una casa? ¿Cuál es la recta que mejor se ajusta a las notas de un curso según las horas de estudio?
+:::
+
+![](img/app_minimos.svg){fig-align="center" height="240px"}
+
+Las dos preguntas se responden con **proyecciones**: buscar el punto más cercano y medir la distancia. La segunda es la **regresión lineal**, el modelo más usado para predecir datos.
+
+**En esta clase:** aprenderá fórmulas para distancias entre puntos, rectas y planos.
+
 ## Objetivos de la clase
 
 - Usar la **proyección ortogonal** como herramienta para medir distancias.

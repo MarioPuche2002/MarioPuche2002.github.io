@@ -3,17 +3,36 @@ title: "Sesión 15 · Diseño de la investigación"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Seleccionar el diseño de investigación adecuado para responder la pregunta y alcanzar los objetivos, considerando la validez interna y externa del estudio.
+::: {.analogia data-t="Probar un fertilizante"}
+Para saber si un fertilizante sirve, no basta con echarlo a una planta y ver que crece: quizás iba a crecer igual. Lo correcto es tener **dos grupos de plantas parecidas**, ponerle el fertilizante solo a uno y **comparar**.
+:::
+
+. . .
+
+El **diseño** de la investigación es ese plan: cómo se van a obtener los datos para que la respuesta sea confiable.
+
+## ¿Qué vamos a lograr hoy?
+
+- Entender qué es el diseño de investigación.
+- Diferenciar diseños **experimentales** y **no experimentales**.
+- Reconocer qué puede "contaminar" los resultados (validez).
+- Organizar la metodología en **fases**.
 
 ## ¿Qué es el diseño?
 
-El **diseño de investigación** es el plan o la estrategia para obtener la información necesaria y responder la pregunta. La primera gran decisión es si el investigador **manipulará** o no alguna variable:
+::: {.simple}
+El **diseño** es el **plan** para conseguir la información que responde la pregunta.
+:::
+
+. . .
+
+La primera gran decisión: ¿usted va a **cambiar algo a propósito** (experimental) o solo va a **observar** lo que ya pasa (no experimental)?
 
 ```
 Diseños de investigación
-├── Experimentales (se manipula la variable independiente)
+├── Experimentales (se cambia algo a propósito)
 │   ├── Preexperimentos
 │   ├── Experimentos puros
 │   └── Cuasiexperimentos
@@ -22,113 +41,182 @@ Diseños de investigación
     └── Longitudinales
 ```
 
-## Diseños experimentales
+## ¿Qué es un experimento?
 
-Un **experimento** es un estudio en el que se manipula intencionalmente una o más variables independientes para analizar sus consecuencias sobre una o más variables dependientes, en una situación de control.
+::: {.simple}
+En un **experimento**, el investigador **cambia a propósito** una variable (la independiente) y **mide** qué le pasa a otra (la dependiente), controlando lo demás.
+:::
 
-**Requisitos:**
+. . .
 
-1. **Manipulación** de la variable independiente: por presencia o ausencia, por grados o por modalidades.
-2. **Medición** del efecto en la variable dependiente, con instrumentos válidos y confiables.
-3. **Control y validez interna**: confianza en que el efecto se debe a la variable manipulada y no a otros factores.
+Necesita tres cosas:
 
-**Grupos:**
+1. **Cambiar** la variable independiente (dar o no dar el tratamiento, o darlo en distintas cantidades).
+2. **Medir** el efecto con instrumentos confiables.
+3. **Controlar** lo demás, para estar seguro de que el efecto viene de lo que se cambió.
 
-- **Experimental:** recibe el tratamiento o estímulo.
-- **De control:** no lo recibe o recibe el tratamiento estándar; sirve de referencia.
+## Grupo experimental y grupo de control
 
-## Validez interna
-
-Es el grado de confianza en que los resultados se deben a la manipulación y no a otras causas. Sus principales amenazas son:
-
-| Amenaza | Descripción |
+| Grupo | ¿Qué recibe? |
 |---|---|
-| Historia | Eventos externos ocurridos durante el estudio. |
-| Maduración | Cambios naturales en los participantes con el paso del tiempo. |
-| Efecto de la preprueba | La primera medición influye en la segunda. |
-| Instrumentación | Cambios en el instrumento o en quien mide. |
-| Regresión a la media | Los valores extremos tienden a acercarse al promedio en una nueva medición. |
-| Selección | Los grupos no son equivalentes desde el inicio. |
-| Mortalidad experimental | Pérdida de participantes durante el estudio. |
-| Difusión del tratamiento | El grupo de control recibe parte del tratamiento. |
+| **Experimental** | El tratamiento o la novedad que se quiere probar. |
+| **De control** | Nada, o el tratamiento de siempre. Sirve para **comparar**. |
 
-La validez interna se controla con **al menos dos grupos de comparación** y con **grupos equivalentes** al inicio, logrados mediante **asignación aleatoria** o **emparejamiento** en las variables relevantes.
+. . .
 
-## Notación de los diseños
+::: {.ejemplo}
+- Grupo experimental: estudiantes que usan una app de práctica de matemáticas.
+- Grupo de control: estudiantes que estudian como siempre.
+- Al final se comparan las notas de los dos grupos.
+:::
 
-| Símbolo | Significado |
+## Validez interna: ¿el efecto es real?
+
+::: {.simple}
+La **validez interna** es la confianza en que el resultado se debe a lo que usted cambió, y **no a otra cosa**.
+:::
+
+. . .
+
+::: {.ejemplo}
+Si el grupo que usó la app mejoró, pero justo esa semana tuvo un profesor de refuerzo, ¿la mejora fue por la app o por el refuerzo?
+:::
+
+## ¿Qué puede contaminar los resultados?
+
+| Amenaza | En palabras sencillas |
 |---|---|
-| R | Asignación aleatoria |
-| G | Grupo de participantes o casos |
-| X | Tratamiento o estímulo |
-| O | Medición (antes del tratamiento: preprueba; después: posprueba) |
-| — | Ausencia de tratamiento (grupo de control) |
+| Historia | Pasó algo externo durante el estudio. |
+| Maduración | Los participantes cambiaron solos con el tiempo. |
+| Efecto de la primera prueba | Medir antes influyó en la segunda medición. |
+| Instrumentación | Cambió el instrumento o la persona que mide. |
 
-## Tipos de diseño experimental
+## ¿Qué puede contaminar los resultados? (2)
 
-| Diseño | Esquema | Características |
+| Amenaza | En palabras sencillas |
+|---|---|
+| Regresión a la media | Los valores extremos tienden a acercarse al promedio al medir otra vez. |
+| Selección | Los grupos eran distintos desde el principio. |
+| Abandono | Algunas personas se retiraron del estudio. |
+| Contagio del tratamiento | El grupo de control recibió parte del tratamiento. |
+
+. . .
+
+::: {.simple data-t="¿Cómo se controla?"}
+Con **al menos dos grupos** para comparar, y haciendo que sean **parecidos** desde el inicio: repartiendo a las personas **al azar** o emparejándolas por características importantes.
+:::
+
+## Cómo se escriben los diseños
+
+Se usa una notación corta:
+
+| Símbolo | Significa |
+|---|---|
+| R | Repartir al azar |
+| G | Grupo |
+| X | Tratamiento |
+| O | Medición (antes: preprueba; después: posprueba) |
+| — | Sin tratamiento (grupo de control) |
+
+. . .
+
+::: {.ejemplo}
+`R G₁ O₁ X O₂` / `R G₂ O₃ — O₄` se lee: "dos grupos formados al azar; a los dos se les mide antes y después, pero solo el primero recibe el tratamiento".
+:::
+
+## Tipos de diseño experimental (1)
+
+| Diseño | Esquema | En palabras sencillas |
 |---|---|---|
-| **Preexperimento:** estudio de caso con una medición | G X O | Control mínimo. Útil como primer acercamiento. |
-| **Preexperimento:** preprueba–posprueba con un grupo | G O₁ X O₂ | Hay punto de referencia inicial, pero no grupo de control. |
-| **Experimento puro:** posprueba y grupo de control | R G₁ X O₁ / R G₂ — O₂ | Grupos aleatorizados. |
-| **Experimento puro:** preprueba–posprueba y grupo de control | R G₁ O₁ X O₂ / R G₂ O₃ — O₄ | Permite verificar la equivalencia inicial. |
-| **Experimento puro:** cuatro grupos de Solomon | Combina los dos anteriores | Controla el efecto de la preprueba. |
-| **Experimento factorial** | Dos o más variables independientes con dos o más niveles | Analiza efectos individuales y su interacción. |
-| **Series cronológicas** | Varias mediciones a lo largo del tiempo | Evalúa efectos a corto y largo plazo. |
-| **Cuasiexperimento** | G₁ O₁ X O₂ / G₂ O₃ — O₄ (sin R) | Grupos ya formados; menor certeza sobre la equivalencia inicial. |
+| **Preexperimento** con una medición | G X O | Se aplica y se mide una vez. Control mínimo. |
+| **Preexperimento** antes y después | G O₁ X O₂ | Se mide antes y después, pero sin grupo de comparación. |
+| **Experimento puro** con grupo de control | R G₁ X O₁ / R G₂ — O₂ | Dos grupos al azar; solo uno recibe el tratamiento. |
+| **Experimento puro** antes y después | R G₁ O₁ X O₂ / R G₂ O₃ — O₄ | Igual, pero midiendo también al inicio. |
 
-## Validez externa
+## Tipos de diseño experimental (2)
 
-Es la posibilidad de **generalizar** los resultados a otras personas, situaciones y contextos. Se ve amenazada cuando los participantes no son representativos, cuando las condiciones del experimento son muy artificiales o cuando los participantes modifican su conducta por saberse observados.
+| Diseño | En palabras sencillas |
+|---|---|
+| **Cuatro grupos de Solomon** | Combina los anteriores para saber si medir antes influyó. |
+| **Factorial** | Prueba dos o más cosas a la vez y cómo se combinan. |
+| **Series de tiempo** | Mide muchas veces a lo largo del tiempo. |
+| **Cuasiexperimento** | Como el experimento, pero con grupos **ya formados** (por ejemplo, dos cursos), sin repartir al azar. |
 
-**Laboratorio frente a campo:** el experimento de laboratorio maximiza el control (validez interna); el experimento de campo, realizado en el ambiente natural, gana realismo (validez externa).
+## Validez externa: ¿sirve para otros?
+
+::: {.simple}
+La **validez externa** es qué tanto se pueden **generalizar** los resultados a otras personas, lugares y situaciones.
+:::
+
+. . .
+
+Se pierde cuando:
+
+- Los participantes no se parecen a la población que interesa.
+- Las condiciones del estudio son muy artificiales.
+- Las personas actúan distinto porque saben que las observan.
+
+. . .
+
+| Laboratorio | Campo |
+|---|---|
+| Mucho **control** (más validez interna) | Más **realismo** (más validez externa) |
 
 ## Diseños no experimentales
 
-En ellos **no se manipulan variables**: se observan los fenómenos tal como ocurren, porque las variables ya sucedieron o no pueden manipularse por razones prácticas o éticas.
+::: {.simple}
+Aquí **no se cambia nada**: se observa lo que ya pasa, porque no se puede o no sería ético cambiarlo (por ejemplo, no se puede poner a alguien a fumar para ver si se enferma).
+:::
 
-| Diseño | Descripción | Subtipos |
+| Diseño | ¿Cuándo se miden los datos? | Ejemplo |
 |---|---|---|
-| **Transversal** | Recolecta datos en un único momento. | Exploratorio, descriptivo, correlacional-causal. |
-| **Longitudinal** | Recolecta datos en varios momentos para analizar cambios. | **De tendencia:** misma población, distintos participantes. **De cohorte:** subgrupo específico seguido en el tiempo. **Panel:** los mismos participantes en cada medición. |
+| **Transversal** | **Una sola vez**, como una foto. | Encuesta de hábitos de sueño en marzo. |
+| **Longitudinal** | **Varias veces**, como una película. | Seguir a los mismos estudiantes durante cinco semestres. |
+
+## Tipos de estudio longitudinal
+
+| Tipo | ¿A quiénes se mide en cada momento? |
+|---|---|
+| **De tendencia** | A la **misma población**, pero a personas distintas cada vez. |
+| **De cohorte** | A un **grupo específico** (por ejemplo, los que entraron en 2024). |
+| **Panel** | A **las mismas personas** en todas las mediciones. |
 
 ## Otros diseños frecuentes
 
-- **Estudio de caso:** analiza en profundidad una unidad (una persona, un grupo, una organización, un objeto), con métodos cuantitativos, cualitativos o mixtos.
-- **Estudios de desarrollo tecnológico y validación:** diseñan un prototipo, algoritmo o modelo y lo evalúan frente a una referencia o al método estándar. Su metodología suele organizarse por fases: requerimientos, diseño, implementación, validación y análisis.
-- **Revisión sistemática:** cuando la pregunta se responde a partir de estudios ya publicados (sesión 5).
+- **Estudio de caso:** se analiza **a fondo una sola unidad** (una persona, una empresa, un proyecto).
+- **Desarrollo tecnológico y validación:** se **crea** un prototipo, programa o modelo y se **compara** con lo que ya existe. Suele ir por fases: requisitos, diseño, construcción, prueba y análisis.
+- **Revisión sistemática:** la pregunta se responde con **estudios ya publicados** (sesión 5).
 
-## Pasos para realizar un experimento
+## Pasos para hacer un experimento
 
-1. Decidir cuántas variables independientes y dependientes se incluirán.
-2. Elegir los niveles de manipulación y traducirlos en tratamientos.
-3. Desarrollar los instrumentos para medir las variables dependientes.
-4. Seleccionar la muestra y, si son personas, reclutarlas.
-5. Elegir el diseño apropiado para las hipótesis y objetivos.
-6. Planear cómo se manejarán los participantes.
-7. Asignar al azar o emparejar (experimento puro), o analizar los grupos intactos (cuasiexperimento).
-8. Aplicar las prepruebas, los tratamientos y las pospruebas.
+1. Decidir qué variables se van a cambiar y cuáles se van a medir.
+2. Definir los niveles del tratamiento (por ejemplo, 0, 15 o 30 minutos de práctica).
+3. Preparar los instrumentos de medición.
+4. Escoger y convocar a los participantes.
+5. Elegir el diseño.
+6. Repartir al azar o emparejar (o usar grupos ya formados, en un cuasiexperimento).
+7. Medir antes, aplicar el tratamiento y medir después.
 
-## Las fases metodológicas
+## La metodología por fases
 
-En el anteproyecto, el diseño se concreta en **fases**: cada una agrupa las actividades necesarias para alcanzar un objetivo específico. Por ejemplo:
+En el anteproyecto, el diseño se organiza en **fases**: cada fase reúne lo que hay que hacer para cumplir un objetivo específico.
 
-| Fase | Objetivo específico relacionado | Actividades |
+| Fase | Objetivo específico | Actividades |
 |---|---|---|
-| 1. Recolección y depuración de datos | Caracterizar a la población | Obtención de la base de datos, limpieza, análisis descriptivo. |
-| 2. Análisis de asociación | Identificar las variables asociadas | Pruebas estadísticas de asociación. |
-| 3. Modelado y evaluación | Comparar el desempeño de los modelos | Entrenamiento, validación y comparación de métricas. |
+| 1. Recolección y limpieza de datos | Caracterizar a la población | Conseguir la base de datos, limpiarla, describirla. |
+| 2. Análisis de relaciones | Identificar las variables relacionadas | Pruebas estadísticas. |
+| 3. Modelado y evaluación | Comparar los modelos | Entrenar, validar y comparar resultados. |
 
 ## Actividad en clase
 
-1. Cada grupo decide si su estudio es experimental o no experimental y justifica la decisión.
-2. Representa su diseño con la notación R, G, X, O.
-3. Identifica las dos principales amenazas a la validez interna de su estudio y propone cómo controlarlas.
-4. Organiza la metodología en fases relacionadas con los objetivos específicos.
+1. Cada grupo decide si su estudio es experimental o no experimental, y explica por qué.
+2. Escriba su diseño con la notación R, G, X, O.
+3. Identifique las dos principales amenazas a la validez interna y cómo las controlaría.
+4. Organice la metodología en fases relacionadas con los objetivos específicos.
 
 ## Avance del anteproyecto
 
-Redactar la primera parte del **diseño metodológico**: enfoque, tipo y diseño de investigación, y fases metodológicas relacionadas con los objetivos específicos.
+Escriba la primera parte del **diseño metodológico**: enfoque, tipo y diseño de investigación, y fases relacionadas con los objetivos específicos.
 
 ## Lecturas recomendadas
 

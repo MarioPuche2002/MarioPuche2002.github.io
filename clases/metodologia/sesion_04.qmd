@@ -3,82 +3,141 @@ title: "Sesión 4 · Búsqueda de literatura I: bases de datos y estrategias"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Diseñar y ejecutar una estrategia de búsqueda de literatura científica en bases de datos académicas, usando vocabulario controlado, operadores booleanos y filtros.
+::: {.analogia data-t="Buscar en el supermercado"}
+Si entra a un supermercado sin lista, da vueltas, compra cosas que no necesita y olvida lo importante. Con una lista organizada por pasillos, sale rápido y con lo que buscaba.
+:::
 
-## ¿Por qué buscar literatura?
+. . .
 
-La revisión de la literatura permite:
+Buscar artículos científicos es igual: sin una **estrategia** aparecen miles de resultados inútiles. Con una buena estrategia aparecen pocos y relevantes.
 
-- Verificar que la brecha planteada realmente existe.
-- Conocer qué se ha hecho, con qué métodos y con qué resultados.
-- Fundamentar el problema con cifras y evidencia.
-- Anticipar lo que podría ocurrir en el estudio y facilitar la interpretación de los resultados.
-- Demostrar a los evaluadores que el investigador conoce su campo.
+## ¿Qué vamos a lograr hoy?
+
+- Entender para qué se busca literatura.
+- Conocer los tipos de fuentes y las bases de datos académicas.
+- Construir una **ecuación de búsqueda** con palabras clave y operadores.
+
+## ¿Para qué buscar literatura?
+
+Leer lo que ya se ha publicado sirve para:
+
+- **Comprobar** que el hueco (la brecha) realmente existe.
+- **Aprender** qué se ha hecho antes, cómo y con qué resultados.
+- **Apoyar** el problema con datos y cifras.
+- **Anticipar** qué podría encontrar y entender mejor sus resultados.
+- **Demostrar** a quien evalúa que usted conoce su tema.
 
 ## Tipos de fuentes
 
-| Tipo | Descripción | Ejemplos |
+| Tipo | ¿Qué es? | Ejemplos |
 |---|---|---|
-| **Primarias** | Reportan resultados originales. | Artículos de investigación, tesis, patentes. |
-| **Secundarias** | Sintetizan o analizan fuentes primarias. | Revisiones narrativas, revisiones sistemáticas, metaanálisis. |
-| **Terciarias** | Organizan y remiten a otras fuentes. | Enciclopedias, bases de datos, catálogos. |
-| **Literatura gris** | Producción no publicada por editoriales comerciales. | Informes técnicos, tesis, memorias de congresos, registros de ensayos clínicos. |
+| **Primarias** | Cuentan resultados **originales**: la persona que investigó lo reporta. | Artículos de investigación, tesis, patentes. |
+| **Secundarias** | **Resumen o analizan** fuentes primarias. | Revisiones, metaanálisis. |
+| **Terciarias** | **Organizan** y llevan a otras fuentes. | Enciclopedias, catálogos, bases de datos. |
+| **Literatura gris** | Lo que no publica una editorial comercial. | Informes técnicos, tesis, memorias de congresos. |
 
-Para un anteproyecto se privilegian los **artículos revisados por pares** (*peer-reviewed*), es decir, evaluados por expertos antes de su publicación.
+## La fuente de mayor confianza
 
-## Bases de datos académicas
+::: {.simple}
+Para un anteproyecto, lo mejor son los **artículos revisados por pares** (*peer-reviewed*): antes de publicarlos, otros expertos los leyeron y los aprobaron.
+:::
 
-Un sistema de recuperación de información organiza los documentos mediante **metadatos**: título, autores, resumen, palabras clave, revista, año, tipo de publicación y DOI. La **indexación** es el proceso de asignar esos metadatos, y puede ser:
+. . .
 
-- **Automática:** por la frecuencia de las palabras en el texto, como en los buscadores generales.
-- **Manual con vocabulario controlado:** especialistas asignan términos normalizados de un tesauro.
+::: {.analogia}
+Es como una receta que ya probaron varios chefs antes de ponerla en el libro, frente a una receta que alguien subió a redes sin probar.
+:::
 
-Bases de datos de uso frecuente:
+## ¿Cómo organiza la información una base de datos?
+
+Cada artículo tiene una "ficha" con sus **metadatos**: título, autores, resumen, palabras clave, revista, año y DOI.
+
+. . .
+
+Esas fichas se llenan de dos formas:
+
+- **Automática:** el sistema mira qué palabras aparecen en el texto (como Google).
+- **Manual con vocabulario controlado:** una persona experta asigna términos oficiales de una lista.
+
+## Bases de datos más usadas
 
 | Base de datos | Área |
 |---|---|
-| PubMed / MEDLINE | Ciencias de la salud y biomedicina |
-| Scopus | Multidisciplinaria |
-| Web of Science | Multidisciplinaria |
+| PubMed / MEDLINE | Salud y biomedicina |
+| Scopus | Todas las áreas |
+| Web of Science | Todas las áreas |
 | IEEE Xplore | Ingeniería eléctrica, electrónica y computación |
-| ScienceDirect | Multidisciplinaria |
-| SciELO y Redalyc | Revistas de América Latina, en acceso abierto |
-| Google Académico | Buscador general de literatura académica |
+| ScienceDirect | Todas las áreas |
+| SciELO y Redalyc | Revistas de América Latina, de acceso abierto |
+| Google Académico | Buscador general de documentos académicos |
 
-## Vocabulario controlado
+## Vocabulario controlado: una sola palabra oficial
 
-Un **tesauro** es un vocabulario normalizado y jerárquico que agrupa sinónimos bajo un único término. El más conocido es **MeSH** (*Medical Subject Headings*), usado en PubMed, que contiene decenas de miles de descriptores organizados en árboles temáticos. Su equivalente en español y portugués es **DeCS** (*Descriptores en Ciencias de la Salud*).
+::: {.simple}
+Distintos autores llaman a lo mismo de formas diferentes. Un **tesauro** escoge **una palabra oficial** para cada concepto y agrupa ahí todos sus sinónimos.
+:::
 
-Usar el término controlado recupera todos los artículos indexados con ese concepto, sin importar cómo lo hayan escrito los autores. Por ejemplo, el descriptor MeSH `Hypertension` recupera artículos que hablan de *high blood pressure*.
+. . .
 
-## Identificar los términos de búsqueda
+::: {.ejemplo}
+"Presión alta", "presión arterial elevada" e *high blood pressure* son lo mismo. En PubMed, el término oficial es `Hypertension`: al buscarlo, aparecen los artículos escritos con cualquiera de esos nombres.
+:::
 
-1. **Dividir la pregunta en conceptos**, idealmente no más de tres.
-2. Para cada concepto, buscar el **término controlado** y los **términos libres** (sinónimos, variantes, abreviaturas, singular y plural).
-3. Considerar diferencias de ortografía, terminaciones (*lesión, lesiones, lesionado*) y abreviaturas (*IA*, *inteligencia artificial*).
+. . .
 
-**Ejemplo.** Pregunta: ¿Cuál es la exactitud de los modelos de aprendizaje profundo para detectar retinopatía diabética en fotografías de fondo de ojo?
+El tesauro de salud más conocido es **MeSH** (en inglés); su versión en español y portugués es **DeCS**.
 
-| Tipo de término | Concepto 1 | Concepto 2 | Concepto 3 |
-|---|---|---|---|
-| | Aprendizaje profundo | Retinopatía diabética | Exactitud diagnóstica |
-| **Controlado (MeSH)** | `"Deep Learning"[Mesh]` | `"Diabetic Retinopathy"[Mesh]` | `"Sensitivity and Specificity"[Mesh]` |
-| **Libre** | deep learning, convolutional neural network*, CNN | diabetic retinopathy, DR | accuracy, sensitivity, specificity, AUC |
+## Paso 1: dividir la pregunta en conceptos
 
-## Combinar los términos
+Tome su pregunta y sepárela en **dos o tres ideas** principales.
 
-| Herramienta | Uso | Ejemplo |
+::: {.ejemplo}
+**Pregunta:** ¿Qué tan exactos son los programas de aprendizaje profundo para detectar retinopatía diabética en fotos del fondo del ojo?
+
+| Concepto 1 | Concepto 2 | Concepto 3 |
 |---|---|---|
-| `OR` | Une sinónimos de un **mismo** concepto (amplía). | `"deep learning" OR CNN` |
-| `AND` | Une conceptos **distintos** (restringe). | `"deep learning" AND "diabetic retinopathy"` |
-| `NOT` | Excluye un término (usar con precaución). | `retinopathy NOT prematurity` |
-| Paréntesis | Agrupan y definen el orden de las operaciones. | `(A OR B) AND (C OR D)` |
-| Comillas | Buscan la frase exacta. | `"neural network"` |
-| Truncamiento `*` | Recupera todas las terminaciones de una raíz. | `classif*` → classification, classifier |
+| Aprendizaje profundo | Retinopatía diabética | Exactitud del diagnóstico |
+:::
 
-**Ecuación de búsqueda del ejemplo:**
+## Paso 2: buscar las palabras de cada concepto
+
+Para cada concepto, anote:
+
+- El **término oficial** (controlado).
+- Los **sinónimos**, abreviaturas, singular y plural (términos libres).
+
+| | Concepto 1 | Concepto 2 | Concepto 3 |
+|---|---|---|---|
+| **Oficial (MeSH)** | `"Deep Learning"[Mesh]` | `"Diabetic Retinopathy"[Mesh]` | `"Sensitivity and Specificity"[Mesh]` |
+| **Libres** | deep learning, CNN, convolutional neural network* | diabetic retinopathy, DR | accuracy, sensitivity, specificity |
+
+## Paso 3: unir las palabras con operadores
+
+| Operador | ¿Qué hace? | Ejemplo |
+|---|---|---|
+| `OR` | Une **sinónimos** del mismo concepto: trae **más** resultados. | `"deep learning" OR CNN` |
+| `AND` | Une **conceptos distintos**: trae **menos** resultados, más precisos. | `"deep learning" AND "diabetic retinopathy"` |
+| `NOT` | **Excluye** una palabra (con cuidado). | `retinopathy NOT prematurity` |
+
+. . .
+
+::: {.analogia}
+`OR` es "cualquiera de estos", `AND` es "todos a la vez" y `NOT` es "menos este".
+:::
+
+## Más herramientas de búsqueda
+
+| Herramienta | ¿Qué hace? | Ejemplo |
+|---|---|---|
+| Paréntesis `( )` | Agrupan, como en matemáticas. | `(A OR B) AND (C OR D)` |
+| Comillas `" "` | Buscan la frase **exacta**. | `"neural network"` |
+| Asterisco `*` | Busca todas las terminaciones de una palabra. | `classif*` → classification, classifier |
+
+## La ecuación de búsqueda completa
+
+Cada concepto va entre paréntesis con sus sinónimos unidos por `OR`, y los conceptos se unen con `AND`:
 
 ```
 ("Deep Learning"[Mesh] OR "deep learning" OR "convolutional neural network*" OR CNN)
@@ -86,33 +145,38 @@ AND ("Diabetic Retinopathy"[Mesh] OR "diabetic retinopathy")
 AND ("Sensitivity and Specificity"[Mesh] OR accuracy OR sensitivity OR specificity)
 ```
 
-## Filtros
+## Paso 4: aplicar filtros
 
-Los filtros más útiles son el **año de publicación** (generalmente los últimos cinco años), el **idioma**, el **tipo de artículo** (por ejemplo, revisiones o ensayos clínicos) y la **especie** (humanos o animales).
+Los filtros recortan los resultados. Los más útiles:
 
-## Pasos para una búsqueda efectiva
+- **Año:** por lo general, los últimos cinco años.
+- **Idioma:** por ejemplo, inglés y español.
+- **Tipo de artículo:** revisiones, ensayos clínicos, etc.
+- **Población:** humanos o animales.
 
-1. Definir el tema y los conceptos de búsqueda.
-2. Identificar los términos controlados y libres.
-3. Combinar los términos y ejecutar la búsqueda.
-4. Recuperar el texto completo de los artículos relevantes.
-5. Gestionar las referencias (sesión 5).
+## Resumen: búsqueda en cinco pasos
+
+1. Dividir la pregunta en **conceptos**.
+2. Buscar los términos **oficiales** y los **sinónimos**.
+3. Unirlos con **operadores** y ejecutar la búsqueda.
+4. **Filtrar** y conseguir el texto completo de los artículos útiles.
+5. **Guardar y organizar** las referencias (sesión 5).
 
 ## Actividad en clase
 
 Taller en PubMed:
 
-1. Buscar el término MeSH correspondiente a "presión arterial alta". ¿En qué árboles temáticos aparece?
-2. Buscar `hypertension` como texto libre y luego como término MeSH. Registrar cuántos resultados se obtienen en cada caso y explicar la diferencia.
-3. Combinar con el término MeSH de "ejercicio" mediante `AND`. Registrar el número de resultados.
-4. Aplicar los filtros de los últimos cinco años, humanos, inglés y español. Registrar el número final de resultados.
-5. Repetir la búsqueda más afinada en una segunda base de datos y comparar.
+1. Busque el término MeSH para "presión arterial alta". ¿En qué categorías aparece?
+2. Busque `hypertension` como texto libre y luego como término MeSH. Anote cuántos resultados salen en cada caso y explique la diferencia.
+3. Agregue con `AND` el término MeSH de "ejercicio". Anote el número de resultados.
+4. Filtre: últimos cinco años, humanos, inglés y español. Anote el número final.
+5. Repita la búsqueda en una segunda base de datos y compare.
 
 ## Avance del anteproyecto
 
-1. Dividir el problema preliminar en sus **conceptos principales**.
-2. Construir la **tabla de términos** (controlados y libres) para cada concepto.
-3. Redactar la **ecuación de búsqueda** y ejecutarla en al menos dos bases de datos, registrando la fecha, los filtros aplicados y el número de resultados.
+1. Divida su problema en sus **conceptos principales**.
+2. Haga la **tabla de términos** (oficiales y sinónimos) para cada concepto.
+3. Escriba su **ecuación de búsqueda** y úsela en al menos dos bases de datos. Anote la fecha, los filtros y el número de resultados.
 
 ## Lecturas recomendadas
 

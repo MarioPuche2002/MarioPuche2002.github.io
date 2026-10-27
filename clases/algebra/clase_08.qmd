@@ -3,6 +3,18 @@ title: "Determinantes: definiciones"
 subtitle: "Clase 8 · Sección 3.1 · Menores, cofactores y expansión de Laplace"
 ---
 
+## En la vida diaria: ¿cuánto crece una foto? {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Al ampliar una foto al doble de ancho y al doble de alto, ¿cuántas veces más espacio ocupa?
+:::
+
+![](img/app_det_imagen.png){fig-align="center" height="230px"}
+
+Ocupa **cuatro** veces más. Hay un número que dice cuánto cambia el área cuando se transforma una figura con una matriz: el **determinante**. Si es negativo, la figura además queda en espejo; si es cero, queda aplastada.
+
+**En esta clase:** aprenderá a calcular determinantes de matrices de cualquier tamaño.
+
 ## Objetivos de la clase
 
 - Calcular determinantes $2\times2$ y $3\times3$ (incluida la regla de Sarrus).

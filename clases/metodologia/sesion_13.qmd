@@ -3,14 +3,26 @@ title: "Sesión 13 · Marco teórico: antecedentes, marco teórico y marco conce
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Comprender la función del marco teórico en la investigación, diferenciar antecedentes, marco teórico y marco conceptual, y construirlos a partir de la literatura revisada.
+::: {.analogia data-t="Los cimientos de una casa"}
+Nadie construye una casa sobre la tierra suelta: primero se hacen los cimientos. No se ven al final, pero sostienen todo.
+:::
+
+. . .
+
+El **marco teórico** son los cimientos de la investigación: lo que ya se sabe (estudios, teorías y conceptos) sobre lo que se apoya el proyecto.
+
+## ¿Qué vamos a lograr hoy?
+
+- Entender para qué sirve el marco teórico.
+- Diferenciar **antecedentes**, **marco teórico** y **marco conceptual**.
+- Construirlo a partir de lo que ya leyó en su matriz de literatura.
 
 ## ¿Qué es el marco teórico?
 
-::: {.definicion}
-El **marco teórico** es el conjunto de **conceptos, teorías, enfoques y antecedentes** que el investigador selecciona y organiza para **sustentar y guiar** su trabajo. Ofrece la perspectiva desde la cual se aborda el problema, orienta el diseño metodológico y sirve de base para interpretar los resultados (Hernández-Sampieri & Mendoza, 2018).
+::: {.simple}
+El **marco teórico** reúne **lo que ya se sabe** sobre el tema (estudios anteriores, teorías y conceptos) y lo organiza para **apoyar y guiar** la investigación. Sirve para decidir cómo estudiar el problema y, al final, para entender los resultados (Hernández-Sampieri & Mendoza, 2018).
 :::
 
 . . .
@@ -29,10 +41,26 @@ Además, ayuda a **evitar errores** cometidos en estudios previos, a formular **
 
 ![](img/marco_vs.svg){fig-align="center" width="95%"}
 
+## Las tres partes en una frase
+
+::: {.simple}
+- **Antecedentes:** ¿qué **estudios** se han hecho antes sobre esto?
+- **Marco teórico:** ¿qué **teorías** explican el fenómeno?
+- **Marco conceptual:** ¿qué significa **cada palabra clave** en mi estudio?
+:::
+
+. . .
+
+::: {.analogia data-t="Un partido de fútbol"}
+- **Antecedentes:** los resultados de los partidos anteriores entre los dos equipos.
+- **Marco teórico:** las tácticas y estrategias que explican cómo juega cada equipo.
+- **Marco conceptual:** qué se entiende por "fuera de lugar", "penalti" o "tiro de esquina".
+:::
+
 ## Los antecedentes
 
-::: {.definicion}
-Los **antecedentes** son las **investigaciones previas** relacionadas con el problema. Muestran qué se ha estudiado, cómo, con qué resultados y qué queda por resolver.
+::: {.simple}
+Los **antecedentes** son los **estudios que otras personas ya hicieron** sobre su problema: qué estudiaron, cómo lo hicieron, qué encontraron y qué quedó sin resolver.
 :::
 
 . . .
@@ -53,8 +81,8 @@ Se recomienda organizarlos de lo **internacional a lo local**, o por **temas**, 
 
 ## El marco teórico (propiamente dicho)
 
-::: {.definicion}
-Presenta las **teorías, modelos y enfoques** que **explican** el fenómeno y en los que se apoya el estudio.
+::: {.simple}
+Presenta las **teorías y modelos** que **explican por qué** ocurre el fenómeno que va a estudiar.
 :::
 
 . . .
@@ -73,8 +101,8 @@ No se trata de copiar todo lo que se sabe del tema, sino de elegir las teorías 
 
 ## El marco conceptual
 
-::: {.definicion}
-Define los **conceptos clave** del estudio tal como se entenderán en la investigación, con base en autores reconocidos.
+::: {.simple}
+Es un pequeño **glosario**: explica qué significa cada palabra clave **en su estudio**, apoyándose en autores reconocidos.
 :::
 
 . . .

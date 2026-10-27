@@ -3,6 +3,18 @@ title: "Propiedades de los determinantes"
 subtitle: "Clase 9 · Sección 3.2 · Operaciones elementales, producto y transpuesta"
 ---
 
+## En la vida diaria: el área de un terreno {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Un topógrafo mide con GPS las esquinas de un lote. ¿Cómo calcula el área sin dibujar nada?
+:::
+
+![](img/app_lote.svg){fig-align="center" height="230px"}
+
+Con una suma de **determinantes** de las coordenadas de las esquinas. Para hacer esos cálculos rápido, sin expandir fórmulas largas, se usan las **propiedades** de los determinantes.
+
+**En esta clase:** aprenderá las propiedades que permiten calcular determinantes grandes con pocos pasos.
+
 ## Objetivos de la clase
 
 - Conocer el efecto de cada **operación elemental** sobre el determinante.

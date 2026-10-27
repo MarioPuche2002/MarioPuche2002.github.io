@@ -3,117 +3,204 @@ title: "Sesión 5 · Búsqueda de literatura II: lectura crítica y gestión de 
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Seleccionar, leer críticamente y organizar la literatura recuperada, y citarla correctamente según las normas APA, séptima edición.
+::: {.analogia data-t="Comprar un celular usado"}
+Antes de comprar un celular usado, usted no se queda solo con la foto del anuncio: revisa la pantalla, la batería, pregunta cuánto tiempo tiene y desconfía si el precio es demasiado bueno.
+:::
 
-## Estructura del artículo científico
+. . .
 
-La mayoría de los artículos de investigación siguen la estructura **IMRyD**: Introducción, Métodos, Resultados y Discusión. Cada sección cumple una función:
+Con los artículos científicos pasa lo mismo: no basta con que el título suene bien. Hay que **revisarlos con ojo crítico** antes de usarlos.
 
-| Sección | Función |
+## ¿Qué vamos a lograr hoy?
+
+- Conocer las partes de un artículo científico.
+- Leer de forma rápida y crítica.
+- Organizar lo leído en una **matriz de literatura**.
+- Guardar y citar las fuentes con un **gestor de referencias**.
+
+## Las partes de un artículo: IMRyD
+
+La mayoría de los artículos de investigación tienen las mismas partes, en este orden:
+
+- **I**ntroducción
+- **M**étodos
+- **R**esultados
+- **y**
+- **D**iscusión
+
+. . .
+
+Además llevan un **resumen** al inicio y **conclusiones** al final.
+
+## ¿Para qué sirve cada parte? {.compacto}
+
+| Parte | En palabras sencillas |
 |---|---|
-| **Resumen** | Atrae al lector: informa el propósito, los métodos, los resultados y las conclusiones en pocas líneas. |
-| **Introducción** | Cuenta la historia que prepara el estudio: contexto, antecedentes y brecha de conocimiento. Termina con el objetivo del trabajo. |
-| **Métodos** | Es la receta: describe materiales, participantes y procedimientos con detalle suficiente para replicar el estudio. Da credibilidad a los resultados. |
-| **Resultados** | Presenta la evidencia: hallazgos y análisis estadísticos, sin interpretarlos. |
-| **Discusión** | Interpreta los resultados, los compara con estudios previos, reconoce limitaciones y vuelve al panorama general. |
-| **Conclusiones** | Sintetiza los hallazgos y sus implicaciones para investigaciones futuras. |
+| **Resumen** | El "tráiler": cuenta en pocas líneas qué se hizo, cómo y qué se encontró. |
+| **Introducción** | La historia de fondo: qué se sabe, qué falta (la brecha) y cuál es el objetivo. |
+| **Métodos** | La "receta": qué se usó y cómo se hizo, con detalle para que otro lo repita. |
+| **Resultados** | Lo que se encontró: datos, tablas y gráficas, **sin opinar** todavía. |
+| **Discusión** | Qué significan los resultados, cómo se comparan con otros estudios y qué limitaciones hubo. |
+| **Conclusiones** | Las ideas principales y qué falta por investigar. |
 
-El artículo tiene forma de **reloj de arena**: la introducción va de lo general a lo particular; los métodos y resultados son específicos; y la discusión regresa de lo particular a lo general.
+## La forma de reloj de arena
 
-## Lectura eficiente
+::: {.simple}
+Un artículo empieza **amplio**, se vuelve **muy concreto** y termina otra vez **amplio**.
+:::
 
-Para decidir si un artículo es útil no es necesario leerlo completo. Se recomienda:
+- **Introducción:** de lo general (el tema) a lo particular (la pregunta).
+- **Métodos y resultados:** lo más específico del estudio.
+- **Discusión:** de lo particular (sus datos) a lo general (qué significa para el tema).
 
-1. Leer el **título** y el **resumen**.
-2. Si es pertinente, revisar las **figuras y tablas**, y las **conclusiones**.
-3. Si sigue siendo pertinente, leer la **introducción** y los **métodos** en detalle.
+## Leer sin perder tiempo
 
-## Lectura crítica
+No hace falta leer todo el artículo para saber si sirve. Siga este orden y deténgase cuando vea que no le sirve:
 
-Al leer un artículo conviene preguntarse:
+1. **Título** y **resumen**.
+2. **Figuras, tablas** y **conclusiones**.
+3. Si sigue siendo útil: **introducción** y **métodos** completos.
 
-- ¿La pregunta y el objetivo están claramente definidos?
-- ¿El diseño es adecuado para responder la pregunta?
-- ¿La muestra es suficiente y representativa?
-- ¿Los métodos están descritos con detalle suficiente para replicarlos?
-- ¿Los resultados responden al objetivo? ¿El análisis estadístico es apropiado?
-- ¿Las conclusiones se derivan de los resultados o van más allá de ellos?
-- ¿Se reconocen las limitaciones?
+. . .
 
-En muchas áreas existen **guías de reporte** que indican qué debe informar un estudio según su tipo, y que también sirven como listas de verificación para la lectura crítica. Por ejemplo, CONSORT para ensayos clínicos, STROBE para estudios observacionales, PRISMA para revisiones sistemáticas y CLAIM para estudios de inteligencia artificial en imágenes médicas. Pueden consultarse en la red EQUATOR (<https://www.equator-network.org>).
+::: {.obs}
+De 50 artículos encontrados, es normal que solo 10 o 15 lleguen al paso 3.
+:::
+
+## Leer con ojo crítico
+
+Al leer un artículo, pregúntese:
+
+- ¿Está **clara** la pregunta y el objetivo?
+- ¿El **diseño** sirve para responder esa pregunta?
+- ¿La **muestra** es suficiente y se parece a la población que interesa?
+- ¿Los **métodos** están tan bien explicados que otro podría repetirlos?
+- ¿Los **resultados** responden al objetivo?
+- ¿Las **conclusiones** salen de los resultados, o dicen más de lo que los datos muestran?
+- ¿Reconocen sus **limitaciones**?
+
+## Listas de chequeo según el tipo de estudio
+
+Existen **guías de reporte**: listas de lo que debe contar un estudio según su tipo. Sirven para escribir y también para revisar.
+
+| Guía | Tipo de estudio |
+|---|---|
+| CONSORT | Ensayos clínicos |
+| STROBE | Estudios observacionales |
+| PRISMA | Revisiones sistemáticas |
+| CLAIM | Inteligencia artificial en imágenes médicas |
+
+Todas están en la red EQUATOR: <https://www.equator-network.org>
 
 ## Tipos de revisión de la literatura
 
-| Tipo | Características |
+| Tipo | En palabras sencillas |
 |---|---|
-| **Revisión narrativa** | Resume la literatura de un tema de forma amplia, sin un método de búsqueda explícito. |
-| **Revisión de alcance** (*scoping review*) | Mapea la literatura disponible sobre un tema para identificar conceptos y vacíos. |
-| **Revisión sistemática** | Responde una pregunta específica con un método explícito y reproducible de búsqueda, selección, evaluación y síntesis. |
-| **Metaanálisis** | Combina estadísticamente los resultados de varios estudios de una revisión sistemática. |
+| **Narrativa** | Un resumen amplio del tema, sin un método de búsqueda detallado. |
+| **De alcance** (*scoping*) | Un "mapa" de lo que existe sobre un tema y de dónde están los huecos. |
+| **Sistemática** | Responde una pregunta concreta siguiendo un método riguroso que otro puede repetir. |
+| **Metaanálisis** | Junta matemáticamente los resultados de varios estudios de una revisión sistemática. |
 
-Una revisión sistemática sigue, en términos generales, estas etapas: formular la pregunta, verificar que no exista una revisión previa, escribir un protocolo, diseñar la estrategia de búsqueda, buscar en varias bases de datos, eliminar duplicados, seleccionar por título y resumen, revisar los textos completos, evaluar la calidad de los estudios, extraer los datos, sintetizarlos y redactar el informe. La selección se hace preferiblemente por dos revisores independientes, que resuelven sus desacuerdos por consenso, y el proceso se documenta con el diagrama de flujo **PRISMA**.
+## ¿Cómo se hace una revisión sistemática?
+
+1. Formular la pregunta y comprobar que no exista ya una revisión igual.
+2. Escribir un **plan** (protocolo).
+3. Buscar en **varias** bases de datos y eliminar los duplicados.
+4. Seleccionar por título y resumen, y luego leyendo el texto completo.
+5. Evaluar la calidad de cada estudio.
+6. Extraer los datos, juntarlos y escribir el informe.
+
+. . .
+
+::: {.obs}
+La selección la hacen **dos personas por separado**, que luego comparan y resuelven sus diferencias. Todo el proceso se resume en un diagrama llamado **PRISMA**.
+:::
 
 ## La matriz de literatura
 
-Una **matriz de literatura** es una tabla que organiza los artículos revisados y facilita la escritura del marco referencial. Columnas sugeridas:
+::: {.simple}
+Es una **tabla** donde se anota lo más importante de cada artículo leído. Así no hay que volver a leerlos para escribir el marco teórico.
+:::
 
 | Referencia (APA) | Objetivo | Población o datos | Método | Resultados principales | Limitaciones | Aporte a mi proyecto |
 |---|---|---|---|---|---|---|
+| García et al. (2023) | … | … | … | … | … | … |
+
+. . .
+
+La última columna es la más importante: **¿para qué me sirve este artículo?**
 
 ## Gestores de referencias
 
-Un **gestor de referencias** guarda las referencias, almacena los PDF, permite agregar notas y genera automáticamente las citas y la lista de referencias en el formato requerido. Opciones gratuitas: **Zotero** y **Mendeley**. Se integran con Word y Google Docs.
+::: {.simple}
+Un **gestor de referencias** es como una "biblioteca personal": guarda los artículos y sus PDF, deja tomar notas y escribe automáticamente las citas y la lista de referencias en APA u otro formato.
+:::
 
-## Citas y referencias en APA, séptima edición
+. . .
 
-**Citas en el texto:**
+- Opciones gratuitas: **Zotero** y **Mendeley**.
+- Se conectan con Word y Google Docs: se inserta la cita con un clic.
 
-| Tipo | Un autor | Dos autores | Tres o más autores |
+## Citar en APA: lo básico
+
+**Cita en el texto:**
+
+| Forma | Un autor | Dos autores | Tres o más |
 |---|---|---|---|
-| Parentética | (García, 2023) | (García & López, 2023) | (García et al., 2023) |
-| Narrativa | García (2023) | García y López (2023) | García et al. (2023) |
+| Entre paréntesis | (García, 2023) | (García & López, 2023) | (García et al., 2023) |
+| Dentro de la frase | García (2023) | García y López (2023) | García et al. (2023) |
 
-Las citas textuales de menos de 40 palabras van entre comillas e incluyen la página: (García, 2023, p. 15). Las de 40 palabras o más se escriben en bloque, con sangría y sin comillas.
+. . .
 
-**Referencias:**
+- Si copia **textual** menos de 40 palabras: entre comillas y con página, (García, 2023, p. 15).
+- Si son 40 palabras o más: en un bloque aparte, con sangría y sin comillas.
 
-- **Artículo de revista:**
-  Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. *Nombre de la Revista, volumen*(número), páginas. https://doi.org/xxxx
-- **Libro:**
-  Apellido, A. A. (Año). *Título del libro* (ed.). Editorial.
-- **Página web:**
-  Autor u organización. (Año, día de mes). *Título de la página*. Nombre del sitio. URL
+## La lista de referencias en APA
 
-La lista de referencias se ordena alfabéticamente por el apellido del primer autor, con sangría francesa.
+- **Artículo:** Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. *Nombre de la Revista, volumen*(número), páginas. https://doi.org/xxxx
+- **Libro:** Apellido, A. A. (Año). *Título del libro* (ed.). Editorial.
+- **Página web:** Autor u organización. (Año, día de mes). *Título de la página*. Nombre del sitio. URL
+
+. . .
+
+La lista va **en orden alfabético** por el apellido del primer autor. En la sesión 6 se ve APA en detalle.
 
 ## Integridad académica
 
-Presentar ideas, datos o textos de otros sin citarlos constituye **plagio**, aunque se haya cambiado la redacción. Toda idea tomada de una fuente debe citarse, se transcriba literalmente o se parafrasee.
+::: {.simple}
+Usar ideas, datos o textos de otra persona **sin citarla** es **plagio**, aunque se cambien las palabras.
+:::
 
-## ¿La revisión fue suficiente?
+. . .
 
-Antes de dar por terminada la búsqueda, conviene verificar:
+- Si copia textual: comillas y cita.
+- Si lo dice con sus palabras (parafrasear): también cita.
+- La única forma de no citar es que la idea sea **suya**.
 
-1. ¿Se consultaron al menos dos bases de datos especializadas?
-2. ¿Se revisaron publicaciones de los últimos cinco años?
-3. ¿Se identificaron las revistas que publican con frecuencia sobre el tema?
-4. ¿Se buscaron tesis y literatura gris?
-5. ¿Se consultaron libros de referencia del área?
-6. ¿Se consultó a personas expertas en el tema?
+## ¿Ya busqué suficiente?
+
+Antes de terminar la búsqueda, revise:
+
+1. ¿Busqué en al menos **dos** bases de datos especializadas?
+2. ¿Incluí artículos de los **últimos cinco años**?
+3. ¿Sé qué **revistas** publican seguido sobre el tema?
+4. ¿Busqué **tesis** e informes (literatura gris)?
+5. ¿Revisé **libros** de referencia del área?
+6. ¿Pregunté a alguna persona **experta**?
 
 ## Actividad en clase
 
-1. Instalar un gestor de referencias e importar los resultados de la búsqueda de la sesión anterior.
-2. Seleccionar por título y resumen los artículos pertinentes.
-3. Leer uno de ellos con la guía de lectura crítica y completar su fila en la matriz de literatura.
+1. Instale un gestor de referencias e importe los resultados de la búsqueda de la sesión anterior.
+2. Seleccione por título y resumen los artículos que sirven.
+3. Lea uno con las preguntas de lectura crítica y llene su fila en la matriz de literatura.
 
 ## Avance del anteproyecto
 
-1. **Matriz de literatura** con al menos diez artículos pertinentes, preferiblemente de los últimos cinco años, nacionales e internacionales.
-2. **Lista de referencias** de esos artículos en formato APA, séptima edición.
-3. Un párrafo que indique si la brecha planteada en la sesión 3 se confirmó, cambió o debe reformularse.
+1. **Matriz de literatura** con al menos diez artículos útiles, preferiblemente de los últimos cinco años, nacionales e internacionales.
+2. **Lista de referencias** de esos artículos en APA, séptima edición.
+3. Un párrafo que diga si la brecha de la sesión 3 se **confirmó**, **cambió** o hay que **reformularla**.
 
 ## Lecturas recomendadas
 

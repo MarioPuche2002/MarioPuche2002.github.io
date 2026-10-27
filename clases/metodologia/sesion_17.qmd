@@ -3,84 +3,157 @@ title: "Sesión 17 · Análisis de datos I: estadística descriptiva y pruebas p
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Describir un conjunto de datos, comprender la lógica de la prueba de hipótesis y aplicar las principales pruebas paramétricas con Python.
+::: {.analogia data-t="El promedio del curso"}
+Si le dicen que el promedio del curso fue 3.5, ya sabe algo. Pero no es lo mismo que todos hayan sacado entre 3.3 y 3.7, a que la mitad haya sacado 1.0 y la otra mitad 5.0.
+:::
 
-## Del dato a la decisión
+. . .
 
-El análisis cuantitativo tiene dos momentos:
+La **estadística** sirve para **resumir** los datos (cómo son) y para **decidir** si una diferencia es real o solo casualidad.
 
-1. **Estadística descriptiva:** resume y describe los datos de la muestra.
-2. **Estadística inferencial:** usa la muestra para sacar conclusiones sobre la población, mediante la estimación de parámetros y la prueba de hipótesis.
+## ¿Qué vamos a lograr hoy?
 
-Antes de cualquier análisis es necesario identificar el **tipo de cada variable** (sesión 14): nominal, ordinal, discreta o continua. El tipo de variable determina qué medidas y qué pruebas son apropiadas.
+- Resumir datos con medidas como el promedio y la desviación estándar.
+- Entender cómo se decide con una **prueba de hipótesis** y qué es el **valor *p***.
+- Aplicar las pruebas **paramétricas** más usadas con Python.
 
-## Estadística descriptiva
+## Dos momentos del análisis
 
-| Medida | Qué indica | Uso |
+::: {.simple}
+1. **Estadística descriptiva:** **describe** cómo son los datos que se recogieron.
+2. **Estadística inferencial:** usa la muestra para **sacar conclusiones** sobre toda la población.
+:::
+
+. . .
+
+Antes de analizar, revise el **tipo de cada variable** (sesión 14): nominal, ordinal, discreta o continua. El tipo decide qué medidas y qué pruebas se pueden usar.
+
+## Medidas de centro: ¿alrededor de qué valor están los datos?
+
+| Medida | En palabras sencillas | Ejemplo con 2, 3, 3, 4, 13 |
 |---|---|---|
-| **Distribución de frecuencias** | Cuántas veces aparece cada valor o categoría. | Todas las variables. |
-| **Moda** | Valor más frecuente. | Todas las variables. |
-| **Mediana** | Valor central de los datos ordenados. | Variables ordinales y cuantitativas; robusta ante valores extremos. |
-| **Media** | Promedio aritmético. | Variables cuantitativas. |
-| **Rango** | Diferencia entre el valor máximo y el mínimo. | Variables cuantitativas. |
-| **Desviación estándar** | Dispersión promedio de los datos respecto a la media, en las unidades originales. | Variables cuantitativas. |
-| **Varianza** | Desviación estándar al cuadrado. | Variables cuantitativas. |
-| **Asimetría** | Si los datos se concentran a la izquierda o a la derecha de la media. | Evaluar la forma de la distribución. |
-| **Curtosis** | Qué tan concentrados están los datos en el centro frente a las colas. | Evaluar la forma de la distribución. |
+| **Moda** | El valor que **más se repite**. | 3 |
+| **Mediana** | El valor **del medio** al ordenar los datos. | 3 |
+| **Media** | El **promedio**: sumar y dividir. | 25 / 5 = 5 |
+
+. . .
+
+::: {.obs}
+El 13 "jala" la media hacia arriba, pero no cambia la mediana. Cuando hay valores muy extremos, la **mediana** representa mejor al grupo.
+:::
+
+## Medidas de dispersión: ¿qué tan separados están?
+
+| Medida | En palabras sencillas |
+|---|---|
+| **Rango** | La distancia entre el valor más alto y el más bajo. |
+| **Desviación estándar** | Qué tanto se alejan, en promedio, los datos del promedio (en las mismas unidades). |
+| **Varianza** | La desviación estándar al cuadrado. |
+
+. . .
+
+::: {.ejemplo}
+Dos cursos con promedio 3.5: en uno la desviación estándar es 0.2 (todos parecidos) y en el otro 1.4 (notas muy distintas).
+:::
+
+## Medidas de forma
+
+| Medida | En palabras sencillas |
+|---|---|
+| **Asimetría** | Si los datos se cargan más hacia un lado del promedio. |
+| **Curtosis** | Si los datos se amontonan mucho en el centro o se reparten hacia los extremos. |
+| **Tabla de frecuencias** | Cuántas veces aparece cada valor o categoría (sirve para cualquier variable). |
 
 ## La distribución normal
 
-La **distribución normal** o gaussiana tiene forma de campana, es simétrica (asimetría cero), y su media, mediana y moda coinciden. Muchas pruebas estadísticas suponen que los datos provienen de una población con esta distribución, por lo que conviene verificarlo con gráficos (histograma, gráfico Q–Q) y con pruebas de normalidad:
+::: {.simple}
+Muchos datos, como la estatura, tienen forma de **campana**: la mayoría cerca del promedio y pocos en los extremos. Esa forma se llama **distribución normal**. En ella, media, mediana y moda coinciden.
+:::
 
-| Prueba | Observación |
+. . .
+
+Muchas pruebas estadísticas **suponen** que los datos son normales. Se revisa con un histograma y con pruebas de normalidad:
+
+| Prueba | Comentario |
 |---|---|
-| Shapiro–Wilk | Recomendada para muestras pequeñas y medianas. |
-| D'Agostino–Pearson (K²) | Se basa en la asimetría y la curtosis. Requiere al menos 8 a 20 datos. |
-| Anderson–Darling | Da más peso a las colas de la distribución. |
+| Shapiro–Wilk | La más recomendada para muestras pequeñas y medianas. |
+| D'Agostino–Pearson | Usa la asimetría y la curtosis; necesita al menos 8 a 20 datos. |
+| Anderson–Darling | Le da más importancia a los extremos. |
 
-En todas ellas, H₀: los datos provienen de una distribución normal. Si *p* > α, no hay evidencia para rechazar la normalidad.
+Si *p* > 0.05, **no** hay razones para dudar de que los datos sean normales.
 
-## La lógica de la prueba de hipótesis
+## ¿Cómo se decide con una prueba de hipótesis?
 
-1. Se plantea la **hipótesis nula** (H₀: no hay diferencia o relación) y la **alternativa** (H₁: sí la hay).
-2. Se fija a priori el **nivel de significancia** α, la probabilidad máxima de equivocarse al rechazar H₀. Habitualmente α = 0.05.
-3. Se elige la prueba adecuada y se calcula el **estadístico** con los datos.
-4. Se obtiene el **valor *p***: la probabilidad de observar un resultado tan extremo como el obtenido, si H₀ fuera verdadera.
-5. **Decisión:** si *p* ≤ α, se rechaza H₀; si *p* > α, no se rechaza H₀.
+::: {.analogia data-t="Un juicio"}
+En un juicio se parte de que el acusado es **inocente** (H₀). Solo se le condena si las pruebas son **muy fuertes**. Si no lo son, no se dice que es inocente: se dice que **no hubo pruebas suficientes**.
+:::
+
+. . .
+
+1. Se plantean **H₀** (no hay diferencia ni relación) y **H₁** (sí la hay).
+2. Se fija el **nivel de significancia** α, normalmente 0.05: el riesgo de equivocarse que se acepta.
+3. Se aplica la prueba y se obtiene el **valor *p***.
+4. **Decisión:** si *p* ≤ 0.05, se rechaza H₀; si *p* > 0.05, no se rechaza.
+
+## ¿Qué es el valor *p*?
+
+::: {.simple}
+El **valor *p*** responde: "si en realidad **no** hubiera diferencia, ¿qué tan raro sería obtener unos datos como estos?". Un *p* muy pequeño indica que sería muy raro, así que probablemente **sí** hay diferencia.
+:::
+
+. . .
 
 ::: {.callout-important}
 ## No rechazar no es aceptar
-Un valor *p* alto no demuestra que H₀ sea verdadera: indica que **no hay evidencia suficiente** para rechazarla. Tampoco se "demuestra" la hipótesis alternativa; se concluye que los datos son o no son compatibles con H₀.
+Un *p* alto **no demuestra** que H₀ sea verdadera: solo dice que **no hay pruebas suficientes** para rechazarla.
 :::
 
-## Errores en la prueba de hipótesis
+## Los dos errores posibles
 
-| | H₀ es verdadera | H₀ es falsa |
+| | En realidad H₀ es verdadera | En realidad H₀ es falsa |
 |---|---|---|
-| **Se rechaza H₀** | Error tipo I (probabilidad α) | Decisión correcta (potencia, 1 − β) |
-| **No se rechaza H₀** | Decisión correcta | Error tipo II (probabilidad β) |
+| **Se rechaza H₀** | **Error tipo I** (probabilidad α) | Acierto (potencia, 1 − β) |
+| **No se rechaza H₀** | Acierto | **Error tipo II** (probabilidad β) |
 
-Una analogía es un juicio: H₀ es "el acusado es inocente". Condenar a un inocente es un error tipo I; absolver a un culpable es un error tipo II.
+. . .
 
-## Significancia estadística y tamaño del efecto
+::: {.analogia}
+En el juicio: condenar a un inocente es un **error tipo I**; dejar libre a un culpable es un **error tipo II**.
+:::
 
-Un resultado puede ser estadísticamente significativo y, sin embargo, irrelevante en la práctica, sobre todo con muestras grandes. Por eso, además del valor *p*, se reporta el **tamaño del efecto**, por ejemplo la *d* de Cohen para diferencias de medias (0.2 pequeño, 0.5 mediano, 0.8 grande) o el coeficiente *r* para correlaciones.
+## Significativo no es lo mismo que importante
 
-## Pruebas paramétricas {.compacto}
+Con muestras grandes, diferencias **muy pequeñas** pueden salir "significativas". Por eso, además del valor *p*, se informa el **tamaño del efecto**: qué tan grande es la diferencia.
 
-Suponen que la variable dependiente es cuantitativa (de intervalo o de razón), que se distribuye normalmente en la población y, cuando se comparan grupos, que sus varianzas son homogéneas (homocedasticidad).
+| Medida | Pequeño | Mediano | Grande |
+|---|---|---|---|
+| *d* de Cohen (diferencia de promedios) | 0.2 | 0.5 | 0.8 |
 
-| Prueba | Pregunta que responde |
-|---|---|
-| **t para una muestra** | ¿La media de un grupo difiere de un valor de referencia? |
-| **t para muestras independientes** | ¿Difieren las medias de dos grupos distintos? |
-| **t para muestras pareadas** | ¿Difieren las medias de dos mediciones sobre los mismos casos (antes y después)? |
-| **z** | Igual que la prueba t, cuando la muestra es grande (más de 30 casos por grupo). |
-| **ANOVA de un factor** | ¿Difieren las medias de tres o más grupos? |
-| **Correlación de Pearson** | ¿Existe relación lineal entre dos variables cuantitativas? |
-| **Regresión lineal** | ¿Cómo predice una variable el valor de otra? |
+. . .
+
+::: {.ejemplo}
+Una app que sube el promedio de 3.50 a 3.52 puede dar *p* < 0.05 con 10 000 estudiantes, pero esa mejora casi no importa en la práctica.
+:::
+
+## Pruebas paramétricas: cuándo se usan
+
+::: {.simple}
+Son pruebas para variables **numéricas** que suponen que los datos son **normales** y, si se comparan grupos, que tienen una **dispersión parecida**.
+:::
+
+## ¿Qué prueba uso? {.compacto}
+
+| Prueba | Pregunta que responde | Ejemplo |
+|---|---|---|
+| **t para una muestra** | ¿El promedio de un grupo es distinto de un valor de referencia? | ¿El promedio de sueño es distinto de 8 horas? |
+| **t para muestras independientes** | ¿Dos grupos distintos tienen promedios diferentes? | Notas con app frente a notas sin app. |
+| **t para muestras pareadas** | ¿Cambió el promedio en **las mismas personas** antes y después? | Presión arterial antes y después de un programa. |
+| **z** | Como la t, cuando hay más de 30 casos por grupo. | |
+| **ANOVA** | ¿Tres o más grupos tienen promedios diferentes? | Tres fertilizantes. |
+| **Correlación de Pearson** | ¿Dos variables numéricas suben o bajan juntas? | Horas de estudio y nota. |
+| **Regresión lineal** | ¿Cómo predice una variable a otra? | Predecir la nota con las horas de estudio. |
 
 ## Práctica en Python
 
@@ -140,7 +213,7 @@ t = 5.35, p = 0.00002
 d de Cohen = 2.18
 ```
 
-Las varianzas son homogéneas (*p* = 0.212). Como *p* < 0.05, se rechaza H₀: el tiempo de reacción medio difiere entre los grupos, y el tamaño del efecto es grande. Si las varianzas no fueran homogéneas, se usaría `stats.ttest_ind(control, entrenado, equal_var=False)` (prueba de Welch).
+**Cómo se lee:** las varianzas son parecidas (*p* = 0.212). Como *p* < 0.05, se rechaza H₀: el grupo entrenado reacciona más rápido, y la diferencia es grande (*d* = 2.18). Si las varianzas no fueran homogéneas, se usaría `stats.ttest_ind(control, entrenado, equal_var=False)` (prueba de Welch).
 
 ## Práctica en Python · 3. Prueba t para muestras pareadas
 
@@ -201,7 +274,7 @@ r = 0.979, p = 0.0000009
 nota = 2.55 + 0.135 × horas
 ```
 
-Existe una correlación positiva fuerte. Recuerde que **correlación no implica causalidad**.
+**Cómo se lee:** a más horas de estudio, mejor nota (relación fuerte, *r* cercano a 1). Por cada hora más, la nota sube unos 0.135 puntos. Pero **que dos cosas vayan juntas no significa que una cause la otra**.
 
 ## Actividad en clase
 

@@ -3,6 +3,18 @@ title: "Producto punto y producto de matrices"
 subtitle: "Clase 4 · Sección 2.2 · Productos vectorial y matricial"
 ---
 
+## En la vida diaria: filtros de fotos y la cuenta del mercado {.nostretch}
+
+::: {.aplicacion data-t="Para empezar"}
+Cuando paga en el mercado, la caja multiplica la cantidad de cada producto por su precio y suma todo. Cuando aplica un filtro a una foto, el celular mezcla los colores de cada píxel con unos "pesos".
+:::
+
+![](img/app_filtros.png){fig-align="center" height="200px"}
+
+Las dos cosas son el mismo cálculo: el **producto punto**. Y hacerlo para muchos datos a la vez es el **producto de matrices**, la operación que más usan las inteligencias artificiales.
+
+**En esta clase:** aprenderá a calcular productos punto y productos de matrices, y por qué el orden de la multiplicación importa.
+
 ## Objetivos de la clase
 
 - Calcular el **producto punto** (producto interno) de dos vectores de $\mathbb R^n$.

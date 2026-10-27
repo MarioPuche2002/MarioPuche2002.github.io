@@ -3,87 +3,148 @@ title: "Sesión 9 · La pregunta de investigación"
 subtitle: "Metodología de la Investigación"
 ---
 
-## Objetivo de la sesión
+## Para empezar
 
-Formular una pregunta de investigación clara, específica y respondible, coherente con el problema planteado y con el enfoque del estudio.
+::: {.analogia data-t="El GPS"}
+Si al GPS le dice "llévame al norte", no sabe a dónde ir. Si le da una dirección exacta, calcula la ruta en segundos.
+:::
 
-## Función de la pregunta
+. . .
 
-La pregunta de investigación expresa **qué se quiere saber**. De ella se derivan el objetivo general, el diseño, la población, las variables y el análisis. Una pregunta bien formulada simplifica todas las decisiones posteriores; una pregunta vaga las complica.
+La **pregunta de investigación** es la dirección exacta del proyecto. Si es vaga, todo lo demás (objetivos, método, datos) queda sin rumbo.
 
-## Preguntas de preparación y preguntas de investigación
+## ¿Qué vamos a lograr hoy?
 
-| Tipo | Qué buscan | Cómo se responden | Ejemplo |
-|---|---|---|---|
-| **De preparación** (de fondo) | Conocimiento general sobre un tema. | Con libros y revisiones narrativas. | ¿Qué es la retinopatía diabética? |
-| **De investigación** (de acción) | Un conocimiento específico que aún no existe o no está resuelto. | Con investigación primaria o secundaria. | ¿Cuál es la sensibilidad de un modelo de aprendizaje profundo para detectar retinopatía diabética en fotografías tomadas con teléfonos móviles en atención primaria? |
+- Entender para qué sirve la pregunta de investigación.
+- Diferenciarla de una pregunta "de consulta".
+- Construirla con sus partes, usando estructuras como **PICO**.
+- Evitar los errores más comunes.
 
-Las preguntas de preparación son necesarias para comprender el tema, pero **no** son preguntas de investigación.
+## ¿Para qué sirve la pregunta?
 
-## Componentes de la pregunta
+::: {.simple}
+La pregunta dice **qué se quiere saber**. De ella salen el objetivo, el tipo de estudio, a quiénes se va a estudiar, qué se va a medir y cómo se van a analizar los datos.
+:::
 
-Una pregunta de investigación completa indica:
+. . .
 
-- **Qué** se quiere saber (el fenómeno o la relación entre variables).
-- **Acerca de qué** elemento de estudio.
-- **En quiénes** o en qué objetos.
-- **Dónde**.
-- **Cuándo**.
+Una pregunta clara **facilita** todas las decisiones siguientes; una pregunta vaga las **complica**.
 
-## Estructuras de apoyo {.compacto}
+## Preguntas de consulta y preguntas de investigación
 
-En distintas áreas se usan acrónimos que ayudan a no omitir componentes:
-
-| Estructura | Componentes | Uso típico |
+| | De consulta (de preparación) | De investigación |
 |---|---|---|
-| **PICO** | Población, Intervención, Comparación, Resultado (*Outcome*) | Efectividad de intervenciones o tecnologías. |
-| **PEO** | Población, Exposición, Resultado | Estudios de asociación o de factores de riesgo. |
-| **PIRD** | Población, Prueba índice, Prueba de referencia, Diagnóstico | Exactitud de pruebas diagnósticas. |
-| **SPIDER** | Muestra, Fenómeno de interés, Diseño, Evaluación, Tipo de investigación | Estudios cualitativos y mixtos. |
+| ¿Qué busca? | Conocimiento general que **ya existe**. | Algo que **todavía no se sabe**. |
+| ¿Cómo se responde? | Leyendo libros o revisiones. | Haciendo un estudio. |
+| Ejemplo | ¿Qué es la retinopatía diabética? | ¿Qué tan bien detecta la retinopatía diabética un programa de inteligencia artificial en fotos tomadas con celular? |
 
-**Ejemplo con PICO:**
+. . .
 
-- **P:** pacientes adultos con dolor lumbar crónico.
-- **I:** programa de ejercicio guiado por una aplicación móvil.
-- **C:** programa de ejercicio presencial.
-- **O:** intensidad del dolor a las ocho semanas.
+Las preguntas de consulta son necesarias para **entender** el tema, pero **no** son la pregunta del proyecto.
 
-> ¿En adultos con dolor lumbar crónico, un programa de ejercicio guiado por una aplicación móvil reduce la intensidad del dolor a las ocho semanas en la misma medida que un programa presencial?
+## Las partes de una pregunta completa
+
+Una buena pregunta dice:
+
+- **Qué** se quiere saber (el fenómeno o la relación).
+- **Sobre qué** aspecto.
+- **En quiénes** (personas, objetos, casos).
+- **Dónde.**
+- **Cuándo.**
+
+. . .
+
+::: {.ejemplo}
+¿**Qué relación** hay entre **las horas de sueño** y **el promedio de notas** en **estudiantes de primer semestre** de **una universidad de la ciudad** durante **el segundo semestre de 2025**?
+:::
+
+## Estructuras que ayudan: PICO
+
+Para no olvidar ninguna parte se usan "fórmulas". La más conocida es **PICO**:
+
+| Letra | Significa | Ejemplo |
+|---|---|---|
+| **P** | Población | Adultos con dolor de espalda crónico |
+| **I** | Intervención | Ejercicios guiados por una app |
+| **C** | Comparación | Ejercicios con un fisioterapeuta en persona |
+| **O** | Resultado (*Outcome*) | Intensidad del dolor a las ocho semanas |
+
+. . .
+
+> ¿En adultos con dolor de espalda crónico, los ejercicios guiados por una app reducen el dolor a las ocho semanas igual que los ejercicios presenciales?
+
+## Otras estructuras {.compacto}
+
+| Estructura | Partes | Cuándo usarla |
+|---|---|---|
+| **PICO** | Población, Intervención, Comparación, Resultado | Para saber si algo **funciona** (un tratamiento, una app, un método). |
+| **PEO** | Población, Exposición, Resultado | Para saber si algo se **relaciona** con otra cosa (factores de riesgo). |
+| **PIRD** | Población, Prueba nueva, Prueba de referencia, Diagnóstico | Para saber qué tan **exacta** es una prueba. |
+| **SPIDER** | Muestra, Fenómeno, Diseño, Evaluación, Tipo de investigación | Para estudios **cualitativos** y mixtos. |
 
 ## Preguntas según el enfoque
 
-**Cuantitativo.** Se plantean con *qué*, *cuánto*, *cuál es la relación*, *cuál es la diferencia*, *cuál es el efecto*. Involucran variables medibles.
+**Cuantitativo:** empiezan con *qué*, *cuánto*, *cuál es la relación*, *cuál es la diferencia*, *cuál es el efecto*. Usan variables que se pueden medir.
 
-**Cualitativo.** Son abiertas y exploratorias. Una forma general es: *¿Cómo se caracteriza (se comprende, se describe, se experimenta) [el fenómeno central] en [participantes] en [contexto]?*
+. . .
 
-## Requisitos de una buena pregunta
+**Cualitativo:** son abiertas. Un molde útil:
 
-- **Su respuesta no se conoce** todavía.
-- **Puede responderse con evidencia empírica**: es posible obtener datos para contestarla.
-- **Implica medios éticos** para responderla.
-- **Es específica**: cuanto más precisa, más fácil de responder.
-- **Aporta conocimiento sustancial** al campo.
-- **Es factible** con el tiempo y los recursos disponibles.
+> ¿Cómo **viven / entienden / describen** [el fenómeno] **los** [participantes] **en** [el contexto]?
 
-## Errores frecuentes
+::: {.ejemplo}
+¿Cómo viven los estudiantes que trabajan de noche su primer año de universidad?
+:::
 
-| Error | Ejemplo | Mejor |
-|---|---|---|
-| Demasiado amplia | ¿Cómo afecta la tecnología a la salud? | ¿Cuál es la relación entre el tiempo diario de uso de pantallas y la calidad del sueño en estudiantes universitarios de primer semestre? |
-| Se responde con sí o no sin profundidad | ¿Sirve la inteligencia artificial para diagnosticar? | ¿Cuál es la exactitud de un modelo de clasificación de radiografías de tórax para detectar neumonía, comparado con la lectura de un radiólogo? |
-| Ya tiene respuesta conocida | ¿Fumar aumenta el riesgo de cáncer de pulmón? | Requiere identificar una brecha real. |
-| Es una pregunta de preparación | ¿Qué es la osteoporosis? | Se responde con la literatura, no con una investigación. |
+## ¿Cómo saber si la pregunta es buena?
+
+Una buena pregunta:
+
+- **No tiene respuesta conocida** todavía.
+- Se puede responder **con datos**.
+- Se puede responder de forma **ética**.
+- Es **específica**: entre más precisa, más fácil de responder.
+- **Aporta** algo nuevo al tema.
+- Es **factible** con el tiempo y los recursos que tiene.
+
+## Errores frecuentes (1)
+
+::: {.ejemplo data-t="Demasiado amplia"}
+- ✗ ¿Cómo afecta la tecnología a la salud?
+- ✓ ¿Qué relación hay entre el tiempo diario frente a pantallas y la calidad del sueño en estudiantes de primer semestre?
+:::
+
+. . .
+
+::: {.ejemplo data-t="Se responde solo con sí o no"}
+- ✗ ¿Sirve la inteligencia artificial para diagnosticar?
+- ✓ ¿Qué tan exacto es un programa que analiza radiografías de tórax para detectar neumonía, comparado con un radiólogo?
+:::
+
+## Errores frecuentes (2)
+
+::: {.ejemplo data-t="Ya tiene respuesta"}
+- ✗ ¿Fumar aumenta el riesgo de cáncer de pulmón?
+- Eso ya está demostrado. Hay que buscar un **hueco** real.
+:::
+
+. . .
+
+::: {.ejemplo data-t="Es de consulta"}
+- ✗ ¿Qué es la osteoporosis?
+- Se responde leyendo, no investigando.
+:::
 
 ## Actividad en clase
 
-1. Cada grupo descompone su problema en los componentes *qué, en quiénes, dónde y cuándo*, y elige la estructura de apoyo más adecuada (PICO, PEO, PIRD o SPIDER).
-2. Redacta tres versiones de la pregunta y elige la más precisa.
-3. Intercambio: otro grupo verifica los requisitos y señala ambigüedades.
+1. Cada grupo separa su problema en **qué, en quiénes, dónde y cuándo**, y escoge la estructura que mejor le sirve (PICO, PEO, PIRD o SPIDER).
+2. Escriba **tres versiones** de la pregunta y escoja la más precisa.
+3. Otro grupo revisa la pregunta con la lista de "¿es buena?" y señala lo que no se entiende.
 
 ## Avance del anteproyecto
 
-1. Tabla con los **componentes** de la pregunta.
-2. **Pregunta de investigación** definitiva, que se integra al final de la descripción del problema.
+1. Tabla con las **partes** de su pregunta (según la estructura elegida).
+2. **Pregunta de investigación** final, que va al final de la descripción del problema.
 
 ## Lecturas recomendadas
 
