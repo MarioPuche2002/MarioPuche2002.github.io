@@ -58,39 +58,154 @@ $T(x,y)=(x,\,0)$: a cada punto le "borra" la altura y lo deja sobre el eje $x$, 
 :::
 ::::
 
-## El núcleo
+## 1. El núcleo de una transformación
 
 ::: {.definicion}
-Sea $T:V\to W$ lineal. El **núcleo** de $T$ es
+Sea $T:V\to W$ lineal. El **núcleo** de $T$ es el conjunto de todos los vectores del dominio que se transforman en el vector cero:
 $$
-\operatorname{nu}T=\{\mathbf v\in V:\ T(\mathbf v)=\mathbf 0\}.
+\boxed{\;\operatorname{nu}T=\ker T=\{\mathbf v\in V:\ T(\mathbf v)=\mathbf 0\}\;}
 $$
 :::
 
 ::: {.palabras}
-El núcleo son **todas las entradas que la máquina convierte en cero**: lo que la transformación "no ve" o "aplasta". Siempre contiene al $\mathbf 0$, porque $T(\mathbf 0)=\mathbf 0$.
+Buscamos **todos los vectores que, al aplicarles la transformación, producen el vector cero**: lo que la transformación "no ve" o "aplasta". Siempre contiene al $\mathbf 0$, porque $T(\mathbf 0)=\mathbf 0$.
 :::
 
 . . .
 
-**¿Cómo se calcula?** Se plantea $T(\mathbf v)=\mathbf 0$ y se resuelve. Es un **sistema homogéneo**, como en la clase 2.
+Se escribe $\operatorname{nu}T$ (como en el libro) o $\ker T$ (del inglés *kernel*): es lo mismo.
 
-## La imagen
+## Ejemplo 1: hallar el núcleo (planteamiento)
+
+::: {.ejemplo}
+Sea $T:\mathbb R^2\to\mathbb R^2$, $\quad T(x,y)=(x+y,\;2x+2y)$. Halle el núcleo de $T$.
+:::
+
+. . .
+
+**Paso 1 · Igualar la transformación al vector cero.** Buscamos los $(x,y)$ tales que
+$$
+T(x,y)=(0,0)\qquad\Longrightarrow\qquad (x+y,\;2x+2y)=(0,0).
+$$
+
+. . .
+
+**Paso 2 · Escribir el sistema.** Dos vectores son iguales si coinciden componente a componente:
+$$
+\begin{cases} x+y=0\\ 2x+2y=0 \end{cases}
+$$
+
+## Ejemplo 1: hallar el núcleo (solución)
+
+**Paso 3 · Resolver el sistema.** La segunda ecuación es **el doble** de la primera ($2x+2y=2(x+y)$), así que no aporta información nueva: las ecuaciones son dependientes. Queda solo
+$$
+x+y=0\qquad\Longrightarrow\qquad x=-y .
+$$
+
+. . .
+
+**Paso 4 · Introducir un parámetro.** Como $y$ puede tomar cualquier valor, hacemos $y=t$; entonces $x=-t$:
+$$
+(x,y)=(-t,\;t)=t\,(-1,\,1),\qquad t\in\mathbb R .
+$$
+
+. . .
+
+**Paso 5 · Escribir la respuesta.**
+$$
+\boxed{\;\operatorname{nu}T=\operatorname{gen}\{(-1,1)\}\;}
+$$
+
+. . .
+
+::: {.obs data-t="Interpretación"}
+El núcleo es una **recta que pasa por el origen**, formada por todos los múltiplos de $(-1,1)$. Comprobación: $T(-1,1)=(-1+1,\;-2+2)=(0,0)$ ✓.
+:::
+
+## ¿Cómo se halla el núcleo?
+
+1. Se **iguala** $T(\mathbf v)$ al vector cero.
+2. Se **escribe el sistema** de ecuaciones (una por componente).
+3. Se **resuelve** el sistema (es homogéneo).
+4. Se expresa la solución con **parámetros** y se separa un vector por cada parámetro: esos vectores **generan** el núcleo.
+
+. . .
+
+::: {.ejemplo data-t="Mini ejemplo"}
+$T(x,y,z)=(x-z,\;y)$. Igualando a cero: $x-z=0$ y $y=0$. Con $z=t$: $(x,y,z)=(t,0,t)=t(1,0,1)$. Entonces $\operatorname{nu}T=\operatorname{gen}\{(1,0,1)\}$.
+:::
+
+## 2. La imagen de una transformación
 
 ::: {.definicion}
-La **imagen** de $T$ es
+La **imagen** de $T$ es el conjunto de todos los vectores que se obtienen al aplicar $T$ a los vectores del dominio:
 $$
-\operatorname{Im}T=\{T(\mathbf v):\ \mathbf v\in V\}\subseteq W .
+\boxed{\;\operatorname{Im}T=\{T(\mathbf v):\ \mathbf v\in V\}\subseteq W\;}
 $$
 :::
 
 ::: {.palabras}
-La imagen son **todos los resultados que la máquina puede producir**. Un vector $\mathbf w$ está en la imagen si **alguna** entrada da $\mathbf w$ como resultado.
+Buscamos **todos los resultados posibles** de la transformación. Un vector $\mathbf w$ está en la imagen si **alguna** entrada da $\mathbf w$ como resultado.
+:::
+
+## Ejemplo 2: hallar la imagen
+
+::: {.ejemplo}
+Con la misma transformación $T(x,y)=(x+y,\;2x+2y)$, halle la imagen de $T$.
 :::
 
 . . .
 
-**¿Cómo se calcula?** Se escribe $T(\mathbf v)$ en general y se mira **qué forma** tienen todos los resultados. Si $T$ viene de una matriz, la imagen la **generan las columnas** de la matriz.
+**Paso 1 · Escribir $T$ en general y buscar algo en común.** La segunda componente es el doble de la primera:
+$$
+T(x,y)=(x+y,\;2x+2y)=(x+y,\;2(x+y)).
+$$
+
+. . .
+
+**Paso 2 · Darle un nombre a lo que se repite.** Llamamos $s=x+y$. Como $x$ e $y$ pueden ser cualquier número, $s$ también puede ser cualquier número:
+$$
+T(x,y)=(s,\;2s)=s\,(1,\,2),\qquad s\in\mathbb R .
+$$
+
+. . .
+
+**Paso 3 · Escribir la respuesta.** Todos los resultados son múltiplos de $(1,2)$:
+$$
+\boxed{\;\operatorname{Im}T=\operatorname{gen}\{(1,2)\}\;}
+$$
+
+. . .
+
+::: {.obs data-t="Interpretación"}
+La imagen también es una **recta que pasa por el origen**, pero generada por $(1,2)$: es la recta $y=2x$. Por ejemplo, $T(3,1)=(4,8)$, que cumple $8=2\cdot4$ ✓.
+:::
+
+## ¿Cómo se halla la imagen?
+
+1. Se escribe $T(\mathbf v)$ **en general**, con letras.
+2. Se **separa** el resultado en una combinación de vectores fijos, uno por cada variable:
+$$
+T(x,y)=(x+y,\;2x+2y)=x\,(1,2)+y\,(1,2).
+$$
+3. Esos vectores fijos **generan** la imagen.
+4. Se **quitan los que sobran** (los que son combinación de los otros). Aquí $(1,2)$ aparece dos veces, así que basta uno: $\operatorname{Im}T=\operatorname{gen}\{(1,2)\}$.
+
+. . .
+
+::: {.ejemplo data-t="Mini ejemplo"}
+$T(x,y,z)=(x+y,\;y+z)=x(1,0)+y(1,1)+z(0,1)$. Los vectores $(1,0)$ y $(0,1)$ ya generan todo $\mathbb R^2$, y $(1,1)=(1,0)+(0,1)$ sobra. Entonces $\operatorname{Im}T=\mathbb R^2$.
+:::
+
+## 3. Núcleo frente a imagen
+
+| Característica | Núcleo | Imagen |
+|---|---|---|
+| ¿Qué buscamos? | Los vectores que producen **cero** | **Todos los resultados** posibles |
+| ¿Cómo se calcula? | Resolviendo $T(\mathbf v)=\mathbf 0$ | Escribiendo $T(\mathbf v)$ para todo $\mathbf v$ |
+| ¿Dónde vive? | En el **dominio** $V$ (lo que entra) | En el **codominio** $W$ (lo que sale) |
+| Su dimensión se llama | **Nulidad**, $\nu(T)$ | **Rango**, $\rho(T)$ |
+| En el ejemplo | $\operatorname{gen}\{(-1,1)\}$ | $\operatorname{gen}\{(1,2)\}$ |
 
 ## Nulidad y rango: los tamaños
 
@@ -108,17 +223,34 @@ Las letras $\nu$ ("nu", nulidad) y $\rho$ ("ro", rango) son **griegas**: no son 
 
 . . .
 
-En la sombra sobre el eje $x$: el núcleo es una recta ($\nu=1$) y la imagen es otra recta ($\rho=1$). Entró el plano, de dimensión $2=1+1$.
+En el ejemplo $T(x,y)=(x+y,\,2x+2y)$:
+
+- **Nulidad** $=1$: el núcleo tiene una base con **un** vector, $(-1,1)$.
+- **Rango** $=1$: la imagen tiene una base con **un** vector, $(1,2)$.
+- Entró el plano $\mathbb R^2$, de dimensión $2=1+1$.
 
 ## Núcleo e imagen en una figura {.nostretch}
 
 ![](img/nucleo_imagen.svg){fig-align="center" height="400px"}
 
-Ahora la "sombra" cae sobre la recta $y=x$: los puntos de la recta $y=-x$ caen en el origen (**núcleo**) y todo punto termina sobre $y=x$ (**imagen**). Otra vez $\nu=1$, $\rho=1$ y $1+1=2$.
+La "sombra" cae sobre la recta $y=x$: los puntos de la recta $y=-x$ caen en el origen (**núcleo**) y todo punto termina sobre $y=x$ (**imagen**). Otra vez $\nu=1$, $\rho=1$ y $1+1=2$.
 
-## Cuando $T$ es una matriz: la receta
+## 4. Relación con las matrices
 
-Si $T(\mathbf x)=A\mathbf x$, entonces el núcleo es el espacio nulo $N_A$ y la imagen es el espacio columna $C_A$ (clase 20). Se calculan así:
+Si la transformación está dada por una matriz, $T(\mathbf x)=A\mathbf x$, entonces:
+
+- El **núcleo** se calcula resolviendo $\;\boxed{A\mathbf x=\mathbf 0}\;$ (es el espacio nulo $N_A$, clase 20).
+- La **imagen** es el espacio generado por las **columnas** de $A$: $\;\boxed{\operatorname{Im}T=C_A}$.
+
+. . .
+
+¿Por qué las columnas? Porque $A\mathbf x$ es una combinación de las columnas de $A$ (clase 5):
+$$
+\begin{pmatrix}1&1\\2&2\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=x\begin{pmatrix}1\\2\end{pmatrix}+y\begin{pmatrix}1\\2\end{pmatrix}.
+$$
+Esta es justamente la matriz del ejemplo: $T(x,y)=(x+y,\,2x+2y)$.
+
+## La receta con matrices
 
 1. **Escalonar** $A$ (forma escalonada reducida).
 2. **Núcleo:** resolver $A\mathbf x=\mathbf 0$; cada **variable libre** aporta un vector de la base.
@@ -314,7 +446,7 @@ $T(x,y,z)=(x,y,0)$ "aplasta" la altura:
 - **Imagen:** los puntos $(x,y,0)$, el **plano $xy$** ($\rho=2$).
 :::
 
-## Teorema de la dimensión
+## Teorema de la dimensión {.compacto}
 
 ::: {.teorema}
 Si $T:V\to W$ es lineal y $\dim V=n$, entonces
@@ -324,13 +456,14 @@ $$
 :::
 
 ::: {.palabras}
-**Lo que se pierde** (núcleo) **más lo que queda** (imagen) **es igual a lo que entra** (la dimensión del espacio de salida).
+**Lo que se pierde** (núcleo) **más lo que queda** (imagen) **es igual a lo que entra** (la dimensión del espacio de salida). También se conoce como **teorema de rango y nulidad**.
 :::
 
 . . .
 
 | Ejemplo | $\nu$ | $\rho$ | $\dim V$ |
 |---|:-:|:-:|:-:|
+| $T(x,y)=(x+y,\,2x+2y)$ (ejemplos 1 y 2) | 1 | 1 | 2 |
 | Matriz $3\times3$ del ejemplo guiado | 1 | 2 | 3 |
 | Derivación $P_3\to P_2$ | 1 | 3 | 4 |
 | Transposición $M_{2\times3}\to M_{3\times2}$ | 0 | 6 | 6 |
