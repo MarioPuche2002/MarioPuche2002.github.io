@@ -124,7 +124,7 @@ Halle la inversa de $A=\begin{pmatrix}1&2\\-2&-1\end{pmatrix}$.
 
 . . .
 
-**Fórmula:** $\det A = (1)(-1) - (2)(-2) = 3$, luego $A^{-1}=\dfrac13\begin{pmatrix}-1&-2\\2&1\end{pmatrix}$.
+**Fórmula:** $\det A = (1)(-1) - (2)(-2) = -1+4=3$. Se intercambian las entradas de la diagonal ($1\leftrightarrow-1$), se cambia el signo de las otras dos ($2\to-2$, $-2\to2$) y se divide entre 3: $A^{-1}=\dfrac13\begin{pmatrix}-1&-2\\2&1\end{pmatrix}$.
 
 . . .
 
@@ -143,7 +143,7 @@ $$
 
 **Definición:** resolver $\begin{pmatrix}1&2\\-2&-1\end{pmatrix}\begin{pmatrix}a&b\\c&d\end{pmatrix}=I$ da $a+2c=1$, $-2a-c=0$, $b+2d=0$, $-2b-d=1$, con solución $a=-\tfrac13$, $b=-\tfrac23$, $c=\tfrac23$, $d=\tfrac13$. Los tres caminos coinciden.
 
-## Ejemplo resuelto: inversa $3\times 3$
+## Ejemplo resuelto: inversa $3\times 3$ {.compacto}
 
 ::: {.ejemplo}
 Halle la inversa de $G=\begin{pmatrix}2&1&0\\1&1&1\\0&1&3\end{pmatrix}$.
@@ -155,7 +155,12 @@ $$
 \left(\begin{array}{ccc|ccc}2&1&0&1&0&0\\1&1&1&0&1&0\\0&1&3&0&0&1\end{array}\right)
 \xrightarrow{F_1\leftrightarrow F_2}
 \left(\begin{array}{ccc|ccc}1&1&1&0&1&0\\2&1&0&1&0&0\\0&1&3&0&0&1\end{array}\right)
-\xrightarrow{F_2\to -(F_2-2F_1)}
+\xrightarrow{F_2\to F_2-2F_1}
+\left(\begin{array}{ccc|ccc}1&1&1&0&1&0\\0&-1&-2&1&-2&0\\0&1&3&0&0&1\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_2\to -F_2}
 \left(\begin{array}{ccc|ccc}1&1&1&0&1&0\\0&1&2&-1&2&0\\0&1&3&0&0&1\end{array}\right)
 $$
 
@@ -431,8 +436,26 @@ $X=\begin{pmatrix}0&2\\-1&-2\end{pmatrix}$. Comprobación: $AX+B=\begin{pmatrix}
 Use Gauss-Jordan para hallar, si existe, la inversa de $D=\begin{pmatrix}1&2&1\\0&1&-1\\2&3&0\end{pmatrix}$.
 :::
 
-::: {.solucion .fragment}
-$(D\mid I)\sim(I\mid D^{-1})$ con $\;D^{-1}=\begin{pmatrix}-1&-1&1\\[2pt]\tfrac23&\tfrac23&-\tfrac13\\[2pt]\tfrac23&-\tfrac13&-\tfrac13\end{pmatrix}$. Compruebe que $DD^{-1}=I_3$.
+## Ejercicio 1: solución {.compacto}
+
+::: {.solucion}
+$$
+\left(\begin{array}{ccc|ccc}1&2&1&1&0&0\\0&1&-1&0&1&0\\2&3&0&0&0&1\end{array}\right)\xrightarrow{F_{3}\to F_{3}-2F_{1}}\left(\begin{array}{ccc|ccc}1&2&1&1&0&0\\0&1&-1&0&1&0\\0&-1&-2&-2&0&1\end{array}\right)
+$$
+
+$$
+\xrightarrow[F_{3}\to F_{3}+F_{2}]{F_{1}\to F_{1}-2F_{2}}\left(\begin{array}{ccc|ccc}1&0&3&1&-2&0\\0&1&-1&0&1&0\\0&0&-3&-2&1&1\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{3}\to -\tfrac{1}{3}F_{3}}\left(\begin{array}{ccc|ccc}1&0&3&1&-2&0\\0&1&-1&0&1&0\\0&0&1&\tfrac{2}{3}&-\tfrac{1}{3}&-\tfrac{1}{3}\end{array}\right)
+$$
+
+$$
+\xrightarrow[F_{2}\to F_{2}+F_{3}]{F_{1}\to F_{1}-3F_{3}}\left(\begin{array}{ccc|ccc}1&0&0&-1&-1&1\\0&1&0&\tfrac{2}{3}&\tfrac{2}{3}&-\tfrac{1}{3}\\0&0&1&\tfrac{2}{3}&-\tfrac{1}{3}&-\tfrac{1}{3}\end{array}\right)
+$$
+
+A la izquierda quedó $I_3$, así que lo de la derecha es $D^{-1}=\begin{pmatrix}-1&-1&1\\[2pt]\tfrac23&\tfrac23&-\tfrac13\\[2pt]\tfrac23&-\tfrac13&-\tfrac13\end{pmatrix}$. Compruebe que $DD^{-1}=I_3$.
 :::
 
 ## Ejercicios propuestos
@@ -442,7 +465,9 @@ Sean $A=\begin{pmatrix}2&1\\1&1\end{pmatrix}$, $B=\begin{pmatrix}1&0\\0&2\end{pm
 :::
 
 ::: {.solucion .fragment}
-$(A+B)X = C$ (distributiva), con $A+B=\begin{pmatrix}3&1\\1&3\end{pmatrix}$, $\det = 8$. Entonces $X=(A+B)^{-1}C=\dfrac18\begin{pmatrix}3&-1\\-1&3\end{pmatrix}\begin{pmatrix}4&2\\4&6\end{pmatrix}=\begin{pmatrix}1&0\\1&2\end{pmatrix}$. **Ojo:** $X$ va a la **derecha**, así que $(A+B)^{-1}$ multiplica por la **izquierda**.
+**Paso 1.** Factor común a la derecha (distributiva): $(A+B)X = C$, con $A+B=\begin{pmatrix}3&1\\1&3\end{pmatrix}$.
+**Paso 2.** $\det(A+B)=9-1=8\neq0$, así que $(A+B)^{-1}=\dfrac18\begin{pmatrix}3&-1\\-1&3\end{pmatrix}$.
+**Paso 3.** $X=(A+B)^{-1}C=\dfrac18\begin{pmatrix}3\cdot4-1\cdot4&3\cdot2-1\cdot6\\-1\cdot4+3\cdot4&-1\cdot2+3\cdot6\end{pmatrix}=\dfrac18\begin{pmatrix}8&0\\8&16\end{pmatrix}=\begin{pmatrix}1&0\\1&2\end{pmatrix}$. **Ojo:** $X$ va a la **derecha**, así que $(A+B)^{-1}$ multiplica por la **izquierda**.
 :::
 
 ## Ejercicios propuestos

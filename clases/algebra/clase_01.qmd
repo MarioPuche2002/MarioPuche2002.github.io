@@ -149,7 +149,7 @@ $$
 
 . . .
 
-Sustituyendo en la primera: $2 + y = 5 \Rightarrow y = 3$.
+Sustituyendo $x=2$ en la primera ecuación: $2 + y = 5$; restando 2 a ambos lados, $y = 5-2 = 3$.
 
 . . .
 
@@ -349,11 +349,9 @@ Resuelva $\;x + y + z = 2,\quad x + 2y + 3z = 5,\quad 2x + 3y + 4z = 8.$
 
 . . .
 
-Con las mismas operaciones del ejemplo anterior:
+Con las mismas operaciones del ejemplo anterior (solo cambia la última columna):
 $$
-\left(\begin{array}{ccc|c}1&1&1&2\\1&2&3&5\\2&3&4&8\end{array}\right)
-\sim
-\left(\begin{array}{ccc|c}1&0&-1&-1\\0&1&2&3\\0&0&0&1\end{array}\right)
+\left(\begin{array}{ccc|c}1&1&1&2\\1&2&3&5\\2&3&4&8\end{array}\right)\xrightarrow[F_{3}\to F_{3}-2F_{1}]{F_{2}\to F_{2}-F_{1}}\left(\begin{array}{ccc|c}1&1&1&2\\0&1&2&3\\0&1&2&4\end{array}\right)\xrightarrow[F_{3}\to F_{3}-F_{2}]{F_{1}\to F_{1}-F_{2}}\left(\begin{array}{ccc|c}1&0&-1&-1\\0&1&2&3\\0&0&0&1\end{array}\right)
 $$
 
 . . .
@@ -385,7 +383,15 @@ $$
 
 . . .
 
-Restando la tercera ecuación a la primera: $2c = 10\,000 \Rightarrow c = 5000$, luego $a + b = 5000$. Sustituyendo en la segunda: $0.05a + 0.07(5000-a) + 450 = 760 \Rightarrow -0.02a = -40 \Rightarrow a = 2000$.
+**Paso 1.** Restando la tercera ecuación a la primera: $(a+b+c)-(a+b-c)=10\,000-0$, es decir, $2c = 10\,000$, así que $c = 5000$.
+
+**Paso 2.** En la primera ecuación: $a + b + 5000 = 10\,000$, luego $a + b = 5000$ y $b = 5000-a$.
+
+**Paso 3.** Sustituyendo $b=5000-a$ y $c=5000$ en la segunda:
+$$
+0.05a + 0.07(5000-a) + 0.09(5000) = 760\;\Rightarrow\;0.05a + 350 - 0.07a + 450 = 760\;\Rightarrow\;-0.02a = -40\;\Rightarrow\;a = 2000 .
+$$
+Entonces $b = 5000-2000 = 3000$.
 
 . . .
 
@@ -419,7 +425,7 @@ $$
 
 . . .
 
-Sustitución hacia atrás: $c=15$, $\;b=-10+15=5$, $\;a=35-10-15=10$. **Respuesta:** 10 piezas A, 5 B y 15 C. Verificación de pintura: $10+5+30=45$ ✓.
+Sustitución hacia atrás: de la última fila, $-4c=-60\Rightarrow c=15$; de la segunda, $b-c=-10\Rightarrow b=-10+15=5$; de la primera, $a+2b+c=35\Rightarrow a=35-2(5)-15=10$. **Respuesta:** 10 piezas A, 5 B y 15 C. Verificación de pintura: $10+5+30=45$ ✓.
 
 ## Ejemplo 1 · Fácil: eliminación en un sistema $2\times2$ {.compacto}
 
@@ -543,11 +549,19 @@ Para qué valores de $k$ el sistema $\;x+y+kz=1,\quad x+ky+z=1,\quad kx+y+z=1\;$
 . . .
 
 ::: {.solucion}
-$F_2-F_1$ y $F_3-kF_1$: $\left(\begin{array}{ccc|c}1&1&k&1\\0&k-1&1-k&0\\0&1-k&1-k^2&1-k\end{array}\right)$, y $F_3+F_2$: $\left(\begin{array}{ccc|c}1&1&k&1\\0&k-1&1-k&0\\0&0&(1-k)(2+k)&1-k\end{array}\right)$.
+**Paso 1.** $F_2\to F_2-F_1$ y $F_3\to F_3-kF_1$: $\left(\begin{array}{ccc|c}1&1&k&1\\0&k-1&1-k&0\\0&1-k&1-k^2&1-k\end{array}\right)$.
 
-- $k=1$: todas las ecuaciones son $x+y+z=1$ → **infinitas** (dos parámetros).
-- $k=-2$: la última fila es $(0\;0\;0\mid 3)$ → **ninguna**.
-- $k\neq1,-2$: **única**, $x=y=z=\dfrac{1}{k+2}$.
+**Paso 2.** $F_3\to F_3+F_2$, y se factoriza $1-k^2+1-k=(1-k)(2+k)$: $\left(\begin{array}{ccc|c}1&1&k&1\\0&k-1&1-k&0\\0&0&(1-k)(2+k)&1-k\end{array}\right)$.
+:::
+
+## Práctica en clase: sistema con parámetro (continuación)
+
+::: {.solucion}
+**Paso 3.** Se analiza cuándo se anulan los pivotes $k-1$ y $(1-k)(2+k)$:
+
+- $k=1$: las filas 2 y 3 se vuelven ceros y queda solo $x+y+z=1$ → **infinitas** (dos parámetros).
+- $k=-2$: la última fila es $(0\;0\;0\mid 3)$, es decir, $0=3$ → **ninguna**.
+- $k\neq1,-2$: los tres pivotes son distintos de cero → **única**. De la fila 3, $z=\frac{1-k}{(1-k)(2+k)}=\frac{1}{k+2}$; de la fila 2, $y-z=0$, así que $y=\frac1{k+2}$; y de la fila 1, $x=1-y-kz=\frac1{k+2}$.
 :::
 
 ## Ejercicios propuestos
@@ -557,7 +571,19 @@ Resuelva por Gauss-Jordan: $\;2x + y - z = 3,\quad x - y + 2z = 1,\quad 3x + 2y 
 :::
 
 ::: {.solucion .fragment}
-$(A\mid\mathbf b)\sim\left(\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&1\end{array}\right)$, así que $(x,y,z)=(1,2,1)$. Compruebe: $2+2-1=3$, $1-2+2=1$, $3+4+1=8$.
+$$
+\left(\begin{array}{ccc|c}2&1&-1&3\\1&-1&2&1\\3&2&1&8\end{array}\right)\xrightarrow{F_{1}\leftrightarrow F_{2}}\left(\begin{array}{ccc|c}1&-1&2&1\\2&1&-1&3\\3&2&1&8\end{array}\right)\xrightarrow[F_{3}\to F_{3}-3F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{ccc|c}1&-1&2&1\\0&3&-5&1\\0&5&-5&5\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{2}\to \tfrac{1}{3}F_{2}}\left(\begin{array}{ccc|c}1&-1&2&1\\0&1&-\tfrac{5}{3}&\tfrac{1}{3}\\0&5&-5&5\end{array}\right)\xrightarrow[F_{3}\to F_{3}-5F_{2}]{F_{1}\to F_{1}+F_{2}}\left(\begin{array}{ccc|c}1&0&\tfrac{1}{3}&\tfrac{4}{3}\\0&1&-\tfrac{5}{3}&\tfrac{1}{3}\\0&0&\tfrac{10}{3}&\tfrac{10}{3}\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{3}\to \tfrac{3}{10}F_{3}}\left(\begin{array}{ccc|c}1&0&\tfrac{1}{3}&\tfrac{4}{3}\\0&1&-\tfrac{5}{3}&\tfrac{1}{3}\\0&0&1&1\end{array}\right)\xrightarrow[F_{2}\to F_{2}+\tfrac{5}{3}F_{3}]{F_{1}\to F_{1}-\tfrac{1}{3}F_{3}}\left(\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&1\end{array}\right)
+$$
+
+Se lee $(x,y,z)=(1,2,1)$. Compruebe: $2+2-1=3$, $1-2+2=1$, $3+4+1=8$.
 :::
 
 ## Ejercicios propuestos
@@ -578,9 +604,14 @@ Resuelva: $\;x_1 - x_2 + 2x_3 - x_4 = 1,\quad 2x_1 + x_2 - x_3 + x_4 = 5,\quad x
 
 ::: {.solucion .fragment}
 $$
-(A\mid\mathbf b)\sim\left(\begin{array}{cccc|c}1&0&\tfrac13&0&2\\0&1&-\tfrac53&1&1\\0&0&0&0&0\end{array}\right).
+\left(\begin{array}{cccc|c}1&-1&2&-1&1\\2&1&-1&1&5\\1&2&-3&2&4\end{array}\right)\xrightarrow[F_{3}\to F_{3}-F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{cccc|c}1&-1&2&-1&1\\0&3&-5&3&3\\0&3&-5&3&3\end{array}\right)\xrightarrow{F_{2}\to \tfrac{1}{3}F_{2}}\left(\begin{array}{cccc|c}1&-1&2&-1&1\\0&1&-\tfrac{5}{3}&1&1\\0&3&-5&3&3\end{array}\right)
 $$
-Variables libres $x_3$ y $x_4$. Con $x_3 = 3r$ y $x_4 = t$ (para evitar fracciones):
+
+$$
+\xrightarrow[F_{3}\to F_{3}-3F_{2}]{F_{1}\to F_{1}+F_{2}}\left(\begin{array}{cccc|c}1&0&\tfrac{1}{3}&0&2\\0&1&-\tfrac{5}{3}&1&1\\0&0&0&0&0\end{array}\right)
+$$
+
+Las columnas 3 y 4 no tienen pivote: variables libres $x_3$ y $x_4$. Las filas dicen $x_1+\tfrac13x_3=2$ y $x_2-\tfrac53x_3+x_4=1$. Con $x_3 = 3r$ y $x_4 = t$ (para evitar fracciones):
 $x_1 = 2 - r,\; x_2 = 1 + 5r - t,\; x_3 = 3r,\; x_4 = t$, con $r,t\in\mathbb R$. Infinitas soluciones.
 :::
 

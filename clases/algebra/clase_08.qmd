@@ -360,7 +360,12 @@ Calcule $\begin{vmatrix}2&-1&0\\1&3&1\\0&2&-2\end{vmatrix}$ por cofactores y por
 :::
 
 ::: {.solucion .fragment}
-Por la primera fila: $2(-6-2)-(-1)(-2-0)+0 = -16-2 = -18$. Sarrus: $(-12+0+0)-(0+4+2) = -18$ ✓.
+**Por cofactores (fila 1)**, con signos $+,-,+$:
+$$
+2\begin{vmatrix}3&1\\2&-2\end{vmatrix}-(-1)\begin{vmatrix}1&1\\0&-2\end{vmatrix}+0\begin{vmatrix}1&3\\0&2\end{vmatrix}
+=2(-6-2)+1(-2-0)+0=-16-2=-18 .
+$$
+**Por Sarrus.** Hacia abajo: $2\cdot3\cdot(-2)+(-1)\cdot1\cdot0+0\cdot1\cdot2=-12$. Hacia arriba: $0\cdot3\cdot0+2\cdot1\cdot2+(-2)\cdot1\cdot(-1)=0+4+2=6$. Resultado: $-12-6=-18$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -369,10 +374,18 @@ Por la primera fila: $2(-6-2)-(-1)(-2-0)+0 = -16-2 = -18$. Sarrus: $(-12+0+0)-(0
 Use cofactores para hallar $\det C$, con $C=\begin{pmatrix}1&0&2&-1\\3&1&0&2\\0&-2&1&3\\2&1&-1&0\end{pmatrix}$. Indique por qué fila o columna desarrolla.
 :::
 
-::: {.solucion .fragment}
-Por la columna 2, que tiene un cero: $\det C = 1\cdot A_{22} + (-2)\cdot A_{32} + 1\cdot A_{42}$, con
-$A_{22}=+\begin{vmatrix}1&2&-1\\0&1&3\\2&-1&0\end{vmatrix}=17$, $\;A_{32}=-\begin{vmatrix}1&2&-1\\3&0&2\\2&-1&0\end{vmatrix}=-13$, $\;A_{42}=+\begin{vmatrix}1&2&-1\\3&0&2\\0&1&3\end{vmatrix}=-23$.
-Luego $\det C = 17 + 26 - 23 = 20$.
+## Ejercicio 2: solución {.compacto}
+
+::: {.solucion}
+**Paso 1 · Elegir.** La columna 2 tiene un cero ($c_{12}=0$), así que su término desaparece: $\det C = 1\cdot A_{22} + (-2)\cdot A_{32} + 1\cdot A_{42}$. Los signos de la columna 2 son $-,+,-,+$.
+
+**Paso 2 · Cada cofactor** (se tacha la fila y la columna 2, y se desarrolla el $3\times3$ por su fila 1):
+
+- $A_{22}=+\begin{vmatrix}1&2&-1\\0&1&3\\2&-1&0\end{vmatrix}=1(0+3)-2(0-6)+(-1)(0-2)=3+12+2=17$.
+- $A_{32}=-\begin{vmatrix}1&2&-1\\3&0&2\\2&-1&0\end{vmatrix}=-\big[1(0+2)-2(0-4)+(-1)(-3-0)\big]=-(2+8+3)=-13$.
+- $A_{42}=+\begin{vmatrix}1&2&-1\\3&0&2\\0&1&3\end{vmatrix}=1(0-2)-2(9-0)+(-1)(3-0)=-2-18-3=-23$.
+
+**Paso 3 · Sumar:** $\det C = 1(17) + (-2)(-13) + 1(-23)=17 + 26 - 23 = 20$.
 :::
 
 ## Ejercicios propuestos
@@ -382,7 +395,13 @@ Halle los valores de $x$ para los cuales $\begin{vmatrix}1&1&1\\x&2&3\\x^2&4&9\e
 :::
 
 ::: {.solucion .fragment}
-Desarrollando, el determinante es $(x-2)(x-3)$. Vale cero si $x=2$ o $x=3$: en esos casos dos columnas son iguales.
+**Paso 1 · Desarrollar por la columna 1** (signos $+,-,+$):
+$$
+1\begin{vmatrix}2&3\\4&9\end{vmatrix}-x\begin{vmatrix}1&1\\4&9\end{vmatrix}+x^2\begin{vmatrix}1&1\\2&3\end{vmatrix}=1(18-12)-x(9-4)+x^2(3-2)=6-5x+x^2 .
+$$
+**Paso 2 · Igualar a cero y factorizar:** $x^2-5x+6=(x-2)(x-3)=0$, así que $x=2$ o $x=3$.
+
+**Comprobación:** con $x=2$ la columna 1 es igual a la 2, y con $x=3$, igual a la 3: el determinante es cero ✓.
 :::
 
 ## Ejercicios propuestos
@@ -392,7 +411,14 @@ Demuestre que si $A$ es $n\times n$ y tiene una fila (o columna) de ceros, enton
 :::
 
 ::: {.solucion .fragment}
-Desarrollamos por esa fila $i$: $\det A = \sum_j a_{ij}A_{ij} = \sum_j 0\cdot A_{ij} = 0$. Lo mismo si es una columna.
+Supongamos que la fila $i$ es de ceros: $a_{i1}=a_{i2}=\dots=a_{in}=0$.
+
+**Paso 1.** El determinante se puede calcular desarrollando por **cualquier** fila; elegimos la fila $i$:
+$\;\det A = a_{i1}A_{i1}+a_{i2}A_{i2}+\dots+a_{in}A_{in}$.
+
+**Paso 2.** Cada $a_{ij}$ es $0$, así que cada término es $0\cdot A_{ij}=0$, sin importar cuánto valga el cofactor. Entonces $\det A = 0$.
+
+Si la de ceros es una columna, se desarrolla por esa columna y el argumento es igual.
 :::
 
 ## Ejercicios propuestos
@@ -402,7 +428,8 @@ Calcule $\det\begin{pmatrix}2&1&3&5\\0&-1&4&7\\0&0&3&-2\\0&0&0&\tfrac12\end{pmat
 :::
 
 ::: {.solucion .fragment}
-Es triangular superior: $\det = 2\cdot(-1)\cdot 3\cdot\tfrac12 = -3$.
+Todas las entradas **debajo** de la diagonal son $0$: es triangular superior. Entonces su determinante es el producto de la diagonal:
+$\;\det = 2\cdot(-1)\cdot 3\cdot\tfrac12 = (-2)\cdot3\cdot\tfrac12=-6\cdot\tfrac12 = -3$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

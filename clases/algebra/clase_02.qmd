@@ -74,12 +74,11 @@ $$
 \begin{pmatrix}1&-2&3\\0&1&-1\\0&9&-13\end{pmatrix}
 \xrightarrow{F_3\to F_3-9F_2}
 \begin{pmatrix}1&-2&3\\0&1&-1\\0&0&-4\end{pmatrix}
-\sim I_3
 $$
 
 . . .
 
-Hay un pivote en cada columna: **no hay variables libres**. La única solución es la trivial $(0,0,0)$.
+La matriz ya está escalonada y tiene un pivote ($1$, $1$ y $-4$) en **cada** columna: **no hay variables libres**. Por sustitución hacia atrás: $-4x_3=0\Rightarrow x_3=0$; $x_2-x_3=0\Rightarrow x_2=0$; $x_1-2x_2+3x_3=0\Rightarrow x_1=0$. La única solución es la trivial $(0,0,0)$.
 
 ## Ejemplo resuelto: infinitas soluciones
 
@@ -90,14 +89,20 @@ Resuelva $\;x + y + z + w = 0,\quad x + w = 0,\quad x + 2y + z = 0.$
 . . .
 
 $$
-\begin{pmatrix}1&1&1&1\\1&0&0&1\\1&2&1&0\end{pmatrix}
-\sim
-\begin{pmatrix}1&0&0&1\\0&1&0&-1\\0&0&1&1\end{pmatrix}
-\quad\Longrightarrow\quad
-\begin{cases}x + w = 0\\ y - w = 0\\ z + w = 0\end{cases}
+\begin{pmatrix}1&1&1&1\\1&0&0&1\\1&2&1&0\end{pmatrix}\xrightarrow[F_{3}\to F_{3}-F_{1}]{F_{2}\to F_{2}-F_{1}}\begin{pmatrix}1&1&1&1\\0&-1&-1&0\\0&1&0&-1\end{pmatrix}\xrightarrow{F_{2}\to -F_{2}}\begin{pmatrix}1&1&1&1\\0&1&1&0\\0&1&0&-1\end{pmatrix}
 $$
 
-. . .
+$$
+\xrightarrow[F_{3}\to F_{3}-F_{2}]{F_{1}\to F_{1}-F_{2}}\begin{pmatrix}1&0&0&1\\0&1&1&0\\0&0&-1&-1\end{pmatrix}\xrightarrow{F_{3}\to -F_{3}}\begin{pmatrix}1&0&0&1\\0&1&1&0\\0&0&1&1\end{pmatrix}
+$$
+
+$$
+\xrightarrow{F_{2}\to F_{2}-F_{3}}\begin{pmatrix}1&0&0&1\\0&1&0&-1\\0&0&1&1\end{pmatrix}
+$$
+
+La matriz final dice $\;x + w = 0,\quad y - w = 0,\quad z + w = 0$.
+
+## Ejemplo resuelto: infinitas soluciones (continuación)
 
 La variable $w$ es libre. Con $w = t$:
 $$
@@ -207,8 +212,22 @@ $$
 \text{C}:&\;3x_1=x_3\\ \text{H}:&\;8x_1=2x_4\\ \text{O}:&\;2x_2=2x_3+x_4
 \end{aligned}
 \qquad\Longrightarrow\qquad
-\begin{pmatrix}3&0&-1&0\\8&0&0&-2\\0&2&-2&-1\end{pmatrix}\sim
-\begin{pmatrix}1&0&0&-\frac14\\0&1&0&-\frac54\\0&0&1&-\frac34\end{pmatrix}.
+\begin{cases}3x_1-x_3=0\\8x_1-2x_4=0\\2x_2-2x_3-x_4=0\end{cases}
+$$
+
+## Aplicación: balanceo (continuación) {.compacto}
+
+Reducimos la matriz de coeficientes:
+$$
+\begin{pmatrix}3&0&-1&0\\8&0&0&-2\\0&2&-2&-1\end{pmatrix}\xrightarrow{F_{1}\to \tfrac{1}{3}F_{1}}\begin{pmatrix}1&0&-\tfrac{1}{3}&0\\8&0&0&-2\\0&2&-2&-1\end{pmatrix}\xrightarrow{F_{2}\to F_{2}-8F_{1}}\begin{pmatrix}1&0&-\tfrac{1}{3}&0\\0&0&\tfrac{8}{3}&-2\\0&2&-2&-1\end{pmatrix}
+$$
+
+$$
+\xrightarrow{F_{2}\leftrightarrow F_{3}}\begin{pmatrix}1&0&-\tfrac{1}{3}&0\\0&2&-2&-1\\0&0&\tfrac{8}{3}&-2\end{pmatrix}\xrightarrow{F_{2}\to \tfrac{1}{2}F_{2}}\begin{pmatrix}1&0&-\tfrac{1}{3}&0\\0&1&-1&-\tfrac{1}{2}\\0&0&\tfrac{8}{3}&-2\end{pmatrix}
+$$
+
+$$
+\xrightarrow{F_{3}\to \tfrac{3}{8}F_{3}}\begin{pmatrix}1&0&-\tfrac{1}{3}&0\\0&1&-1&-\tfrac{1}{2}\\0&0&1&-\tfrac{3}{4}\end{pmatrix}\xrightarrow[F_{2}\to F_{2}+F_{3}]{F_{1}\to F_{1}+\tfrac{1}{3}F_{3}}\begin{pmatrix}1&0&0&-\tfrac{1}{4}\\0&1&0&-\tfrac{5}{4}\\0&0&1&-\tfrac{3}{4}\end{pmatrix}
 $$
 
 . . .
@@ -332,7 +351,14 @@ Hay soluciones no triviales solo si $k=1$ (un plano de soluciones) o $k=-2$ (una
 :::
 
 ::: {.solucion .fragment}
-Reduciendo: $F_2-F_1$, $F_3-F_1$ y luego $F_3-3F_2$ dejan la última fila $\big(0\;\;0\;\;a^2-3a+2\big)=\big(0\;\;0\;\;(a-1)(a-2)\big)$. Hay variable libre si y solo si $a=1$ o $a=2$.
+$$
+\begin{pmatrix}1&1&1\\1&2&a\\1&4&a^2\end{pmatrix}
+\xrightarrow[F_3\to F_3-F_1]{F_2\to F_2-F_1}
+\begin{pmatrix}1&1&1\\0&1&a-1\\0&3&a^2-1\end{pmatrix}
+\xrightarrow{F_3\to F_3-3F_2}
+\begin{pmatrix}1&1&1\\0&1&a-1\\0&0&a^2-3a+2\end{pmatrix}
+$$
+pues $a^2-1-3(a-1)=a^2-3a+2=(a-1)(a-2)$. El último pivote es cero (y aparece una variable libre) si y solo si $a=1$ o $a=2$.
 :::
 
 ::: {.ejercicio data-t="2"}
@@ -350,7 +376,15 @@ Resuelva $\;x + 2y - z = 0,\quad 2x - y + 3z = 0,\quad 3x + y + 2z = 0$ y escrib
 :::
 
 ::: {.solucion .fragment}
-$A\sim\begin{pmatrix}1&0&1\\0&1&-1\\0&0&0\end{pmatrix}$, luego $x=-z$, $y = z$. Con $z=t$: $\;\mathbf x = t(-1,1,1)$, $t\in\mathbb R$. (Note que $F_3 = F_1 + F_2$: una ecuación es redundante.)
+$$
+\begin{pmatrix}1&2&-1\\2&-1&3\\3&1&2\end{pmatrix}\xrightarrow[F_{3}\to F_{3}-3F_{1}]{F_{2}\to F_{2}-2F_{1}}\begin{pmatrix}1&2&-1\\0&-5&5\\0&-5&5\end{pmatrix}\xrightarrow{F_{2}\to -\tfrac{1}{5}F_{2}}\begin{pmatrix}1&2&-1\\0&1&-1\\0&-5&5\end{pmatrix}
+$$
+
+$$
+\xrightarrow[F_{3}\to F_{3}+5F_{2}]{F_{1}\to F_{1}-2F_{2}}\begin{pmatrix}1&0&1\\0&1&-1\\0&0&0\end{pmatrix}
+$$
+
+Las filas dicen $x+z=0$ y $y-z=0$, luego $x=-z$, $y = z$. Con $z=t$: $\;\mathbf x = t(-1,1,1)$, $t\in\mathbb R$. (Note que $F_3 = F_1 + F_2$: una ecuación es redundante.)
 :::
 
 ## Ejercicios propuestos
@@ -360,8 +394,10 @@ $A\sim\begin{pmatrix}1&0&1\\0&1&-1\\0&0&0\end{pmatrix}$, luego $x=-z$, $y = z$. 
 :::
 
 ::: {.solucion .fragment}
-Un sistema homogéneo $2\times2$ tiene soluciones no triviales si y solo si $a_{11}a_{22}-a_{12}a_{21}=0$:
-$(\lambda-1)(\lambda-2) - 6 = \lambda^2 - 3\lambda - 4 = (\lambda-4)(\lambda+1) = 0$. **Respuesta:** $\lambda = 4$ o $\lambda=-1$. (Esta es la idea de los **valores propios**, unidad 7.)
+Un sistema homogéneo $2\times2$ tiene soluciones no triviales si y solo si $a_{11}a_{22}-a_{12}a_{21}=0$. Aquí $a_{11}=\lambda-1$, $a_{12}=2$, $a_{21}=3$, $a_{22}=\lambda-2$:
+$$
+(\lambda-1)(\lambda-2) - 2\cdot3 = (\lambda^2-3\lambda+2)-6 = \lambda^2 - 3\lambda - 4 = (\lambda-4)(\lambda+1) = 0 .
+$$ **Respuesta:** $\lambda = 4$ o $\lambda=-1$. (Esta es la idea de los **valores propios**, unidad 7.)
 :::
 
 ## Ejercicios propuestos
@@ -371,7 +407,11 @@ Resuelva $\;x_1 + x_2 - x_3 + 2x_4 = 0,\quad 2x_1 + 3x_2 + x_3 + x_4 = 0$.
 :::
 
 ::: {.solucion .fragment}
-$\begin{pmatrix}1&1&-1&2\\2&3&1&1\end{pmatrix}\sim\begin{pmatrix}1&0&-4&5\\0&1&3&-3\end{pmatrix}$. Libres: $x_3=s$, $x_4=t$.
+$$
+\begin{pmatrix}1&1&-1&2\\2&3&1&1\end{pmatrix}\xrightarrow{F_{2}\to F_{2}-2F_{1}}\begin{pmatrix}1&1&-1&2\\0&1&3&-3\end{pmatrix}\xrightarrow{F_{1}\to F_{1}-F_{2}}\begin{pmatrix}1&0&-4&5\\0&1&3&-3\end{pmatrix}
+$$
+
+Las filas dicen $x_1-4x_3+5x_4=0$ y $x_2+3x_3-3x_4=0$. Libres: $x_3=s$, $x_4=t$, así que $x_1=4s-5t$ y $x_2=-3s+3t$:
 $$\mathbf x = s\,(4,-3,1,0) + t\,(-5,3,0,1),\qquad s,t\in\mathbb R.$$
 Es un plano en $\mathbb R^4$ (dos parámetros), como predice el teorema: $n-m = 2$.
 :::
@@ -383,7 +423,7 @@ Demuestre que si $\mathbf x_1$ y $\mathbf x_2$ son soluciones de $A\mathbf x = \
 :::
 
 ::: {.solucion .fragment}
-$A(\mathbf x_1-\mathbf x_2) = A\mathbf x_1 - A\mathbf x_2 = \mathbf b-\mathbf b=\mathbf 0$. En cambio $A(\mathbf x_1+\mathbf x_2) = 2\mathbf b$, que es igual a $\mathbf b$ **solo si** $\mathbf b = \mathbf 0$. Así, el conjunto solución de un sistema **no** homogéneo no es cerrado bajo la suma.
+Por la propiedad distributiva del producto de matrices, $A(\mathbf x_1-\mathbf x_2) = A\mathbf x_1 - A\mathbf x_2$, y como ambos son soluciones, esto es $\mathbf b-\mathbf b=\mathbf 0$. En cambio $A(\mathbf x_1+\mathbf x_2) = A\mathbf x_1+A\mathbf x_2=\mathbf b+\mathbf b=2\mathbf b$, que es igual a $\mathbf b$ **solo si** $\mathbf b = \mathbf 0$. Así, el conjunto solución de un sistema **no** homogéneo no es cerrado bajo la suma.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

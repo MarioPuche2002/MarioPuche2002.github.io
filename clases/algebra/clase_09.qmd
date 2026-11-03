@@ -310,15 +310,24 @@ Si $A$ es $4\times4$ con $\det A=3$, calcule $\det(2A^TA^{-1})$.
 :::
 
 ::: {.solucion .fragment}
-$\det(2A^TA^{-1})=2^4\det A^T\det A^{-1}=16\cdot3\cdot\tfrac13=16$.
+Se aplica una propiedad a la vez:
+
+1. **Escalar:** la matriz es $4\times4$, así que el $2$ sale como $2^4$: $\det(2A^TA^{-1})=2^4\det(A^TA^{-1})$.
+2. **Producto:** $\det(A^TA^{-1})=\det A^T\cdot\det A^{-1}$.
+3. **Transpuesta e inversa:** $\det A^T=\det A=3$ y $\det A^{-1}=\tfrac1{\det A}=\tfrac13$.
+
+Resultado: $16\cdot3\cdot\tfrac13=16$.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="2"}
 Use Vandermonde para calcular $\det\begin{pmatrix}1&1&1\\2&3&5\\4&9&25\end{pmatrix}$.
 :::
 
 ::: {.solucion .fragment}
-$a=2$, $b=3$, $c=5$: $(3-2)(5-2)(5-3)=1\cdot3\cdot2=6$.
+La matriz tiene la forma de Vandermonde $\begin{pmatrix}1&1&1\\a&b&c\\a^2&b^2&c^2\end{pmatrix}$ con $a=2$, $b=3$, $c=5$ (la fila 3 son los cuadrados: $4,9,25$). Su determinante es $(b-a)(c-a)(c-b)$:
+$\;(3-2)(5-2)(5-3)=1\cdot3\cdot2=6$.
 :::
 
 ## Ejercicios propuestos
@@ -328,7 +337,15 @@ Calcule por reducción por filas $\det\begin{pmatrix}2&1&3\\4&-1&2\\-2&5&1\end{p
 :::
 
 ::: {.solucion .fragment}
-$F_2-2F_1$, $F_3+F_1$: $\begin{vmatrix}2&1&3\\0&-3&-4\\0&6&4\end{vmatrix}$; $F_3+2F_2$: $\begin{vmatrix}2&1&3\\0&-3&-4\\0&0&-4\end{vmatrix}=2(-3)(-4)=24$.
+Solo usamos "sumar a una fila un múltiplo de otra", que **no cambia** el determinante:
+$$
+\begin{vmatrix}2&1&3\\4&-1&2\\-2&5&1\end{vmatrix}
+\overset{\substack{F_2\to F_2-2F_1\\F_3\to F_3+F_1}}{=}
+\begin{vmatrix}2&1&3\\0&-3&-4\\0&6&4\end{vmatrix}
+\overset{F_3\to F_3+2F_2}{=}
+\begin{vmatrix}2&1&3\\0&-3&-4\\0&0&-4\end{vmatrix}
+$$
+Por ejemplo, la nueva fila 2 es $(4,-1,2)-2(2,1,3)=(0,-3,-4)$. La última es triangular: $\det=2\cdot(-3)\cdot(-4)=24$.
 :::
 
 ## Ejercicios propuestos
@@ -338,7 +355,9 @@ Sean $A$, $B$ matrices $3\times3$ con $\det A = -2$ y $\det B = 5$. Calcule $\de
 :::
 
 ::: {.solucion .fragment}
-$\det(A^2B^{-1}) = \dfrac{(-2)^2}{5}=\dfrac45$; $\;\det(-3A^T) = (-3)^3(-2) = 54$; $\;\det(B^{-1}AB) = \dfrac15\cdot(-2)\cdot5 = -2$.
+- $\det(A^2B^{-1}) = \det A\cdot\det A\cdot\det B^{-1}=(-2)(-2)\cdot\dfrac15=\dfrac45$.
+- $\det(-3A^T) = (-3)^3\det A^T$ (el escalar sale al cubo porque es $3\times3$) $=(-27)(-2) = 54$.
+- $\det(B^{-1}AB) = \det B^{-1}\cdot\det A\cdot\det B=\dfrac15\cdot(-2)\cdot5 = -2$.
 :::
 
 ## Ejercicios propuestos
@@ -348,7 +367,13 @@ Una matriz $Q$ es **ortogonal** si $Q^TQ = I$. Demuestre que $\det Q = \pm1$.
 :::
 
 ::: {.solucion .fragment}
-$1 = \det I = \det(Q^TQ) = \det Q^T\det Q = (\det Q)^2$. Luego $\det Q = \pm1$.
+**Paso 1.** Tomamos determinante a ambos lados de $Q^TQ=I$: $\;\det(Q^TQ)=\det I=1$.
+
+**Paso 2.** Determinante de un producto: $\det(Q^TQ)=\det Q^T\cdot\det Q$.
+
+**Paso 3.** Transponer no cambia el determinante: $\det Q^T=\det Q$. Entonces $(\det Q)^2=1$.
+
+**Paso 4.** Los únicos números cuyo cuadrado es $1$ son $1$ y $-1$: $\det Q=\pm1$.
 :::
 
 ## Ejercicios propuestos
@@ -358,7 +383,11 @@ Demuestre que si $A$ es antisimétrica de tamaño $n\times n$ con $n$ **impar**,
 :::
 
 ::: {.solucion .fragment}
-$\det A = \det A^T = \det(-A) = (-1)^n\det A = -\det A$ (por ser $n$ impar). Luego $2\det A = 0$ y $\det A = 0$.
+**Paso 1.** Siempre $\det A=\det A^T$. Como $A$ es antisimétrica, $A^T=-A$, así que $\det A=\det(-A)$.
+
+**Paso 2.** $-A$ es multiplicar las $n$ filas por $-1$: $\det(-A)=(-1)^n\det A$. Como $n$ es impar, $(-1)^n=-1$.
+
+**Paso 3.** Juntando: $\det A=-\det A$. Sumando $\det A$ a ambos lados, $2\det A=0$, luego $\det A=0$.
 :::
 
 ## Ejercicios propuestos
@@ -368,7 +397,9 @@ Demuestre que si $A$ es invertible, $\det(A^{-1}BA) = \det B$.
 :::
 
 ::: {.solucion .fragment}
-$\det(A^{-1}BA)=\det A^{-1}\det B\det A = \tfrac{1}{\det A}\det B\det A = \det B$. (Matrices **semejantes** tienen el mismo determinante; ver unidad 7.)
+**Paso 1 · Producto:** $\det(A^{-1}BA)=\det A^{-1}\cdot\det B\cdot\det A$.
+**Paso 2 · Inversa:** $\det A^{-1}=\tfrac{1}{\det A}$ (existe porque $A$ es invertible, así que $\det A\neq0$).
+**Paso 3 · Simplificar:** $\tfrac{1}{\det A}\cdot\det B\cdot\det A = \det B$. (Matrices **semejantes** tienen el mismo determinante; ver unidad 7.)
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

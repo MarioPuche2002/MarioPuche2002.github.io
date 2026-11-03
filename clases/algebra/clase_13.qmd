@@ -438,7 +438,9 @@ Escriba en forma vectorial y simétrica la recta $x=1+2t$, $y=-3+t$, $z=4-t$.
 :::
 
 ::: {.solucion .fragment}
-$(x,y,z)=(1,-3,4)+t(2,1,-1)$; $\;\dfrac{x-1}{2}=\dfrac{y+3}{1}=\dfrac{z-4}{-1}$.
+**Leer punto y dirección:** los números sueltos forman el punto $P=(1,-3,4)$ y los que acompañan a $t$, la dirección $\mathbf v=(2,1,-1)$.
+**Vectorial:** $(x,y,z)=(1,-3,4)+t(2,1,-1)$.
+**Simétrica:** se despeja $t$ en cada ecuación ($t=\tfrac{x-1}{2}$, $t=\tfrac{y+3}{1}$, $t=\tfrac{z-4}{-1}$) y se igualan: $\;\dfrac{x-1}{2}=\dfrac{y+3}{1}=\dfrac{z-4}{-1}$.
 :::
 
 ::: {.ejercicio data-t="2"}
@@ -446,7 +448,10 @@ Halle el punto de intersección (si existe) de $L_1:(1,0,2)+t(1,1,-1)$ y $L_2:(2
 :::
 
 ::: {.solucion .fragment}
-$1+t=2-s$, $t=1+s$, $2-t=1+s$. De las dos primeras: $t=1$, $s=0$. Tercera: $2-1=1$ ✓. Punto $(2,1,1)$.
+**Paso 1 · Igualar coordenada a coordenada:** $\;1+t=2-s,\quad t=1+s,\quad 2-t=1+s$.
+**Paso 2 · Resolver dos de ellas.** De la segunda, $t=1+s$; en la primera: $1+(1+s)=2-s\Rightarrow 2+s=2-s\Rightarrow 2s=0\Rightarrow s=0$, y $t=1$.
+**Paso 3 · Comprobar en la tercera:** $2-1=1$ y $1+0=1$ ✓. Se cortan.
+**Paso 4 · Punto:** con $t=1$ en $L_1$: $(1+1,\;0+1,\;2-1)=(2,1,1)$.
 :::
 
 ## Práctica en clase (continuación)
@@ -456,15 +461,21 @@ $1+t=2-s$, $t=1+s$, $2-t=1+s$. De las dos primeras: $t=1$, $s=0$. Tercera: $2-1=
 :::
 
 ::: {.solucion .fragment}
-$\mathbf u=-2\mathbf v$: paralelas. $\overrightarrow{PQ}=(-1,3,-4)$ no es múltiplo de $\mathbf v$ (el cociente sería $1$, $\tfrac32$, $\tfrac43$), así que son **paralelas distintas**.
+**Paso 1 · ¿Paralelas?** $-2\mathbf v=-2(-1,2,-3)=(2,-4,6)=\mathbf u$: las direcciones son múltiplos, así que **sí son paralelas**.
+**Paso 2 · ¿La misma recta?** Solo si $Q$ está en $L_1$, es decir, si $\overrightarrow{PQ}$ también es múltiplo de $\mathbf v$. $\overrightarrow{PQ}=Q-P=(0-1,\;1+2,\;-1-3)=(-1,3,-4)$. Cocientes con $\mathbf v$: $\tfrac{-1}{-1}=1$, $\tfrac32$, $\tfrac{-4}{-3}=\tfrac43$: no son iguales.
+**Conclusión:** son **paralelas distintas**.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="4 · Demostración"}
 Demuestre que si $P_1$ y $P_2$ están en la recta $L:P_0+t\mathbf v$, entonces $\overrightarrow{P_1P_2}$ es paralelo a $\mathbf v$.
 :::
 
 ::: {.solucion .fragment}
-$P_1=P_0+t_1\mathbf v$ y $P_2=P_0+t_2\mathbf v$, luego $\overrightarrow{P_1P_2}=P_2-P_1=(t_2-t_1)\mathbf v$, un múltiplo escalar de $\mathbf v$.
+**Paso 1.** Si $P_1$ y $P_2$ están en $L$, cada uno corresponde a algún valor del parámetro: $P_1=P_0+t_1\mathbf v$ y $P_2=P_0+t_2\mathbf v$.
+**Paso 2.** $\overrightarrow{P_1P_2}=P_2-P_1=(P_0+t_2\mathbf v)-(P_0+t_1\mathbf v)=t_2\mathbf v-t_1\mathbf v=(t_2-t_1)\mathbf v$.
+**Paso 3.** $t_2-t_1$ es un número, así que $\overrightarrow{P_1P_2}$ es un múltiplo de $\mathbf v$: es paralelo a $\mathbf v$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

@@ -339,7 +339,12 @@ Justifique: si es verdadero, demuéstrelo; si es falso, dé un contraejemplo.
 :::
 
 ::: {.solucion .fragment}
-Ambas **falsas**. (a) $\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\-1&1\end{pmatrix}=O$. (b) Con $B=O$ y $A\neq C$ cualesquiera: $AO = CO = O$.
+Ambas **falsas**. Basta un contraejemplo para cada una.
+
+**(a)** Con $A=\begin{pmatrix}1&1\\1&1\end{pmatrix}$ y $B=\begin{pmatrix}1&-1\\-1&1\end{pmatrix}$, ninguna es la matriz cero, pero
+$AB=\begin{pmatrix}1-1&-1+1\\1-1&-1+1\end{pmatrix}=\begin{pmatrix}0&0\\0&0\end{pmatrix}=O$.
+
+**(b)** Tome $B=O$ y dos matrices distintas, por ejemplo $A=I$ y $C=2I$. Entonces $AB=O$ y $CB=O$, así que $AB=CB$, pero $A\neq C$. (No se puede "cancelar" $B$ como con los números.)
 :::
 
 ## Repaso de la unidad: ¿verdadero o falso?
@@ -349,7 +354,11 @@ Ambas **falsas**. (a) $\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}1&-1\\
 :::
 
 ::: {.solucion .fragment}
-**(a)** **Verdadera:** si $i<j$, $(A^T)_{ij} = a_{ji}$ con $j>i$, que es $0$ por ser $A$ triangular superior. **(b)** **Falsa:** $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ cumple $A^2=I$.
+**(a)** **Verdadera.** Hay que ver que $A^T$ tiene ceros **encima** de la diagonal, es decir, en las posiciones $(i,j)$ con $i<j$.
+Por definición de transpuesta, $(A^T)_{ij} = a_{ji}$. Si $i<j$, entonces $a_{ji}$ está en la fila $j$ y columna $i$ con $j>i$: está **debajo** de la diagonal de $A$, y ahí $A$ tiene ceros. Así, $(A^T)_{ij}=0$.
+
+**(b)** **Falsa.** Con $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$:
+$A^2=\begin{pmatrix}0\cdot0+1\cdot1&0\cdot1+1\cdot0\\1\cdot0+0\cdot1&1\cdot1+0\cdot0\end{pmatrix}=\begin{pmatrix}1&0\\0&1\end{pmatrix}=I$, pero $A\neq I$ y $A\neq-I$.
 :::
 
 ## Ejercicios propuestos
@@ -359,7 +368,11 @@ Demuestre que si $A$ y $B$ son simétricas $n\times n$, entonces $AB$ es simétr
 :::
 
 ::: {.solucion .fragment}
-$(AB)^T = B^TA^T = BA$. Así, $(AB)^T = AB \iff BA = AB$.
+**Paso 1.** Por la propiedad de la transpuesta de un producto: $(AB)^T = B^TA^T$.
+
+**Paso 2.** Como $A$ y $B$ son simétricas, $A^T=A$ y $B^T=B$, así que $(AB)^T = BA$.
+
+**Paso 3.** $AB$ es simétrica significa $(AB)^T = AB$. Por el paso 2, eso es lo mismo que $BA = AB$. Esto prueba las dos direcciones a la vez.
 :::
 
 ## Ejercicios propuestos
@@ -369,7 +382,11 @@ Demuestre que si $A$ es invertible y simétrica, entonces $A^{-1}$ es simétrica
 :::
 
 ::: {.solucion .fragment}
-$(A^{-1})^T = (A^T)^{-1} = A^{-1}$, usando la propiedad e) y que $A^T = A$.
+Hay que probar que $(A^{-1})^T = A^{-1}$.
+
+**Paso 1.** Por la propiedad e) (la transpuesta de la inversa es la inversa de la transpuesta): $(A^{-1})^T = (A^T)^{-1}$.
+
+**Paso 2.** Como $A$ es simétrica, $A^T = A$, así que $(A^T)^{-1}=A^{-1}$. Juntando: $(A^{-1})^T = A^{-1}$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -379,7 +396,14 @@ Sea $\mathbf u = (1,2,-1)^T$. Calcule $\mathbf u^T\mathbf u$ y $\mathbf u\mathbf
 :::
 
 ::: {.solucion .fragment}
-$\mathbf u^T\mathbf u = 1+4+1 = 6$ ($1\times1$). $\;\mathbf u\mathbf u^T=\begin{pmatrix}1&2&-1\\2&4&-2\\-1&-2&1\end{pmatrix}$ ($3\times3$, simétrica, como predice el teorema).
+**$\mathbf u^T\mathbf u$:** es $(1\times3)(3\times1)$, así que da $1\times1$ (un número):
+$\;\begin{pmatrix}1&2&-1\end{pmatrix}\begin{pmatrix}1\\2\\-1\end{pmatrix}=1\cdot1+2\cdot2+(-1)(-1)=1+4+1 = 6$.
+
+**$\mathbf u\mathbf u^T$:** es $(3\times1)(1\times3)$, así que da $3\times3$; la entrada $(i,j)$ es $u_i\,u_j$:
+$$
+\begin{pmatrix}1\\2\\-1\end{pmatrix}\begin{pmatrix}1&2&-1\end{pmatrix}=\begin{pmatrix}1\cdot1&1\cdot2&1\cdot(-1)\\2\cdot1&2\cdot2&2\cdot(-1)\\-1\cdot1&-1\cdot2&(-1)(-1)\end{pmatrix}=\begin{pmatrix}1&2&-1\\2&4&-2\\-1&-2&1\end{pmatrix},
+$$
+que es simétrica, como predice el teorema.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

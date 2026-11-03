@@ -133,7 +133,7 @@ Halle $w, x, y, z$ para que $\;\begin{pmatrix}1&2&-1\\2&-3&4\\0&-4&5\end{pmatrix
 
 . . .
 
-Igualando entrada a entrada: $\;w=-1,\quad x=-3,\quad y=0,\quad z=5.$
+Dos matrices son iguales si coinciden en **cada** posición. Comparando las posiciones donde están las incógnitas: la $(1,3)$ da $w=-1$; la $(2,2)$ da $x=-3$; la $(3,1)$ da $y=0$; y la $(3,3)$ da $z=5$.
 
 . . .
 
@@ -143,7 +143,7 @@ Igualando entrada a entrada: $\;w=-1,\quad x=-3,\quad y=0,\quad z=5.$
 
 . . .
 
-Se obtiene el sistema $a+b = 6$, $a - b = 2$, cuya solución es $a = 4$, $b = 2$. Las ecuaciones matriciales **son** sistemas de ecuaciones.
+Comparando las posiciones $(1,1)$ y $(2,1)$ se obtiene el sistema $a+b = 6$, $a - b = 2$ (las otras posiciones ya coinciden). Sumando las ecuaciones, $2a=8$, así que $a = 4$; y entonces $b = 6-4=2$. Las ecuaciones matriciales **son** sistemas de ecuaciones.
 
 ## Propiedades de la suma y del producto por escalar
 
@@ -192,8 +192,15 @@ Despejamos usando las propiedades (inverso aditivo y asociatividad): $\;E = -A -
 
 . . .
 
+## Ejemplo resuelto: ecuaciones matriciales (continuación)
+
+Calculamos cada término por separado (cada entrada se multiplica por el escalar):
 $$
-E = \begin{pmatrix}-1&-4\\2&2\\0&8\end{pmatrix} + \begin{pmatrix}8&-14\\0&-2\\-16&6\end{pmatrix} + \begin{pmatrix}15&-27\\9&0\\18&3\end{pmatrix}
+-A=\begin{pmatrix}-1&-4\\2&2\\0&8\end{pmatrix},\qquad -2B=\begin{pmatrix}8&-14\\0&-2\\-16&6\end{pmatrix},\qquad 3C=\begin{pmatrix}15&-27\\9&0\\18&3\end{pmatrix}.
+$$
+Y sumamos posición por posición, por ejemplo la $(1,1)$: $-1+8+15=22$:
+$$
+E = \begin{pmatrix}-1+8+15&-4-14-27\\2+0+9&2-2+0\\0-16+18&8+6+3\end{pmatrix}
 = \begin{pmatrix}22&-45\\11&0\\2&17\end{pmatrix}.
 $$
 
@@ -211,9 +218,11 @@ Sean $A=\begin{pmatrix}1&-1\\2&3\end{pmatrix}$, $B=\begin{pmatrix}-1&0\\2&3\end{
 
 . . .
 
-$$
-6A + 3B + 3X = 5X - 5A + 5B \;\Longrightarrow\; 11A - 2B = 2X \;\Longrightarrow\; X = \tfrac12(11A - 2B).
-$$
+**Paso 1 · Distribuir** los escalares: $\;6A + 3B + 3X = 5X - 5A + 5B$.
+
+**Paso 2 · Pasar las $X$ a un lado y lo demás al otro** (sumando $5A-5B-3X$ a ambos lados): $\;6A+5A+3B-5B = 5X-3X$, es decir, $\;11A - 2B = 2X$.
+
+**Paso 3 · Despejar:** $\;X = \tfrac12(11A - 2B)$.
 
 . . .
 
@@ -376,15 +385,19 @@ Halle $x,y,z$ si $\;2\begin{pmatrix}x&1\\0&y\end{pmatrix}-\begin{pmatrix}1&z\\3&
 :::
 
 ::: {.solucion .fragment}
-Entrada a entrada: $2x-1=5\Rightarrow x=3$; $\;2-z=-1\Rightarrow z=3$; $\;0-3=-3$ ✓; $\;2y-2=4\Rightarrow y=3$.
+Primero se calcula el lado izquierdo: $2\begin{pmatrix}x&1\\0&y\end{pmatrix}-\begin{pmatrix}1&z\\3&2\end{pmatrix}=\begin{pmatrix}2x-1&2-z\\-3&2y-2\end{pmatrix}$. Luego se iguala entrada a entrada:
+$(1,1)$: $2x-1=5\Rightarrow 2x=6\Rightarrow x=3$; $\;(1,2)$: $2-z=-1\Rightarrow z=3$; $\;(2,1)$: $-3=-3$ ✓; $\;(2,2)$: $2y-2=4\Rightarrow 2y=6\Rightarrow y=3$.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="2"}
 Escriba la matriz $\begin{pmatrix}3&-2\\5&0\end{pmatrix}$ como combinación lineal de $E_{11},E_{12},E_{21},E_{22}$ (las matrices con un solo 1).
 :::
 
 ::: {.solucion .fragment}
-$3E_{11}-2E_{12}+5E_{21}+0E_{22}$. Toda matriz $2\times2$ se escribe así de forma única: lo usaremos en la unidad 5 (base canónica).
+Cada $E_{ij}$ tiene un 1 en la posición $(i,j)$ y ceros en el resto, así que su coeficiente es justo la entrada $(i,j)$ de la matriz:
+$\begin{pmatrix}3&-2\\5&0\end{pmatrix}=3\begin{pmatrix}1&0\\0&0\end{pmatrix}-2\begin{pmatrix}0&1\\0&0\end{pmatrix}+5\begin{pmatrix}0&0\\1&0\end{pmatrix}+0\begin{pmatrix}0&0\\0&1\end{pmatrix}=3E_{11}-2E_{12}+5E_{21}+0E_{22}$. Toda matriz $2\times2$ se escribe así de forma única: lo usaremos en la unidad 5 (base canónica).
 :::
 
 ## Ejercicios propuestos
@@ -394,7 +407,8 @@ Con $A$, $B$ y $C$ del ejemplo de la diapositiva de ecuaciones matriciales, calc
 :::
 
 ::: {.solucion .fragment}
-$3A-2B+C=\begin{pmatrix}16&-11\\-3&-8\\-10&-17\end{pmatrix}$; $\quad D = 2A+B=\begin{pmatrix}-2&15\\-4&-3\\8&-19\end{pmatrix}$.
+$3A=\begin{pmatrix}3&12\\-6&-6\\0&-24\end{pmatrix}$, $\;-2B=\begin{pmatrix}8&-14\\0&-2\\-16&6\end{pmatrix}$, $\;C=\begin{pmatrix}5&-9\\3&0\\6&1\end{pmatrix}$; sumando posición por posición, $3A-2B+C=\begin{pmatrix}16&-11\\-3&-8\\-10&-17\end{pmatrix}$.
+Para $D$: de $2A+B-D=O$ se despeja $D=2A+B=\begin{pmatrix}2&8\\-4&-4\\0&-16\end{pmatrix}+\begin{pmatrix}-4&7\\0&1\\8&-3\end{pmatrix}=\begin{pmatrix}-2&15\\-4&-3\\8&-19\end{pmatrix}$.
 :::
 
 ## Ejercicios propuestos
@@ -404,7 +418,7 @@ Construya la matriz $3\times3$ con $a_{ij}=2i-j$. ¿Es simétrica, triangular o 
 :::
 
 ::: {.solucion .fragment}
-$A=\begin{pmatrix}1&0&-1\\3&2&1\\5&4&3\end{pmatrix}$. No es diagonal ni triangular (tiene entradas no nulas arriba y abajo de la diagonal) y no es simétrica, pues $a_{12}=0\neq 3=a_{21}$.
+Se evalúa la fórmula en cada posición; por ejemplo $a_{11}=2(1)-1=1$, $a_{12}=2(1)-2=0$, $a_{21}=2(2)-1=3$, $a_{33}=2(3)-3=3$. Así, $A=\begin{pmatrix}1&0&-1\\3&2&1\\5&4&3\end{pmatrix}$. No es diagonal ni triangular (tiene entradas no nulas arriba y abajo de la diagonal) y no es simétrica, pues $a_{12}=0\neq 3=a_{21}$.
 :::
 
 ## Ejercicios propuestos

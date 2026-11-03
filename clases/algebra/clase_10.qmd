@@ -322,25 +322,41 @@ Halle $\operatorname{adj}\begin{pmatrix}1&2\\3&4\end{pmatrix}$ y verifique que $
 :::
 
 ::: {.solucion .fragment}
-$\operatorname{adj}A=\begin{pmatrix}4&-2\\-3&1\end{pmatrix}$, $\det A=-2$, y $\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}4&-2\\-3&1\end{pmatrix}=\begin{pmatrix}-2&0\\0&-2\end{pmatrix}=-2I$ ✓.
+**Cofactores:** $A_{11}=+4$, $A_{12}=-3$, $A_{21}=-2$, $A_{22}=+1$. La adjunta es la **transpuesta** de la matriz de cofactores:
+$\;\operatorname{adj}A=\begin{pmatrix}A_{11}&A_{21}\\A_{12}&A_{22}\end{pmatrix}=\begin{pmatrix}4&-2\\-3&1\end{pmatrix}$.
+
+**Verificación:** $\det A=1\cdot4-2\cdot3=-2$ y
+$\;\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}4&-2\\-3&1\end{pmatrix}=\begin{pmatrix}4-6&-2+2\\12-12&-6+4\end{pmatrix}=\begin{pmatrix}-2&0\\0&-2\end{pmatrix}=-2I$ ✓.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="2"}
 Para $A=\begin{pmatrix}1&2&0\\0&1&3\\2&1&1\end{pmatrix}$, calcule la entrada $(2,1)$ de $\operatorname{adj}A$.
 :::
 
 ::: {.solucion .fragment}
-$(\operatorname{adj}A)_{21}=A_{12}$ (¡transpuesta!) $=-\begin{vmatrix}0&3\\2&1\end{vmatrix}=-(0-6)=6$.
+**Paso 1.** La adjunta es la transpuesta de los cofactores, así que su entrada $(2,1)$ es el cofactor $A_{12}$ (¡índices al revés!).
+
+**Paso 2.** Para $A_{12}$ se tacha la fila 1 y la columna 2 de $A$, y el signo es $(-1)^{1+2}=-1$:
+$\;A_{12}=-\begin{vmatrix}0&3\\2&1\end{vmatrix}=-(0\cdot1-3\cdot2)=-(0-6)=6$.
 :::
 
-## Ejercicios propuestos
+## Ejercicios propuestos {.compacto}
 
 ::: {.ejercicio data-t="1"}
 Resuelva por Cramer: $\;2x + y - z = 3,\quad x - y + 2z = 1,\quad 3x + 2y + z = 8$.
 :::
 
 ::: {.solucion .fragment}
-$\det A = -10$, $\det A_1 = -10$, $\det A_2 = -20$, $\det A_3=-10$. Luego $x=1$, $y=2$, $z=1$ (compare con el ejercicio 1 de la clase 1).
+**Paso 1.** $\det A=\begin{vmatrix}2&1&-1\\1&-1&2\\3&2&1\end{vmatrix}=2(-1-4)-1(1-6)+(-1)(2+3)=-10+5-5=-10$.
+
+**Paso 2.** Se reemplaza cada columna por $\mathbf b=(3,1,8)$:
+$\det A_1=\begin{vmatrix}3&1&-1\\1&-1&2\\8&2&1\end{vmatrix}=3(-5)-1(1-16)-1(2+8)=-10$,
+$\det A_2=\begin{vmatrix}2&3&-1\\1&1&2\\3&8&1\end{vmatrix}=2(1-16)-3(1-6)-1(8-3)=-20$,
+$\det A_3=\begin{vmatrix}2&1&3\\1&-1&1\\3&2&8\end{vmatrix}=2(-8-2)-1(8-3)+3(2+3)=-10$.
+
+**Paso 3.** $x=\tfrac{-10}{-10}=1$, $\;y=\tfrac{-20}{-10}=2$, $\;z=\tfrac{-10}{-10}=1$ (compare con el ejercicio 1 de la clase 1).
 :::
 
 ## Ejercicios propuestos
@@ -350,7 +366,10 @@ Para $A=\begin{pmatrix}5&2\\1&3\end{pmatrix}$ halle $\operatorname{adj}A$ y $A^{
 :::
 
 ::: {.solucion .fragment}
-$\det A=13$, $\operatorname{adj}A=\begin{pmatrix}3&-2\\-1&5\end{pmatrix}$, $A^{-1}=\tfrac1{13}\begin{pmatrix}3&-2\\-1&5\end{pmatrix}$. Cramer: $x=\dfrac{\begin{vmatrix}7&2\\4&3\end{vmatrix}}{13}=\dfrac{13}{13}=1$, $\;y=\dfrac{\begin{vmatrix}5&7\\1&4\end{vmatrix}}{13}=\dfrac{13}{13}=1$.
+**Adjunta e inversa.** $\det A=5\cdot3-2\cdot1=13$. Se intercambia la diagonal y se cambia el signo del resto: $\operatorname{adj}A=\begin{pmatrix}3&-2\\-1&5\end{pmatrix}$, y $A^{-1}=\tfrac1{13}\begin{pmatrix}3&-2\\-1&5\end{pmatrix}$.
+
+**Cramer.** Se cambia la columna de $x$ (o de $y$) por $(7,4)$:
+$\;x=\dfrac{\begin{vmatrix}7&2\\4&3\end{vmatrix}}{13}=\dfrac{21-8}{13}=1$, $\quad y=\dfrac{\begin{vmatrix}5&7\\1&4\end{vmatrix}}{13}=\dfrac{20-7}{13}=1$. Comprobación: $5+2=7$ ✓, $1+3=4$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -360,7 +379,13 @@ Sea $A$ invertible $n\times n$. Demuestre que $\operatorname{adj}A$ es invertibl
 :::
 
 ::: {.solucion .fragment}
-Tomando determinante en $A\,\operatorname{adj}A = (\det A)I_n$: $\;\det A\,\det(\operatorname{adj}A) = (\det A)^n$ (propiedad $\det(cI_n)=c^n$). Como $\det A\neq0$, dividimos: $\det(\operatorname{adj}A)=(\det A)^{n-1}\neq0$, así que $\operatorname{adj}A$ es invertible. Además $(\operatorname{adj}A)^{-1}=\dfrac{1}{\det A}A$.
+**Paso 1.** Partimos de la identidad $A\,\operatorname{adj}A = (\det A)I_n$ y tomamos determinante a ambos lados.
+
+**Paso 2.** Izquierda: $\det(A\,\operatorname{adj}A)=\det A\cdot\det(\operatorname{adj}A)$. Derecha: $(\det A)I_n$ es multiplicar las $n$ filas de $I_n$ por el número $\det A$, así que $\det\big((\det A)I_n\big)=(\det A)^n$.
+
+**Paso 3.** $\det A\cdot\det(\operatorname{adj}A)=(\det A)^n$. Como $A$ es invertible, $\det A\neq0$ y podemos dividir: $\det(\operatorname{adj}A)=(\det A)^{n-1}$.
+
+**Paso 4.** Ese número es distinto de cero, así que $\operatorname{adj}A$ es invertible. (Además, $(\operatorname{adj}A)^{-1}=\dfrac{1}{\det A}A$.)
 :::
 
 ## Ejercicios propuestos
@@ -370,7 +395,11 @@ Determine para qué valores de $k$ el sistema $\;kx + y = 1,\quad x + ky = 1\;$ 
 :::
 
 ::: {.solucion .fragment}
-$\det A = k^2-1$. Solución única si $k\neq\pm1$. Entonces $x = \dfrac{k-1}{k^2-1}=\dfrac{1}{k+1}$ y, por simetría, $y=\dfrac1{k+1}$. (Si $k=1$ hay infinitas soluciones; si $k=-1$, ninguna.)
+**Paso 1.** $\det A=\begin{vmatrix}k&1\\1&k\end{vmatrix}=k^2-1=(k-1)(k+1)$. Hay solución única si $\det A\neq0$, es decir, si $k\neq1$ y $k\neq-1$.
+
+**Paso 2 · Cramer:** $\;x = \dfrac{\begin{vmatrix}1&1\\1&k\end{vmatrix}}{k^2-1}=\dfrac{k-1}{(k-1)(k+1)}=\dfrac{1}{k+1}$, $\quad y = \dfrac{\begin{vmatrix}k&1\\1&1\end{vmatrix}}{k^2-1}=\dfrac{k-1}{(k-1)(k+1)}=\dfrac{1}{k+1}$.
+
+(Si $k=1$, las dos ecuaciones son $x+y=1$: infinitas soluciones. Si $k=-1$, quedan $-x+y=1$ y $x-y=1$, que se contradicen: ninguna.)
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

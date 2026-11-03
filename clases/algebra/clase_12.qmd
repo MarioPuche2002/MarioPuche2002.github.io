@@ -351,7 +351,11 @@ Calcule $(\mathbf i+2\mathbf j)\times(3\mathbf k)$ y verifique la regla de la ma
 :::
 
 ::: {.solucion .fragment}
-Por linealidad: $3(\mathbf i\times\mathbf k)+6(\mathbf j\times\mathbf k)=3(-\mathbf j)+6\mathbf i=(6,-3,0)$. Y $\mathbf i\times\mathbf j=\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\1&0&0\\0&1&0\end{vmatrix}=\mathbf k$.
+**Paso 1 · Distribuir** (el producto cruz es distributivo y los escalares salen): $(\mathbf i+2\mathbf j)\times(3\mathbf k)=3(\mathbf i\times\mathbf k)+6(\mathbf j\times\mathbf k)$.
+
+**Paso 2 · Productos básicos:** $\mathbf i\times\mathbf k=-\mathbf j$ (al revés del ciclo $\mathbf i\to\mathbf j\to\mathbf k$) y $\mathbf j\times\mathbf k=\mathbf i$. Entonces: $3(-\mathbf j)+6\mathbf i=(6,-3,0)$.
+
+**Paso 3 · Mano derecha:** $\mathbf i\times\mathbf j=\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\1&0&0\\0&1&0\end{vmatrix}=\mathbf i(0-0)-\mathbf j(0-0)+\mathbf k(1-0)=\mathbf k$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -361,7 +365,11 @@ Halle el área del paralelogramo con vértices consecutivos $A=(1,1,0)$, $B=(3,1
 :::
 
 ::: {.solucion .fragment}
-$\overrightarrow{AB}=(2,0,0)$, $\overrightarrow{AD}=(1,2,0)$, $\overrightarrow{AB}\times\overrightarrow{AD}=(0,0,4)$. Área $=4$ (base $2$ por altura $2$ ✓).
+**Paso 1 · Lados desde $A$:** $\overrightarrow{AB}=B-A=(2,0,0)$ y $\overrightarrow{AD}=D-A=(1,2,0)$.
+
+**Paso 2 · Producto cruz:** $\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\2&0&0\\1&2&0\end{vmatrix}=\mathbf i(0-0)-\mathbf j(0-0)+\mathbf k(4-0)=(0,0,4)$.
+
+**Paso 3 · Área** $=|(0,0,4)|=4$. Comprobación: base $|\overrightarrow{AB}|=2$ y altura $2$ (la diferencia en $y$), $2\cdot2=4$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -371,7 +379,11 @@ $\overrightarrow{AB}=(2,0,0)$, $\overrightarrow{AD}=(1,2,0)$, $\overrightarrow{A
 :::
 
 ::: {.solucion .fragment}
-$\begin{vmatrix}1&2&3\\2&1&0\\3&3&3\end{vmatrix}=1(3)-2(6)+3(3)=0$: **sí** son coplanares (de hecho, el tercero es la suma de los dos primeros).
+Son coplanares si el triple producto (el determinante con los tres vectores como filas) es $0$. Por la fila 1:
+$$
+\begin{vmatrix}1&2&3\\2&1&0\\3&3&3\end{vmatrix}=1(1\cdot3-0\cdot3)-2(2\cdot3-0\cdot3)+3(2\cdot3-1\cdot3)=3-12+9=0 .
+$$
+**Sí** son coplanares. De hecho, $(1,2,3)+(2,1,0)=(3,3,3)$: el tercero es la suma de los dos primeros.
 :::
 
 ## Ejercicios propuestos

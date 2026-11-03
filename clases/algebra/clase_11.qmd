@@ -353,15 +353,21 @@ Sean $\mathbf u=(3,4)$ y $\mathbf v=(1,0)$. Calcule $\left\|\operatorname{proy}_
 :::
 
 ::: {.solucion .fragment}
-$\operatorname{proy}_{\mathbf v}\mathbf u=\dfrac{3}{1}(1,0)=(3,0)$: magnitud $3$ (la "sombra" de $\mathbf u$ sobre el eje $x$).
+**Paso 1.** $\mathbf u\cdot\mathbf v=3\cdot1+4\cdot0=3$ y $|\mathbf v|^2=1^2+0^2=1$.
+**Paso 2.** $\operatorname{proy}_{\mathbf v}\mathbf u=\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf v|^2}\mathbf v=\dfrac{3}{1}(1,0)=(3,0)$.
+**Paso 3.** $\|(3,0)\|=\sqrt{9+0}=3$: es la "sombra" de $\mathbf u$ sobre el eje $x$.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="2"}
 Halle un vector de magnitud $6$ en la dirección de $(1,-2)$ y otro ortogonal a él con la misma magnitud.
 :::
 
 ::: {.solucion .fragment}
-$6\cdot\dfrac{(1,-2)}{\sqrt5}=\left(\tfrac{6}{\sqrt5},-\tfrac{12}{\sqrt5}\right)$. Ortogonal: intercambiar y cambiar un signo, $\left(\tfrac{12}{\sqrt5},\tfrac{6}{\sqrt5}\right)$.
+**Paso 1 · Unitario.** $|(1,-2)|=\sqrt{1+4}=\sqrt5$, así que el unitario es $\dfrac{(1,-2)}{\sqrt5}$.
+**Paso 2 · Escalar por 6:** $\;6\cdot\dfrac{(1,-2)}{\sqrt5}=\left(\tfrac{6}{\sqrt5},-\tfrac{12}{\sqrt5}\right)$.
+**Paso 3 · Ortogonal.** En el plano, $(a,b)$ es perpendicular a $(b,-a)$, porque $ab-ba=0$: se intercambian las componentes y se cambia un signo. De $\left(\tfrac{6}{\sqrt5},-\tfrac{12}{\sqrt5}\right)$ sale $\left(\tfrac{12}{\sqrt5},\tfrac{6}{\sqrt5}\right)$, que tiene la misma magnitud. Comprobación: $\tfrac{6\cdot12}{5}-\tfrac{12\cdot6}{5}=0$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -371,7 +377,9 @@ Halle la magnitud y la dirección de $\mathbf v = (-2, 2\sqrt3)$ y un vector uni
 :::
 
 ::: {.solucion .fragment}
-$|\mathbf v| = \sqrt{4+12}=4$. Segundo cuadrante: $\tan\theta = -\sqrt3$, $\theta = 120^\circ$. Unitario: $\left(-\tfrac12,\tfrac{\sqrt3}{2}\right)=(\cos120^\circ,\operatorname{sen}120^\circ)$.
+**Magnitud:** $|\mathbf v| = \sqrt{(-2)^2+(2\sqrt3)^2}=\sqrt{4+12}=\sqrt{16}=4$.
+**Dirección:** $x<0$ y $y>0$, así que está en el **segundo cuadrante**. $\tan\theta = \dfrac{2\sqrt3}{-2}=-\sqrt3$; la calculadora da $-60^\circ$, y en el segundo cuadrante se suma $180^\circ$: $\theta = 120^\circ$.
+**Unitario:** $\dfrac{\mathbf v}{|\mathbf v|}=\dfrac{(-2,2\sqrt3)}{4}=\left(-\tfrac12,\tfrac{\sqrt3}{2}\right)=(\cos120^\circ,\operatorname{sen}120^\circ)$.
 :::
 
 ## Ejercicios propuestos
@@ -381,7 +389,11 @@ Sean $\mathbf u = (1,-2)$ y $\mathbf v = (3,4)$. Calcule el ángulo entre ellos,
 :::
 
 ::: {.solucion .fragment}
-$\mathbf u\cdot\mathbf v = 3-8=-5$, $\cos\varphi = \dfrac{-5}{\sqrt5\cdot5}=-\dfrac{1}{\sqrt5}$, $\varphi\approx116.57^\circ$. $\;\operatorname{proy}_{\mathbf v}\mathbf u=\dfrac{-5}{25}(3,4)=\left(-\tfrac35,-\tfrac45\right)$, $\;\operatorname{proy}_{\mathbf u}\mathbf v=\dfrac{-5}{5}(1,-2)=(-1,2)$. Las dos proyecciones son **distintas**.
+**Datos:** $\mathbf u\cdot\mathbf v = 1\cdot3+(-2)\cdot4=3-8=-5$, $\;|\mathbf u|=\sqrt{1+4}=\sqrt5$, $\;|\mathbf v|=\sqrt{9+16}=5$.
+
+**Ángulo:** $\cos\varphi = \dfrac{\mathbf u\cdot\mathbf v}{|\mathbf u||\mathbf v|}=\dfrac{-5}{5\sqrt5}=-\dfrac{1}{\sqrt5}\approx-0.447$, así que $\varphi\approx116.57^\circ$ (obtuso, porque el producto punto es negativo).
+
+**Proyecciones:** $\operatorname{proy}_{\mathbf v}\mathbf u=\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf v|^2}\mathbf v=\dfrac{-5}{25}(3,4)=\left(-\tfrac35,-\tfrac45\right)$, $\quad\operatorname{proy}_{\mathbf u}\mathbf v=\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf u|^2}\mathbf u=\dfrac{-5}{5}(1,-2)=(-1,2)$. Son **distintas**: importa sobre cuál se proyecta.
 :::
 
 ## Ejercicios propuestos
@@ -391,7 +403,11 @@ Demuestre que $\operatorname{proy}_{\mathbf u}(\operatorname{proy}_{\mathbf u}\m
 :::
 
 ::: {.solucion .fragment}
-Sea $\mathbf p = k\mathbf u$ con $k = \frac{\mathbf u\cdot\mathbf v}{|\mathbf u|^2}$. Entonces $\operatorname{proy}_{\mathbf u}\mathbf p = \frac{\mathbf u\cdot(k\mathbf u)}{|\mathbf u|^2}\mathbf u = k\frac{|\mathbf u|^2}{|\mathbf u|^2}\mathbf u = k\mathbf u=\mathbf p$. Proyectar un vector que ya está sobre la recta de $\mathbf u$ no lo cambia.
+**Paso 1 · Nombrar.** $\operatorname{proy}_{\mathbf u}\mathbf v=k\mathbf u$, donde $k = \frac{\mathbf u\cdot\mathbf v}{|\mathbf u|^2}$ es un número. Llamemos $\mathbf p=k\mathbf u$.
+
+**Paso 2 · Aplicar la fórmula a $\mathbf p$:** $\;\operatorname{proy}_{\mathbf u}\mathbf p = \dfrac{\mathbf u\cdot\mathbf p}{|\mathbf u|^2}\mathbf u=\dfrac{\mathbf u\cdot(k\mathbf u)}{|\mathbf u|^2}\mathbf u$.
+
+**Paso 3 · Simplificar.** El número $k$ sale del producto punto y $\mathbf u\cdot\mathbf u=|\mathbf u|^2$: $\;\dfrac{k\,|\mathbf u|^2}{|\mathbf u|^2}\mathbf u = k\mathbf u=\mathbf p$ ✓. Proyectar un vector que ya está sobre la recta de $\mathbf u$ no lo cambia.
 :::
 
 ## Ejercicios propuestos
@@ -401,7 +417,10 @@ Demuestre que $\mathbf u$ y $\mathbf v$ son ortogonales si y solo si $|\mathbf u
 :::
 
 ::: {.solucion .fragment}
-$|\mathbf u+\mathbf v|^2 = |\mathbf u|^2 + 2\,\mathbf u\cdot\mathbf v+|\mathbf v|^2$. Esta expresión es igual a $|\mathbf u|^2+|\mathbf v|^2$ si y solo si $\mathbf u\cdot\mathbf v=0$.
+**Paso 1 · Expandir** usando $|\mathbf w|^2=\mathbf w\cdot\mathbf w$ y la distributiva:
+$|\mathbf u+\mathbf v|^2 = (\mathbf u+\mathbf v)\cdot(\mathbf u+\mathbf v)=\mathbf u\cdot\mathbf u+\mathbf u\cdot\mathbf v+\mathbf v\cdot\mathbf u+\mathbf v\cdot\mathbf v= |\mathbf u|^2 + 2\,\mathbf u\cdot\mathbf v+|\mathbf v|^2$.
+
+**Paso 2 · Comparar.** Entonces $|\mathbf u+\mathbf v|^2 = |\mathbf u|^2+|\mathbf v|^2$ exactamente cuando el término del medio es cero: $2\,\mathbf u\cdot\mathbf v=0$, es decir, $\mathbf u\cdot\mathbf v=0$, que es la definición de ortogonales.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}
