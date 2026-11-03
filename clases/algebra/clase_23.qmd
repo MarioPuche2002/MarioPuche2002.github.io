@@ -298,74 +298,7 @@ $\operatorname{Im}T=\operatorname{gen}\{(1,2,0),\,(2,4,1)\}$: **un plano**, $\rh
 
 **Paso 4 · Verificar:** $\nu+\rho=1+2=3$ columnas ✓. El plano imagen tiene ecuación $2a-b=0$ (normal $(1,2,0)\times(2,4,1)=(2,-1,0)$): todo lo que sale cumple $b=2a$.
 
-## Más ejemplos (1): una matriz $2\times2$ {.compacto}
-
-::: {.ejemplo}
-$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2\\2&4\end{pmatrix}$. Halle el núcleo y la imagen.
-:::
-
-. . .
-
-**Escalonar:** $F_2-2F_1$ da $\begin{pmatrix}1&2\\0&0\end{pmatrix}$. Un pivote (columna 1); $y$ es libre.
-
-. . .
-
-**Núcleo:** $x+2y=0\Rightarrow (x,y)=(-2y,\,y)=y\,(-2,1)$. Es la recta generada por $(-2,1)$: $\nu=1$.
-
-. . .
-
-**Imagen:** la columna original con pivote, $(1,2)$. Todo lo que sale es múltiplo de $(1,2)$: la recta $y=2x$, $\rho=1$.
-
-::: {.solucion}
-$\nu+\rho=1+1=2$ columnas ✓. Las dos columnas de $A$ son paralelas ($(2,4)=2(1,2)$): por eso la imagen es solo una recta y no todo el plano.
-:::
-
-## Más ejemplos (2): de $\mathbb R^3$ a $\mathbb R^2$ {.compacto}
-
-::: {.ejemplo}
-$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&0&2\\0&1&-1\end{pmatrix}$. Halle el núcleo y la imagen.
-:::
-
-. . .
-
-**Escalonar:** ya está en forma escalonada reducida. Pivotes en las columnas 1 y 2; $z$ es libre.
-
-. . .
-
-**Núcleo:** $x+2z=0$ y $y-z=0$, así que $(x,y,z)=(-2z,\,z,\,z)=z\,(-2,1,1)$. Una recta, $\nu=1$.
-Comprobación: $A(-2,1,1)^T=(-2+0+2,\;0+1-1)=(0,0)$ ✓.
-
-. . .
-
-**Imagen:** columnas 1 y 2, $(1,0)$ y $(0,1)$: generan **todo** $\mathbb R^2$, $\rho=2$.
-
-::: {.solucion}
-$\nu+\rho=1+2=3$ ✓. $T$ es **sobreyectiva** (alcanza todo $\mathbb R^2$) pero **no inyectiva** (su núcleo no es solo el cero).
-:::
-
-## Más ejemplos (3): núcleo trivial {.compacto}
-
-::: {.ejemplo}
-$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&1&0\\0&1&1\\1&0&1\end{pmatrix}$. Halle el núcleo y la imagen.
-:::
-
-. . .
-
-**Escalonar:** se llega a la identidad $I_3$ (también se ve con $\det A=2\neq0$). Tres pivotes, **ninguna** variable libre.
-
-. . .
-
-**Núcleo:** la única solución de $A\mathbf x=\mathbf 0$ es $\mathbf x=\mathbf 0$. $\operatorname{nu}T=\{\mathbf 0\}$, $\nu=0$.
-
-. . .
-
-**Imagen:** las tres columnas tienen pivote y generan todo $\mathbb R^3$: $\rho=3$.
-
-::: {.solucion}
-$\nu+\rho=0+3=3$ ✓. $T$ es **inyectiva y sobreyectiva**: es invertible. Cuando $A$ es cuadrada, núcleo trivial $\iff\det A\neq0$.
-:::
-
-## Más ejemplos (4): de $\mathbb R^4$ a $\mathbb R^3$ {.compacto}
+## Más ejemplos: de $\mathbb R^4$ a $\mathbb R^3$ {.compacto}
 
 ::: {.ejemplo}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2&1&0\\2&4&0&2\\1&2&2&-1\end{pmatrix}$. Halle bases del núcleo y de la imagen.
@@ -509,22 +442,6 @@ Basta revisar **una sola cosa**: si lo único que se convierte en cero es el cer
 ($\Leftarrow$) Si $T(\mathbf u)=T(\mathbf v)$, entonces $T(\mathbf u-\mathbf v)=T(\mathbf u)-T(\mathbf v)=\mathbf 0$, luego $\mathbf u-\mathbf v\in\operatorname{nu}T=\{\mathbf 0\}$ y $\mathbf u=\mathbf v$.
 :::
 
-## Resumen de casos
-
-| Si… | entonces $T$ es… |
-|---|---|
-| $\nu(T)=0$ (núcleo solo el cero) | **inyectiva** |
-| $\rho(T)=\dim W$ (la imagen es todo $W$) | **sobreyectiva** |
-| ambas cosas | **invertible** (biyectiva) |
-
-. . .
-
-::: {.ejemplo}
-- La derivación $D:P_3\to P_2$ **no** es inyectiva ($D(5)=D(7)=0$) pero **sí** es sobreyectiva.
-- La transposición es inyectiva **y** sobreyectiva.
-- La proyección sobre el plano $xy$ no es ninguna de las dos.
-:::
-
 ## Las tres situaciones en un dibujo {.nostretch}
 
 ![](img/inyectiva_sobreyectiva.svg){fig-align="center" height="400px"}
@@ -547,80 +464,6 @@ Cada vector de llegada se obtiene **exactamente una vez**: hay una sola entrada 
 La palabra correcta es **sobreyectiva** (también se dice *suprayectiva*). Las transformaciones *proyectivas* existen, pero son de otra rama, la geometría proyectiva.
 :::
 
-## Probar la inyectividad con la definición {.compacto}
-
-::: {.ejemplo}
-Use la definición para probar que $T(x,y)=(2x,\;3y)$ es inyectiva.
-:::
-
-**Paso 1 · Suponer dos entradas con la misma salida:** $T(x_1,y_1)=T(x_2,y_2)$, es decir, $(2x_1,\;3y_1)=(2x_2,\;3y_2)$.
-
-**Paso 2 · Igualar componente a componente:** $2x_1=2x_2\Rightarrow x_1=x_2$ (dividiendo entre 2) y $3y_1=3y_2\Rightarrow y_1=y_2$ (dividiendo entre 3).
-
-**Paso 3 · Concluir:** $(x_1,y_1)=(x_2,y_2)$. Dos salidas iguales solo vienen de la misma entrada: **es inyectiva**.
-
-. . .
-
-::: {.obs}
-Con el núcleo es más corto: $(2x,3y)=(0,0)$ solo tiene la solución $(0,0)$. Por eso, en la práctica, **para la inyectividad se calcula el núcleo** y **para la sobreyectividad, la imagen**.
-:::
-
-## Ejemplo A: una inyectiva y una que no lo es {.compacto}
-
-::: {.ejemplo}
-Decida si son inyectivas: $\;T_1(x,y)=(2x,\;y)\;$ y $\;T_2(x,y)=(x+y,\;x+y)$.
-:::
-
-**$T_1$ · Paso 1:** igualamos a cero: $(2x,\;y)=(0,0)$, es decir, $2x=0$ y $y=0$.
-
-**Paso 2:** de $2x=0$ sale $x=0$; y $y=0$. La única solución es $(0,0)$: $\operatorname{nu}T_1=\{(0,0)\}$.
-
-**Conclusión:** $T_1$ **es inyectiva**: ningún vector distinto de cero se convierte en cero.
-
-. . .
-
-**$T_2$ · Paso 1:** igualamos a cero: $x+y=0$ (las dos componentes dan la misma ecuación).
-
-**Paso 2:** $x=-y$; con $y=t$: $(x,y)=(-t,t)=t(-1,1)$. Así, $\operatorname{nu}T_2=\operatorname{gen}\{(-1,1)\}$.
-
-**Conclusión:** $T_2$ **no es inyectiva**: por ejemplo $T_2(-1,1)=(0,0)=T_2(0,0)$, dos entradas distintas con el mismo resultado.
-
-## Ejemplo B: una sobreyectiva y una que no lo es {.compacto}
-
-::: {.ejemplo}
-Decida si son sobreyectivas: $\;T_3(x,y)=(x+y,\;x-y)\;$ y $\;T_4(x,y)=(x+y,\;2x+2y)$.
-:::
-
-**$T_3$ · Paso 1:** tomamos un vector **cualquiera** $(a,b)$ de $\mathbb R^2$ y buscamos $(x,y)$ con $T_3(x,y)=(a,b)$: $\;x+y=a,\;\;x-y=b$.
-
-**Paso 2:** sumando las ecuaciones, $2x=a+b$, así que $x=\frac{a+b}{2}$; restándolas, $2y=a-b$, así que $y=\frac{a-b}{2}$.
-
-**Conclusión:** siempre hay solución, sin importar $a$ y $b$: $\operatorname{Im}T_3=\mathbb R^2$ y $T_3$ **es sobreyectiva**.
-
-. . .
-
-**$T_4$ · Paso 1:** con $s=x+y$, $\;T_4(x,y)=(s,\;2s)=s(1,2)$: $\operatorname{Im}T_4=\operatorname{gen}\{(1,2)\}$, una recta.
-
-**Paso 2 · Un vector que no se alcanza:** para obtener $(1,0)$ haría falta $s=1$ y $2s=0$ a la vez: imposible.
-
-**Conclusión:** $T_4$ **no es sobreyectiva**.
-
-## Ejemplo C: una biyectiva {.compacto}
-
-::: {.ejemplo}
-Muestre que $T(x,y)=(3x,\;2y)$ es biyectiva.
-:::
-
-**Paso 1 · Inyectiva.** $(3x,\;2y)=(0,0)$ da $3x=0$ y $2y=0$, así que $x=0$, $y=0$. El núcleo es $\{(0,0)\}$: **inyectiva**.
-
-. . .
-
-**Paso 2 · Sobreyectiva.** Dado cualquier $(a,b)$, buscamos $3x=a$ y $2y=b$: basta tomar $x=\frac a3$, $y=\frac b2$. Se alcanza todo $\mathbb R^2$: **sobreyectiva**.
-
-. . .
-
-**Conclusión:** es inyectiva y sobreyectiva, luego **biyectiva** (invertible). Su inversa es $T^{-1}(a,b)=\left(\frac a3,\;\frac b2\right)$.
-
 ## ¿Cómo reconocerlas con la matriz?
 
 Si $T(\mathbf x)=A\mathbf x$ con $A$ de tamaño $m\times n$ ($n$ columnas = dimensión de lo que entra, $m$ filas = dimensión de lo que sale):
@@ -637,22 +480,6 @@ Si $T(\mathbf x)=A\mathbf x$ con $A$ de tamaño $m\times n$ ($n$ columnas = dime
 $A=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}$ ($2\times3$): ya está escalonada, con pivotes en las columnas 1 y 2. $\rho=2$ y $\nu=3-2=1$.
 
 **No** es inyectiva ($\rho=2\neq3$: $z$ es libre). **Sí** es sobreyectiva ($\rho=2=$ número de filas). Por tanto, no es biyectiva.
-:::
-
-## Mini parcial: ¿sí o no?
-
-1. $T:\mathbb R^2\to\mathbb R^2$, $T(x,y)=(x,0)$. ¿Es inyectiva?
-2. $T:\mathbb R^2\to\mathbb R^2$, $T(x,y)=(x,y)$. ¿Es sobreyectiva?
-3. $T:\mathbb R^3\to\mathbb R^2$ tiene rango 2. ¿Es sobreyectiva?
-4. La misma $T$ de la pregunta 3. ¿Es inyectiva?
-5. $T:\mathbb R^2\to\mathbb R^2$ tiene núcleo $\{\mathbf 0\}$. ¿Es biyectiva?
-
-::: {.solucion .fragment}
-1. **No:** $(0,5)\mapsto(0,0)$, así que el núcleo es el eje $y$.
-2. **Sí:** cada $(a,b)$ sale de sí mismo.
-3. **Sí:** $\rho=2=\dim\mathbb R^2$.
-4. **No:** $\nu=3-2=1\neq0$.
-5. **Sí:** $\nu=0$, luego $\rho=2-0=2$: también es sobreyectiva.
 :::
 
 ## La regla para recordar
@@ -775,16 +602,16 @@ $\operatorname{nu}T=$ simétricas ($\dim 3$), $\operatorname{im}T=$ antisimétri
 
 ## 6. Guía de ejercicios: núcleo e imagen
 
-Resolvemos **22 ejercicios** completos, de menos a más, y dejamos **10 propuestos** con sus respuestas.
+Resolvemos **19 ejercicios** completos, de menos a más, y dejamos **10 propuestos** con sus respuestas.
 
 | Parte | Tipo | Ejercicios |
 |---|---|---|
-| I | Fórmulas en $\mathbb R^n$, sin matrices | 1–7 |
-| II | Polinomios y derivadas | 8–12 |
-| III | Matrices (Gauss-Jordan) | 13–16 |
-| IV | Clasificar: inyectiva, sobreyectiva o biyectiva | 17–22 |
-| V | Propuestos (núcleo, imagen, bases, $\nu$, $\rho$ y tipo), con respuestas | 23–32 |
-| VI | Preguntas de concepto y errores frecuentes | — |
+| I | Fórmulas en $\mathbb R^n$, sin matrices | 1–5 |
+| II | Polinomios y derivadas | 6–9 |
+| III | Matrices (Gauss-Jordan) | 10–13 |
+| IV | Clasificar: inyectiva, sobreyectiva o biyectiva | 14–19 |
+| V | Propuestos (núcleo, imagen, bases, $\nu$, $\rho$ y tipo), con respuestas | 20–29 |
+| VI | Errores frecuentes y mini evaluación | — |
 
 ## La receta de la guía
 
@@ -834,25 +661,7 @@ Los dos vectores no son múltiplos (son LI), y dos vectores LI en $\mathbb R^2$ 
 
 **Paso 3 · Comprobar:** $\nu+\rho=0+2=2=\dim\mathbb R^2$ ✓.
 
-## Ejercicio 2: ecuaciones repetidas {.compacto}
-
-::: {.ejemplo}
-$T:\mathbb R^2\to\mathbb R^2$, $\;T(x,y)=(2x+4y,\;x+2y)$.
-:::
-
-**Paso 1 · Núcleo.** $\;2x+4y=0\;$ y $\;x+2y=0$. La primera es el doble de la segunda: queda solo $x+2y=0$, es decir, $x=-2y$.
-Con $y=t$: $(x,y)=(-2t,\;t)=t(-2,1)$. $\operatorname{nu}T=\operatorname{gen}\{(-2,1)\}$, $\nu=1$.
-
-. . .
-
-**Paso 2 · Imagen.** Separamos por letras: $T(x,y)=x(2,1)+y(4,2)$. Pero $(4,2)=2(2,1)$: sobra.
-$\operatorname{Im}T=\operatorname{gen}\{(2,1)\}$, $\rho=1$.
-
-. . .
-
-**Paso 3 · Comprobar:** $1+1=2$ ✓.
-
-## Ejercicio 3: de $\mathbb R^3$ a $\mathbb R^2$ {.compacto}
+## Ejercicio 2: de $\mathbb R^3$ a $\mathbb R^2$ {.compacto}
 
 ::: {.ejemplo}
 $T:\mathbb R^3\to\mathbb R^2$, $\;T(x,y,z)=(x+y+z,\;x-y)$.
@@ -870,7 +679,7 @@ $\operatorname{Im}T=\mathbb R^2$, $\rho=2$.
 
 **Paso 3 · Comprobar:** $1+2=3=\dim\mathbb R^3$ ✓.
 
-## Ejercicio 4: un núcleo de dimensión 2 {.compacto}
+## Ejercicio 3: un núcleo de dimensión 2 {.compacto}
 
 ::: {.ejemplo}
 $T:\mathbb R^3\to\mathbb R^2$, $\;T(x,y,z)=(x+y+z,\;2x+2y+2z)$.
@@ -888,7 +697,7 @@ $\operatorname{nu}T=\operatorname{gen}\{(-1,1,0),(-1,0,1)\}$, $\nu=2$: es un **p
 
 **Paso 3 · Comprobar:** $2+1=3$ ✓.
 
-## Ejercicio 5: diferencias de coordenadas {.compacto}
+## Ejercicio 4: diferencias de coordenadas {.compacto}
 
 ::: {.ejemplo}
 $T:\mathbb R^3\to\mathbb R^3$, $\;T(x,y,z)=(x-y,\;y-z,\;x-z)$.
@@ -907,25 +716,7 @@ $\operatorname{Im}T=\operatorname{gen}\{(1,0,1),(-1,1,0)\}$, $\rho=2$.
 
 **Paso 3 · Comprobar:** $1+2=3$ ✓.
 
-## Ejercicio 6: componentes dependientes {.compacto}
-
-::: {.ejemplo}
-$T:\mathbb R^3\to\mathbb R^3$, $\;T(x,y,z)=(x+y,\;y+z,\;x+2y+z)$. Observe que la tercera componente es la suma de las dos primeras.
-:::
-
-**Paso 1 · Núcleo.** $\;x+y=0$, $\;y+z=0$, $\;x+2y+z=0$. De la primera, $x=-y$; de la segunda, $z=-y$. La tercera queda $-y+2y-y=0$ ✓.
-Con $y=t$: $(x,y,z)=(-t,\;t,\;-t)=t(-1,1,-1)$. $\operatorname{nu}T=\operatorname{gen}\{(-1,1,-1)\}$, $\nu=1$.
-
-. . .
-
-**Paso 2 · Imagen.** $T(x,y,z)=x(1,0,1)+y(1,1,2)+z(0,1,1)$. El del medio sobra: $(1,1,2)=(1,0,1)+(0,1,1)$.
-$\operatorname{Im}T=\operatorname{gen}\{(1,0,1),(0,1,1)\}$, $\rho=2$: un **plano** dentro de $\mathbb R^3$.
-
-. . .
-
-**Paso 3 · Comprobar:** $1+2=3$ ✓.
-
-## Ejercicio 7: cuatro variables {.compacto}
+## Ejercicio 5: cuatro variables {.compacto}
 
 ::: {.ejemplo}
 $T:\mathbb R^4\to\mathbb R^2$, $\;T(a,b,c,d)=(a+b-c,\;2a+2b-2c)$.
@@ -957,28 +748,7 @@ Un polinomio es **el polinomio cero** solo si **todos** sus coeficientes son cer
 
 En la imagen, los vectores fijos son ahora polinomios, como $1$, $x$, $x^2$ o $x^2-x$.
 
-## Ejercicio 8: evaluar en cero {.compacto}
-
-::: {.ejemplo}
-$T:P_2\to\mathbb R$, $\;T(p)=p(0)$.
-:::
-
-**Paso 1 · Escribir $T$ en general.** Con $p(x)=ax^2+bx+c$: $\;T(p)=a\cdot0^2+b\cdot0+c=c$.
-
-. . .
-
-**Paso 2 · Núcleo.** $T(p)=0$ significa $c=0$, con $a$ y $b$ libres: $p(x)=a\,x^2+b\,x$.
-$\operatorname{nu}T=\operatorname{gen}\{x,\;x^2\}$, $\nu=2$. Son los polinomios que **pasan por el origen**.
-
-. . .
-
-**Paso 3 · Imagen.** $T(p)=c$ y $c$ puede ser cualquier número real: $\operatorname{Im}T=\mathbb R$, $\rho=1$.
-
-. . .
-
-**Paso 4 · Comprobar:** $2+1=3=\dim P_2$ ✓.
-
-## Ejercicio 9: evaluar en dos puntos {.compacto}
+## Ejercicio 6: evaluar en dos puntos {.compacto}
 
 ::: {.ejemplo}
 $T:P_2\to\mathbb R^2$, $\;T(p)=\big(p(0),\;p(1)\big)$.
@@ -996,7 +766,7 @@ $p(x)=ax^2-ax=a(x^2-x)$. $\operatorname{nu}T=\operatorname{gen}\{x^2-x\}$, $\nu=
 **Paso 3 · Imagen.** Separando por letras: $T(p)=a(0,1)+b(0,1)+c(1,1)$. Quedan $(0,1)$ y $(1,1)$, que son LI: $\operatorname{Im}T=\mathbb R^2$, $\rho=2$.
 Comprobación: $1+2=3$ ✓.
 
-## Ejercicio 10: la derivada de $P_2$ en $P_1$ {.compacto}
+## Ejercicio 7: la derivada de $P_2$ en $P_1$ {.compacto}
 
 ::: {.ejemplo}
 $T:P_2\to P_1$, $\;T(p)=p'$.
@@ -1018,7 +788,7 @@ $\operatorname{Im}T=P_1=\operatorname{gen}\{1,x\}$, $\rho=2$. Comprobación: $1+
 Si se toma $T:P_2\to P_2$ (misma fórmula, pero llegando a $P_2$), la imagen sigue siendo $P_1$, que ya **no** es todo el espacio de llegada: deja de ser sobreyectiva.
 :::
 
-## Ejercicio 11: la derivada de $P_3$ en $P_2$ {.compacto}
+## Ejercicio 8: la derivada de $P_3$ en $P_2$ {.compacto}
 
 ::: {.ejemplo}
 $T:P_3\to P_2$, $\;T(p)=p'$.
@@ -1039,7 +809,7 @@ Siempre hay solución: $\operatorname{Im}T=P_2$, $\rho=3$.
 
 **Paso 4 · Comprobar:** $1+3=4=\dim P_3$ ✓.
 
-## Ejercicio 12: un polinomio más su derivada {.compacto}
+## Ejercicio 9: un polinomio más su derivada {.compacto}
 
 ::: {.ejemplo}
 $T:P_2\to P_2$, $\;T(p)=p+p'$.
@@ -1076,7 +846,7 @@ Si $T(\mathbf x)=A\mathbf x$, se usa **Gauss-Jordan** sobre $A$ (la columna de c
 
 Por eso, siempre: $\;\rho=$ número de pivotes, $\;\nu=$ número de variables libres, y $\;\rho+\nu=$ número de columnas.
 
-## Ejercicio 13: matriz $2\times2$ {.compacto}
+## Ejercicio 10: matriz $2\times2$ {.compacto}
 
 ::: {.ejemplo}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2\\2&4\end{pmatrix}$.
@@ -1097,7 +867,7 @@ $$
 
 **Paso 4 · Comprobar:** $1+1=2$ columnas ✓.
 
-## Ejercicio 14: matriz $2\times3$ {.compacto}
+## Ejercicio 11: matriz $2\times3$ {.compacto}
 
 ::: {.ejemplo}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&1&1\\1&-1&0\end{pmatrix}$.
@@ -1117,7 +887,7 @@ $\operatorname{nu}T=\operatorname{gen}\{(-1,-1,2)\}$, $\nu=1$.
 
 **Paso 3 · Imagen.** Pivotes en las columnas 1 y 2; columnas originales $(1,1)$ y $(1,-1)$, que son LI: $\operatorname{Im}T=\mathbb R^2$, con base $\{(1,1),(1,-1)\}$ y $\rho=2$. Comprobación: $1+2=3$ ✓.
 
-## Ejercicio 15: matriz $3\times3$ {.compacto}
+## Ejercicio 12: matriz $3\times3$ {.compacto}
 
 ::: {.ejemplo}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&1&1\\1&2&3\\2&3&4\end{pmatrix}$.
@@ -1140,7 +910,7 @@ $$
 $\nu+\rho=1+2=3$ ✓. **No** es invertible: su núcleo no es solo el cero (también se ve en que $\det A=0$).
 :::
 
-## Ejercicio 16: matriz $3\times4$ {.compacto}
+## Ejercicio 13: matriz $3\times4$ {.compacto}
 
 ::: {.ejemplo}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&1&0&1\\0&1&1&2\\1&2&1&3\end{pmatrix}$.
@@ -1151,7 +921,7 @@ $$
 \begin{pmatrix}1&1&0&1\\0&1&1&2\\1&2&1&3\end{pmatrix}\xrightarrow{F_{3}\to F_{3}-F_{1}}\begin{pmatrix}1&1&0&1\\0&1&1&2\\0&1&1&2\end{pmatrix}\xrightarrow[F_{3}\to F_{3}-F_{2}]{F_{1}\to F_{1}-F_{2}}\begin{pmatrix}1&0&-1&-1\\0&1&1&2\\0&0&0&0\end{pmatrix}
 $$
 
-## Ejercicio 16 (continuación) {.compacto}
+## Ejercicio 13 (continuación) {.compacto}
 
 **Paso 2 · Núcleo.** Con incógnitas $(x,y,z,w)$, las filas dicen $x-z-w=0$ y $y+z+2w=0$. Columnas 3 y 4 sin pivote: $z$ y $w$ son libres.
 Despejamos: $x=z+w$ y $y=-z-2w$. Con $z=s$, $w=t$:
@@ -1184,9 +954,9 @@ Ahora la pregunta es **qué tipo** de transformación es. La respuesta sale de l
 Si $\dim V=\dim W$ (por ejemplo, de $\mathbb R^3$ en $\mathbb R^3$), basta revisar **una** de las dos: por el teorema de la dimensión, inyectiva $\iff$ sobreyectiva.
 :::
 
-## Ejercicios 17 y 18: la identidad y la sombra {.compacto}
+## Ejercicios 14 y 15: la identidad y la sombra {.compacto}
 
-::: {.ejemplo data-t="Ejercicio 17"}
+::: {.ejemplo data-t="Ejercicio 14"}
 $T:\mathbb R^2\to\mathbb R^2$, $\;T(x,y)=(x,\;y)$.
 :::
 
@@ -1196,7 +966,7 @@ $T:\mathbb R^2\to\mathbb R^2$, $\;T(x,y)=(x,\;y)$.
 
 . . .
 
-::: {.ejemplo data-t="Ejercicio 18"}
+::: {.ejemplo data-t="Ejercicio 15"}
 $T:\mathbb R^2\to\mathbb R^2$, $\;T(x,y)=(x,\;0)$.
 :::
 
@@ -1204,9 +974,9 @@ $T:\mathbb R^2\to\mathbb R^2$, $\;T(x,y)=(x,\;0)$.
 
 **Imagen:** $\{(x,0)\}=\operatorname{gen}\{(1,0)\}$, solo el eje $x$; por ejemplo, $(0,1)$ no se alcanza. **No** es sobreyectiva. Conclusión: **ninguna**.
 
-## Ejercicios 19 y 20: cambiar de dimensión {.compacto}
+## Ejercicios 16 y 17: cambiar de dimensión {.compacto}
 
-::: {.ejemplo data-t="Ejercicio 19"}
+::: {.ejemplo data-t="Ejercicio 16"}
 $T:\mathbb R^3\to\mathbb R^2$, $\;T(x,y,z)=(x,\;y)$.
 :::
 
@@ -1216,7 +986,7 @@ $T:\mathbb R^3\to\mathbb R^2$, $\;T(x,y,z)=(x,\;y)$.
 
 . . .
 
-::: {.ejemplo data-t="Ejercicio 20"}
+::: {.ejemplo data-t="Ejercicio 17"}
 $T:\mathbb R^2\to\mathbb R^3$, $\;T(x,y)=(x,\;y,\;x+y)$.
 :::
 
@@ -1224,9 +994,9 @@ $T:\mathbb R^2\to\mathbb R^3$, $\;T(x,y)=(x,\;y,\;x+y)$.
 
 **Imagen:** $x(1,0,1)+y(0,1,1)$: un plano (todos sus vectores cumplen "tercera $=$ primera $+$ segunda"); por ejemplo, $(0,0,1)$ no se alcanza. Conclusión: **inyectiva, pero no sobreyectiva**.
 
-## Ejercicios 21 y 22: con matrices {.compacto}
+## Ejercicios 18 y 19: con matrices {.compacto}
 
-::: {.ejemplo data-t="Ejercicio 21"}
+::: {.ejemplo data-t="Ejercicio 18"}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2\\3&4\end{pmatrix}$.
 :::
 
@@ -1235,7 +1005,7 @@ Conclusión: inyectiva ($\rho=n$) y sobreyectiva ($\rho=m$): **biyectiva**.
 
 . . .
 
-::: {.ejemplo data-t="Ejercicio 22"}
+::: {.ejemplo data-t="Ejercicio 19"}
 $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&0\\0&1\\1&1\end{pmatrix}$ ($3\times2$, de $\mathbb R^2$ en $\mathbb R^3$).
 :::
 
@@ -1278,78 +1048,66 @@ Diga si es **biyectiva**, **solo inyectiva**, **solo sobreyectiva** o **ninguna*
 
 | N.º | Tipo | Transformación |
 |---|---|---|
-| 23 | Sin matriz | $T(x,y)=(3x-3y,\;6x-6y)$ |
-| 24 | Sin matriz | $T(x,y,z)=(x+y,\;y+z)$ |
-| 25 | Polinomios | $T:P_3\to P_2$, $\;T(p)=p''$ |
-| 26 | Polinomios | $T:P_3\to\mathbb R^2$, $\;T(p)=\big(p(0),\;p'(0)\big)$ |
-| 27 | Matriz $2\times3$ | $\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$ |
-| 28 | Matriz $2\times3$ | $\begin{pmatrix}1&2&1\\0&1&1\end{pmatrix}$ |
-| 29 | Matriz $3\times3$ | $\begin{pmatrix}1&2&0\\0&1&1\\1&3&1\end{pmatrix}$ |
-| 30 | Matriz $3\times3$ | $\begin{pmatrix}1&1&0\\1&2&1\\2&3&1\end{pmatrix}$ |
-| 31 | Matriz $3\times4$ | $\begin{pmatrix}1&1&1&0\\0&1&1&1\\1&2&2&1\end{pmatrix}$ |
-| 32 | Matriz $4\times4$ | $\begin{pmatrix}1&1&0&0\\0&1&1&0\\1&2&1&0\\0&0&0&1\end{pmatrix}$ |
+| 20 | Sin matriz | $T(x,y)=(3x-3y,\;6x-6y)$ |
+| 21 | Sin matriz | $T(x,y,z)=(x+y,\;y+z)$ |
+| 22 | Polinomios | $T:P_3\to P_2$, $\;T(p)=p''$ |
+| 23 | Polinomios | $T:P_3\to\mathbb R^2$, $\;T(p)=\big(p(0),\;p'(0)\big)$ |
+| 24 | Matriz $2\times3$ | $\begin{pmatrix}1&0&1\\0&1&1\end{pmatrix}$ |
+| 25 | Matriz $2\times3$ | $\begin{pmatrix}1&2&1\\0&1&1\end{pmatrix}$ |
+| 26 | Matriz $3\times3$ | $\begin{pmatrix}1&2&0\\0&1&1\\1&3&1\end{pmatrix}$ |
+| 27 | Matriz $3\times3$ | $\begin{pmatrix}1&1&0\\1&2&1\\2&3&1\end{pmatrix}$ |
+| 28 | Matriz $3\times4$ | $\begin{pmatrix}1&1&1&0\\0&1&1&1\\1&2&2&1\end{pmatrix}$ |
+| 29 | Matriz $4\times4$ | $\begin{pmatrix}1&1&0&0\\0&1&1&0\\1&2&1&0\\0&0&0&1\end{pmatrix}$ |
 
-## Respuestas de los propuestos (23–26)
+## Respuestas de los propuestos (20–23)
 
 ::: {.solucion .fragment}
-**23.** $3x-3y=0\Rightarrow x=y$: $\operatorname{nu}T=\operatorname{gen}\{(1,1)\}$. Con $s=x-y$: $T=(3s,6s)=3s(1,2)$, así que $\operatorname{Im}T=\operatorname{gen}\{(1,2)\}$. $\nu=\rho=1$. Ni inyectiva ni sobreyectiva.
+**20.** $3x-3y=0\Rightarrow x=y$: $\operatorname{nu}T=\operatorname{gen}\{(1,1)\}$. Con $s=x-y$: $T=(3s,6s)=3s(1,2)$, así que $\operatorname{Im}T=\operatorname{gen}\{(1,2)\}$. $\nu=\rho=1$. Ni inyectiva ni sobreyectiva.
 :::
 
 ::: {.solucion .fragment}
-**24.** $x=-y$, $z=-y$: $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1)\}$. $T=x(1,0)+y(1,1)+z(0,1)$: $\operatorname{Im}T=\mathbb R^2$. $\nu=1$, $\rho=2$. Sobreyectiva, no inyectiva.
+**21.** $x=-y$, $z=-y$: $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1)\}$. $T=x(1,0)+y(1,1)+z(0,1)$: $\operatorname{Im}T=\mathbb R^2$. $\nu=1$, $\rho=2$. Sobreyectiva, no inyectiva.
 :::
 
 ::: {.solucion .fragment}
-**25.** $p=ax^3+bx^2+cx+d$, $\;p''=6ax+2b$. Núcleo: $a=b=0$, $\operatorname{nu}T=\operatorname{gen}\{1,x\}$. Imagen: $P_1=\operatorname{gen}\{1,x\}$, que **no** es todo $P_2$. $\nu=2$, $\rho=2$. Ni inyectiva ni sobreyectiva.
+**22.** $p=ax^3+bx^2+cx+d$, $\;p''=6ax+2b$. Núcleo: $a=b=0$, $\operatorname{nu}T=\operatorname{gen}\{1,x\}$. Imagen: $P_1=\operatorname{gen}\{1,x\}$, que **no** es todo $P_2$. $\nu=2$, $\rho=2$. Ni inyectiva ni sobreyectiva.
 :::
 
 ::: {.solucion .fragment}
-**26.** $p(0)=d$ y $p'(0)=c$, así que $T(p)=(d,c)$. Núcleo: $c=d=0$, $\operatorname{nu}T=\operatorname{gen}\{x^2,x^3\}$. Imagen: $\mathbb R^2$. $\nu=2$, $\rho=2$. Sobreyectiva, no inyectiva.
+**23.** $p(0)=d$ y $p'(0)=c$, así que $T(p)=(d,c)$. Núcleo: $c=d=0$, $\operatorname{nu}T=\operatorname{gen}\{x^2,x^3\}$. Imagen: $\mathbb R^2$. $\nu=2$, $\rho=2$. Sobreyectiva, no inyectiva.
+:::
+
+## Respuestas de los propuestos (24–26) {.compacto}
+
+::: {.solucion .fragment}
+**24.** Ya está escalonada: $x=-z$, $y=-z$. $\operatorname{nu}T=\operatorname{gen}\{(-1,-1,1)\}$, $\operatorname{Im}T=\mathbb R^2$. $\nu=1$, $\rho=2$. Sobreyectiva, no inyectiva.
+:::
+
+::: {.solucion .fragment}
+**25.** $F_1\to F_1-2F_2$ da $\begin{pmatrix}1&0&-1\\0&1&1\end{pmatrix}$: $x=z$, $y=-z$. $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1)\}$, $\operatorname{Im}T=\mathbb R^2$. $\nu=1$, $\rho=2$. Sobreyectiva, no inyectiva.
+:::
+
+::: {.solucion .fragment}
+**26.** Forma reducida $\begin{pmatrix}1&0&-2\\0&1&1\\0&0&0\end{pmatrix}$: $\operatorname{nu}T=\operatorname{gen}\{(2,-1,1)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,0,1),(2,1,3)\}$. $\nu=1$, $\rho=2$. Ninguna de las dos.
 :::
 
 ## Respuestas de los propuestos (27–29) {.compacto}
 
 ::: {.solucion .fragment}
-**27.** Ya está escalonada: $x=-z$, $y=-z$. $\operatorname{nu}T=\operatorname{gen}\{(-1,-1,1)\}$, $\operatorname{Im}T=\mathbb R^2$. $\nu=1$, $\rho=2$. Sobreyectiva, no inyectiva.
+**27.** Forma reducida $\begin{pmatrix}1&0&-1\\0&1&1\\0&0&0\end{pmatrix}$: $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,1,2),(1,2,3)\}$. $\nu=1$, $\rho=2$. Ninguna de las dos.
 :::
 
 ::: {.solucion .fragment}
-**28.** $F_1\to F_1-2F_2$ da $\begin{pmatrix}1&0&-1\\0&1&1\end{pmatrix}$: $x=z$, $y=-z$. $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1)\}$, $\operatorname{Im}T=\mathbb R^2$. $\nu=1$, $\rho=2$. Sobreyectiva, no inyectiva.
+**28.** Forma reducida $\begin{pmatrix}1&0&0&-1\\0&1&1&1\\0&0&0&0\end{pmatrix}$: $\operatorname{nu}T=\operatorname{gen}\{(0,-1,1,0),(1,-1,0,1)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,0,1),(1,1,2)\}$. $\nu=2$, $\rho=2$. Ninguna de las dos.
 :::
 
 ::: {.solucion .fragment}
-**29.** Forma reducida $\begin{pmatrix}1&0&-2\\0&1&1\\0&0&0\end{pmatrix}$: $\operatorname{nu}T=\operatorname{gen}\{(2,-1,1)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,0,1),(2,1,3)\}$. $\nu=1$, $\rho=2$. Ninguna de las dos.
+**29.** Pivotes en las columnas 1, 2 y 4: $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1,0)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,0,1,0),(1,1,2,0),(0,0,0,1)\}$. $\nu=1$, $\rho=3$. Ninguna de las dos.
 :::
 
-## Respuestas de los propuestos (30–32) {.compacto}
+## Parte VI · Tres errores que hay que evitar
 
-::: {.solucion .fragment}
-**30.** Forma reducida $\begin{pmatrix}1&0&-1\\0&1&1\\0&0&0\end{pmatrix}$: $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,1,2),(1,2,3)\}$. $\nu=1$, $\rho=2$. Ninguna de las dos.
-:::
-
-::: {.solucion .fragment}
-**31.** Forma reducida $\begin{pmatrix}1&0&0&-1\\0&1&1&1\\0&0&0&0\end{pmatrix}$: $\operatorname{nu}T=\operatorname{gen}\{(0,-1,1,0),(1,-1,0,1)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,0,1),(1,1,2)\}$. $\nu=2$, $\rho=2$. Ninguna de las dos.
-:::
-
-::: {.solucion .fragment}
-**32.** Pivotes en las columnas 1, 2 y 4: $\operatorname{nu}T=\operatorname{gen}\{(1,-1,1,0)\}$, $\operatorname{Im}T=\operatorname{gen}\{(1,0,1,0),(1,1,2,0),(0,0,0,1)\}$. $\nu=1$, $\rho=3$. Ninguna de las dos.
-:::
-
-## Parte VI · Preguntas de concepto
-
-| Pregunta | Respuesta |
-|---|---|
-| ¿Cuándo es inyectiva? | Cuando $\operatorname{nu}T=\{\mathbf 0\}$. |
-| ¿Cuándo es sobreyectiva? | Cuando $\operatorname{Im}T=W$. |
-| ¿Cuándo es biyectiva? | Cuando es inyectiva y sobreyectiva. |
-| ¿El núcleo contiene al cero? ¿Y la imagen? | Siempre, los dos. |
-| ¿Dónde vive el núcleo? ¿Y la imagen? | El núcleo en el dominio; la imagen en el codominio. |
-| ¿El rango puede superar la dimensión del dominio? | No: $\rho=\dim V-\nu\le\dim V$. |
-| ¿La nulidad puede ser cero? | Sí: justo cuando $T$ es inyectiva. |
-
-## Tres errores que hay que evitar
-
-1. **Confundir dónde vive cada uno.** El núcleo está en el **dominio** (lo que entra); la imagen, en el **codominio** (lo que sale). En el ejercicio 3, el núcleo tiene vectores de $\mathbb R^3$ y la imagen, de $\mathbb R^2$.
+1. **Confundir dónde vive cada uno.** El núcleo está en el **dominio** (lo que entra); la imagen, en el **codominio** (lo que sale). En el ejercicio 2, el núcleo tiene vectores de $\mathbb R^3$ y la imagen, de $\mathbb R^2$.
 
 . . .
 
@@ -1377,62 +1135,6 @@ Diga si es **biyectiva**, **solo inyectiva**, **solo sobreyectiva** o **ninguna*
 
 ::: {.palabras .fragment}
 Domine primero los ejercicios **sin matrices**. Al pasar a matrices, Gauss-Jordan no es otra cosa: es una forma ordenada de resolver las **mismas** ecuaciones.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="1"}
-Halle núcleo, imagen, nulidad y rango de $T:\mathbb R^3\to\mathbb R^2$, $T(x,y,z)=(x-y+z,\;2x+y-z)$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1 · Matriz y reducción:**
-$$
-\begin{pmatrix}1&-1&1\\2&1&-1\end{pmatrix}\xrightarrow{F_{2}\to F_{2}-2F_{1}}\begin{pmatrix}1&-1&1\\0&3&-3\end{pmatrix}\xrightarrow{F_{2}\to \tfrac{1}{3}F_{2}}\begin{pmatrix}1&-1&1\\0&1&-1\end{pmatrix}\xrightarrow{F_{1}\to F_{1}+F_{2}}\begin{pmatrix}1&0&0\\0&1&-1\end{pmatrix}
-$$
-
-**Paso 2 · Núcleo.** Las filas dicen $x=0$ y $y-z=0$. Con $z=t$: $(x,y,z)=(0,t,t)=t(0,1,1)$, así que $\operatorname{nu}T=\operatorname{gen}\{(0,1,1)\}$ y $\nu=1$.
-
-**Paso 3 · Imagen.** Hay pivotes en las columnas 1 y 2: $\rho=2$, así que $\operatorname{Im}T=\mathbb R^2$ (sobreyectiva). Comprobación: $1+2=3$.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="2"}
-¿Puede una transformación lineal $T:\mathbb R^4\to\mathbb R^3$ ser inyectiva? ¿Y $T:\mathbb R^2\to\mathbb R^3$ sobreyectiva?
-:::
-
-::: {.solucion .fragment}
-**Ninguna de las dos.** Se usa $\nu+\rho=\dim(\text{dominio})$.
-
-**(a)** La imagen vive en $\mathbb R^3$, así que $\rho\le3$. Entonces $\nu=4-\rho\ge4-3=1$: el núcleo tiene al menos un vector no nulo y $T$ **no** es inyectiva.
-
-**(b)** $\rho=2-\nu\le2$. Para ser sobreyectiva necesitaría $\rho=3$, imposible: la imagen tiene dimensión a lo sumo 2.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="3"}
-Sea $T:M_{2\times2}\to\mathbb R$, $T(A)=a_{11}+a_{22}$ (la **traza**). Halle una base del núcleo y su dimensión.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** $T(A)=0$ significa $a_{11}+a_{22}=0$, es decir, $a_{22}=-a_{11}$. Las otras entradas son libres: $\operatorname{nu}T=\left\{\begin{pmatrix}a&b\\c&-a\end{pmatrix}\right\}$.
-
-**Paso 2 · Separar por letras:** $\begin{pmatrix}a&b\\c&-a\end{pmatrix}=a\begin{pmatrix}1&0\\0&-1\end{pmatrix}+b\begin{pmatrix}0&1\\0&0\end{pmatrix}+c\begin{pmatrix}0&0\\1&0\end{pmatrix}$, con base $\left\{\begin{pmatrix}1&0\\0&-1\end{pmatrix},\begin{pmatrix}0&1\\0&0\end{pmatrix},\begin{pmatrix}0&0\\1&0\end{pmatrix}\right\}$: $\nu=3$. Como $\operatorname{Im}T=\mathbb R$ ($\rho=1$), se cumple $3+1=4$.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4 · Demostración"}
-Sea $T:V\to V$ lineal con $\dim V=n$. Demuestre que $T$ es inyectiva si y solo si es sobreyectiva.
-:::
-
-::: {.solucion .fragment}
-Se encadenan equivalencias:
-1. $T$ inyectiva $\iff\operatorname{nu}T=\{\mathbf 0\}\iff\nu=0$.
-2. Por el teorema de la dimensión, $\nu+\rho=n$; así que $\nu=0\iff\rho=n$.
-3. $\rho=n$ significa que $\operatorname{Im}T$ es un subespacio de $V$ con dimensión $n=\dim V$, y eso ocurre $\iff\operatorname{Im}T=V$ (clase 19), es decir, $\iff T$ es sobreyectiva.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}
