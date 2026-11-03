@@ -497,10 +497,31 @@ def pca():
     guardar(fig, "app_pca.svg")
 
 
+def sombra():
+    fig, ax = plt.subplots(figsize=(5.4, 4.6))
+    ax.axhline(0, color=AMBAR, lw=4, alpha=.85, zorder=1)
+    ax.axvline(0, color=VERDE, lw=4, alpha=.85, zorder=1)
+    for (x, y) in [(3, 2.5), (-2, 1.5), (1.5, -2)]:
+        ax.annotate("", xy=(x, 0), xytext=(x, y), arrowprops=dict(arrowstyle="-|>", color=GRIS, lw=1.4, ls="--"))
+        ax.plot(x, y, "o", color=AZUL, ms=8, zorder=3)
+        ax.plot(x, 0, "o", color=AMBAR, ms=8, zorder=3, mec="white")
+        ax.annotate(f"({x:g}, {y:g})", (x, y), textcoords="offset points", xytext=(6, 4), color=AZUL, fontsize=11)
+    for y in [1, 2.6, -1.4]:
+        ax.plot(0, y, "o", color=VERDE, ms=7, zorder=3, mec="white")
+    ax.plot(0, 0, "o", color=VINO, ms=9, zorder=4)
+    ax.text(0.15, 3.2, "Núcleo: eje y\n(todo sale en 0)", color=VERDE, fontsize=11)
+    ax.text(1.6, -0.55, "Imagen: eje x", color=AMBAR, fontsize=11)
+    ax.set_xlim(-3, 4.5); ax.set_ylim(-3, 4); ax.set_aspect("equal"); ax.grid(color="#e5e7eb", lw=.6)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    ax.set_title("T(x, y) = (x, 0): la sombra sobre el eje x", fontsize=12)
+    guardar(fig, "app_sombra.svg")
+
+
 if __name__ == "__main__":
     for f in [parabola, imagen_matriz, canales_rgb, operaciones, filtros, inversa_imagen,
               transpuesta_imagen, lote, det_imagen, det_cero, avion, normal_triangulo, dron, rayo,
               minimos_cuadrados, cubo_rgb, mezcla_colores, colores_dependientes, dct_jpeg, rango_svd,
-              senal, tl_gato, nucleo_gris, composicion_orden, pagerank, markov, pca]:
+              senal, tl_gato, nucleo_gris, composicion_orden, pagerank, markov, pca, sombra]:
         f()
         print("ok", f.__name__)

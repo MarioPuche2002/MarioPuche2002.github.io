@@ -49,6 +49,23 @@ $\dim R_A=\dim C_A=\rho(A)=$ número de pivotes de la forma escalonada de $A$.
 Las operaciones por filas **no cambian** el espacio renglón (cada nueva fila es combinación de las anteriores, y viceversa), pero **sí cambian** el espacio columna. Por eso las bases se toman de lugares distintos.
 :::
 
+## ¿Qué son $\nu$ y $\rho$?
+
+::: {.obs data-t="¿Qué son ν y ρ?"}
+Son **letras griegas**, no las letras *v* y *p*:
+
+- $\nu$ se lee **"nu"** y significa **nulidad**: $\nu(A)$ = cuántas variables libres hay = dimensión del espacio nulo.
+- $\rho$ se lee **"ro"** y significa **rango**: $\rho(A)$ = cuántos pivotes hay = dimensión del espacio columna.
+
+En otros textos (y en los parciales) se escriben $\operatorname{Nul}(A)$ y $\operatorname{Rang}(A)$: es lo mismo.
+:::
+
+. . .
+
+::: {.ejemplo}
+Si al escalonar una matriz de 3 columnas quedan 2 pivotes, entonces $\rho(A)=2$ (rango 2) y queda 1 variable libre, así que $\nu(A)=1$ (nulidad 1).
+:::
+
 ## Diagrama: dominio, núcleo e imagen
 
 ![](img/rango_nulidad.svg){fig-align="center" width="78%"}

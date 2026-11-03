@@ -35,25 +35,28 @@ Ante cualquier máquina hay dos preguntas naturales:
 1. **¿Qué entradas producen un resultado nulo?** Es decir, ¿qué vectores salen convertidos en $\mathbf 0$? → **núcleo**.
 2. **¿Qué resultados es capaz de producir?** → **imagen**.
 
-## La idea con un ejemplo: la sombra en el piso
+## La idea con un ejemplo: la sombra en el piso {.nostretch}
 
 ::: {.ejemplo data-t="Proyección sobre el eje x"}
 $T(x,y)=(x,\,0)$: a cada punto le "borra" la altura y lo deja sobre el eje $x$, como la sombra de un objeto cuando el sol está justo encima.
 :::
 
-. . .
-
+:::: {.columns}
+::: {.column width="45%"}
 | Entra $\mathbf v$ | Sale $T(\mathbf v)$ |
 |---|---|
 | $(3,\,5)$ | $(3,\,0)$ |
 | $(3,\,-2)$ | $(3,\,0)$ |
-| $(0,\,4)$ | $(0,\,0)$ ← salió cero |
-| $(0,\,-7)$ | $(0,\,0)$ ← salió cero |
+| $(0,\,4)$ | $(0,\,0)$ ← cero |
+| $(0,\,-7)$ | $(0,\,0)$ ← cero |
 
-. . .
-
-- Salen en **cero** justo los vectores de la forma $(0,y)$: el **eje $y$**. Ese es el **núcleo**.
-- Todo lo que sale tiene la forma $(a,0)$: el **eje $x$**. Esa es la **imagen**.
+- Salen en **cero** los vectores $(0,y)$: el **eje $y$** es el **núcleo**.
+- Todo lo que sale es $(a,0)$: el **eje $x$** es la **imagen**.
+:::
+::: {.column width="55%"}
+![](img/app_sombra.svg){width="100%"}
+:::
+::::
 
 ## El núcleo
 
@@ -98,6 +101,10 @@ La imagen son **todos los resultados que la máquina puede producir**. Un vector
 ::: {.palabras}
 Son **dos números** que miden el tamaño de cada conjunto: la nulidad dice **cuántas direcciones se pierden** y el rango, **cuántas direcciones quedan**.
 :::
+
+. . .
+
+Las letras $\nu$ ("nu", nulidad) y $\rho$ ("ro", rango) son **griegas**: no son una *v* ni una *p*.
 
 . . .
 
@@ -157,6 +164,99 @@ $\operatorname{Im}T=\operatorname{gen}\{(1,2,0),\,(2,4,1)\}$: **un plano**, $\rh
 . . .
 
 **Paso 4 · Verificar:** $\nu+\rho=1+2=3$ columnas ✓. El plano imagen tiene ecuación $2a-b=0$ (normal $(1,2,0)\times(2,4,1)=(2,-1,0)$): todo lo que sale cumple $b=2a$.
+
+## Más ejemplos (1): una matriz $2\times2$ {.compacto}
+
+::: {.ejemplo}
+$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2\\2&4\end{pmatrix}$. Halle el núcleo y la imagen.
+:::
+
+. . .
+
+**Escalonar:** $F_2-2F_1$ da $\begin{pmatrix}1&2\\0&0\end{pmatrix}$. Un pivote (columna 1); $y$ es libre.
+
+. . .
+
+**Núcleo:** $x+2y=0\Rightarrow (x,y)=(-2y,\,y)=y\,(-2,1)$. Es la recta generada por $(-2,1)$: $\nu=1$.
+
+. . .
+
+**Imagen:** la columna original con pivote, $(1,2)$. Todo lo que sale es múltiplo de $(1,2)$: la recta $y=2x$, $\rho=1$.
+
+::: {.solucion}
+$\nu+\rho=1+1=2$ columnas ✓. Las dos columnas de $A$ son paralelas ($(2,4)=2(1,2)$): por eso la imagen es solo una recta y no todo el plano.
+:::
+
+## Más ejemplos (2): de $\mathbb R^3$ a $\mathbb R^2$ {.compacto}
+
+::: {.ejemplo}
+$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&0&2\\0&1&-1\end{pmatrix}$. Halle el núcleo y la imagen.
+:::
+
+. . .
+
+**Escalonar:** ya está en forma escalonada reducida. Pivotes en las columnas 1 y 2; $z$ es libre.
+
+. . .
+
+**Núcleo:** $x+2z=0$ y $y-z=0$, así que $(x,y,z)=(-2z,\,z,\,z)=z\,(-2,1,1)$. Una recta, $\nu=1$.
+Comprobación: $A(-2,1,1)^T=(-2+0+2,\;0+1-1)=(0,0)$ ✓.
+
+. . .
+
+**Imagen:** columnas 1 y 2, $(1,0)$ y $(0,1)$: generan **todo** $\mathbb R^2$, $\rho=2$.
+
+::: {.solucion}
+$\nu+\rho=1+2=3$ ✓. $T$ es **sobreyectiva** (alcanza todo $\mathbb R^2$) pero **no inyectiva** (su núcleo no es solo el cero).
+:::
+
+## Más ejemplos (3): núcleo trivial {.compacto}
+
+::: {.ejemplo}
+$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&1&0\\0&1&1\\1&0&1\end{pmatrix}$. Halle el núcleo y la imagen.
+:::
+
+. . .
+
+**Escalonar:** se llega a la identidad $I_3$ (también se ve con $\det A=2\neq0$). Tres pivotes, **ninguna** variable libre.
+
+. . .
+
+**Núcleo:** la única solución de $A\mathbf x=\mathbf 0$ es $\mathbf x=\mathbf 0$. $\operatorname{nu}T=\{\mathbf 0\}$, $\nu=0$.
+
+. . .
+
+**Imagen:** las tres columnas tienen pivote y generan todo $\mathbb R^3$: $\rho=3$.
+
+::: {.solucion}
+$\nu+\rho=0+3=3$ ✓. $T$ es **inyectiva y sobreyectiva**: es invertible. Cuando $A$ es cuadrada, núcleo trivial $\iff\det A\neq0$.
+:::
+
+## Más ejemplos (4): de $\mathbb R^4$ a $\mathbb R^3$ {.compacto}
+
+::: {.ejemplo}
+$T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2&1&0\\2&4&0&2\\1&2&2&-1\end{pmatrix}$. Halle bases del núcleo y de la imagen.
+:::
+
+. . .
+
+**Escalonar** ($F_2-2F_1$, $F_3-F_1$; luego $-\tfrac12F_2$, $F_3-F_2$, $F_1-F_2$):
+$$
+\begin{pmatrix}1&2&0&1\\0&0&1&-1\\0&0&0&0\end{pmatrix}.\qquad\text{Pivotes en las columnas 1 y 3; } x_2 \text{ y } x_4 \text{ libres.}
+$$
+
+. . .
+
+**Núcleo:** $x_1=-2x_2-x_4$, $x_3=x_4$. Con $x_2=s$, $x_4=t$:
+$\;\mathbf x=s\,(-2,1,0,0)+t\,(-1,0,1,1)$. Un plano dentro de $\mathbb R^4$: $\nu=2$.
+
+. . .
+
+**Imagen:** columnas **originales** 1 y 3: $\operatorname{Im}T=\operatorname{gen}\{(1,2,1),\,(1,0,2)\}$, un plano de $\mathbb R^3$: $\rho=2$.
+
+::: {.solucion}
+$\nu+\rho=2+2=4$ columnas ✓. Comprobación del núcleo: $A(-1,0,1,1)^T=(-1+0+1+0,\;-2+0+0+2,\;-1+0+2-1)=(0,0,0)$ ✓.
+:::
 
 ## Núcleo e imagen son subespacios
 
