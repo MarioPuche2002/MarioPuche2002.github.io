@@ -35,7 +35,7 @@ Ante cualquier máquina hay dos preguntas naturales:
 1. **¿Qué entradas producen un resultado nulo?** Es decir, ¿qué vectores salen convertidos en $\mathbf 0$? → **núcleo**.
 2. **¿Qué resultados es capaz de producir?** → **imagen**.
 
-## La idea con un ejemplo: la sombra en el piso {.nostretch}
+## La idea con un ejemplo: la sombra en el piso {.compacto .nostretch}
 
 ::: {.ejemplo data-t="Proyección sobre el eje x"}
 $T(x,y)=(x,\,0)$: a cada punto le "borra" la altura y lo deja sobre el eje $x$, como la sombra de un objeto cuando el sol está justo encima.
@@ -54,7 +54,7 @@ $T(x,y)=(x,\,0)$: a cada punto le "borra" la altura y lo deja sobre el eje $x$, 
 - Todo lo que sale es $(a,0)$: el **eje $x$** es la **imagen**.
 :::
 ::: {.column width="55%"}
-![](img/app_sombra.svg){width="100%"}
+![](img/app_sombra.svg){height="330px"}
 :::
 ::::
 
