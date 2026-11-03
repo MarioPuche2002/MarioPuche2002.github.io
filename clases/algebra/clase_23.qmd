@@ -32,6 +32,10 @@ Sea $T:V\to W$ una transformación lineal.
 - **Nulidad:** $\nu(T)=\dim\operatorname{nu}T$. $\quad$ **Rango:** $\rho(T)=\dim\operatorname{Im}T$.
 :::
 
+::: {.palabras}
+**Núcleo:** los vectores que la transformación **aplasta hasta el cero**. **Imagen:** todos los **resultados** que la transformación puede producir. La nulidad y el rango son los tamaños (dimensiones) de esos dos conjuntos.
+:::
+
 . . .
 
 ::: {.obs}
@@ -106,18 +110,6 @@ $A^T=O\iff A=O$: $\operatorname{nu}T=\{O\}$, $\nu=0$. Toda $B\in M_{3\times2}$ e
 $T(x,y,z)=(x,y,0)$: $\operatorname{nu}T$ es el eje $z$ ($\nu=1$) e $\operatorname{Im}T$ es el plano $xy$ ($\rho=2$).
 :::
 
-## En la vida real: colores que el gris no distingue {.compacto .nostretch}
-
-![](img/app_nucleo_gris.svg){fig-align="center" width="68%"}
-
-Pasar a gris es la transformación lineal $T:\mathbb R^3\to\mathbb R$, $\;T(r,g,b)=0.30r+0.59g+0.11b$.
-
-. . .
-
-- **Núcleo:** los cambios de color que **no cambian el gris**. Tiene dimensión $3-1=2$; por ejemplo, $(59,-30,0)$ y $(11,0,-30)$.
-- Como $c_2=c_1-2(59,-30,0)$, los colores $c_1$ (naranja) y $c_2$ (verde) se ven **iguales** en una foto en blanco y negro.
-- **Imagen:** todo $\mathbb R$; $T$ no es inyectiva porque su núcleo no es $\{\mathbf 0\}$.
-
 ## Teorema de la dimensión
 
 ::: {.teorema}
@@ -147,6 +139,10 @@ Lo que $T$ "aplasta" (núcleo) más lo que $T$ "conserva" (imagen) suman la dime
 
 ::: {.definicion}
 $T:V\to W$ es **inyectiva** (uno a uno) si $T(\mathbf u)=T(\mathbf v)$ implica $\mathbf u=\mathbf v$. Es **sobreyectiva** si $\operatorname{Im}T=W$.
+:::
+
+::: {.palabras}
+**Inyectiva:** dos vectores distintos **nunca** dan el mismo resultado (no hay "choques"). **Sobreyectiva:** se alcanza **todo** el espacio de llegada (no sobra nada).
 :::
 
 . . .

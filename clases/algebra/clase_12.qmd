@@ -29,17 +29,25 @@ Para $\mathbf v=(x,y,z)$: $\;|\mathbf v|=\sqrt{x^2+y^2+z^2}$. La distancia entre
 Los vectores canónicos son $\mathbf i=(1,0,0)$, $\mathbf j=(0,1,0)$, $\mathbf k=(0,0,1)$, y $(x,y,z)=x\mathbf i+y\mathbf j+z\mathbf k$.
 :::
 
+::: {.palabras}
+Es lo mismo que en el plano, con una tercera coordenada (la altura). El largo sigue siendo Pitágoras, ahora con tres términos, y la distancia entre dos puntos es el largo de la flecha que los une.
+:::
+
 . . .
 
 Producto escalar, ángulo, paralelismo, ortogonalidad y proyección se definen **exactamente igual** que en $\mathbb R^2$.
 
-. . .
+## Dirección de un vector en $\mathbb R^3$
 
 ::: {.definicion data-t="Cosenos directores"}
 La **dirección** de $\mathbf v\neq\mathbf 0$ se describe con los ángulos $\alpha,\beta,\gamma\in[0,\pi]$ que forma con los ejes $x$, $y$, $z$:
 $$
 \cos\alpha=\frac{x}{|\mathbf v|},\qquad\cos\beta=\frac{y}{|\mathbf v|},\qquad\cos\gamma=\frac{z}{|\mathbf v|},\qquad\cos^2\alpha+\cos^2\beta+\cos^2\gamma=1.
 $$
+:::
+
+::: {.palabras}
+Son los cosenos de los ángulos que forma el vector con **cada eje**. Indican hacia dónde apunta en el espacio; al elevarlos al cuadrado, siempre suman 1.
 :::
 
 ## Ejemplos resueltos en $\mathbb R^3$
@@ -73,7 +81,11 @@ $$
 Solo está definido en $\mathbb R^3$.
 :::
 
-. . .
+::: {.palabras}
+El producto cruz de dos vectores da **otro vector**, **perpendicular a los dos**, cuyo largo es el **área** del paralelogramo que forman. Su sentido se halla con la regla de la mano derecha. Solo existe en tres dimensiones.
+:::
+
+## Producto cruz (continuación)
 
 ::: {.ejemplo}
 $\mathbf u=(1,-1,2)$, $\mathbf v=(2,1,-1)$:
@@ -88,30 +100,6 @@ Verificación: $(-1,5,3)\cdot(1,-1,2)=-1-5+6=0$ y $(-1,5,3)\cdot(2,1,-1)=-2+5-3=
 ![](img/producto_cruz_3d.svg){fig-align="center" width="44%"}
 
 $\mathbf u\times\mathbf v$ es perpendicular al plano de $\mathbf u$ y $\mathbf v$; su longitud es el área del paralelogramo que forman, y su sentido lo da el pulgar derecho al girar los dedos de $\mathbf u$ hacia $\mathbf v$.
-
-## En la vida real: iluminación en videojuegos {.compacto .nostretch}
-
-:::: {.columns}
-::: {.column width="58%"}
-Los objetos 3D se dibujan con triángulos. Para saber qué tan iluminado está uno, se calcula su **normal** con el producto cruz:
-$$
-\mathbf n=\overrightarrow{PQ}\times\overrightarrow{PR}=(-1,2,0)\times(-1,0,2)=(4,2,2),
-$$
-para $P(1,0,0)$, $Q(0,2,0)$, $R(0,0,2)$.
-
-Si la luz llega en la dirección $\mathbf L=(1,1,1)$, el brillo es
-$$
-\cos\theta=\frac{\mathbf n\cdot\mathbf L}{\|\mathbf n\|\|\mathbf L\|}=\frac{8}{\sqrt{24}\sqrt3}\approx0.94 .
-$$
-:::
-::: {.column width="42%"}
-![](img/app_normal.svg){width="100%"}
-:::
-::::
-
-::: {.aplicacion data-t="Torque"}
-Una llave de $0.25$ m con fuerza de $40$ N perpendicular: $\;\boldsymbol\tau=\mathbf r\times\mathbf F=(0.25,0,0)\times(0,40,0)=(0,0,10)$ N·m.
-:::
 
 ## Propiedades del producto cruz
 

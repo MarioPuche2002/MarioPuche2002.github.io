@@ -33,7 +33,11 @@ $$
 Todo $\mathbf x\neq\mathbf 0$ que cumple esto es un **vector propio** asociado a $\lambda$.
 :::
 
-. . .
+::: {.palabras}
+Un vector propio es un vector que la matriz **no cambia de dirección**: solo lo estira, lo encoge o lo voltea. El valor propio $\lambda$ es **el factor** por el que se estira.
+:::
+
+## Definición (continuación)
 
 ::: {.obs}
 $\mathbf x=\mathbf 0$ siempre cumple $A\mathbf 0=\lambda\mathbf 0$, por eso se **excluye**: un vector propio debe ser no nulo. En cambio, $\lambda=0$ **sí** puede ser valor propio.
@@ -76,6 +80,10 @@ $A\mathbf x=\lambda\mathbf x\iff(\lambda I-A)\mathbf x=\mathbf 0$. Existe $\math
 
 ::: {.definicion}
 $p(\lambda)=\det(\lambda I-A)$ es el **polinomio característico** de $A$ (de grado $n$), y $p(\lambda)=0$ es la **ecuación característica**. El **espacio propio** de $\lambda$ es $E_\lambda=N_{(A-\lambda I)}$: los vectores propios junto con el $\mathbf 0$.
+:::
+
+::: {.palabras}
+Es un polinomio en $\lambda$ cuyas **raíces son los valores propios**. El espacio propio reúne todos los vectores propios de un mismo $\lambda$ (más el vector cero).
 :::
 
 ## Procedimiento
@@ -152,7 +160,11 @@ $\lambda=9$: $\;A-9I=\begin{pmatrix}-5&-1&6\\2&-8&6\\2&-1&-1\end{pmatrix}\sim\be
 - **Multiplicidad geométrica** de $\lambda$: $\dim E_\lambda$ (número de vectores propios LI asociados).
 :::
 
-. . .
+::: {.palabras}
+La **algebraica** cuenta cuántas veces se repite $\lambda$ como raíz; la **geométrica** cuenta cuántas direcciones independientes de vectores propios tiene. La geométrica nunca es mayor que la algebraica.
+:::
+
+## Multiplicidades (continuación)
 
 ::: {.teorema}
 Para cada valor propio: $\;1\le\text{mult. geométrica}\le\text{mult. algebraica}$.
@@ -168,18 +180,6 @@ Para cada valor propio: $\;1\le\text{mult. geométrica}\le\text{mult. algebraica
 . . .
 
 En el segundo caso, $A-3I=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ da $y=0$: solo $E_3=\operatorname{gen}\{(1,0)\}$. "Faltan" vectores propios; esto impedirá diagonalizar (clase 26).
-
-## En la vida real: cómo ordena Google las páginas {.compacto .nostretch}
-
-![](img/app_pagerank.svg){fig-align="center" height="260px"}
-
-Cada página reparte su "importancia" por igual entre las páginas a las que enlaza. La importancia $\mathbf r$ cumple $M\mathbf r=\mathbf r$: es un **vector propio con $\lambda=1$**.
-$$
-M=\begin{pmatrix}0&0&1&\tfrac12\\\tfrac13&0&0&0\\\tfrac13&1&0&\tfrac12\\\tfrac13&0&0&0\end{pmatrix}
-\;\Rightarrow\;
-\mathbf r=\tfrac1{15}(6,\,2,\,5,\,2).
-$$
-La página A es la más importante: la enlazan C y D, que a su vez son importantes. Es la idea original del algoritmo **PageRank**.
 
 ## Propiedades y demostraciones
 

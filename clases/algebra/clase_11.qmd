@@ -29,7 +29,11 @@ Velocidades, fuerzas y desplazamientos tienen **tamaño y dirección**: son **ve
 Un vector en $\mathbb R^2$ es un par ordenado $\mathbf v=(a,b)$. Geométricamente, es un **segmento dirigido**: todos los segmentos con la misma longitud y dirección representan el mismo vector. El representante que parte del origen termina en el punto $(a,b)$.
 :::
 
-. . .
+::: {.palabras}
+Un vector es una **flecha**: tiene tamaño y dirección. No importa dónde se dibuje; dos flechas con el mismo tamaño, dirección y sentido son el mismo vector. El par $(a,b)$ dice cuánto avanza en $x$ y cuánto en $y$.
+:::
+
+## Vectores en el plano (continuación)
 
 - El vector de $P=(x_1,y_1)$ a $Q=(x_2,y_2)$ es $\;\overrightarrow{PQ}=(x_2-x_1,\;y_2-y_1)$.
 - **Suma** (regla del paralelogramo): $(a,b)+(c,d)=(a+c,b+d)$.
@@ -40,6 +44,10 @@ Un vector en $\mathbb R^2$ es un par ordenado $\mathbf v=(a,b)$. Geométricament
 ::: {.definicion data-t="Magnitud y dirección"}
 La **magnitud** (longitud, norma) de $\mathbf v=(a,b)$ es $\;|\mathbf v| = \sqrt{a^2+b^2}$.
 La **dirección** es el ángulo $\theta\in[0,2\pi)$ que forma $\mathbf v$ con el eje $x$ positivo: $\;\cos\theta = \dfrac{a}{|\mathbf v|},\;\operatorname{sen}\theta=\dfrac{b}{|\mathbf v|}$ (si $a\neq0$, $\tan\theta = b/a$, cuidando el cuadrante).
+:::
+
+::: {.palabras}
+La **magnitud** es el **largo** de la flecha (se calcula con el teorema de Pitágoras) y la **dirección** es el **ángulo** que forma con el eje $x$, medido en contra de las manecillas del reloj.
 :::
 
 ## Ejemplos resueltos: magnitud y dirección
@@ -81,7 +89,11 @@ Para $\mathbf v=(-2,2\sqrt3)$: $|\mathbf v|=4$, la dirección es $120^\circ$ (se
 Un **vector unitario** es un vector de magnitud 1. Los vectores $\mathbf i=(1,0)$ y $\mathbf j=(0,1)$ son unitarios y todo vector se escribe como $\;(a,b) = a\,\mathbf i + b\,\mathbf j$.
 :::
 
-. . .
+::: {.palabras}
+Un vector unitario **mide exactamente 1**: solo sirve para indicar una dirección. $\mathbf i$ apunta a la derecha y $\mathbf j$ hacia arriba; cualquier vector es "$a$ pasos a la derecha más $b$ pasos hacia arriba".
+:::
+
+## Vectores unitarios (continuación)
 
 ::: {.teorema}
 Si $\mathbf v\neq\mathbf 0$, entonces $\;\mathbf u=\dfrac{\mathbf v}{|\mathbf v|}\;$ es un vector unitario con la misma dirección que $\mathbf v$. Además, todo unitario es de la forma $\mathbf u = (\cos\theta,\operatorname{sen}\theta)$.
@@ -105,6 +117,10 @@ Unitario en la dirección de $\mathbf v = 2\mathbf i - 3\mathbf j$: $\;\mathbf u
 El **producto escalar** de $\mathbf u=(a_1,b_1)$ y $\mathbf v=(a_2,b_2)$ es $\;\mathbf u\cdot\mathbf v = a_1a_2+b_1b_2$. Note que $\mathbf v\cdot\mathbf v = |\mathbf v|^2$.
 :::
 
+::: {.palabras}
+Se multiplican las $x$, se multiplican las $y$ y se suman. Mide qué tanto apuntan dos vectores **hacia el mismo lado**: es positivo si van más o menos en la misma dirección, cero si son perpendiculares y negativo si van en sentidos opuestos.
+:::
+
 . . .
 
 ::: {.teorema}
@@ -123,27 +139,6 @@ $|\mathbf v-\mathbf u|^2=(\mathbf v-\mathbf u)\cdot(\mathbf v-\mathbf u)=|\mathb
 Igualando: $\;-2\,\mathbf u\cdot\mathbf v = -2|\mathbf u||\mathbf v|\cos\varphi$.
 :::
 
-## En la vida real: el viento y el avión {.nostretch}
-
-:::: {.columns}
-::: {.column width="60%"}
-::: {.aplicacion data-t="Navegación"}
-Un avión vuela hacia el norte a $200$ km/h respecto al aire y sopla viento hacia el este a $40$ km/h.
-:::
-
-La velocidad real es la **suma de vectores**:
-$$
-\mathbf v+\mathbf w=(0,200)+(40,0)=(40,200).
-$$
-
-- Rapidez: $\|(40,200)\|=\sqrt{41\,600}\approx204$ km/h.
-- Desvío: $\tan\theta=\tfrac{40}{200}\Rightarrow\theta\approx11.3^\circ$ al este del norte.
-:::
-::: {.column width="40%"}
-![](img/app_avion.svg){width="95%"}
-:::
-::::
-
 ## Paralelismo y ortogonalidad
 
 ::: {.definicion}
@@ -153,7 +148,11 @@ Dos vectores no nulos $\mathbf u$, $\mathbf v$ son
 - **ortogonales** (perpendiculares) si el ángulo es $\pi/2$, es decir, si $\;\mathbf u\cdot\mathbf v = 0$.
 :::
 
-. . .
+::: {.palabras}
+**Paralelos:** uno es un múltiplo del otro, así que están sobre la misma recta (pueden apuntar en sentidos opuestos). **Ortogonales:** forman una esquina de $90^\circ$, y eso se reconoce porque su producto punto da **cero**.
+:::
+
+## Paralelismo y ortogonalidad (continuación)
 
 ::: {.ejemplo}
 **(a)** $\mathbf a=(1,2)$, $\mathbf b=(-3,1)$: $\mathbf a\cdot\mathbf b = -3+2=-1$, $\cos\varphi = \dfrac{-1}{\sqrt5\sqrt{10}}$, $\varphi\approx98.13^\circ$.
@@ -167,29 +166,6 @@ Dos vectores no nulos $\mathbf u$, $\mathbf v$ son
 Halle $\alpha$ para que $(3,-2)$ y $(\alpha, 6)$ sean ortogonales: $3\alpha - 12 = 0\Rightarrow\alpha=4$.
 :::
 
-## Machine learning: similitud entre gustos {.compacto .nostretch}
-
-::: {.ml data-t="Sistemas de recomendación"}
-Cada persona califica cuatro películas de 0 a 5: $\;\mathbf u=(5,1,0,4)$, $\;\mathbf v=(4,0,1,5)$, $\;\mathbf w=(0,5,4,1)$. Las tres tienen norma $\sqrt{42}$.
-:::
-
-La **similitud coseno** es el coseno del ángulo entre los vectores:
-$$
-\cos(\mathbf u,\mathbf v)=\frac{\mathbf u\cdot\mathbf v}{\|\mathbf u\|\|\mathbf v\|}=\frac{20+0+0+20}{42}\approx0.95,
-\qquad
-\cos(\mathbf u,\mathbf w)=\frac{0+5+0+4}{42}\approx0.21 .
-$$
-
-. . .
-
-$\mathbf u$ y $\mathbf v$ "apuntan" casi en la misma dirección: tienen gustos parecidos, y a $\mathbf u$ se le recomiendan películas que le gustaron a $\mathbf v$. Los buscadores y los asistentes de IA comparan textos de la misma forma, representándolos como vectores.
-
-. . .
-
-::: {.aplicacion data-t="Trabajo"}
-Arrastrar una maleta $10$ m con una fuerza de $50$ N inclinada $30^\circ$: $\;W=\mathbf F\cdot\mathbf d=50\cdot10\cos30^\circ\approx433$ J. Solo cuenta la **proyección** de la fuerza sobre el desplazamiento.
-:::
-
 ## Proyección ortogonal
 
 ![](img/proyeccion.svg){fig-align="center" width="52%"}
@@ -200,6 +176,10 @@ $$
 \operatorname{proy}_{\mathbf u}\mathbf v=\frac{\mathbf u\cdot\mathbf v}{|\mathbf u|^2}\,\mathbf u .
 $$
 Su **componente escalar** es $\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf u|}=|\mathbf v|\cos\theta$, positiva si $\theta$ es agudo y negativa si es obtuso.
+:::
+
+::: {.palabras}
+Es la **sombra** de $\mathbf v$ sobre la recta de $\mathbf u$ cuando la luz cae perpendicular. La componente escalar es el **largo** de esa sombra, con signo: negativo si la sombra cae hacia atrás.
 :::
 
 ## ¿De dónde sale la fórmula?

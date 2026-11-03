@@ -49,6 +49,10 @@ $$
 donde $a_1,\dots,a_n$ (coeficientes) y $b$ (término independiente) son números reales.
 :::
 
+::: {.palabras}
+Es una ecuación donde cada incógnita aparece **sola**, multiplicada por un número: sin potencias, raíces ni incógnitas multiplicadas entre sí. Por ejemplo, $2x+3y=7$ es lineal; $x^2+y=1$ y $xy=4$ no lo son.
+:::
+
 . . .
 
 | Ecuación | ¿Lineal? | Motivo |
@@ -75,7 +79,11 @@ $$
 Una **solución** es una $n$-upla $(s_1,\dots,s_n)$ que satisface **todas** las ecuaciones a la vez.
 :::
 
-. . .
+::: {.palabras}
+Son varias ecuaciones que deben cumplirse **al mismo tiempo**. Resolver el sistema es encontrar los valores de las incógnitas que funcionan en **todas** las ecuaciones, no solo en una.
+:::
+
+## Sistema de $m$ ecuaciones con $n$ incógnitas (continuación)
 
 ::: {.columns}
 ::: {.column width="33%"}
@@ -153,34 +161,6 @@ Sustituyendo en la primera: $2 + y = 5 \Rightarrow y = 3$.
 En el caso $2\times 2$, si $a_{11}a_{22}-a_{12}a_{21}\neq 0$ el sistema tiene solución única. Esta cantidad es el **determinante** del sistema (unidad 3).
 :::
 
-## En la vida real: la trayectoria de un balón {.compacto .nostretch}
-
-::: {.aplicacion data-t="Física"}
-Un balón pasa por los puntos $(0,1)$, $(1,4)$ y $(3,4)$ (en metros). Su trayectoria es una parábola $y=ax^2+bx+c$. ¿Cuál?
-:::
-
-:::: {.columns}
-::: {.column width="48%"}
-Cada punto da una **ecuación lineal** en $a,b,c$:
-$$
-\begin{aligned}
-c&=1\\ a+b+c&=4\\ 9a+3b+c&=4
-\end{aligned}
-$$
-
-Solución: $a=-1,\;b=4,\;c=1$, es decir $y=-x^2+4x+1$. Altura máxima: $5$ m en $x=2$.
-:::
-::: {.column width="52%"}
-![](img/app_parabola.svg){width="100%"}
-:::
-::::
-
-. . .
-
-::: {.ml}
-**Entrenar** un modelo es, en su forma más simple, esto mismo: encontrar los coeficientes que hacen que el modelo pase por (o cerca de) los datos.
-:::
-
 ## Matriz de coeficientes y matriz aumentada
 
 Un sistema se codifica por sus coeficientes. Para
@@ -212,10 +192,18 @@ Sobre una matriz se pueden realizar tres **operaciones elementales por filas**:
 3. **Reemplazo:** $F_j \to F_j + c\,F_i$ (sumar a una fila un múltiplo de otra).
 :::
 
-. . .
+::: {.palabras}
+Son los tres "movimientos permitidos" para simplificar un sistema **sin cambiar sus soluciones**: cambiar el orden de dos ecuaciones, multiplicar una ecuación por un número distinto de cero, y sumarle a una ecuación un múltiplo de otra.
+:::
+
+## Operaciones elementales por filas (continuación)
 
 ::: {.definicion data-t="Equivalencia por filas"}
 $A$ es **equivalente por filas** a $B$ (se escribe $A\sim B$) si $B$ se obtiene de $A$ mediante una sucesión finita de operaciones elementales.
+:::
+
+::: {.palabras}
+Dos matrices son equivalentes por filas si se puede pasar de una a la otra con esos movimientos. Sus sistemas tienen **exactamente las mismas soluciones**.
 :::
 
 . . .
@@ -250,7 +238,11 @@ Está en **forma escalonada reducida** si además:
 d) Cada columna que contiene un pivote tiene **ceros** en todas las demás posiciones.
 :::
 
-. . .
+::: {.palabras}
+La matriz queda en forma de **escalera**: cada fila empieza con un 1 que está más a la derecha que el de la fila anterior, y las filas de ceros van abajo. En la forma **reducida**, además, arriba y abajo de cada 1 principal solo hay ceros, y la solución se lee directamente.
+:::
+
+## Forma escalonada y forma escalonada reducida (continuación)
 
 $$
 \underbrace{\begin{pmatrix}1&2&3\\0&1&2\\0&0&1\end{pmatrix}}_{\text{escalonada}}

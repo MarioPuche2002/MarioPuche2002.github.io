@@ -31,6 +31,10 @@ Un conjunto finito $B=\{\mathbf v_1,\dots,\mathbf v_n\}$ es una **base** del esp
 2. $B$ **genera** a $V$.
 :::
 
+::: {.palabras}
+Una base es un conjunto **justo** de vectores: alcanzan para construir todo el espacio (lo **generan**) y no sobra ninguno (son **independientes**). Es como el juego mínimo de piezas con el que se puede armar cualquier figura.
+:::
+
 . . .
 
 | Espacio | Base canónica | Dimensión |
@@ -52,7 +56,11 @@ Si un espacio vectorial $V$ tiene una base con $n$ vectores, **toda** base de $V
 Ese número común es la **dimensión** de $V$, $\;\dim V=n$.
 :::
 
-. . .
+::: {.palabras}
+La dimensión es **cuántos vectores tiene una base**: cuántas direcciones independientes tiene el espacio. Una recta tiene dimensión 1, un plano dimensión 2 y $\mathbb R^3$ dimensión 3.
+:::
+
+## Dimensión (continuación)
 
 ::: {.teorema data-t="Consecuencias útiles"}
 Si $\dim V=n$:
@@ -130,6 +138,10 @@ Existe porque $B$ genera $V$. Si $\mathbf v=\sum c_i\mathbf v_i=\sum d_i\mathbf 
 El **vector de coordenadas** de $\mathbf v$ respecto a la base **ordenada** $B$ es $\;[\mathbf v]_B=\begin{pmatrix}c_1\\\vdots\\c_n\end{pmatrix}$.
 :::
 
+::: {.palabras}
+Son las **cantidades** de cada vector de la base que se necesitan para armar $\mathbf v$. Cambian si cambia la base, igual que cambian las indicaciones para llegar a un sitio según las calles que se usen de referencia.
+:::
+
 ## Coordenadas: medir con otra cuadrícula
 
 ![](img/coordenadas_base.svg){fig-align="center" width="46%"}
@@ -158,16 +170,6 @@ En $P_1$ sean $S=\{t,1\}$ y $T=\{t+1,\;t-1\}$. Halle las coordenadas de $p(t)=5t
 . . .
 
 $[p]_S=\begin{pmatrix}5\\-2\end{pmatrix}$. Para $T$: $x(t+1)+y(t-1)=5t-2\Rightarrow x+y=5,\;x-y=-2$, de donde $x=\tfrac32$, $y=\tfrac72$, y $[p]_T=\begin{pmatrix}3/2\\7/2\end{pmatrix}$.
-
-## En la vida real: el JPEG cambia de base {.nostretch}
-
-![](img/app_jpeg.png){fig-align="center" width="100%"}
-
-Un bloque de $8\times8$ píxeles es un vector de $\mathbb R^{64}$. La base usual es "un píxel encendido a la vez". El formato **JPEG** usa otra base de $64$ imágenes (izquierda) y guarda las **coordenadas** del bloque en esa base.
-
-. . .
-
-En la base JPEG casi todas las coordenadas son muy pequeñas: se descartan las de detalle fino y la foto se ve casi igual ocupando mucho menos espacio. **Cambiar de base** es lo que permite comprimir.
 
 ## Matriz de transición (cambio de base)
 

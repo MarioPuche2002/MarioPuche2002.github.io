@@ -33,7 +33,11 @@ $$
 $B$ se llama **inversa** de $A$ y se denota $A^{-1}$. Si no existe, $A$ es **singular**.
 :::
 
-. . .
+::: {.palabras}
+Una matriz es invertible si existe otra que **deshace** su efecto: al multiplicarlas, en cualquier orden, se obtiene la identidad, que es el "1" de las matrices. Es la versión matricial de $2\cdot\tfrac12=1$. Si esa otra matriz no existe, $A$ es **singular**.
+:::
+
+## Definición (continuación)
 
 ::: {.ejemplo}
 $A=\begin{pmatrix}1&2\\-1&5\end{pmatrix}$, $\;B=\dfrac17\begin{pmatrix}5&-2\\1&1\end{pmatrix}$:
@@ -327,16 +331,6 @@ A^{-1}\begin{pmatrix}38\\129\end{pmatrix}=\begin{pmatrix}266-258\\-114+129\end{p
 A^{-1}\begin{pmatrix}14\\43\end{pmatrix}=\begin{pmatrix}98-86\\-42+43\end{pmatrix}=\begin{pmatrix}12\\1\end{pmatrix}.
 $$
 Se recupera HOLA. Sin conocer $A^{-1}$ es difícil descifrar el mensaje.
-
-## En la vida real: deshacer un filtro con la inversa {.nostretch}
-
-![](img/app_inversa.png){fig-align="center" width="90%"}
-
-Se "cifra" cada píxel con $\mathbf y=M\mathbf x$, donde $M=\begin{pmatrix}0.2&0.7&0.1\\0.5&0.1&0.4\\0.3&0.3&0.4\end{pmatrix}$ es invertible. Quien conoce $M^{-1}$ recupera la foto exacta: $\mathbf x=M^{-1}\mathbf y$.
-
-::: {.obs}
-Si $M$ no fuera invertible, dos colores distintos darían el mismo resultado y la foto original **no** se podría recuperar.
-:::
 
 ## Ejemplo 1 · Fácil: inversa de una matriz $2\times2$ {.compacto}
 

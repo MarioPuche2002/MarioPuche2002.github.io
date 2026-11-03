@@ -51,6 +51,10 @@ $$
 $$
 :::
 
+::: {.palabras}
+Una recta queda definida por **un punto** por donde pasa y **una dirección**. Cada punto de la recta se obtiene saliendo del punto inicial y avanzando $t$ veces la dirección: hacia adelante si $t>0$ y hacia atrás si $t<0$.
+:::
+
 ## Deducción de las tres formas
 
 Como $\overrightarrow{OP}=\overrightarrow{OP_0}+\overrightarrow{P_0P}$ y $\overrightarrow{P_0P}=t\,\mathbf v$:
@@ -80,28 +84,6 @@ $$
 ::: {.obs data-t="Cómo leer las simétricas"}
 El **punto** es lo que se **resta** en cada numerador; el **vector director** son los **denominadores**. Ojo: el coeficiente de $x$, $y$, $z$ en el numerador debe ser $1$.
 :::
-
-## En la vida real: la ruta de un dron {.nostretch}
-
-:::: {.columns}
-::: {.column width="52%"}
-::: {.aplicacion data-t="Movimiento rectilíneo"}
-Un dron despega de $P(2,1,0)$ y cada segundo se desplaza $\mathbf d=(3,2,4)$ metros.
-:::
-
-Su posición es la recta
-$$
-\mathbf r(t)=(2,1,0)+t(3,2,4),
-$$
-donde el parámetro $t$ es el **tiempo**.
-
-- A los 2 s está en $(8,5,8)$.
-- Llega a $20$ m de altura cuando $4t=20$, es decir en $t=5$ s, en $(17,11,20)$.
-:::
-::: {.column width="48%"}
-![](img/app_dron.svg){width="100%"}
-:::
-::::
 
 ## Ejemplo 1 (cuaderno)
 
@@ -338,6 +320,10 @@ $$
 \cos\theta=\frac{|\mathbf v_1\cdot\mathbf v_2|}{\|\mathbf v_1\|\,\|\mathbf v_2\|}.
 $$
 Se toma el **valor absoluto** porque una recta no tiene sentido preferido: se reporta el ángulo agudo.
+:::
+
+::: {.palabras}
+Es el ángulo entre sus direcciones. Como una recta no tiene "frente" ni "atrás", se toma siempre el ángulo **agudo** (de $90^\circ$ o menos); por eso aparece el valor absoluto.
 :::
 
 . . .

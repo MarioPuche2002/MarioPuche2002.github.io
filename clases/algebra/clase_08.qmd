@@ -32,7 +32,11 @@ $$
 $$
 :::
 
-. . .
+::: {.palabras}
+El determinante es **un número** que se le asocia a cada matriz cuadrada. Para $2\times2$: producto de la diagonal principal **menos** producto de la otra diagonal. Dice cuánto cambia el área al aplicar la matriz y, si vale 0, que la matriz **no tiene inversa**.
+:::
+
+## Determinante de una matriz $2\times 2$ (continuación)
 
 ::: {.ejemplo}
 $\begin{vmatrix}1&0\\5&6\end{vmatrix}=6-0=6,\qquad \begin{vmatrix}3&1\\2&4\end{vmatrix}=12-2=10,\qquad \begin{vmatrix}1&2\\-2&-1\end{vmatrix}=-1+4=3.$
@@ -50,12 +54,6 @@ $|\det A|$ es el **área** del paralelogramo generado por las columnas de $A$. S
 
 $|\det A|$ es el **área** del paralelogramo que forman las columnas. El **signo** indica la orientación: al intercambiar las columnas el área es la misma y el signo cambia.
 
-## En la vida real: ¿cuánto crece una imagen? {.nostretch}
-
-![](img/app_det_imagen.png){fig-align="center" width="100%"}
-
-Al aplicar una matriz $2\times2$ a una imagen, **su área se multiplica por $|\det A|$**. Escalar al doble da $\det=4$: la foto ocupa cuatro veces más. La cizalla deforma sin cambiar el área ($\det=1$), y un **determinante negativo** indica que la imagen quedó **en espejo**.
-
 ## Determinante de una matriz $3\times 3$
 
 ::: {.definicion}
@@ -67,7 +65,11 @@ $$
 $$
 :::
 
-. . .
+::: {.palabras}
+Se calcula con determinantes $2\times2$ más pequeños: se toma cada número de la primera fila, se **tapan su fila y su columna**, se calcula el determinante $2\times2$ que queda, y se combinan los resultados con los signos $+,\,-,\,+$.
+:::
+
+## Determinante de una matriz $3\times 3$ (continuación)
 
 Desarrollando se obtiene la **regla de Sarrus** (válida **solo** para $3\times3$): repita las dos primeras columnas a la derecha,
 
@@ -118,6 +120,10 @@ Sea $A$ una matriz $n\times n$.
 
 - El **menor** $M_{ij}$ es el determinante de la submatriz $(n-1)\times(n-1)$ que resulta de **eliminar la fila $i$ y la columna $j$**.
 - El **cofactor** de $a_{ij}$ es $\;A_{ij} = (-1)^{i+j}M_{ij}$.
+:::
+
+::: {.palabras}
+El **menor** es el determinante que queda al tapar una fila y una columna. El **cofactor** es ese mismo número con un signo que sigue un patrón de **tablero de ajedrez** ($+\,-\,+\dots$).
 :::
 
 . . .
