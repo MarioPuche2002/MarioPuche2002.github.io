@@ -17,41 +17,155 @@ Lo que una transformación convierte en cero es su **núcleo**: los cambios que 
 
 ## Objetivos de la clase
 
-- Definir el **núcleo** y la **imagen** de una transformación lineal y demostrar que son subespacios.
-- Calcular bases del núcleo y de la imagen.
-- Aplicar el **teorema de la dimensión**: $\nu(T)+\rho(T)=\dim V$.
-- Caracterizar las transformaciones **inyectivas** mediante el núcleo.
+- Entender qué son el **núcleo** y la **imagen** de una transformación lineal.
+- Calcularlos paso a paso, sobre todo cuando la transformación es una matriz.
+- Usar el **teorema de la dimensión**: lo que se pierde más lo que queda es lo que entra.
+- Reconocer cuándo una transformación es **inyectiva** o **sobreyectiva**.
 
-## Definiciones
-
-::: {.definicion}
-Sea $T:V\to W$ una transformación lineal.
-
-- **Núcleo (kernel):** $\;\operatorname{nu}T=\{\mathbf v\in V: T(\mathbf v)=\mathbf 0\}$.
-- **Imagen (recorrido):** $\;\operatorname{Im}T=\{T(\mathbf v):\mathbf v\in V\}=\{\mathbf w\in W:\mathbf w=T(\mathbf v)\text{ para algún }\mathbf v\}$.
-- **Nulidad:** $\nu(T)=\dim\operatorname{nu}T$. $\quad$ **Rango:** $\rho(T)=\dim\operatorname{Im}T$.
-:::
+## Repaso: una transformación es una máquina
 
 ::: {.palabras}
-**Núcleo:** los vectores que la transformación **aplasta hasta el cero**. **Imagen:** todos los **resultados** que la transformación puede producir. La nulidad y el rango son los tamaños (dimensiones) de esos dos conjuntos.
+Una transformación $T:V\to W$ es como una **máquina**: entra un vector $\mathbf v$ (del espacio de **salida** $V$) y sale otro vector $T(\mathbf v)$ (en el espacio de **llegada** $W$).
 :::
 
 . . .
 
-::: {.obs}
-Para una transformación matricial $T(\mathbf x)=A\mathbf x$: $\;\operatorname{nu}T=N_A$ y $\operatorname{Im}T=C_A$ (clase 20). Todo lo que sabemos calcular para matrices sirve aquí.
+Ante cualquier máquina hay dos preguntas naturales:
+
+1. **¿Qué entradas producen un resultado nulo?** Es decir, ¿qué vectores salen convertidos en $\mathbf 0$? → **núcleo**.
+2. **¿Qué resultados es capaz de producir?** → **imagen**.
+
+## La idea con un ejemplo: la sombra en el piso
+
+::: {.ejemplo data-t="Proyección sobre el eje x"}
+$T(x,y)=(x,\,0)$: a cada punto le "borra" la altura y lo deja sobre el eje $x$, como la sombra de un objeto cuando el sol está justo encima.
 :::
 
-## Núcleo e imagen en una figura
+. . .
 
-![](img/nucleo_imagen.svg){fig-align="center" width="44%"}
+| Entra $\mathbf v$ | Sale $T(\mathbf v)$ |
+|---|---|
+| $(3,\,5)$ | $(3,\,0)$ |
+| $(3,\,-2)$ | $(3,\,0)$ |
+| $(0,\,4)$ | $(0,\,0)$ ← salió cero |
+| $(0,\,-7)$ | $(0,\,0)$ ← salió cero |
 
-Proyección sobre la recta $y=x$: los puntos de la recta $y=-x$ caen en el origen (**núcleo**), y todo punto cae sobre $y=x$ (**imagen**). $\nu=1$, $\rho=1$, $1+1=2$.
+. . .
+
+- Salen en **cero** justo los vectores de la forma $(0,y)$: el **eje $y$**. Ese es el **núcleo**.
+- Todo lo que sale tiene la forma $(a,0)$: el **eje $x$**. Esa es la **imagen**.
+
+## El núcleo
+
+::: {.definicion}
+Sea $T:V\to W$ lineal. El **núcleo** de $T$ es
+$$
+\operatorname{nu}T=\{\mathbf v\in V:\ T(\mathbf v)=\mathbf 0\}.
+$$
+:::
+
+::: {.palabras}
+El núcleo son **todas las entradas que la máquina convierte en cero**: lo que la transformación "no ve" o "aplasta". Siempre contiene al $\mathbf 0$, porque $T(\mathbf 0)=\mathbf 0$.
+:::
+
+. . .
+
+**¿Cómo se calcula?** Se plantea $T(\mathbf v)=\mathbf 0$ y se resuelve. Es un **sistema homogéneo**, como en la clase 2.
+
+## La imagen
+
+::: {.definicion}
+La **imagen** de $T$ es
+$$
+\operatorname{Im}T=\{T(\mathbf v):\ \mathbf v\in V\}\subseteq W .
+$$
+:::
+
+::: {.palabras}
+La imagen son **todos los resultados que la máquina puede producir**. Un vector $\mathbf w$ está en la imagen si **alguna** entrada da $\mathbf w$ como resultado.
+:::
+
+. . .
+
+**¿Cómo se calcula?** Se escribe $T(\mathbf v)$ en general y se mira **qué forma** tienen todos los resultados. Si $T$ viene de una matriz, la imagen la **generan las columnas** de la matriz.
+
+## Nulidad y rango: los tamaños
+
+::: {.definicion}
+**Nulidad:** $\nu(T)=\dim\operatorname{nu}T$. $\qquad$ **Rango:** $\rho(T)=\dim\operatorname{Im}T$.
+:::
+
+::: {.palabras}
+Son **dos números** que miden el tamaño de cada conjunto: la nulidad dice **cuántas direcciones se pierden** y el rango, **cuántas direcciones quedan**.
+:::
+
+. . .
+
+En la sombra sobre el eje $x$: el núcleo es una recta ($\nu=1$) y la imagen es otra recta ($\rho=1$). Entró el plano, de dimensión $2=1+1$.
+
+## Núcleo e imagen en una figura {.nostretch}
+
+![](img/nucleo_imagen.svg){fig-align="center" height="400px"}
+
+Ahora la "sombra" cae sobre la recta $y=x$: los puntos de la recta $y=-x$ caen en el origen (**núcleo**) y todo punto termina sobre $y=x$ (**imagen**). Otra vez $\nu=1$, $\rho=1$ y $1+1=2$.
+
+## Cuando $T$ es una matriz: la receta
+
+Si $T(\mathbf x)=A\mathbf x$, entonces el núcleo es el espacio nulo $N_A$ y la imagen es el espacio columna $C_A$ (clase 20). Se calculan así:
+
+1. **Escalonar** $A$ (forma escalonada reducida).
+2. **Núcleo:** resolver $A\mathbf x=\mathbf 0$; cada **variable libre** aporta un vector de la base.
+3. **Imagen:** tomar las **columnas originales** de $A$ que quedaron con pivote.
+4. **Verificar:** $\nu+\rho=$ número de columnas de $A$.
+
+. . .
+
+::: {.obs}
+Error frecuente: tomar como base de la imagen las columnas de la matriz **ya escalonada**. Deben ser las de la matriz **original**.
+:::
+
+## Ejemplo guiado (1): escalonar
+
+::: {.ejemplo}
+Sea $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2&-1\\2&4&-2\\0&1&1\end{pmatrix}$. Halle bases del núcleo y de la imagen.
+:::
+
+. . .
+
+**Paso 1 · Escalonar.**
+$$
+A\xrightarrow{F_2\to F_2-2F_1}\begin{pmatrix}1&2&-1\\0&0&0\\0&1&1\end{pmatrix}\xrightarrow{F_2\leftrightarrow F_3}\begin{pmatrix}1&2&-1\\0&1&1\\0&0&0\end{pmatrix}\xrightarrow{F_1\to F_1-2F_2}\begin{pmatrix}1&0&-3\\0&1&1\\0&0&0\end{pmatrix}.
+$$
+
+. . .
+
+Hay pivotes en las columnas **1 y 2**; la columna 3 no tiene pivote, así que $z$ es **variable libre**.
+
+## Ejemplo guiado (2): núcleo e imagen
+
+**Paso 2 · Núcleo** (resolver $A\mathbf x=\mathbf 0$ con la matriz escalonada):
+$$
+x-3z=0,\quad y+z=0\;\Rightarrow\;(x,y,z)=(3z,\,-z,\,z)=z\,(3,-1,1).
+$$
+$\operatorname{nu}T=\operatorname{gen}\{(3,-1,1)\}$: **una recta**, $\nu(T)=1$. Comprobación: $A(3,-1,1)^T=(3-2-1,\;6-4-2,\;0-1+1)=(0,0,0)$ ✓.
+
+. . .
+
+**Paso 3 · Imagen** (columnas **originales** 1 y 2):
+$\operatorname{Im}T=\operatorname{gen}\{(1,2,0),\,(2,4,1)\}$: **un plano**, $\rho(T)=2$.
+
+. . .
+
+**Paso 4 · Verificar:** $\nu+\rho=1+2=3$ columnas ✓. El plano imagen tiene ecuación $2a-b=0$ (normal $(1,2,0)\times(2,4,1)=(2,-1,0)$): todo lo que sale cumple $b=2a$.
 
 ## Núcleo e imagen son subespacios
 
 ::: {.teorema}
-$\operatorname{nu}T$ es un subespacio de $V$ y $\operatorname{Im}T$ es un subespacio de $W$.
+$\operatorname{nu}T$ es un subespacio de $V$ e $\operatorname{Im}T$ es un subespacio de $W$.
+:::
+
+::: {.palabras}
+Por eso siempre resultan ser el origen, una recta, un plano o todo el espacio, y por eso tiene sentido hablar de su **base** y su **dimensión**.
 :::
 
 . . .
@@ -66,48 +180,38 @@ $T(\mathbf 0)=\mathbf 0$, así que $\mathbf 0\in\operatorname{nu}T$. Si $\mathbf
 $\mathbf 0=T(\mathbf 0)\in\operatorname{Im}T$. Si $\mathbf w_1=T(\mathbf v_1)$ y $\mathbf w_2=T(\mathbf v_2)$, entonces $\mathbf w_1+\mathbf w_2=T(\mathbf v_1+\mathbf v_2)\in\operatorname{Im}T$ y $\alpha\mathbf w_1=T(\alpha\mathbf v_1)\in\operatorname{Im}T$.
 :::
 
-## Ejemplo resuelto: transformación de $\mathbb R^3$ en $\mathbb R^3$
-
-::: {.ejemplo}
-Sea $T(\mathbf x)=A\mathbf x$ con $A=\begin{pmatrix}1&2&-1\\2&4&-2\\0&1&1\end{pmatrix}$. Halle bases de $\operatorname{nu}T$ e $\operatorname{Im}T$.
-:::
-
-. . .
-
-$$
-A\xrightarrow{F_2\to F_2-2F_1}\begin{pmatrix}1&2&-1\\0&0&0\\0&1&1\end{pmatrix}\xrightarrow{F_2\leftrightarrow F_3}\begin{pmatrix}1&2&-1\\0&1&1\\0&0&0\end{pmatrix}\xrightarrow{F_1\to F_1-2F_2}\begin{pmatrix}1&0&-3\\0&1&1\\0&0&0\end{pmatrix}.
-$$
-
-. . .
-
-**Núcleo:** $x=3z$, $y=-z$: $\;\operatorname{nu}T=\operatorname{gen}\{(3,-1,1)\}$, $\;\nu(T)=1$ (una recta).
-
-. . .
-
-**Imagen:** pivotes en las columnas 1 y 2, luego $\operatorname{Im}T=\operatorname{gen}\{(1,2,0),(2,4,1)\}$, $\;\rho(T)=2$ (un plano).
-
-. . .
-
-Ecuación del plano imagen: normal $(1,2,0)\times(2,4,1)=(2,-1,0)$, es decir, $\operatorname{Im}T=\{(a,b,c): 2a-b=0\}$. Compruebe que cada columna de $A$ cumple $b=2a$.
-
-## Ejemplos en otros espacios
+## Fuera de las matrices (1): la derivada
 
 ::: {.ejemplo data-t="Derivación D: P₃ → P₂"}
 $D(a_0+a_1t+a_2t^2+a_3t^3)=a_1+2a_2t+3a_3t^2$.
-**Núcleo:** $D(p)=0\iff a_1=a_2=a_3=0$: los polinomios **constantes**, $\nu(D)=1$.
-**Imagen:** todo $b_0+b_1t+b_2t^2$ se obtiene con $a_1=b_0$, $a_2=\tfrac{b_1}{2}$, $a_3=\tfrac{b_2}{3}$: $\operatorname{Im}D=P_2$, $\rho(D)=3$.
 :::
 
 . . .
 
+- **Núcleo:** ¿qué polinomios tienen derivada cero? Los **constantes** ($a_1=a_2=a_3=0$). Por ejemplo, $D(5)=0$ y $D(-2)=0$. Base $\{1\}$, $\nu(D)=1$.
+
+. . .
+
+- **Imagen:** ¿se puede obtener cualquier polinomio de grado 2? Sí: para obtener $b_0+b_1t+b_2t^2$ basta tomar $a_1=b_0$, $a_2=\tfrac{b_1}{2}$, $a_3=\tfrac{b_2}{3}$. $\operatorname{Im}D=P_2$, $\rho(D)=3$.
+
+. . .
+
+Verificación: $\nu+\rho=1+3=4=\dim P_3$ ✓.
+
+## Fuera de las matrices (2): transponer y proyectar
+
 ::: {.ejemplo data-t="Transposición T: M₂ₓ₃ → M₃ₓ₂"}
-$A^T=O\iff A=O$: $\operatorname{nu}T=\{O\}$, $\nu=0$. Toda $B\in M_{3\times2}$ es $(B^T)^T$: $\operatorname{Im}T=M_{3\times2}$, $\rho=6$.
+- **Núcleo:** la única matriz cuya transpuesta es cero es la matriz cero: $\nu=0$.
+- **Imagen:** toda matriz $B$ de $3\times2$ se obtiene transponiendo $B^T$: $\operatorname{Im}T=M_{3\times2}$, $\rho=6$.
 :::
 
 . . .
 
 ::: {.ejemplo data-t="Proyección sobre el plano xy"}
-$T(x,y,z)=(x,y,0)$: $\operatorname{nu}T$ es el eje $z$ ($\nu=1$) e $\operatorname{Im}T$ es el plano $xy$ ($\rho=2$).
+$T(x,y,z)=(x,y,0)$ "aplasta" la altura:
+
+- **Núcleo:** los puntos $(0,0,z)$, el **eje $z$** ($\nu=1$).
+- **Imagen:** los puntos $(x,y,0)$, el **plano $xy$** ($\rho=2$).
 :::
 
 ## Teorema de la dimensión
@@ -119,36 +223,49 @@ $$
 $$
 :::
 
-. . .
-
-En los ejemplos anteriores: $1+2=3$ (matricial), $1+3=4=\dim P_3$ (derivación), $0+6=6$ (transposición), $1+2=3$ (proyección).
-
-. . .
-
-::: {.demo data-t="Caso matricial"}
-Si $T(\mathbf x)=A\mathbf x$ con $A$ de tamaño $m\times n$, es exactamente el teorema rango-nulidad de la clase 20: $\nu(A)+\rho(A)=n$. (En general se reduce a este caso usando la representación matricial, clase 24.)
+::: {.palabras}
+**Lo que se pierde** (núcleo) **más lo que queda** (imagen) **es igual a lo que entra** (la dimensión del espacio de salida).
 :::
 
 . . .
 
-::: {.obs data-t="Interpretación"}
-Lo que $T$ "aplasta" (núcleo) más lo que $T$ "conserva" (imagen) suman la dimensión de partida.
+| Ejemplo | $\nu$ | $\rho$ | $\dim V$ |
+|---|:-:|:-:|:-:|
+| Matriz $3\times3$ del ejemplo guiado | 1 | 2 | 3 |
+| Derivación $P_3\to P_2$ | 1 | 3 | 4 |
+| Transposición $M_{2\times3}\to M_{3\times2}$ | 0 | 6 | 6 |
+| Proyección sobre el plano $xy$ | 1 | 2 | 3 |
+
+. . .
+
+::: {.obs}
+Para $T(\mathbf x)=A\mathbf x$ es exactamente el teorema rango-nulidad de la clase 20: $\nu(A)+\rho(A)=n$ (número de columnas).
 :::
 
-## Inyectividad y núcleo
+## Inyectiva y sobreyectiva
 
 ::: {.definicion}
-$T:V\to W$ es **inyectiva** (uno a uno) si $T(\mathbf u)=T(\mathbf v)$ implica $\mathbf u=\mathbf v$. Es **sobreyectiva** si $\operatorname{Im}T=W$.
+$T:V\to W$ es **inyectiva** si $T(\mathbf u)=T(\mathbf v)$ implica $\mathbf u=\mathbf v$. Es **sobreyectiva** si $\operatorname{Im}T=W$.
 :::
 
 ::: {.palabras}
-**Inyectiva:** dos vectores distintos **nunca** dan el mismo resultado (no hay "choques"). **Sobreyectiva:** se alcanza **todo** el espacio de llegada (no sobra nada).
+**Inyectiva:** dos entradas distintas **nunca** dan el mismo resultado (no hay "choques"). **Sobreyectiva:** se alcanza **todo** el espacio de llegada (no sobra nada).
 :::
 
 . . .
 
+::: {.ejemplo}
+La sombra $T(x,y)=(x,0)$ **no** es inyectiva: $(3,5)$ y $(3,-2)$ dan el mismo resultado $(3,0)$. Tampoco es sobreyectiva: nunca sale $(1,1)$.
+:::
+
+## El núcleo decide la inyectividad
+
 ::: {.teorema}
-Una transformación lineal $T$ es inyectiva si y solo si $\operatorname{nu}T=\{\mathbf 0\}$.
+Una transformación lineal $T$ es inyectiva **si y solo si** $\operatorname{nu}T=\{\mathbf 0\}$.
+:::
+
+::: {.palabras}
+Basta revisar **una sola cosa**: si lo único que se convierte en cero es el cero, no hay choques en ningún otro lado.
 :::
 
 . . .
@@ -158,31 +275,44 @@ Una transformación lineal $T$ es inyectiva si y solo si $\operatorname{nu}T=\{\
 ($\Leftarrow$) Si $T(\mathbf u)=T(\mathbf v)$, entonces $T(\mathbf u-\mathbf v)=T(\mathbf u)-T(\mathbf v)=\mathbf 0$, luego $\mathbf u-\mathbf v\in\operatorname{nu}T=\{\mathbf 0\}$ y $\mathbf u=\mathbf v$.
 :::
 
+## Resumen de casos
+
+| Si… | entonces $T$ es… |
+|---|---|
+| $\nu(T)=0$ (núcleo solo el cero) | **inyectiva** |
+| $\rho(T)=\dim W$ (la imagen es todo $W$) | **sobreyectiva** |
+| ambas cosas | **invertible** (biyectiva) |
+
 . . .
 
 ::: {.ejemplo}
-$D:P_3\to P_2$ **no** es inyectiva ($D(5)=D(7)=0$) pero sí sobreyectiva. La transposición es ambas cosas.
+- La derivación $D:P_3\to P_2$ **no** es inyectiva ($D(5)=D(7)=0$) pero **sí** es sobreyectiva.
+- La transposición es inyectiva **y** sobreyectiva.
+- La proyección sobre el plano $xy$ no es ninguna de las dos.
 :::
 
-## Ejemplo resuelto: evaluación de polinomios
+## Ejemplo resuelto: evaluar un polinomio
 
 ::: {.ejemplo}
-Sea $T:P_2\to\mathbb R$, $T(p)=p(1)$. Halle su núcleo, su imagen y verifique el teorema de la dimensión.
+Sea $T:P_2\to\mathbb R$, $\;T(p)=p(1)$ (evaluar el polinomio en $t=1$). Halle su núcleo, su imagen y verifique el teorema de la dimensión.
 :::
 
 . . .
 
-$T(a+bt+ct^2)=a+b+c$. Es lineal: $(p+q)(1)=p(1)+q(1)$ y $(\alpha p)(1)=\alpha p(1)$.
+**Paso 1 · Escribir $T$ en general:** $\;T(a+bt+ct^2)=a+b+c$. Es lineal, porque $(p+q)(1)=p(1)+q(1)$ y $(\alpha p)(1)=\alpha\,p(1)$.
 
 . . .
 
-**Núcleo:** $a+b+c=0\Rightarrow a=-b-c$: $\;p=b(t-1)+c(t^2-1)$. Base $\{t-1,\;t^2-1\}$, $\nu(T)=2$.
-
-**Imagen:** $T(a)=a$ toma cualquier valor real: $\operatorname{Im}T=\mathbb R$, $\rho(T)=1$.
+**Paso 2 · Núcleo:** $a+b+c=0\Rightarrow a=-b-c$, así que
+$p=(-b-c)+bt+ct^2=b(t-1)+c(t^2-1)$. Base $\{t-1,\;t^2-1\}$, $\nu(T)=2$. Son los polinomios que **valen cero en $t=1$**.
 
 . . .
 
-$\nu+\rho=2+1=3=\dim P_2$ ✓. El núcleo son los polinomios con raíz en $t=1$ (taller 3.1, $W_3$).
+**Paso 3 · Imagen:** el polinomio constante $a$ da $T(a)=a$, así que sale **cualquier** número real: $\operatorname{Im}T=\mathbb R$, $\rho(T)=1$.
+
+. . .
+
+**Paso 4 · Verificar:** $\nu+\rho=2+1=3=\dim P_2$ ✓.
 
 ## Ejemplo 1 · Fácil: núcleo e imagen de una proyección {.compacto}
 
@@ -313,10 +443,11 @@ Grossman y Flores, *Álgebra lineal*, 8.ª ed.:
 
 ## Resumen
 
-- $\operatorname{nu}T=\{\mathbf v: T(\mathbf v)=\mathbf 0\}\subseteq V$; $\;\operatorname{Im}T=\{T(\mathbf v)\}\subseteq W$; ambos son subespacios.
-- Para $T(\mathbf x)=A\mathbf x$: núcleo $=N_A$, imagen $=C_A$.
-- $\nu(T)+\rho(T)=\dim V$.
-- $T$ inyectiva $\iff\operatorname{nu}T=\{\mathbf 0\}$.
+- **Núcleo:** las entradas que $T$ convierte en $\mathbf 0$. Se halla resolviendo $T(\mathbf v)=\mathbf 0$.
+- **Imagen:** todos los resultados posibles. Si $T(\mathbf x)=A\mathbf x$, la generan las columnas de $A$ con pivote.
+- Ambos son subespacios; sus dimensiones son la **nulidad** $\nu$ y el **rango** $\rho$.
+- **Teorema de la dimensión:** $\nu(T)+\rho(T)=\dim V$ (lo que se pierde más lo que queda es lo que entra).
+- $T$ es **inyectiva** $\iff\operatorname{nu}T=\{\mathbf 0\}$.
 
 <br>
 
