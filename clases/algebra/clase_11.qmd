@@ -166,9 +166,9 @@ Dos vectores no nulos $\mathbf u$, $\mathbf v$ son
 Halle $\alpha$ para que $(3,-2)$ y $(\alpha, 6)$ sean ortogonales: $3\alpha - 12 = 0\Rightarrow\alpha=4$.
 :::
 
-## Proyección ortogonal
+## Proyección ortogonal {.compacto}
 
-![](img/proyeccion.svg){fig-align="center" width="52%"}
+![](img/proyeccion.svg){fig-align="center" height="200px"}
 
 ::: {.definicion}
 La **proyección** de $\mathbf v$ sobre $\mathbf u\neq\mathbf 0$ es el vector

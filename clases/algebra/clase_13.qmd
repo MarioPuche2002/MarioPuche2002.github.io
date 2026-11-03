@@ -40,9 +40,9 @@ Su trayectoria es una **recta en el espacio**: un punto de partida más un núme
 :::
 :::
 
-## La idea: un punto y una dirección
+## La idea: un punto y una dirección {.compacto}
 
-![](img/recta_espacio.svg){fig-align="center" width="40%"}
+![](img/recta_espacio.svg){fig-align="center" height="250px"}
 
 ::: {.definicion}
 La recta $L$ que pasa por $P_0=(x_0,y_0,z_0)$ con **vector director** $\mathbf v=(a,b,c)\neq\mathbf 0$ es el conjunto de puntos $P$ tales que $\overrightarrow{P_0P}$ es **paralelo** a $\mathbf v$:

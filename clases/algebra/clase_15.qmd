@@ -42,7 +42,7 @@ y (clase 12) $\;|\mathbf u\times\mathbf v|=|\mathbf u||\mathbf v|\operatorname{s
 
 ## Distancia de un punto a un plano
 
-![](img/distancia_punto_plano.svg){fig-align="center" width="40%"}
+![](img/distancia_punto_plano.svg){fig-align="center" height="280px"}
 
 ::: {.teorema}
 La distancia del punto $Q$ al plano $\Pi: ax+by+cz=d$ es

@@ -152,7 +152,7 @@ $\mathbf u\times\mathbf v$ es perpendicular al plano de $\mathbf u$ y $\mathbf v
 
 ## Áreas con el producto cruz
 
-![](img/paralelogramo.svg){fig-align="center" width="48%"}
+![](img/paralelogramo.svg){fig-align="center" height="280px"}
 
 ::: {.teorema}
 El **área** del paralelogramo con lados $\mathbf u$ y $\mathbf v$ es $\;|\mathbf u\times\mathbf v|$. El área del **triángulo** con vértices $P,Q,R$ es $\;\tfrac12\left|\overrightarrow{PQ}\times\overrightarrow{PR}\right|$.

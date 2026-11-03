@@ -22,7 +22,7 @@ Todo lo que se obtiene mezclando ciertos vectores en distintas cantidades es su 
 - Describir geométricamente espacios generados en $\mathbb R^2$ y $\mathbb R^3$.
 - Determinar si un conjunto **genera** un espacio vectorial.
 
-## Combinación lineal
+## Combinación lineal {.compacto}
 
 ::: {.definicion}
 Sean $\mathbf v_1,\dots,\mathbf v_k$ vectores de un espacio $V$. Un vector $\mathbf w$ es **combinación lineal** de ellos si existen escalares $c_1,\dots,c_k$ tales que
@@ -35,7 +35,7 @@ $$
 $\mathbf w$ es combinación lineal de los $\mathbf v_i$ si se puede **armar** tomando cierta cantidad de cada uno y sumando, como preparar un color mezclando pinturas en ciertas cantidades.
 :::
 
-![](img/combinacion_lineal.svg){fig-align="center" width="42%"}
+![](img/combinacion_lineal.svg){fig-align="center" height="200px"}
 
 . . .
 
