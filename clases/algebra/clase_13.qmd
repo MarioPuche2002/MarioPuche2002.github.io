@@ -445,6 +445,8 @@ Escriba en forma vectorial y simétrica la recta $x=1+2t$, $y=-3+t$, $z=4-t$.
 **Simétrica:** se despeja $t$ en cada ecuación ($t=\tfrac{x-1}{2}$, $t=\tfrac{y+3}{1}$, $t=\tfrac{z-4}{-1}$) y se igualan: $\;\dfrac{x-1}{2}=\dfrac{y+3}{1}=\dfrac{z-4}{-1}$.
 :::
 
+## Práctica en clase (continuación)
+
 ::: {.ejercicio data-t="2"}
 Halle el punto de intersección (si existe) de $L_1:(1,0,2)+t(1,1,-1)$ y $L_2:(2,1,1)+s(-1,1,1)$.
 :::
