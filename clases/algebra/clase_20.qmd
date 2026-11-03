@@ -153,7 +153,7 @@ Sea $A$ de tamaño $m\times n$.
 . . .
 
 ::: {.ejemplo}
-$A=\begin{pmatrix}2&1&1\\3&5&5\end{pmatrix}\sim\begin{pmatrix}1&0&0\\0&1&1\end{pmatrix}$: $\rho(A)=2$, $\nu(A)=1$. Como $C_A\subseteq\mathbb R^2$ tiene dimensión 2, $C_A=\mathbb R^2$: $A\mathbf x=\mathbf b$ es consistente para **todo** $\mathbf b$, con infinitas soluciones (un parámetro).
+$A=\begin{pmatrix}2&1&1\\3&5&5\end{pmatrix}$. Escalonando: $F_2\to 2F_2-3F_1$ da $\begin{pmatrix}2&1&1\\0&7&7\end{pmatrix}$: hay **dos** pivotes y una columna sin pivote, así que $\rho(A)=2$, $\nu(A)=3-2=1$. Como $C_A\subseteq\mathbb R^2$ tiene dimensión 2, $C_A=\mathbb R^2$: $A\mathbf x=\mathbf b$ es consistente para **todo** $\mathbf b$, con infinitas soluciones (un parámetro).
 :::
 
 ## Teorema de la matriz invertible (versión 3)
@@ -290,7 +290,17 @@ Halle una base del espacio solución de $\;2x-y-2z=0,\;\;-4x+2y+4z=0,\;\;-8x+4y+
 :::
 
 ::: {.solucion .fragment}
-Todas las filas son múltiplos de $(2,-1,-2)$: $\rho=1$, $\nu=2$. De $x=\tfrac12y+z$: $\;\mathbf x=s\left(\tfrac12,1,0\right)+t(1,0,1)$. Base $\{(1,2,0),(1,0,1)\}$ (escalando el primero), dimensión 2.
+**Paso 1 · Reducir.** La fila 2 es $-2$ veces la fila 1 y la fila 3 es $-4$ veces la fila 1:
+$$
+\begin{pmatrix}2&-1&-2\\-4&2&4\\-8&4&8\end{pmatrix}\xrightarrow{F_{1}\to \tfrac{1}{2}F_{1}}\begin{pmatrix}1&-\tfrac{1}{2}&-1\\-4&2&4\\-8&4&8\end{pmatrix}\xrightarrow[F_{3}\to F_{3}+8F_{1}]{F_{2}\to F_{2}+4F_{1}}\begin{pmatrix}1&-\tfrac{1}{2}&-1\\0&0&0\\0&0&0\end{pmatrix}
+$$
+
+Un pivote: $\rho=1$ y $\nu=3-1=2$ (dos variables libres, $y$ y $z$).
+
+**Paso 2 · Despejar.** La fila que queda dice $x-\tfrac12y-z=0$, es decir, $x=\tfrac12y+z$. Con $y=s$, $z=t$:
+$\;\mathbf x=\left(\tfrac12s+t,\;s,\;t\right)=s\left(\tfrac12,1,0\right)+t(1,0,1)$.
+
+**Paso 3 · Base.** Multiplicando el primero por 2 (para quitar la fracción): $\{(1,2,0),(1,0,1)\}$, dimensión 2.
 :::
 
 ## Ejercicios propuestos
@@ -300,7 +310,11 @@ Halle el rango de $B=\begin{pmatrix}1&0&-1\\1&1&1\\2&1&0\end{pmatrix}$ y decida 
 :::
 
 ::: {.solucion .fragment}
-$B\sim\begin{pmatrix}1&0&-1\\0&1&2\\0&0&0\end{pmatrix}$: $\rho(B)=2<3$. **No** es invertible ($F_3=F_1+F_2$).
+$$
+\begin{pmatrix}1&0&-1\\1&1&1\\2&1&0\end{pmatrix}\xrightarrow[F_{3}\to F_{3}-2F_{1}]{F_{2}\to F_{2}-F_{1}}\begin{pmatrix}1&0&-1\\0&1&2\\0&1&2\end{pmatrix}\xrightarrow{F_{3}\to F_{3}-F_{2}}\begin{pmatrix}1&0&-1\\0&1&2\\0&0&0\end{pmatrix}
+$$
+
+Solo hay dos pivotes: $\rho(B)=2<3$. **No** es invertible. (Se ve también que $F_3=F_1+F_2$.)
 :::
 
 ## Ejercicios propuestos
@@ -310,7 +324,11 @@ Sea $A$ una matriz $4\times6$. ¿Cuál es el mínimo valor posible de $\nu(A)$? 
 :::
 
 ::: {.solucion .fragment}
-$\rho(A)\le4$ (a lo sumo un pivote por fila), luego $\nu(A)=6-\rho(A)\ge2$. Nunca hay solución única: si el sistema es consistente, tiene al menos 2 parámetros libres.
+**Paso 1.** $A$ tiene 4 filas y cada fila tiene a lo sumo un pivote: $\rho(A)\le4$.
+
+**Paso 2.** Por el teorema rango–nulidad, $\nu(A)=6-\rho(A)\ge6-4=2$. El mínimo es $\nu(A)=2$.
+
+**Paso 3.** Nunca hay solución única: si el sistema es consistente, tiene al menos 2 parámetros libres.
 :::
 
 ## Ejercicios propuestos
@@ -320,7 +338,11 @@ Demuestre que $C_A=\{A\mathbf x:\mathbf x\in\mathbb R^n\}$ coincide con el espac
 :::
 
 ::: {.solucion .fragment}
-$A\mathbf x=x_1\mathbf a_1+\cdots+x_n\mathbf a_n$ (clase 4): los vectores $A\mathbf x$ son exactamente las combinaciones lineales de las columnas. Todo espacio generado es subespacio (clase 17).
+**Paso 1.** Si $\mathbf a_1,\dots,\mathbf a_n$ son las columnas de $A$, el producto se escribe $A\mathbf x=x_1\mathbf a_1+\cdots+x_n\mathbf a_n$ (clase 4).
+
+**Paso 2.** Al recorrer todos los $\mathbf x\in\mathbb R^n$, los números $x_1,\dots,x_n$ toman todos los valores posibles: se obtienen **todas** las combinaciones lineales de las columnas. Así, $C_A=\operatorname{gen}\{\mathbf a_1,\dots,\mathbf a_n\}$.
+
+**Paso 3.** Todo espacio generado es un subespacio (clase 17), así que $C_A$ es subespacio de $\mathbb R^m$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

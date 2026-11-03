@@ -312,44 +312,62 @@ $D=\tfrac{2}{\sqrt{29}}$. Si el resultado diera $0$, las rectas se cortarían; p
 
 Todas son **longitudes de proyecciones** o **alturas de paralelogramos**.
 
-## Ejercicios propuestos
+## Ejercicios propuestos {.compacto}
 
 ::: {.ejercicio data-t="1"}
 Halle la distancia del punto $(3,1,-2)$ al plano $x+2y-2z=4$ y el punto del plano más cercano a él.
 :::
 
 ::: {.solucion .fragment}
-$D=\dfrac{|3+2+4-4|}{3}=\dfrac53$. El punto más cercano se obtiene moviéndose desde $Q$ en dirección $-\mathbf n$: $Q-\dfrac{5}{9}(1,2,-2)=\left(\tfrac{22}{9},-\tfrac19,-\tfrac89\right)$. Compruebe que está en el plano: $\tfrac{22}{9}-\tfrac29+\tfrac{16}{9}=4$ ✓.
+**Paso 1 · Distancia.** $\mathbf n=(1,2,-2)$, $|\mathbf n|=\sqrt{1+4+4}=3$. Sustituyendo $Q=(3,1,-2)$ en $x+2y-2z-4$: $3+2+4-4=5$. Entonces $D=\dfrac{|5|}{3}=\dfrac53$.
+
+**Paso 2 · Punto más cercano.** Desde $Q$ se camina en la dirección de $\mathbf n$ hasta llegar al plano: $Q-\dfrac{5}{|\mathbf n|^2}\mathbf n=Q-\dfrac{5}{9}(1,2,-2)=\left(3-\tfrac59,\;1-\tfrac{10}9,\;-2+\tfrac{10}9\right)=\left(\tfrac{22}{9},-\tfrac19,-\tfrac89\right)$.
+
+**Comprobación** (está en el plano): $\tfrac{22}{9}-\tfrac29+\tfrac{16}{9}=\tfrac{36}{9}=4$ ✓.
 :::
 
-## Ejercicios propuestos
+## Ejercicios propuestos {.compacto}
 
 ::: {.ejercicio data-t="2"}
 Halle la distancia del punto $(0,0,0)$ a la recta que pasa por $(1,1,1)$ y $(2,3,4)$.
 :::
 
 ::: {.solucion .fragment}
-$\mathbf v=(1,2,3)$, $\overrightarrow{PQ}=(-1,-1,-1)$, $\overrightarrow{PQ}\times\mathbf v=(-3+2,\;-(-3+1),\;-2+1)=(-1,2,-1)$. $\;D=\dfrac{\sqrt6}{\sqrt{14}}=\sqrt{\tfrac37}\approx0.65$.
+**Paso 1 · Datos.** Punto de la recta $P=(1,1,1)$; dirección $\mathbf v=(2,3,4)-(1,1,1)=(1,2,3)$; $\overrightarrow{PQ}=(0,0,0)-(1,1,1)=(-1,-1,-1)$.
+
+**Paso 2 · Producto cruz:** $\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\-1&-1&-1\\1&2&3\end{vmatrix}=\mathbf i(-3+2)-\mathbf j(-3+1)+\mathbf k(-2+1)=(-1,2,-1)$.
+
+**Paso 3 · Fórmula** $D=\dfrac{|\overrightarrow{PQ}\times\mathbf v|}{|\mathbf v|}=\dfrac{\sqrt{1+4+1}}{\sqrt{1+4+9}}=\dfrac{\sqrt6}{\sqrt{14}}=\sqrt{\tfrac37}\approx0.65$.
 :::
 
-## Ejercicios propuestos
+## Ejercicios propuestos {.compacto}
 
 ::: {.ejercicio data-t="3"}
 Verifique que los planos $2x-y+2z=3$ y $-4x+2y-4z=12$ son paralelos y halle la distancia entre ellos.
 :::
 
 ::: {.solucion .fragment}
-$(-4,2,-4)=-2(2,-1,2)$: paralelos. Dividiendo el segundo por $-2$: $2x-y+2z=-6$. $\;D=\dfrac{|3-(-6)|}{3}=3$.
+**Paso 1 · ¿Paralelos?** Normales $(2,-1,2)$ y $(-4,2,-4)=-2(2,-1,2)$: son múltiplos, así que **sí**.
+
+**Paso 2 · Misma normal.** Dividimos el segundo plano entre $-2$: $2x-y+2z=-6$. Ahora los dos son $2x-y+2z=3$ y $2x-y+2z=-6$.
+
+**Paso 3 · Distancia:** $D=\dfrac{|d_1-d_2|}{|\mathbf n|}=\dfrac{|3-(-6)|}{\sqrt{4+1+4}}=\dfrac{9}{3}=3$.
 :::
 
-## Ejercicios propuestos
+## Ejercicios propuestos {.compacto}
 
 ::: {.ejercicio data-t="4 · Demostración"}
 Demuestre que el punto de la recta $P+t\mathbf v$ más cercano a $Q$ es $P+\operatorname{proy}_{\mathbf v}\overrightarrow{PQ}$.
 :::
 
 ::: {.solucion .fragment}
-Sea $f(t)=|\overrightarrow{PQ}-t\mathbf v|^2=|\overrightarrow{PQ}|^2-2t\,\overrightarrow{PQ}\cdot\mathbf v+t^2|\mathbf v|^2$, una parábola en $t$ con mínimo en $t^*=\dfrac{\overrightarrow{PQ}\cdot\mathbf v}{|\mathbf v|^2}$ (derivada igual a cero). El punto es $P+t^*\mathbf v=P+\operatorname{proy}_{\mathbf v}\overrightarrow{PQ}$.
+**Paso 1 · Distancia al cuadrado** de $Q$ al punto $P+t\mathbf v$: $\;f(t)=|Q-(P+t\mathbf v)|^2=|\overrightarrow{PQ}-t\mathbf v|^2$.
+
+**Paso 2 · Expandir** con el producto punto: $f(t)=|\overrightarrow{PQ}|^2-2t\,(\overrightarrow{PQ}\cdot\mathbf v)+t^2|\mathbf v|^2$, una parábola en $t$ que abre hacia arriba.
+
+**Paso 3 · Mínimo:** $f'(t)=-2\,\overrightarrow{PQ}\cdot\mathbf v+2t|\mathbf v|^2=0\Rightarrow t^*=\dfrac{\overrightarrow{PQ}\cdot\mathbf v}{|\mathbf v|^2}$.
+
+**Paso 4:** el punto es $P+t^*\mathbf v=P+\dfrac{\overrightarrow{PQ}\cdot\mathbf v}{|\mathbf v|^2}\mathbf v=P+\operatorname{proy}_{\mathbf v}\overrightarrow{PQ}$ ✓.
 :::
 
 . . .

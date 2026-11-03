@@ -370,7 +370,7 @@ En $\mathbb R^2$ se define la suma usual y el producto $\alpha\odot(x,y)=(\alpha
 :::
 
 ::: {.solucion .fragment}
-Falla h): $1\odot(x,y)=(x,0)\neq(x,y)$ si $y\neq0$. Con un solo axioma que falle, **no** es espacio vectorial.
+Revisamos el axioma h), "$1\cdot\mathbf v=\mathbf v$". Con este producto: $1\odot(x,y)=(1\cdot x,\,0)=(x,0)$. Por ejemplo, $1\odot(2,3)=(2,0)\neq(2,3)$. **Falla h)**, y con un solo axioma que falle, **no** es espacio vectorial.
 :::
 
 ::: {.ejercicio data-t="2"}
@@ -378,7 +378,11 @@ Falla h): $1\odot(x,y)=(x,0)\neq(x,y)$ si $y\neq0$. Con un solo axioma que falle
 :::
 
 ::: {.solucion .fragment}
-Ninguno. El primero no contiene a $\mathbf 0$. El segundo contiene a $(1,0,0)$ y $(0,1,0)$ pero no a su suma $(1,1,0)$.
+**Ninguno.**
+
+**Primero:** ¿está $(0,0,0)$? Debería cumplir $z=x+1$, es decir, $0=0+1$: falso. Sin el cero, no es subespacio.
+
+**Segundo:** $(1,0,0)$ cumple $xy=1\cdot0=0$ ✓ y $(0,1,0)$ cumple $0\cdot1=0$ ✓, pero su suma $(1,1,0)$ da $xy=1\cdot1=1\neq0$. Falla la cerradura bajo la suma.
 :::
 
 ## Ejercicios propuestos
@@ -388,7 +392,12 @@ Ninguno. El primero no contiene a $\mathbf 0$. El segundo contiene a $(1,0,0)$ y
 :::
 
 ::: {.solucion .fragment}
-El primero sí (es un subespacio de $\mathbb R^3$: $(0,y,z)+(0,y',z')=(0,y+y',z+z')$, $c(0,y,z)=(0,cy,cz)$). El segundo no: $(0,0,0)$ no cumple $0=0+1$.
+**El primero sí.** Basta ver que es subespacio de $\mathbb R^3$:
+- Contiene al cero: $(0,0,0)$ tiene $x=0$ ✓.
+- Suma: $(0,y,z)+(0,y',z')=(0,\;y+y',\;z+z')$, que vuelve a tener $x=0$ ✓.
+- Producto: $c(0,y,z)=(0,\;cy,\;cz)$, también con $x=0$ ✓.
+
+**El segundo no:** $(0,0,0)$ no cumple $z=x+1$ (daría $0=1$).
 :::
 
 ## Ejercicios propuestos
@@ -408,7 +417,12 @@ Sea $A$ una matriz $m\times n$. Demuestre que $N_A=\{\mathbf x\in\mathbb R^n: A\
 :::
 
 ::: {.solucion .fragment}
-$N_A\neq\varnothing$ porque $A\mathbf 0=\mathbf 0$. Si $\mathbf x,\mathbf y\in N_A$: $A(\mathbf x+\mathbf y)=A\mathbf x+A\mathbf y=\mathbf 0$, y $A(c\mathbf x)=cA\mathbf x=\mathbf 0$. Por el criterio, es subespacio. Se llama **espacio nulo** de $A$ (clase 20).
+Se usa el criterio de subespacio (tres condiciones):
+1. **Cero:** $A\mathbf 0=\mathbf 0$, así que $\mathbf 0\in N_A$.
+2. **Suma:** si $\mathbf x,\mathbf y\in N_A$, entonces $A\mathbf x=\mathbf 0$ y $A\mathbf y=\mathbf 0$. Por la distributiva, $A(\mathbf x+\mathbf y)=A\mathbf x+A\mathbf y=\mathbf 0+\mathbf 0=\mathbf 0$: $\mathbf x+\mathbf y\in N_A$.
+3. **Producto:** $A(c\mathbf x)=c\,(A\mathbf x)=c\,\mathbf 0=\mathbf 0$: $c\mathbf x\in N_A$.
+
+Por el criterio, es subespacio. Se llama **espacio nulo** de $A$ (clase 20).
 :::
 
 ## Ejercicios propuestos
@@ -418,7 +432,7 @@ Demuestre que si $W_1$ y $W_2$ son subespacios de $V$, entonces $W_1\cap W_2$ es
 :::
 
 ::: {.solucion .fragment}
-$\mathbf 0\in W_1\cap W_2$. Si $\mathbf u,\mathbf v\in W_1\cap W_2$, ambos están en $W_1$ y en $W_2$, luego $\mathbf u+\mathbf v$ y $c\mathbf u$ también. La unión **no**: en $\mathbb R^2$, eje $x$ ∪ eje $y$ contiene $(1,0)$ y $(0,1)$ pero no su suma $(1,1)$.
+**Intersección:** (1) $\mathbf 0$ está en $W_1$ y en $W_2$ (ambos son subespacios), así que $\mathbf 0\in W_1\cap W_2$. (2) Si $\mathbf u,\mathbf v\in W_1\cap W_2$, ambos están en $W_1$; como $W_1$ es subespacio, $\mathbf u+\mathbf v\in W_1$. Igual, $\mathbf u+\mathbf v\in W_2$. Luego $\mathbf u+\mathbf v\in W_1\cap W_2$. (3) Con el mismo razonamiento, $c\mathbf u\in W_1\cap W_2$. La unión **no**: en $\mathbb R^2$, eje $x$ ∪ eje $y$ contiene $(1,0)$ y $(0,1)$ pero no su suma $(1,1)$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

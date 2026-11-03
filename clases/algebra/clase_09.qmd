@@ -398,7 +398,9 @@ Demuestre que si $A$ es invertible, $\det(A^{-1}BA) = \det B$.
 
 ::: {.solucion .fragment}
 **Paso 1 · Producto:** $\det(A^{-1}BA)=\det A^{-1}\cdot\det B\cdot\det A$.
+
 **Paso 2 · Inversa:** $\det A^{-1}=\tfrac{1}{\det A}$ (existe porque $A$ es invertible, así que $\det A\neq0$).
+
 **Paso 3 · Simplificar:** $\tfrac{1}{\det A}\cdot\det B\cdot\det A = \det B$. (Matrices **semejantes** tienen el mismo determinante; ver unidad 7.)
 :::
 

@@ -403,7 +403,11 @@ Decida si son lineales: (a) $T(x,y,z)=(x-2y,\;3z)$; (b) $T(x,y)=(xy,\;x)$; (c) $
 :::
 
 ::: {.solucion .fragment}
-**(a)** **Sí** (es $A\mathbf x$ con $A=\begin{pmatrix}1&-2&0\\0&0&3\end{pmatrix}$). **(b)** **No**: $T(2(1,1))=(4,2)\neq2T(1,1)=(2,2)$. **(c)** **Sí**: $t(p+q)'=tp'+tq'$ y $t(\alpha p)'=\alpha\,tp'$ (y $tp'$ sigue en $P_2$).
+**(a)** **Sí.** Se puede escribir como matriz por vector: $T(x,y,z)=\begin{pmatrix}1&-2&0\\0&0&3\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}$, y toda transformación $A\mathbf x$ es lineal.
+
+**(b)** **No.** Contraejemplo con $\mathbf u=(1,1)$: $T(2\mathbf u)=T(2,2)=(2\cdot2,\;2)=(4,2)$, pero $2T(\mathbf u)=2(1\cdot1,\;1)=(2,2)$. Son distintos.
+
+**(c)** **Sí.** Suma: $T(p+q)=t\,(p+q)'=t\,(p'+q')=tp'+tq'=T(p)+T(q)$. Escalar: $T(\alpha p)=t\,(\alpha p)'=\alpha\,tp'=\alpha T(p)$. (Y si $p$ tiene grado $\le2$, $tp'$ también.)
 :::
 
 ## Ejercicios propuestos
@@ -413,7 +417,11 @@ $T:\mathbb R^3\to\mathbb R^2$ es lineal con $T(\mathbf e_1)=(1,2)$, $T(\mathbf e
 :::
 
 ::: {.solucion .fragment}
-$T(2,-1,4)=2(1,2)-1(0,-1)+4(3,1)=(2+0+12,\;4+1+4)=(14,9)$.
+**Paso 1 · Escribir en la base canónica:** $(2,-1,4)=2\mathbf e_1-1\mathbf e_2+4\mathbf e_3$.
+
+**Paso 2 · Usar la linealidad:** $T(2,-1,4)=2T(\mathbf e_1)-1T(\mathbf e_2)+4T(\mathbf e_3)=2(1,2)-1(0,-1)+4(3,1)$.
+
+**Paso 3 · Operar:** $(2,4)+(0,1)+(12,4)=(14,9)$.
 :::
 
 ## Ejercicios propuestos
@@ -423,7 +431,13 @@ Demuestre que la composición de transformaciones lineales $S\circ T$ es lineal.
 :::
 
 ::: {.solucion .fragment}
-$(S\circ T)(\alpha\mathbf u+\beta\mathbf v)=S\big(\alpha T(\mathbf u)+\beta T(\mathbf v)\big)=\alpha S(T(\mathbf u))+\beta S(T(\mathbf v))$, usando primero la linealidad de $T$ y luego la de $S$.
+Hay que probar $(S\circ T)(\alpha\mathbf u+\beta\mathbf v)=\alpha(S\circ T)(\mathbf u)+\beta(S\circ T)(\mathbf v)$.
+
+**Paso 1 · Definición de composición:** $(S\circ T)(\alpha\mathbf u+\beta\mathbf v)=S\big(T(\alpha\mathbf u+\beta\mathbf v)\big)$.
+
+**Paso 2 · $T$ es lineal:** $=S\big(\alpha T(\mathbf u)+\beta T(\mathbf v)\big)$.
+
+**Paso 3 · $S$ es lineal:** $=\alpha S(T(\mathbf u))+\beta S(T(\mathbf v))=\alpha(S\circ T)(\mathbf u)+\beta(S\circ T)(\mathbf v)$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -433,7 +447,13 @@ Sea $T:V\to W$ lineal. Demuestre que si $\{T(\mathbf v_1),\dots,T(\mathbf v_k)\}
 :::
 
 ::: {.solucion .fragment}
-Si $\sum c_i\mathbf v_i=\mathbf 0$, aplicando $T$: $\sum c_iT(\mathbf v_i)=T(\mathbf 0)=\mathbf 0$. Como los $T(\mathbf v_i)$ son LI, todos los $c_i=0$.
+**Paso 1.** Suponemos $c_1\mathbf v_1+\cdots+c_k\mathbf v_k=\mathbf 0$ y hay que ver que todos los $c_i=0$.
+
+**Paso 2 · Aplicar $T$ a ambos lados:** $T(c_1\mathbf v_1+\cdots+c_k\mathbf v_k)=T(\mathbf 0)$.
+
+**Paso 3 · Linealidad** (y $T(\mathbf 0)=\mathbf 0$): $c_1T(\mathbf v_1)+\cdots+c_kT(\mathbf v_k)=\mathbf 0$.
+
+**Paso 4.** Como los $T(\mathbf v_i)$ son LI, todos los $c_i=0$ ✓.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

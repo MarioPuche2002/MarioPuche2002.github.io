@@ -293,7 +293,11 @@ Halle la matriz estándar de $T:\mathbb R^3\to\mathbb R^3$ que refleja respecto 
 :::
 
 ::: {.solucion .fragment}
-Reflexión: $F=\operatorname{diag}(1,1,-1)$. Rotación: $R=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}$. La composición (primero $F$) es $RF=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&-1\end{pmatrix}$.
+**Paso 1 · Reflexión en el plano $xy$:** $(x,y,z)\mapsto(x,y,-z)$. Columnas: $\mathbf e_1\mapsto\mathbf e_1$, $\mathbf e_2\mapsto\mathbf e_2$, $\mathbf e_3\mapsto-\mathbf e_3$: $F=\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix}$.
+
+**Paso 2 · Rotación de $90^\circ$ en $z$:** $\mathbf e_1\mapsto\mathbf e_2$, $\mathbf e_2\mapsto-\mathbf e_1$, $\mathbf e_3\mapsto\mathbf e_3$: $R=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}$.
+
+**Paso 3 · Componer** (primero $F$, así que $F$ va a la derecha): $RF=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&1\end{pmatrix}\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix}=\begin{pmatrix}0&-1&0\\1&0&0\\0&0&-1\end{pmatrix}$.
 :::
 
 ## Ejercicios propuestos
@@ -303,7 +307,12 @@ Sea $T:P_2\to P_2$, $T(p)(t)=p(t+1)$. Halle su matriz respecto a $\{1,t,t^2\}$.
 :::
 
 ::: {.solucion .fragment}
-$T(1)=1$, $T(t)=1+t$, $T(t^2)=1+2t+t^2$. Columnas: $\begin{pmatrix}1&1&1\\0&1&2\\0&0&1\end{pmatrix}$.
+**Paso 1 · Aplicar $T$ a cada elemento de la base** (cambiar $t$ por $t+1$):
+$T(1)=1$, $\;T(t)=t+1=1+t$, $\;T(t^2)=(t+1)^2=1+2t+t^2$.
+
+**Paso 2 · Coordenadas** en $\{1,t,t^2\}$: $(1,0,0)$, $(1,1,0)$, $(1,2,1)$.
+
+**Paso 3 · Ponerlas como columnas:** $\begin{pmatrix}1&1&1\\0&1&2\\0&0&1\end{pmatrix}$.
 :::
 
 ## Ejercicios propuestos
@@ -313,7 +322,12 @@ Use la matriz del ejercicio 2 para decidir si $T$ es invertible y halle $T^{-1}$
 :::
 
 ::: {.solucion .fragment}
-Es triangular con diagonal de unos: $\det=1\neq0$, invertible. Por la clase 6 (o pensando que la inversa es $p(t)\mapsto p(t-1)$): $A^{-1}=\begin{pmatrix}1&-1&1\\0&1&-2\\0&0&1\end{pmatrix}$.
+Es triangular con diagonal de unos: $\det=1\cdot1\cdot1=1\neq0$, así que es invertible. Con Gauss-Jordan (clase 6):
+$$
+\left(\begin{array}{ccc|ccc}1&1&1&1&0&0\\0&1&2&0&1&0\\0&0&1&0&0&1\end{array}\right)\xrightarrow{F_{1}\to F_{1}-F_{2}}\left(\begin{array}{ccc|ccc}1&0&-1&1&-1&0\\0&1&2&0&1&0\\0&0&1&0&0&1\end{array}\right)\xrightarrow[F_{2}\to F_{2}-2F_{3}]{F_{1}\to F_{1}+F_{3}}\left(\begin{array}{ccc|ccc}1&0&0&1&-1&1\\0&1&0&0&1&-2\\0&0&1&0&0&1\end{array}\right)
+$$
+
+$A^{-1}=\begin{pmatrix}1&-1&1\\0&1&-2\\0&0&1\end{pmatrix}$: es la matriz de $p(t)\mapsto p(t-1)$, que "deshace" el corrimiento.
 :::
 
 ## Ejercicios propuestos
@@ -323,7 +337,9 @@ Demuestre que si $T:\mathbb R^n\to\mathbb R^n$ es lineal, $T$ es invertible si y
 :::
 
 ::: {.solucion .fragment}
-$T$ invertible $\iff$ $T$ inyectiva (clase 23, por ser $V=W$) $\iff\operatorname{nu}T=N_{A_T}=\{\mathbf 0\}\iff\det A_T\neq0$ (teorema de la matriz invertible).
+1. $T$ invertible $\iff$ $T$ inyectiva (y sobreyectiva, que es lo mismo aquí, por la clase 23, porque dominio y codominio son $\mathbb R^n$).
+2. $T$ inyectiva $\iff\operatorname{nu}T=\{\mathbf 0\}$, y $\operatorname{nu}T$ son las soluciones de $A_T\mathbf x=\mathbf 0$.
+3. $A_T\mathbf x=\mathbf 0$ tiene solo la solución trivial $\iff\det A_T\neq0$ (teorema de la matriz invertible).
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

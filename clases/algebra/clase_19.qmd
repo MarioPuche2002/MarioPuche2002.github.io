@@ -148,7 +148,7 @@ Son las **cantidades** de cada vector de la base que se necesitan para armar $\m
 
 La base $B=\{\mathbf b_1,\mathbf b_2\}$ define una cuadrícula inclinada. El mismo punto $\mathbf v=(4,5)$ tiene coordenadas $(4,5)$ en la base canónica y $(1,2)$ en la base $B$.
 
-## Ejemplos resueltos: coordenadas
+## Ejemplos resueltos: coordenadas {.compacto}
 
 ::: {.ejemplo}
 $S=\{(1,1,0,0),(2,0,1,0),(0,1,2,-1),(0,1,-1,0)\}$ es base de $\mathbb R^4$. Halle $[\mathbf v]_S$ para $\mathbf v=(1,2,-6,2)$.
@@ -157,11 +157,26 @@ $S=\{(1,1,0,0),(2,0,1,0),(0,1,2,-1),(0,1,-1,0)\}$ es base de $\mathbb R^4$. Hall
 . . .
 
 $$
-\left(\begin{array}{cccc|c}1&2&0&0&1\\1&0&1&1&2\\0&1&2&-1&-6\\0&0&-1&0&2\end{array}\right)\sim\left(\begin{array}{cccc|c}1&0&0&0&3\\0&1&0&0&-1\\0&0&1&0&-2\\0&0&0&1&1\end{array}\right)
-\quad\Longrightarrow\quad [\mathbf v]_S=\begin{pmatrix}3\\-1\\-2\\1\end{pmatrix}.
+\left(\begin{array}{cccc|c}1&2&0&0&1\\1&0&1&1&2\\0&1&2&-1&-6\\0&0&-1&0&2\end{array}\right)\xrightarrow{F_{2}\to F_{2}-F_{1}}\left(\begin{array}{cccc|c}1&2&0&0&1\\0&-2&1&1&1\\0&1&2&-1&-6\\0&0&-1&0&2\end{array}\right)\xrightarrow{F_{2}\leftrightarrow F_{3}}\left(\begin{array}{cccc|c}1&2&0&0&1\\0&1&2&-1&-6\\0&-2&1&1&1\\0&0&-1&0&2\end{array}\right)
 $$
 
-. . .
+$$
+\xrightarrow[F_{3}\to F_{3}+2F_{2}]{F_{1}\to F_{1}-2F_{2}}\left(\begin{array}{cccc|c}1&0&-4&2&13\\0&1&2&-1&-6\\0&0&5&-1&-11\\0&0&-1&0&2\end{array}\right)\xrightarrow{F_{3}\leftrightarrow F_{4}}\left(\begin{array}{cccc|c}1&0&-4&2&13\\0&1&2&-1&-6\\0&0&-1&0&2\\0&0&5&-1&-11\end{array}\right)
+$$
+
+## Ejemplos resueltos: coordenadas (sigue la reducción) {.compacto}
+
+$$
+\xrightarrow{F_{3}\to -F_{3}}\left(\begin{array}{cccc|c}1&0&-4&2&13\\0&1&2&-1&-6\\0&0&1&0&-2\\0&0&5&-1&-11\end{array}\right)\xrightarrow[F_{2}\to F_{2}-2F_{3},\;F_{4}\to F_{4}-5F_{3}]{F_{1}\to F_{1}+4F_{3}}\left(\begin{array}{cccc|c}1&0&0&2&5\\0&1&0&-1&-2\\0&0&1&0&-2\\0&0&0&-1&-1\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{4}\to -F_{4}}\left(\begin{array}{cccc|c}1&0&0&2&5\\0&1&0&-1&-2\\0&0&1&0&-2\\0&0&0&1&1\end{array}\right)\xrightarrow[F_{2}\to F_{2}+F_{4}]{F_{1}\to F_{1}-2F_{4}}\left(\begin{array}{cccc|c}1&0&0&0&3\\0&1&0&0&-1\\0&0&1&0&-2\\0&0&0&1&1\end{array}\right)
+$$
+
+Se lee la última columna: $[\mathbf v]_S=(3,-1,-2,1)^T$.
+
+## Ejemplos resueltos: coordenadas (continuación)
 
 ::: {.ejemplo}
 En $P_1$ sean $S=\{t,1\}$ y $T=\{t+1,\;t-1\}$. Halle las coordenadas de $p(t)=5t-2$.
@@ -169,7 +184,7 @@ En $P_1$ sean $S=\{t,1\}$ y $T=\{t+1,\;t-1\}$. Halle las coordenadas de $p(t)=5t
 
 . . .
 
-$[p]_S=\begin{pmatrix}5\\-2\end{pmatrix}$. Para $T$: $x(t+1)+y(t-1)=5t-2\Rightarrow x+y=5,\;x-y=-2$, de donde $x=\tfrac32$, $y=\tfrac72$, y $[p]_T=\begin{pmatrix}3/2\\7/2\end{pmatrix}$.
+$[p]_S=\begin{pmatrix}5\\-2\end{pmatrix}$. Para $T$: $x(t+1)+y(t-1)=(x+y)t+(x-y)=5t-2$. Igualando coeficientes: $x+y=5$ y $x-y=-2$. Sumando, $2x=3$, así que $x=\tfrac32$; y $y=5-\tfrac32=\tfrac72$, y $[p]_T=\begin{pmatrix}3/2\\7/2\end{pmatrix}$.
 
 ## Matriz de transición (cambio de base)
 
@@ -193,7 +208,7 @@ Si $[\mathbf v]_T=(c_1,\dots,c_n)^T$, entonces $\mathbf v=\sum c_j\mathbf w_j$, 
 Reduzca $\big(\mathbf v_1\;\cdots\;\mathbf v_n\mid\mathbf w_1\;\cdots\;\mathbf w_n\big)\sim\big(I\mid P_{S\leftarrow T}\big)$.
 :::
 
-## Ejemplo resuelto: cambio de base en $\mathbb R^3$
+## Ejemplo resuelto: cambio de base en $\mathbb R^3$ {.compacto}
 
 ::: {.ejemplo}
 $S=\{(2,0,1),(1,2,0),(1,1,1)\}$, $\;T=\{(6,3,3),(4,-1,3),(5,5,2)\}$. Halle $P_{S\leftarrow T}$ y verifique con $\mathbf v=(4,-9,5)$.
@@ -202,12 +217,22 @@ $S=\{(2,0,1),(1,2,0),(1,1,1)\}$, $\;T=\{(6,3,3),(4,-1,3),(5,5,2)\}$. Halle $P_{S
 . . .
 
 $$
-\left(\begin{array}{ccc|ccc}2&1&1&6&4&5\\0&2&1&3&-1&5\\1&0&1&3&3&2\end{array}\right)\sim\left(\begin{array}{ccc|ccc}1&0&0&2&2&1\\0&1&0&1&-1&2\\0&0&1&1&1&1\end{array}\right),\qquad P_{S\leftarrow T}=\begin{pmatrix}2&2&1\\1&-1&2\\1&1&1\end{pmatrix}.
+\left(\begin{array}{ccc|ccc}2&1&1&6&4&5\\0&2&1&3&-1&5\\1&0&1&3&3&2\end{array}\right)\xrightarrow{F_{1}\leftrightarrow F_{3}}\left(\begin{array}{ccc|ccc}1&0&1&3&3&2\\0&2&1&3&-1&5\\2&1&1&6&4&5\end{array}\right)\xrightarrow{F_{3}\to F_{3}-2F_{1}}\left(\begin{array}{ccc|ccc}1&0&1&3&3&2\\0&2&1&3&-1&5\\0&1&-1&0&-2&1\end{array}\right)
 $$
 
-. . .
+$$
+\xrightarrow{F_{2}\leftrightarrow F_{3}}\left(\begin{array}{ccc|ccc}1&0&1&3&3&2\\0&1&-1&0&-2&1\\0&2&1&3&-1&5\end{array}\right)\xrightarrow{F_{3}\to F_{3}-2F_{2}}\left(\begin{array}{ccc|ccc}1&0&1&3&3&2\\0&1&-1&0&-2&1\\0&0&3&3&3&3\end{array}\right)
+$$
 
-Coordenadas en $T$: $\mathbf v=1(6,3,3)+2(4,-1,3)-2(5,5,2)$, así que $[\mathbf v]_T=(1,2,-2)^T$. Entonces
+$$
+\xrightarrow{F_{3}\to \tfrac{1}{3}F_{3}}\left(\begin{array}{ccc|ccc}1&0&1&3&3&2\\0&1&-1&0&-2&1\\0&0&1&1&1&1\end{array}\right)\xrightarrow[F_{2}\to F_{2}+F_{3}]{F_{1}\to F_{1}-F_{3}}\left(\begin{array}{ccc|ccc}1&0&0&2&2&1\\0&1&0&1&-1&2\\0&0&1&1&1&1\end{array}\right)
+$$
+
+A la izquierda quedó $I$; lo de la derecha es $\;P_{S\leftarrow T}=\begin{pmatrix}2&2&1\\1&-1&2\\1&1&1\end{pmatrix}$.
+
+## Ejemplo resuelto: cambio de base en $\mathbb R^3$ (continuación)
+
+**Verificación con $\mathbf v=(4,-9,5)$.** Resolviendo $c_1(6,3,3)+c_2(4,-1,3)+c_3(5,5,2)=(4,-9,5)$ con Gauss-Jordan se obtiene $c_1=1$, $c_2=2$, $c_3=-2$. Compruebe: $(6+8-10,\;3-2-10,\;3+6-4)=(4,-9,5)$ ✓. Así que $[\mathbf v]_T=(1,2,-2)^T$. Entonces
 $$
 [\mathbf v]_S=P_{S\leftarrow T}[\mathbf v]_T=\begin{pmatrix}2+4-2\\1-2-4\\1+2-2\end{pmatrix}=\begin{pmatrix}4\\-5\\1\end{pmatrix}.
 $$
@@ -320,7 +345,9 @@ Verifique que $B=\{(1,0,1),(1,1,0),(0,1,1)\}$ es base de $\mathbb R^3$ y halle $
 :::
 
 ::: {.solucion .fragment}
-$\det=2\neq0$ ⇒ LI ⇒ base. Resolviendo $a(1,0,1)+b(1,1,0)+c(0,1,1)=(2,3,5)$: $a=2$, $b=0$, $c=3$. $[(2,3,5)]_B=(2,0,3)^T$.
+**¿Base?** Con los vectores como columnas: $\det\begin{pmatrix}1&1&0\\0&1&1\\1&0&1\end{pmatrix}=1(1-0)-1(0-1)+0=2\neq0$: son 3 vectores LI en $\mathbb R^3$, luego son base.
+
+**Coordenadas.** $a(1,0,1)+b(1,1,0)+c(0,1,1)=(2,3,5)$ da $a+b=2$, $\;b+c=3$, $\;a+c=5$. Sumando las tres: $2(a+b+c)=10$, así que $a+b+c=5$. Restando cada ecuación: $c=5-2=3$, $\;a=5-3=2$, $\;b=5-5=0$. Entonces $[(2,3,5)]_B=(2,0,3)^T$. Comprobación: $2(1,0,1)+3(0,1,1)=(2,3,5)$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -330,7 +357,18 @@ Halle una base y la dimensión de $W=\{(a+c,\;a-b,\;b+c,\;a): a,b,c\in\mathbb R\
 :::
 
 ::: {.solucion .fragment}
-$W=\operatorname{gen}\{(1,1,0,1),(0,-1,1,0),(1,0,1,0)\}$. La matriz con esas columnas tiene rango 3 (verifíquelo reduciendo), luego son LI: $\dim W=3$.
+**Paso 1 · Separar por letras:** $(a+c,\,a-b,\,b+c,\,a)=a(1,1,0,1)+b(0,-1,1,0)+c(1,0,1,0)$, así que $W=\operatorname{gen}\{(1,1,0,1),(0,-1,1,0),(1,0,1,0)\}$.
+
+**Paso 2 · ¿Son LI?** Reducimos la matriz con esas columnas:
+$$
+\begin{pmatrix}1&0&1\\1&-1&0\\0&1&1\\1&0&0\end{pmatrix}\xrightarrow[F_{4}\to F_{4}-F_{1}]{F_{2}\to F_{2}-F_{1}}\begin{pmatrix}1&0&1\\0&-1&-1\\0&1&1\\0&0&-1\end{pmatrix}\xrightarrow{F_{2}\to -F_{2}}\begin{pmatrix}1&0&1\\0&1&1\\0&1&1\\0&0&-1\end{pmatrix}\xrightarrow{F_{3}\to F_{3}-F_{2}}\begin{pmatrix}1&0&1\\0&1&1\\0&0&0\\0&0&-1\end{pmatrix}
+$$
+
+$$
+\xrightarrow{F_{3}\leftrightarrow F_{4}}\begin{pmatrix}1&0&1\\0&1&1\\0&0&-1\\0&0&0\end{pmatrix}\xrightarrow{F_{3}\to -F_{3}}\begin{pmatrix}1&0&1\\0&1&1\\0&0&1\\0&0&0\end{pmatrix}\xrightarrow[F_{2}\to F_{2}-F_{3}]{F_{1}\to F_{1}-F_{3}}\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\\0&0&0\end{pmatrix}
+$$
+
+Hay pivote en las 3 columnas: son LI, forman una base y $\dim W=3$.
 :::
 
 ## Ejercicios propuestos
@@ -340,7 +378,9 @@ Complete $\{(1,1,0),(0,1,1)\}$ hasta obtener una base de $\mathbb R^3$.
 :::
 
 ::: {.solucion .fragment}
-Basta añadir un vector fuera del plano que generan, por ejemplo $(0,0,1)$: $\det\begin{pmatrix}1&0&0\\1&1&0\\0&1&1\end{pmatrix}=1\neq0$.
+**Idea.** Los dos vectores generan un plano; basta añadir un vector que **no** esté en ese plano. Probamos con $(0,0,1)$.
+
+**Comprobación:** con los tres como columnas, $\det\begin{pmatrix}1&0&0\\1&1&0\\0&1&1\end{pmatrix}=1\cdot1\cdot1=1\neq0$ (es triangular). Son 3 vectores LI en $\mathbb R^3$: $\{(1,1,0),(0,1,1),(0,0,1)\}$ es base.
 :::
 
 ## Ejercicios propuestos
@@ -350,7 +390,11 @@ Demuestre que si $\dim V=n$ y $W$ es un subespacio con $\dim W=n$, entonces $W=V
 :::
 
 ::: {.solucion .fragment}
-Una base de $W$ tiene $n$ vectores LI de $V$. Por la consecuencia c), es base de $V$, luego genera $V$: $V=\operatorname{gen}(\text{base de }W)=W$.
+**Paso 1.** Tome una base de $W$: como $\dim W=n$, tiene $n$ vectores, y son LI.
+
+**Paso 2.** Esos vectores también están en $V$. Por la consecuencia c), $n$ vectores LI en un espacio de dimensión $n$ forman una base de $V$.
+
+**Paso 3.** Entonces generan $V$: $V=\operatorname{gen}(\text{base de }W)=W$.
 :::
 
 ## Ejercicios propuestos
@@ -359,8 +403,23 @@ Una base de $W$ tiene $n$ vectores LI de $V$. Por la consecuencia c), es base de
 Con las bases $S$ y $T$ del último ejemplo, calcule $P_{T\leftarrow S}$.
 :::
 
-::: {.solucion .fragment}
-$P_{T\leftarrow S}=P_{S\leftarrow T}^{-1}=\begin{pmatrix}\tfrac32&\tfrac12&-\tfrac52\\-\tfrac12&-\tfrac12&\tfrac32\\-1&0&2\end{pmatrix}$.
+## Ejercicio 5: solución {.compacto}
+
+::: {.solucion}
+$P_{T\leftarrow S}=P_{S\leftarrow T}^{-1}$. Se invierte con Gauss-Jordan, $(P_{S\leftarrow T}\mid I)\to(I\mid P^{-1})$:
+$$
+\left(\begin{array}{ccc|ccc}2&2&1&1&0&0\\1&-1&2&0&1&0\\1&1&1&0&0&1\end{array}\right)\xrightarrow{F_{1}\leftrightarrow F_{2}}\left(\begin{array}{ccc|ccc}1&-1&2&0&1&0\\2&2&1&1&0&0\\1&1&1&0&0&1\end{array}\right)\xrightarrow[F_{3}\to F_{3}-F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{ccc|ccc}1&-1&2&0&1&0\\0&4&-3&1&-2&0\\0&2&-1&0&-1&1\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{2}\to \tfrac{1}{4}F_{2}}\left(\begin{array}{ccc|ccc}1&-1&2&0&1&0\\0&1&-\tfrac{3}{4}&\tfrac{1}{4}&-\tfrac{1}{2}&0\\0&2&-1&0&-1&1\end{array}\right)\xrightarrow[F_{3}\to F_{3}-2F_{2}]{F_{1}\to F_{1}+F_{2}}\left(\begin{array}{ccc|ccc}1&0&\tfrac{5}{4}&\tfrac{1}{4}&\tfrac{1}{2}&0\\0&1&-\tfrac{3}{4}&\tfrac{1}{4}&-\tfrac{1}{2}&0\\0&0&\tfrac{1}{2}&-\tfrac{1}{2}&0&1\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{3}\to 2F_{3}}\left(\begin{array}{ccc|ccc}1&0&\tfrac{5}{4}&\tfrac{1}{4}&\tfrac{1}{2}&0\\0&1&-\tfrac{3}{4}&\tfrac{1}{4}&-\tfrac{1}{2}&0\\0&0&1&-1&0&2\end{array}\right)\xrightarrow[F_{2}\to F_{2}+\tfrac{3}{4}F_{3}]{F_{1}\to F_{1}-\tfrac{5}{4}F_{3}}\left(\begin{array}{ccc|ccc}1&0&0&\tfrac{3}{2}&\tfrac{1}{2}&-\tfrac{5}{2}\\0&1&0&-\tfrac{1}{2}&-\tfrac{1}{2}&\tfrac{3}{2}\\0&0&1&-1&0&2\end{array}\right)
+$$
+
+Así, $P_{T\leftarrow S}=\begin{pmatrix}\tfrac32&\tfrac12&-\tfrac52\\-\tfrac12&-\tfrac12&\tfrac32\\-1&0&2\end{pmatrix}$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

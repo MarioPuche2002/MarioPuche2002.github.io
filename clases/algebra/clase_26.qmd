@@ -306,7 +306,11 @@ Diagonalice $A=\begin{pmatrix}5&4\\1&2\end{pmatrix}$ (clase 25, ejercicio 1).
 :::
 
 ::: {.solucion .fragment}
-$\lambda=1$, $\mathbf x=(-1,1)$; $\lambda=6$, $\mathbf x=(4,1)$. $\;P=\begin{pmatrix}-1&4\\1&1\end{pmatrix}$, $D=\begin{pmatrix}1&0\\0&6\end{pmatrix}$. (Si cambia el orden de las columnas de $P$, cambia el orden en $D$.)
+**Paso 1 · Valores y vectores propios** (clase 25): $\lambda=1$ con $(-1,1)$ y $\lambda=6$ con $(4,1)$.
+
+**Paso 2 · $P$** tiene los vectores propios como columnas y **$D$** los valores propios en el mismo orden: $P=\begin{pmatrix}-1&4\\1&1\end{pmatrix}$, $D=\begin{pmatrix}1&0\\0&6\end{pmatrix}$.
+
+**Paso 3 · Comprobar** que $P$ es invertible: $\det P=-1-4=-5\neq0$ ✓. Entonces $P^{-1}AP=D$. (Si cambia el orden de las columnas de $P$, cambia el orden en $D$.)
 :::
 
 ## Ejercicios propuestos
@@ -316,7 +320,8 @@ $\lambda=1$, $\mathbf x=(-1,1)$; $\lambda=6$, $\mathbf x=(4,1)$. $\;P=\begin{pma
 :::
 
 ::: {.solucion .fragment}
-Desarrollando por la columna 3, $p(\lambda)=(\lambda-2)(\lambda-1)(\lambda-3)$: tres valores propios **distintos** en una matriz $3\times3$. **Sí** es diagonalizable (consecuencia a).
+La columna 3 de $\lambda I-A$ es $(0,0,\lambda-2)$; desarrollando por ella:
+$p(\lambda)=(\lambda-2)\begin{vmatrix}\lambda-1&-2\\0&\lambda-3\end{vmatrix}=(\lambda-2)(\lambda-1)(\lambda-3)$: tres valores propios **distintos** en una matriz $3\times3$. **Sí** es diagonalizable (consecuencia a).
 :::
 
 ## Ejercicios propuestos
@@ -326,7 +331,11 @@ Demuestre que si $A$ es diagonalizable e invertible, entonces $A^{-1}$ es diagon
 :::
 
 ::: {.solucion .fragment}
-$P^{-1}AP=D$ con $D$ invertible (sus entradas son los valores propios, no nulos porque $A$ es invertible). Invirtiendo: $(P^{-1}AP)^{-1}=P^{-1}A^{-1}P=D^{-1}$, que es diagonal.
+**Paso 1.** Como $A$ es diagonalizable, $P^{-1}AP=D$. La diagonal de $D$ son los valores propios, que no son cero porque $A$ es invertible; así que $D$ es invertible.
+
+**Paso 2 · Invertir ambos lados.** La inversa de un producto invierte el orden: $(P^{-1}AP)^{-1}=P^{-1}A^{-1}(P^{-1})^{-1}=P^{-1}A^{-1}P$.
+
+**Paso 3.** Entonces $P^{-1}A^{-1}P=D^{-1}$, y $D^{-1}$ es diagonal (con entradas $1/\lambda_i$): $A^{-1}$ es diagonalizable.
 :::
 
 ## Ejercicios propuestos
@@ -336,7 +345,11 @@ Demuestre que si $A$ es diagonalizable con todos sus valores propios iguales a $
 :::
 
 ::: {.solucion .fragment}
-$D=cI$, luego $A=PDP^{-1}=P(cI)P^{-1}=cPP^{-1}=cI$. (Esto confirma de nuevo que $\begin{pmatrix}3&1\\0&3\end{pmatrix}$ no es diagonalizable.)
+**Paso 1.** Todos los valores propios son $c$, así que $D=\operatorname{diag}(c,\dots,c)=cI$.
+
+**Paso 2.** De $P^{-1}AP=D$ se despeja $A=PDP^{-1}=P(cI)P^{-1}$.
+
+**Paso 3.** El escalar sale y $PIP^{-1}=PP^{-1}=I$: $A=c\,PP^{-1}=cI$. (Esto confirma de nuevo que $\begin{pmatrix}3&1\\0&3\end{pmatrix}$ no es diagonalizable.)
 :::
 
 ## Ejercicios propuestos
@@ -346,7 +359,12 @@ Sea $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$. Diagonalícela y calcule $A^5$.
 :::
 
 ::: {.solucion .fragment}
-$\lambda=1$: $(-1,1)$; $\lambda=3$: $(1,1)$. $P=\begin{pmatrix}-1&1\\1&1\end{pmatrix}$, $P^{-1}=\tfrac12\begin{pmatrix}-1&1\\1&1\end{pmatrix}$. $A^5=P\operatorname{diag}(1,243)P^{-1}=\begin{pmatrix}122&121\\121&122\end{pmatrix}$.
+**Paso 1.** $\det(A-\lambda I)=(2-\lambda)^2-1=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3)$. Con $\lambda=1$: $A-I=\begin{pmatrix}1&1\\1&1\end{pmatrix}$, $x=-y$, vector $(-1,1)$. Con $\lambda=3$: $A-3I=\begin{pmatrix}-1&1\\1&-1\end{pmatrix}$, $x=y$, vector $(1,1)$.
+
+**Paso 2.** $P=\begin{pmatrix}-1&1\\1&1\end{pmatrix}$, $\det P=-2$, $P^{-1}=\tfrac1{-2}\begin{pmatrix}1&-1\\-1&-1\end{pmatrix}=\tfrac12\begin{pmatrix}-1&1\\1&1\end{pmatrix}$.
+
+**Paso 3.** $A^5=PD^5P^{-1}$ con $D^5=\operatorname{diag}(1^5,3^5)=\operatorname{diag}(1,243)$:
+$PD^5=\begin{pmatrix}-1&243\\1&243\end{pmatrix}$, y $A^5=\begin{pmatrix}-1&243\\1&243\end{pmatrix}\tfrac12\begin{pmatrix}-1&1\\1&1\end{pmatrix}=\tfrac12\begin{pmatrix}244&242\\242&244\end{pmatrix}=\begin{pmatrix}122&121\\121&122\end{pmatrix}$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

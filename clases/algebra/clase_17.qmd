@@ -51,17 +51,26 @@ Sean $\mathbf v_1=(1,2,-1)$ y $\mathbf v_2=(3,1,2)$. (a) ¿Es $\mathbf w=(5,0,5)
 
 (a)
 $$
-\left(\begin{array}{cc|c}1&3&5\\2&1&0\\-1&2&5\end{array}\right)
-\xrightarrow[F_3\to F_3+F_1]{F_2\to F_2-2F_1}
-\left(\begin{array}{cc|c}1&3&5\\0&-5&-10\\0&5&10\end{array}\right)
-\sim
-\left(\begin{array}{cc|c}1&0&-1\\0&1&2\\0&0&0\end{array}\right)
+\left(\begin{array}{cc|c}1&3&5\\2&1&0\\-1&2&5\end{array}\right)\xrightarrow[F_{3}\to F_{3}+F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{cc|c}1&3&5\\0&-5&-10\\0&5&10\end{array}\right)\xrightarrow{F_{2}\to -\tfrac{1}{5}F_{2}}\left(\begin{array}{cc|c}1&3&5\\0&1&2\\0&5&10\end{array}\right)
+$$
+
+$$
+\xrightarrow[F_{3}\to F_{3}-5F_{2}]{F_{1}\to F_{1}-3F_{2}}\left(\begin{array}{cc|c}1&0&-1\\0&1&2\\0&0&0\end{array}\right)
 $$
 **Sí:** $\mathbf w=-\mathbf v_1+2\mathbf v_2$. Compruebe: $(-1+6,\;-2+2,\;1+4)=(5,0,5)$ ✓.
 
-. . .
+## Ejemplo resuelto: en $\mathbb R^3$ (continuación)
 
-**(b)** $\left(\begin{array}{cc|c}1&3&1\\2&1&1\\-1&2&1\end{array}\right)\sim\left(\begin{array}{cc|c}1&0&0\\0&1&0\\0&0&1\end{array}\right)$: la última fila es $0=1$. **No** es combinación lineal.
+**(b)** ¿Es $(1,1,1)$ combinación lineal de $\mathbf v_1,\mathbf v_2$?
+$$
+\left(\begin{array}{cc|c}1&3&1\\2&1&1\\-1&2&1\end{array}\right)\xrightarrow[F_{3}\to F_{3}+F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{cc|c}1&3&1\\0&-5&-1\\0&5&2\end{array}\right)\xrightarrow{F_{2}\to -\tfrac{1}{5}F_{2}}\left(\begin{array}{cc|c}1&3&1\\0&1&\tfrac{1}{5}\\0&5&2\end{array}\right)
+$$
+
+$$
+\xrightarrow[F_{3}\to F_{3}-5F_{2}]{F_{1}\to F_{1}-3F_{2}}\left(\begin{array}{cc|c}1&0&\tfrac{2}{5}\\0&1&\tfrac{1}{5}\\0&0&1\end{array}\right)
+$$
+
+La última fila dice $0\,c_1+0\,c_2=1$, es decir, $0=1$: imposible. **No** es combinación lineal.
 
 ## Ejemplo resuelto: en $P_2$
 
@@ -74,8 +83,17 @@ Exprese $p(x)=3+5x+2x^2$ como combinación lineal de $p_1=1+x$, $p_2=x+x^2$, $p_
 $c_1(1+x)+c_2(x+x^2)+c_3(1+x^2)=(c_1+c_3)+(c_1+c_2)x+(c_2+c_3)x^2$. Igualando coeficientes:
 $$
 \begin{cases}c_1+c_3=3\\c_1+c_2=5\\c_2+c_3=2\end{cases}
-\qquad
-\left(\begin{array}{ccc|c}1&0&1&3\\1&1&0&5\\0&1&1&2\end{array}\right)\sim\left(\begin{array}{ccc|c}1&0&0&3\\0&1&0&2\\0&0&1&0\end{array}\right).
+$$
+
+## Ejemplo resuelto: en $P_2$ (continuación)
+
+Reducimos la matriz aumentada del sistema $c_1+c_3=3$, $c_1+c_2=5$, $c_2+c_3=2$:
+$$
+\left(\begin{array}{ccc|c}1&0&1&3\\1&1&0&5\\0&1&1&2\end{array}\right)\xrightarrow{F_{2}\to F_{2}-F_{1}}\left(\begin{array}{ccc|c}1&0&1&3\\0&1&-1&2\\0&1&1&2\end{array}\right)\xrightarrow{F_{3}\to F_{3}-F_{2}}\left(\begin{array}{ccc|c}1&0&1&3\\0&1&-1&2\\0&0&2&0\end{array}\right)
+$$
+
+$$
+\xrightarrow{F_{3}\to \tfrac{1}{2}F_{3}}\left(\begin{array}{ccc|c}1&0&1&3\\0&1&-1&2\\0&0&1&0\end{array}\right)\xrightarrow[F_{2}\to F_{2}+F_{3}]{F_{1}\to F_{1}-F_{3}}\left(\begin{array}{ccc|c}1&0&0&3\\0&1&0&2\\0&0&1&0\end{array}\right)
 $$
 
 . . .
@@ -281,15 +299,26 @@ El conjunto genera el **plano** $x-y+z=0$, no todo $\mathbb R^3$. Por ejemplo, $
 :::
 
 ::: {.solucion .fragment}
-$\left(\begin{array}{cc|c}1&2&1\\2&1&0\\1&-1&0\end{array}\right)\sim\left(\begin{array}{cc|c}1&2&1\\0&-3&-2\\0&0&1\end{array}\right)$: inconsistente. **No** está en $H$. (Ecuación de $H$: $x-y+z=0$, y $1-0+0\neq0$.)
+Planteamos $a(1,2,1)+b(2,1,-1)=(1,0,0)$ y reducimos:
+$$
+\left(\begin{array}{cc|c}1&2&1\\2&1&0\\1&-1&0\end{array}\right)\xrightarrow[F_{3}\to F_{3}-F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{cc|c}1&2&1\\0&-3&-2\\0&-3&-1\end{array}\right)\xrightarrow{F_{2}\to -\tfrac{1}{3}F_{2}}\left(\begin{array}{cc|c}1&2&1\\0&1&\tfrac{2}{3}\\0&-3&-1\end{array}\right)
+$$
+
+$$
+\xrightarrow[F_{3}\to F_{3}+3F_{2}]{F_{1}\to F_{1}-2F_{2}}\left(\begin{array}{cc|c}1&0&-\tfrac{1}{3}\\0&1&\tfrac{2}{3}\\0&0&1\end{array}\right)
+$$
+
+La última fila dice $0=$ un número distinto de cero: inconsistente. **No** está en $H$. (Ecuación de $H$: $x-y+z=0$, y $1-0+0\neq0$.)
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="2"}
 Describa $\operatorname{gen}\{(1,1)\}$ y $\operatorname{gen}\{(1,1),(2,2)\}$ en $\mathbb R^2$.
 :::
 
 ::: {.solucion .fragment}
-Ambos son la recta $y=x$: $(2,2)$ es múltiplo de $(1,1)$ y no agrega nada.
+$\operatorname{gen}\{(1,1)\}=\{t(1,1)\}=\{(t,t)\}$: los puntos con $y=x$, una recta. En el segundo, $(2,2)=2(1,1)$, así que $a(1,1)+b(2,2)=(a+2b)(1,1)$: otra vez solo múltiplos de $(1,1)$. Ambos son la recta $y=x$: $(2,2)$ no agrega nada.
 :::
 
 ## Ejercicios propuestos
@@ -299,7 +328,16 @@ Ambos son la recta $y=x$: $(2,2)$ es múltiplo de $(1,1)$ y no agrega nada.
 :::
 
 ::: {.solucion .fragment}
-$\left(\begin{array}{cc|c}1&2&4\\2&1&5\\1&-1&1\end{array}\right)\sim\left(\begin{array}{cc|c}1&0&2\\0&1&1\\0&0&0\end{array}\right)$. **Sí:** $(4,5,1)=2(1,2,1)+1(2,1,-1)$.
+Planteamos $a(1,2,1)+b(2,1,-1)=(4,5,1)$ y reducimos:
+$$
+\left(\begin{array}{cc|c}1&2&4\\2&1&5\\1&-1&1\end{array}\right)\xrightarrow[F_{3}\to F_{3}-F_{1}]{F_{2}\to F_{2}-2F_{1}}\left(\begin{array}{cc|c}1&2&4\\0&-3&-3\\0&-3&-3\end{array}\right)\xrightarrow{F_{2}\to -\tfrac{1}{3}F_{2}}\left(\begin{array}{cc|c}1&2&4\\0&1&1\\0&-3&-3\end{array}\right)
+$$
+
+$$
+\xrightarrow[F_{3}\to F_{3}+3F_{2}]{F_{1}\to F_{1}-2F_{2}}\left(\begin{array}{cc|c}1&0&2\\0&1&1\\0&0&0\end{array}\right)
+$$
+
+No hay fila contradictoria y se lee $a=2$, $b=1$. **Sí:** $(4,5,1)=2(1,2,1)+1(2,1,-1)$.
 :::
 
 ## Ejercicios propuestos
@@ -309,7 +347,11 @@ Describa con una ecuación el plano $\operatorname{gen}\{(1,0,2),(0,1,-1)\}$.
 :::
 
 ::: {.solucion .fragment}
-$(x,y,z)=a(1,0,2)+b(0,1,-1)=(a,b,2a-b)$, luego $z=2x-y$, es decir $2x-y-z=0$. (O con la normal $(1,0,2)\times(0,1,-1)=(-2,1,1)$.)
+**Paso 1.** Todo vector del plano es $(x,y,z)=a(1,0,2)+b(0,1,-1)=(a,\;b,\;2a-b)$.
+
+**Paso 2.** Leemos $x=a$ y $y=b$; sustituyendo en la tercera: $z=2x-y$.
+
+**Paso 3.** Pasando todo a un lado: $2x-y-z=0$. Comprobación: $(1,0,2)$ da $2-0-2=0$ ✓ y $(0,1,-1)$ da $0-1+1=0$ ✓. (O con la normal $(1,0,2)\times(0,1,-1)=(-2,1,1)$.)
 :::
 
 ## Ejercicios propuestos
@@ -319,7 +361,9 @@ Un fertilizante $A$ aporta por bulto $(10,5,5)$ kg de nitrógeno, fósforo y pot
 :::
 
 ::: {.solucion .fragment}
-$(25,15,20)=x(10,5,5)+y(5,5,10)$: de las dos primeras, $x=2$, $y=1$, y la tercera da $10+10=20$ ✓. **Sí**: 2 bultos de $A$ y 1 de $B$. Para $(20,20,20)$: $x=0$, $y=4$ de las dos primeras, pero la tercera da $40\neq20$. **No**: $(20,20,20)\notin\operatorname{gen}\{A,B\}$.
+**Caso $(25,15,20)$.** $x(10,5,5)+y(5,5,10)=(25,15,20)$ da $10x+5y=25$, $\;5x+5y=15$, $\;5x+10y=20$. Restando las dos primeras: $5x=10\Rightarrow x=2$; entonces $5y=15-10\Rightarrow y=1$. Tercera: $5(2)+10(1)=20$ ✓. **Sí**: 2 bultos de $A$ y 1 de $B$.
+
+**Caso $(20,20,20)$.** $10x+5y=20$, $\;5x+5y=20$: restando, $5x=0\Rightarrow x=0$, y $y=4$. Tercera: $5(0)+10(4)=40\neq20$. **No**: $(20,20,20)\notin\operatorname{gen}\{A,B\}$.
 :::
 
 ## Ejercicios propuestos
@@ -329,7 +373,12 @@ Demuestre que si $\mathbf v_3\in\operatorname{gen}\{\mathbf v_1,\mathbf v_2\}$, 
 :::
 
 ::: {.solucion .fragment}
-"$\supseteq$" es claro (tomando coeficiente $0$ para $\mathbf v_3$). "$\subseteq$": si $\mathbf v_3=a\mathbf v_1+b\mathbf v_2$, entonces $c_1\mathbf v_1+c_2\mathbf v_2+c_3\mathbf v_3=(c_1+c_3a)\mathbf v_1+(c_2+c_3b)\mathbf v_2$. Un vector **redundante** no agranda el espacio generado.
+Se prueban las dos contenciones.
+
+**"$\supseteq$":** todo $c_1\mathbf v_1+c_2\mathbf v_2$ es también $c_1\mathbf v_1+c_2\mathbf v_2+0\,\mathbf v_3$.
+
+**"$\subseteq$":** por hipótesis $\mathbf v_3=a\mathbf v_1+b\mathbf v_2$. Sustituyendo en una combinación de los tres:
+$c_1\mathbf v_1+c_2\mathbf v_2+c_3(a\mathbf v_1+b\mathbf v_2)=(c_1+c_3a)\mathbf v_1+(c_2+c_3b)\mathbf v_2$, que es combinación solo de $\mathbf v_1,\mathbf v_2$. Un vector **redundante** no agranda el espacio generado.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

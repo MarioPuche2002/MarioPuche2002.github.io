@@ -520,15 +520,24 @@ Halle la recta que pasa por $(1,2,-2)$ y es perpendicular al plano $3x-y+5z=7$.
 :::
 
 ::: {.solucion .fragment}
-Director = normal del plano: $(x,y,z)=(1,2,-2)+t(3,-1,5)$.
+**Paso 1 · Dirección.** Una recta perpendicular al plano va en la dirección de la **normal** del plano. La normal se lee de los coeficientes de $3x-y+5z=7$: $\mathbf n=(3,-1,5)$.
+
+**Paso 2 · Recta** (punto + $t\cdot$dirección): $(x,y,z)=(1,2,-2)+t(3,-1,5)$.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="2"}
 Halle el plano que pasa por $P_1(1,0,2)$ y $P_2(3,1,-1)$ y es perpendicular al plano $x+2y-z=5$.
 :::
 
 ::: {.solucion .fragment}
-$\mathbf n=\overrightarrow{P_1P_2}\times(1,2,-1)=(2,1,-3)\times(1,2,-1)=(5,-1,3)$. Plano: $5(x-1)-y+3(z-2)=0\Rightarrow5x-y+3z=11$.
+**Paso 1 · Dos direcciones dentro del plano buscado:** $\overrightarrow{P_1P_2}=(3-1,\,1-0,\,-1-2)=(2,1,-3)$ y la normal del otro plano, $(1,2,-1)$ (por ser perpendiculares, esa normal queda "acostada" en el plano buscado).
+
+**Paso 2 · Normal** = producto cruz de las dos:
+$\;\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\2&1&-3\\1&2&-1\end{vmatrix}=\mathbf i(-1+6)-\mathbf j(-2+3)+\mathbf k(4-1)=(5,-1,3)$.
+
+**Paso 3 · Plano por $P_1$:** $5(x-1)-1(y-0)+3(z-2)=0\Rightarrow 5x-5-y+3z-6=0\Rightarrow 5x-y+3z=11$.
 :::
 
 ## Práctica en clase (continuación)
@@ -538,15 +547,25 @@ Halle el plano que pasa por $A(1,2,3)$ y es perpendicular al vector que va de $B
 :::
 
 ::: {.solucion .fragment}
-$\mathbf n=\overrightarrow{BC}=(3,4,-3)$: $\;3(x-1)+4(y-2)-3(z-3)=0\Rightarrow3x+4y-3z=2$.
+**Paso 1 · Normal:** $\mathbf n=\overrightarrow{BC}=C-B=(5-2,\;4-0,\;-2-1)=(3,4,-3)$.
+
+**Paso 2 · Plano por $A(1,2,3)$:** $3(x-1)+4(y-2)-3(z-3)=0$.
+
+**Paso 3 · Simplificar:** $3x-3+4y-8-3z+9=0\Rightarrow 3x+4y-3z=2$. Comprobación con $A$: $3+8-9=2$ ✓.
 :::
+
+## Práctica en clase (continuación)
 
 ::: {.ejercicio data-t="4 · Demostración"}
 Demuestre que si la recta $P_0+t\mathbf v$ cumple $\mathbf v\cdot\mathbf n=0$ y $P_0$ está en el plano $\mathbf n\cdot\mathbf x=d$, entonces **toda** la recta está en el plano.
 :::
 
 ::: {.solucion .fragment}
-$\mathbf n\cdot(P_0+t\mathbf v)=\mathbf n\cdot P_0+t(\mathbf n\cdot\mathbf v)=d+t\cdot0=d$ para todo $t$.
+Hay que ver que **cada** punto $P_0+t\mathbf v$ cumple la ecuación $\mathbf n\cdot\mathbf x=d$.
+
+**Paso 1 · Distribuir:** $\mathbf n\cdot(P_0+t\mathbf v)=\mathbf n\cdot P_0+t\,(\mathbf n\cdot\mathbf v)$.
+
+**Paso 2 · Usar las hipótesis:** $\mathbf n\cdot P_0=d$ (porque $P_0$ está en el plano) y $\mathbf n\cdot\mathbf v=0$. Queda $d+t\cdot0=d$, para **todo** $t$ ✓.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

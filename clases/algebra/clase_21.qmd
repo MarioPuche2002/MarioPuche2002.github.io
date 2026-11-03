@@ -270,7 +270,12 @@ Aplique Gram-Schmidt a $\{(3,4),(1,0)\}$ en $\mathbb R^2$.
 :::
 
 ::: {.solucion .fragment}
-$\mathbf v_1=(3,4)$, $\mathbf v_2=(1,0)-\tfrac{3}{25}(3,4)=\left(\tfrac{16}{25},-\tfrac{12}{25}\right)\parallel(4,-3)$. Base ortonormal: $\left\{\tfrac15(3,4),\;\tfrac15(4,-3)\right\}$.
+**Paso 1.** $\mathbf v_1=\mathbf u_1=(3,4)$.
+
+**Paso 2 · Quitar la sombra sobre $\mathbf v_1$:** $\mathbf u_2\cdot\mathbf v_1=1\cdot3+0\cdot4=3$ y $\mathbf v_1\cdot\mathbf v_1=9+16=25$, así que
+$\;\mathbf v_2=(1,0)-\tfrac{3}{25}(3,4)=\left(1-\tfrac{9}{25},\;0-\tfrac{12}{25}\right)=\left(\tfrac{16}{25},-\tfrac{12}{25}\right)=\tfrac{4}{25}(4,-3)$.
+
+**Paso 3 · Normalizar:** $|(3,4)|=5$ y $|(4,-3)|=5$. Base ortonormal: $\left\{\tfrac15(3,4),\;\tfrac15(4,-3)\right\}$. Comprobación: $(3,4)\cdot(4,-3)=12-12=0$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -280,7 +285,8 @@ Escriba $\mathbf v=(1,2,3)$ en la base ortonormal $\{\mathbf w_1,\mathbf w_2,\ma
 :::
 
 ::: {.solucion .fragment}
-$\mathbf v\cdot\mathbf w_1=\tfrac{6}{\sqrt3}=2\sqrt3$, $\;\mathbf v\cdot\mathbf w_2=\tfrac{-1+4-3}{\sqrt6}=0$, $\;\mathbf v\cdot\mathbf w_3=\tfrac{-1+3}{\sqrt2}=\sqrt2$. Luego $\mathbf v=2\sqrt3\,\mathbf w_1+0\,\mathbf w_2+\sqrt2\,\mathbf w_3$.
+En una base **ortonormal**, cada coordenada es un producto punto: $c_i=\mathbf v\cdot\mathbf w_i$.
+$\mathbf v\cdot\mathbf w_1=\tfrac{1+2+3}{\sqrt3}=\tfrac{6}{\sqrt3}=2\sqrt3$, $\;\mathbf v\cdot\mathbf w_2=\tfrac{-1+4-3}{\sqrt6}=0$, $\;\mathbf v\cdot\mathbf w_3=\tfrac{-1+0+3}{\sqrt2}=\tfrac2{\sqrt2}=\sqrt2$. Luego $\mathbf v=2\sqrt3\,\mathbf w_1+0\,\mathbf w_2+\sqrt2\,\mathbf w_3$.
 :::
 
 ## Ejercicios propuestos
@@ -290,7 +296,11 @@ Demuestre que en Gram-Schmidt $\mathbf v_2\cdot\mathbf v_1=0$.
 :::
 
 ::: {.solucion .fragment}
-$\mathbf v_2\cdot\mathbf v_1=\mathbf u_2\cdot\mathbf v_1-\dfrac{\mathbf u_2\cdot\mathbf v_1}{\mathbf v_1\cdot\mathbf v_1}(\mathbf v_1\cdot\mathbf v_1)=\mathbf u_2\cdot\mathbf v_1-\mathbf u_2\cdot\mathbf v_1=0$.
+**Paso 1.** En Gram-Schmidt, $\mathbf v_2=\mathbf u_2-k\,\mathbf v_1$ con $k=\dfrac{\mathbf u_2\cdot\mathbf v_1}{\mathbf v_1\cdot\mathbf v_1}$ (un número).
+
+**Paso 2 · Producto punto con $\mathbf v_1$** (distributiva): $\mathbf v_2\cdot\mathbf v_1=\mathbf u_2\cdot\mathbf v_1-k\,(\mathbf v_1\cdot\mathbf v_1)$.
+
+**Paso 3 · Sustituir $k$:** $\mathbf u_2\cdot\mathbf v_1-\dfrac{\mathbf u_2\cdot\mathbf v_1}{\mathbf v_1\cdot\mathbf v_1}(\mathbf v_1\cdot\mathbf v_1)=\mathbf u_2\cdot\mathbf v_1-\mathbf u_2\cdot\mathbf v_1=0$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -300,7 +310,11 @@ Sea $Q$ una matriz $n\times n$ cuyas columnas forman una base ortonormal. Demues
 :::
 
 ::: {.solucion .fragment}
-La entrada $(i,j)$ de $Q^TQ$ es (columna $i$ de $Q$)$\cdot$(columna $j$ de $Q$) $=\mathbf w_i\cdot\mathbf w_j$, que vale $1$ si $i=j$ y $0$ si $i\neq j$. Así $Q^TQ=I$. (Recuerde de la clase 9 que entonces $\det Q=\pm1$.)
+**Paso 1.** La entrada $(i,j)$ de $Q^TQ$ es (fila $i$ de $Q^T$)$\cdot$(columna $j$ de $Q$). Pero la fila $i$ de $Q^T$ es la columna $i$ de $Q$, así que la entrada es $\mathbf w_i\cdot\mathbf w_j$.
+
+**Paso 2.** Por ser ortonormal: $\mathbf w_i\cdot\mathbf w_i=|\mathbf w_i|^2=1$ (unitarios) y $\mathbf w_i\cdot\mathbf w_j=0$ si $i\neq j$ (ortogonales). Unos en la diagonal y ceros fuera: $Q^TQ=I$.
+
+**Paso 3.** Entonces $Q^T$ es la inversa de $Q$: $Q^{-1}=Q^T$. (Recuerde de la clase 9 que entonces $\det Q=\pm1$.)
 :::
 
 ## Resumen
