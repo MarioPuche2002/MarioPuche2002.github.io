@@ -270,32 +270,7 @@ $\;\operatorname{adj}A=\begin{pmatrix}2&-3\\-1&4\end{pmatrix}.$
 Es la misma regla de "intercambiar la diagonal y cambiar signos", ahora justificada con cofactores. Comprobación: $A\,\operatorname{adj}A=\begin{pmatrix}5&0\\0&5\end{pmatrix}=5I$ ✓.
 :::
 
-## Ejemplo 3 · Medio: Cramer en un sistema $3\times3$ {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Resuelva con Cramer: $\quad x+2y-z=2,\qquad 2x-y+z=3,\qquad 3x+y+2z=7.$
-:::
-
-. . .
-
-**Paso 1.** $\;D=\begin{vmatrix}1&2&-1\\2&-1&1\\3&1&2\end{vmatrix}=-10\neq0$ (por ejemplo, expandiendo por la primera fila: $1(-3)-2(1)+(-1)(5)=-10$).
-
-. . .
-
-**Paso 2 · Un determinante por incógnita**, cambiando su columna por $\mathbf b=(2,3,7)$:
-$$
-D_x=\begin{vmatrix}2&2&-1\\3&-1&1\\7&1&2\end{vmatrix}=-14,\quad
-D_y=\begin{vmatrix}1&2&-1\\2&3&1\\3&7&2\end{vmatrix}=-8,\quad
-D_z=\begin{vmatrix}1&2&2\\2&-1&3\\3&1&7\end{vmatrix}=-10 .
-$$
-
-. . .
-
-::: {.solucion}
-$x=\tfrac{-14}{-10}=\tfrac75$, $\;y=\tfrac{-8}{-10}=\tfrac45$, $\;z=1$. Comprobación en la primera ecuación: $\tfrac75+\tfrac85-1=2$ ✓.
-:::
-
-## Ejemplo 4 · Difícil: invertibilidad con parámetro {.compacto}
+## Ejemplo 3 · Difícil: invertibilidad con parámetro {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Sea $A=\begin{pmatrix}1&2&k\\0&1&1\\k&0&1\end{pmatrix}$. (a) ¿Para qué $k$ es invertible? (b) Para $k=1$, halle $A^{-1}$ con la adjunta.
@@ -313,33 +288,6 @@ Sea $A=\begin{pmatrix}1&2&k\\0&1&1\\k&0&1\end{pmatrix}$. (a) ¿Para qué $k$ es 
 
 ::: {.solucion}
 **(a)** Invertible para todo $k\neq1\pm\sqrt2$. **(b)** $A^{-1}=\dfrac12\begin{pmatrix}1&-2&1\\1&0&-1\\-1&2&1\end{pmatrix}$. Comprobación de la entrada $(1,1)$ de $AA^{-1}$: $\tfrac12(1+2-1)=1$ ✓.
-:::
-
-## Práctica en clase
-
-::: {.ejercicio data-t="1"}
-Halle $\operatorname{adj}\begin{pmatrix}1&2\\3&4\end{pmatrix}$ y verifique que $A\operatorname{adj}A=(\det A)I$.
-:::
-
-::: {.solucion .fragment}
-**Cofactores:** $A_{11}=+4$, $A_{12}=-3$, $A_{21}=-2$, $A_{22}=+1$. La adjunta es la **transpuesta** de la matriz de cofactores:
-$\;\operatorname{adj}A=\begin{pmatrix}A_{11}&A_{21}\\A_{12}&A_{22}\end{pmatrix}=\begin{pmatrix}4&-2\\-3&1\end{pmatrix}$.
-
-**Verificación:** $\det A=1\cdot4-2\cdot3=-2$ y
-$\;\begin{pmatrix}1&2\\3&4\end{pmatrix}\begin{pmatrix}4&-2\\-3&1\end{pmatrix}=\begin{pmatrix}4-6&-2+2\\12-12&-6+4\end{pmatrix}=\begin{pmatrix}-2&0\\0&-2\end{pmatrix}=-2I$ ✓.
-:::
-
-## Práctica en clase (continuación)
-
-::: {.ejercicio data-t="2"}
-Para $A=\begin{pmatrix}1&2&0\\0&1&3\\2&1&1\end{pmatrix}$, calcule la entrada $(2,1)$ de $\operatorname{adj}A$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** La adjunta es la transpuesta de los cofactores, así que su entrada $(2,1)$ es el cofactor $A_{12}$ (¡índices al revés!).
-
-**Paso 2.** Para $A_{12}$ se tacha la fila 1 y la columna 2 de $A$, y el signo es $(-1)^{1+2}=-1$:
-$\;A_{12}=-\begin{vmatrix}0&3\\2&1\end{vmatrix}=-(0\cdot1-3\cdot2)=-(0-6)=6$.
 :::
 
 ## Ejercicios propuestos {.compacto}
@@ -370,36 +318,6 @@ Para $A=\begin{pmatrix}5&2\\1&3\end{pmatrix}$ halle $\operatorname{adj}A$ y $A^{
 
 **Cramer.** Se cambia la columna de $x$ (o de $y$) por $(7,4)$:
 $\;x=\dfrac{\begin{vmatrix}7&2\\4&3\end{vmatrix}}{13}=\dfrac{21-8}{13}=1$, $\quad y=\dfrac{\begin{vmatrix}5&7\\1&4\end{vmatrix}}{13}=\dfrac{20-7}{13}=1$. Comprobación: $5+2=7$ ✓, $1+3=4$ ✓.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="3 · Demostración"}
-Sea $A$ invertible $n\times n$. Demuestre que $\operatorname{adj}A$ es invertible y que $\det(\operatorname{adj}A) = (\det A)^{n-1}$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** Partimos de la identidad $A\,\operatorname{adj}A = (\det A)I_n$ y tomamos determinante a ambos lados.
-
-**Paso 2.** Izquierda: $\det(A\,\operatorname{adj}A)=\det A\cdot\det(\operatorname{adj}A)$. Derecha: $(\det A)I_n$ es multiplicar las $n$ filas de $I_n$ por el número $\det A$, así que $\det\big((\det A)I_n\big)=(\det A)^n$.
-
-**Paso 3.** $\det A\cdot\det(\operatorname{adj}A)=(\det A)^n$. Como $A$ es invertible, $\det A\neq0$ y podemos dividir: $\det(\operatorname{adj}A)=(\det A)^{n-1}$.
-
-**Paso 4.** Ese número es distinto de cero, así que $\operatorname{adj}A$ es invertible. (Además, $(\operatorname{adj}A)^{-1}=\dfrac{1}{\det A}A$.)
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4"}
-Determine para qué valores de $k$ el sistema $\;kx + y = 1,\quad x + ky = 1\;$ tiene solución única y hállela con Cramer.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** $\det A=\begin{vmatrix}k&1\\1&k\end{vmatrix}=k^2-1=(k-1)(k+1)$. Hay solución única si $\det A\neq0$, es decir, si $k\neq1$ y $k\neq-1$.
-
-**Paso 2 · Cramer:** $\;x = \dfrac{\begin{vmatrix}1&1\\1&k\end{vmatrix}}{k^2-1}=\dfrac{k-1}{(k-1)(k+1)}=\dfrac{1}{k+1}$, $\quad y = \dfrac{\begin{vmatrix}k&1\\1&1\end{vmatrix}}{k^2-1}=\dfrac{k-1}{(k-1)(k+1)}=\dfrac{1}{k+1}$.
-
-(Si $k=1$, las dos ecuaciones son $x+y=1$: infinitas soluciones. Si $k=-1$, quedan $-x+y=1$ y $x-y=1$, que se contradicen: ninguna.)
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

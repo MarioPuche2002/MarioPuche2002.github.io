@@ -77,12 +77,6 @@ $\mathbf v=(6\cos150^\circ,\;6\operatorname{sen}150^\circ)=\left(6\cdot\left(-\t
 $\arctan$ devuelve ángulos en $(-90^\circ,90^\circ)$. Si $a<0$, hay que sumar $180^\circ$. Dibuje siempre el vector para ubicar el cuadrante.
 :::
 
-## Magnitud, dirección y vector unitario en una figura
-
-![](img/vector_componentes.svg){fig-align="center" width="46%"}
-
-Para $\mathbf v=(-2,2\sqrt3)$: $|\mathbf v|=4$, la dirección es $120^\circ$ (segundo cuadrante) y el unitario $\mathbf u=\left(-\tfrac12,\tfrac{\sqrt3}{2}\right)$ está sobre el círculo de radio 1.
-
 ## Vectores unitarios
 
 ::: {.definicion}
@@ -242,46 +236,7 @@ $$
 La igualdad $|\mathbf u\cdot\mathbf v| = |\mathbf u||\mathbf v|$ ocurre exactamente cuando $\mathbf u$ y $\mathbf v$ son paralelos (o uno es cero).
 :::
 
-## Aplicación: fuerza resultante (tipo parcial)
-
-::: {.ejemplo}
-Dos fuerzas $\mathbf u$ y $\mathbf v$, ambas de magnitud $10$, forman ángulos de $30^\circ$ y $150^\circ$ con el eje $x$ positivo. Halle la magnitud y la dirección de la resultante $\mathbf R=\mathbf u+\mathbf v$.
-:::
-
-. . .
-
-$$
-\mathbf u=(10\cos30^\circ,\;10\operatorname{sen}30^\circ)=(5\sqrt3,\;5),\qquad
-\mathbf v=(10\cos150^\circ,\;10\operatorname{sen}150^\circ)=(-5\sqrt3,\;5).
-$$
-
-. . .
-
-$\mathbf R=(0,\;10)$, así que $\|\mathbf R\|=10$ y $\theta=90^\circ$: las componentes horizontales se **cancelan** por simetría.
-
-## Ejemplo 1 · Fácil: magnitud, vector unitario y dirección {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-Para $\mathbf v=(-3,4)$, halle $\|\mathbf v\|$, un vector unitario en su dirección y el ángulo que forma con el eje $x$.
-:::
-
-. . .
-
-**Paso 1.** $\;\|\mathbf v\|=\sqrt{(-3)^2+4^2}=\sqrt{25}=5.$
-
-. . .
-
-**Paso 2 · Unitario:** dividir el vector por su norma: $\;\mathbf u=\tfrac15(-3,4)=\left(-\tfrac35,\tfrac45\right)$, y $\|\mathbf u\|=1$ ✓.
-
-. . .
-
-**Paso 3 · Ángulo.** $\tan\theta=\tfrac{4}{-3}$, pero $\mathbf v$ está en el **segundo cuadrante**: $\theta=180^\circ-\arctan\tfrac43\approx180^\circ-53.13^\circ=126.87^\circ$.
-
-::: {.solucion}
-$\|\mathbf v\|=5$, $\;\mathbf u=(-\tfrac35,\tfrac45)$, $\;\theta\approx126.87^\circ$. La calculadora da $-53.13^\circ$: siempre hay que revisar el cuadrante.
-:::
-
-## Ejemplo 2 · Fácil: ángulo entre dos vectores {.compacto}
+## Ejemplo 1 · Fácil: ángulo entre dos vectores {.compacto}
 
 ::: {.ejemplo data-t="Nivel fácil"}
 Halle el ángulo entre $\mathbf u=(1,2)$ y $\mathbf v=(3,1)$.
@@ -302,29 +257,7 @@ $$
 $\theta=45^\circ$. Como $\mathbf u\cdot\mathbf v>0$, el ángulo es agudo.
 :::
 
-## Ejemplo 3 · Medio: proyección y descomposición {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Descomponga $\mathbf u=(4,2)$ como suma de un vector paralelo a $\mathbf v=(3,-1)$ y otro ortogonal a $\mathbf v$.
-:::
-
-. . .
-
-**Paso 1 · Proyección:** $\;\operatorname{proj}_{\mathbf v}\mathbf u=\dfrac{\mathbf u\cdot\mathbf v}{\|\mathbf v\|^2}\,\mathbf v=\dfrac{12-2}{10}(3,-1)=(3,-1).$
-
-. . .
-
-**Paso 2 · Lo que sobra es la parte ortogonal:** $\;\mathbf w=\mathbf u-\operatorname{proj}_{\mathbf v}\mathbf u=(4,2)-(3,-1)=(1,3).$
-
-. . .
-
-**Paso 3 · Verificar.** $\mathbf w\cdot\mathbf v=3-3=0$ ✓ y $(3,-1)+(1,3)=(4,2)$ ✓.
-
-::: {.solucion}
-$\mathbf u=\underbrace{(3,-1)}_{\parallel\,\mathbf v}+\underbrace{(1,3)}_{\perp\,\mathbf v}$. Así se separa una fuerza en la parte que empuja en una dirección y la que no aporta en ella.
-:::
-
-## Ejemplo 4 · Difícil: un parámetro y tres condiciones {.compacto}
+## Ejemplo 2 · Difícil: un parámetro y tres condiciones {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Sean $\mathbf u=(\alpha,2)$ y $\mathbf v=(3,-4)$. Halle $\alpha$ para que (a) sean ortogonales, (b) sean paralelos, (c) la componente de $\mathbf u$ en la dirección de $\mathbf v$ sea $2$.
@@ -344,34 +277,6 @@ Sean $\mathbf u=(\alpha,2)$ y $\mathbf v=(3,-4)$. Halle $\alpha$ para que (a) se
 
 ::: {.solucion}
 **(a)** $\alpha=\tfrac83$; **(b)** $\alpha=-\tfrac32$; **(c)** $\alpha=6$. Comprobación de (c): $\mathbf u=(6,2)$, $\;\tfrac{18-8}{5}=2$ ✓. Cada condición se traduce en una ecuación distinta con el producto punto.
-:::
-
-## Práctica en clase
-
-::: {.ejercicio data-t="1"}
-Sean $\mathbf u=(3,4)$ y $\mathbf v=(1,0)$. Calcule $\left\|\operatorname{proy}_{\mathbf v}\mathbf u\right\|$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** $\mathbf u\cdot\mathbf v=3\cdot1+4\cdot0=3$ y $|\mathbf v|^2=1^2+0^2=1$.
-
-**Paso 2.** $\operatorname{proy}_{\mathbf v}\mathbf u=\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf v|^2}\mathbf v=\dfrac{3}{1}(1,0)=(3,0)$.
-
-**Paso 3.** $\|(3,0)\|=\sqrt{9+0}=3$: es la "sombra" de $\mathbf u$ sobre el eje $x$.
-:::
-
-## Práctica en clase (continuación)
-
-::: {.ejercicio data-t="2"}
-Halle un vector de magnitud $6$ en la dirección de $(1,-2)$ y otro ortogonal a él con la misma magnitud.
-:::
-
-::: {.solucion .fragment}
-**Paso 1 · Unitario.** $|(1,-2)|=\sqrt{1+4}=\sqrt5$, así que el unitario es $\dfrac{(1,-2)}{\sqrt5}$.
-
-**Paso 2 · Escalar por 6:** $\;6\cdot\dfrac{(1,-2)}{\sqrt5}=\left(\tfrac{6}{\sqrt5},-\tfrac{12}{\sqrt5}\right)$.
-
-**Paso 3 · Ortogonal.** En el plano, $(a,b)$ es perpendicular a $(b,-a)$, porque $ab-ba=0$: se intercambian las componentes y se cambia un signo. De $\left(\tfrac{6}{\sqrt5},-\tfrac{12}{\sqrt5}\right)$ sale $\left(\tfrac{12}{\sqrt5},\tfrac{6}{\sqrt5}\right)$, que tiene la misma magnitud. Comprobación: $\tfrac{6\cdot12}{5}-\tfrac{12\cdot6}{5}=0$ ✓.
 :::
 
 ## Ejercicios propuestos
@@ -400,33 +305,6 @@ Sean $\mathbf u = (1,-2)$ y $\mathbf v = (3,4)$. Calcule el ángulo entre ellos,
 **Ángulo:** $\cos\varphi = \dfrac{\mathbf u\cdot\mathbf v}{|\mathbf u||\mathbf v|}=\dfrac{-5}{5\sqrt5}=-\dfrac{1}{\sqrt5}\approx-0.447$, así que $\varphi\approx116.57^\circ$ (obtuso, porque el producto punto es negativo).
 
 **Proyecciones:** $\operatorname{proy}_{\mathbf v}\mathbf u=\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf v|^2}\mathbf v=\dfrac{-5}{25}(3,4)=\left(-\tfrac35,-\tfrac45\right)$, $\quad\operatorname{proy}_{\mathbf u}\mathbf v=\dfrac{\mathbf u\cdot\mathbf v}{|\mathbf u|^2}\mathbf u=\dfrac{-5}{5}(1,-2)=(-1,2)$. Son **distintas**: importa sobre cuál se proyecta.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="3 · Demostración"}
-Demuestre que $\operatorname{proy}_{\mathbf u}(\operatorname{proy}_{\mathbf u}\mathbf v)=\operatorname{proy}_{\mathbf u}\mathbf v$. Interprételo geométricamente.
-:::
-
-::: {.solucion .fragment}
-**Paso 1 · Nombrar.** $\operatorname{proy}_{\mathbf u}\mathbf v=k\mathbf u$, donde $k = \frac{\mathbf u\cdot\mathbf v}{|\mathbf u|^2}$ es un número. Llamemos $\mathbf p=k\mathbf u$.
-
-**Paso 2 · Aplicar la fórmula a $\mathbf p$:** $\;\operatorname{proy}_{\mathbf u}\mathbf p = \dfrac{\mathbf u\cdot\mathbf p}{|\mathbf u|^2}\mathbf u=\dfrac{\mathbf u\cdot(k\mathbf u)}{|\mathbf u|^2}\mathbf u$.
-
-**Paso 3 · Simplificar.** El número $k$ sale del producto punto y $\mathbf u\cdot\mathbf u=|\mathbf u|^2$: $\;\dfrac{k\,|\mathbf u|^2}{|\mathbf u|^2}\mathbf u = k\mathbf u=\mathbf p$ ✓. Proyectar un vector que ya está sobre la recta de $\mathbf u$ no lo cambia.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4 · Demostración"}
-Demuestre que $\mathbf u$ y $\mathbf v$ son ortogonales si y solo si $|\mathbf u+\mathbf v|^2 = |\mathbf u|^2 + |\mathbf v|^2$ (teorema de Pitágoras).
-:::
-
-::: {.solucion .fragment}
-**Paso 1 · Expandir** usando $|\mathbf w|^2=\mathbf w\cdot\mathbf w$ y la distributiva:
-$|\mathbf u+\mathbf v|^2 = (\mathbf u+\mathbf v)\cdot(\mathbf u+\mathbf v)=\mathbf u\cdot\mathbf u+\mathbf u\cdot\mathbf v+\mathbf v\cdot\mathbf u+\mathbf v\cdot\mathbf v= |\mathbf u|^2 + 2\,\mathbf u\cdot\mathbf v+|\mathbf v|^2$.
-
-**Paso 2 · Comparar.** Entonces $|\mathbf u+\mathbf v|^2 = |\mathbf u|^2+|\mathbf v|^2$ exactamente cuando el término del medio es cero: $2\,\mathbf u\cdot\mathbf v=0$, es decir, $\mathbf u\cdot\mathbf v=0$, que es la definición de ortogonales.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

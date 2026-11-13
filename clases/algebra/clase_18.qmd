@@ -153,43 +153,6 @@ $$
 Consecuencias inmediatas: todo conjunto que contenga al vector $\mathbf 0$ es LD ($1\cdot\mathbf 0=\mathbf 0$), y todo subconjunto de un conjunto LI es LI.
 :::
 
-## Ejemplo resuelto: polinomios
-
-::: {.ejemplo}
-En $P_2$, ¿son LI $p_1=x-2x^2$, $p_2=x^2-4x$, $p_3=-7x+8x^2$?
-:::
-
-. . .
-
-$c_1(x-2x^2)+c_2(x^2-4x)+c_3(-7x+8x^2)=(c_1-4c_2-7c_3)x+(-2c_1+c_2+8c_3)x^2=0$:
-$$
-\begin{pmatrix}1&-4&-7\\-2&1&8\end{pmatrix}\xrightarrow{F_{2}\to F_{2}+2F_{1}}\begin{pmatrix}1&-4&-7\\0&-7&-6\end{pmatrix}\xrightarrow{F_{2}\to -\tfrac{1}{7}F_{2}}\begin{pmatrix}1&-4&-7\\0&1&\tfrac{6}{7}\end{pmatrix}
-$$
-
-$$
-\xrightarrow{F_{1}\to F_{1}+4F_{2}}\begin{pmatrix}1&0&-\tfrac{25}{7}\\0&1&\tfrac{6}{7}\end{pmatrix}
-$$
-
-Las filas dicen $c_1-\tfrac{25}{7}c_3=0$ y $c_2+\tfrac67c_3=0$.
-
-. . .
-
-Hay una variable libre (de hecho, son 3 vectores en el subespacio $\operatorname{gen}\{x,x^2\}$ de dimensión 2). Con $c_3=7$: $c_1=25$, $c_2=-6$, es decir, $25p_1-6p_2+7p_3=0$. **Son LD.**
-
-## Ejemplo resuelto: matrices
-
-::: {.ejemplo}
-En $M_{2\times2}$, ¿son LI $A_1=\begin{pmatrix}1&0\\0&1\end{pmatrix}$, $A_2=\begin{pmatrix}0&1\\1&0\end{pmatrix}$, $A_3=\begin{pmatrix}1&1\\1&1\end{pmatrix}$?
-:::
-
-. . .
-
-$c_1A_1+c_2A_2+c_3A_3=\begin{pmatrix}c_1+c_3&c_2+c_3\\c_2+c_3&c_1+c_3\end{pmatrix}=O$ da $c_1=-c_3$, $c_2=-c_3$.
-
-. . .
-
-Con $c_3=1$: $-A_1-A_2+A_3=O$, es decir, $A_3=A_1+A_2$. **Son LD.**
-
 ## Ejemplo resuelto (taller 3.1)
 
 ::: {.ejemplo}
@@ -216,65 +179,7 @@ $$
 $$
 **Son LD.**
 
-## Ejemplo 1 · Fácil: dos vectores paralelos {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-¿Son linealmente independientes $\mathbf u=(1,2)$ y $\mathbf v=(2,4)$?
-:::
-
-. . .
-
-**Paso 1.** Con dos vectores basta mirar si uno es múltiplo del otro: $\mathbf v=2\mathbf u$.
-
-. . .
-
-**Paso 2 · Combinación no trivial que da cero:** $\;2\mathbf u-\mathbf v=\mathbf 0$.
-
-::: {.solucion}
-Son **dependientes**: están sobre la misma recta. También $\det\begin{pmatrix}1&2\\2&4\end{pmatrix}=0$.
-:::
-
-## Ejemplo 2 · Fácil: tres vectores "escalonados" {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-¿Son independientes $(1,0,0)$, $(1,1,0)$ y $(1,1,1)$?
-:::
-
-. . .
-
-**Paso 1 · Plantear** $c_1(1,0,0)+c_2(1,1,0)+c_3(1,1,1)=\mathbf 0$:
-$\quad c_1+c_2+c_3=0,\quad c_2+c_3=0,\quad c_3=0.$
-
-. . .
-
-**Paso 2 · De abajo hacia arriba:** $c_3=0$, luego $c_2=0$, luego $c_1=0$.
-
-::: {.solucion}
-Solo la solución trivial: son **independientes**. La matriz con esos vectores como columnas es triangular con diagonal $1,1,1$ (determinante $1\neq0$).
-:::
-
-## Ejemplo 3 · Medio: independencia de polinomios {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-¿Son linealmente independientes $p_1=1+x$, $p_2=x+x^2$ y $p_3=1+x^2$ en $P_2$?
-:::
-
-. . .
-
-**Paso 1 · Pasar a coordenadas** en la base $\{1,x,x^2\}$: $\;p_1\to(1,1,0)$, $p_2\to(0,1,1)$, $p_3\to(1,0,1)$.
-
-. . .
-
-**Paso 2 · Determinante** de la matriz con esas columnas:
-$$
-\begin{vmatrix}1&0&1\\1&1&0\\0&1&1\end{vmatrix}=1(1-0)-0+1(1-0)=2\neq0 .
-$$
-
-::: {.solucion}
-Son **independientes**. Compare con la clase 17: $\{1+x,\;x+x^2,\;1-x^2\}$ es dependiente; un solo signo cambia la respuesta.
-:::
-
-## Ejemplo 4 · Difícil: ¿para qué $k$ son dependientes? {.compacto}
+## Ejemplo 1 · Difícil: ¿para qué $k$ son dependientes? {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Halle $k$ para que $\mathbf v_1=(1,0,k)$, $\mathbf v_2=(0,1,1)$, $\mathbf v_3=(k,1,2)$ sean dependientes, y escriba la relación entre ellos.

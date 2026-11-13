@@ -218,42 +218,6 @@ $\mathbf u=(1,2,0)$, $\mathbf v=(0,1,3)$, $\mathbf w=(2,0,1)$: $\;\begin{vmatrix
 
 **Consecuencia:** $\mathbf u,\mathbf v,\mathbf w$ son **coplanares** $\iff$ $\mathbf u\cdot(\mathbf v\times\mathbf w)=0$.
 
-## Aplicación: vectores unitarios ortogonales a dos vectores
-
-::: {.ejemplo}
-Encuentre dos vectores unitarios ortogonales a $\mathbf u=\mathbf i-3\mathbf j+\mathbf k$ y $\mathbf v=2\mathbf i+\mathbf j-\mathbf k$.
-:::
-
-. . .
-
-$$
-\mathbf u\times\mathbf v=\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\1&-3&1\\2&1&-1\end{vmatrix}=(3-1)\mathbf i-(-1-2)\mathbf j+(1+6)\mathbf k=(2,3,7),\qquad\|\mathbf u\times\mathbf v\|=\sqrt{62}.
-$$
-
-. . .
-
-Los dos unitarios son $\;\pm\dfrac{1}{\sqrt{62}}(2,3,7)$. Compruebe: $(2,3,7)\cdot(1,-3,1)=0$ y $(2,3,7)\cdot(2,1,-1)=0$ ✓.
-
-## Ángulo con el producto cruz: cuidado
-
-::: {.ejemplo}
-Calcule el ángulo entre $\mathbf u=(1,-3,1)$ y $\mathbf v=(2,1,-1)$ usando $\|\mathbf u\times\mathbf v\|=\|\mathbf u\|\|\mathbf v\|\operatorname{sen}\theta$.
-:::
-
-. . .
-
-$\operatorname{sen}\theta=\dfrac{\sqrt{62}}{\sqrt{11}\,\sqrt6}\approx0.969$, y $\arcsin(0.969)\approx75.75^\circ$.
-
-. . .
-
-Pero $\mathbf u\cdot\mathbf v=2-3-1=-2<0$: el ángulo es **obtuso**. El valor correcto es $\theta=180^\circ-75.75^\circ\approx104.25^\circ$.
-
-. . .
-
-::: {.obs data-t="Moraleja"}
-El seno no distingue $\theta$ de $180^\circ-\theta$. Para el ángulo entre vectores use $\cos\theta=\dfrac{\mathbf u\cdot\mathbf v}{\|\mathbf u\|\|\mathbf v\|}$, o revise el signo del producto punto.
-:::
-
 ## Ejemplo 1 · Fácil: calcular un producto cruz {.compacto}
 
 ::: {.ejemplo data-t="Nivel fácil"}
@@ -294,32 +258,7 @@ Halle el área del paralelogramo generado por $\mathbf u=(1,0,1)$ y $\mathbf v=(
 Área $=3$ unidades cuadradas.
 :::
 
-## Ejemplo 3 · Medio: área de un triángulo en el espacio {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Halle el área del triángulo con vértices $P(1,1,0)$, $Q(2,3,1)$, $R(0,2,2)$.
-:::
-
-. . .
-
-**Paso 1 · Dos lados desde el mismo vértice:** $\;\overrightarrow{PQ}=(1,2,1)$, $\;\overrightarrow{PR}=(-1,1,2)$.
-
-. . .
-
-**Paso 2 · Producto cruz:**
-$$
-\overrightarrow{PQ}\times\overrightarrow{PR}=(2\cdot2-1\cdot1,\;-(1\cdot2-1\cdot(-1)),\;1\cdot1-2\cdot(-1))=(3,-3,3).
-$$
-
-. . .
-
-**Paso 3 · El triángulo es la mitad del paralelogramo:** $\;\text{Área}=\tfrac12\|(3,-3,3)\|=\tfrac12\sqrt{27}=\tfrac{3\sqrt3}{2}.$
-
-::: {.solucion}
-Área $=\tfrac{3\sqrt3}{2}\approx2.60$. Además, $(3,-3,3)$ es un vector normal al plano del triángulo.
-:::
-
-## Ejemplo 4 · Difícil: volumen y vectores coplanares {.compacto}
+## Ejemplo 3 · Difícil: volumen y vectores coplanares {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Sean $\mathbf u=(1,2,1)$, $\mathbf v=(2,k,0)$, $\mathbf w=(0,1,3)$. (a) Exprese el volumen del paralelepípedo en función de $k$. (b) ¿Para qué $k$ son coplanares?
@@ -370,30 +309,6 @@ Halle el área del paralelogramo con vértices consecutivos $A=(1,1,0)$, $B=(3,1
 **Paso 2 · Producto cruz:** $\begin{vmatrix}\mathbf i&\mathbf j&\mathbf k\\2&0&0\\1&2&0\end{vmatrix}=\mathbf i(0-0)-\mathbf j(0-0)+\mathbf k(4-0)=(0,0,4)$.
 
 **Paso 3 · Área** $=|(0,0,4)|=4$. Comprobación: base $|\overrightarrow{AB}|=2$ y altura $2$ (la diferencia en $y$), $2\cdot2=4$ ✓.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="3"}
-¿Son coplanares $(1,2,3)$, $(2,1,0)$ y $(3,3,3)$?
-:::
-
-::: {.solucion .fragment}
-Son coplanares si el triple producto (el determinante con los tres vectores como filas) es $0$. Por la fila 1:
-$$
-\begin{vmatrix}1&2&3\\2&1&0\\3&3&3\end{vmatrix}=1(1\cdot3-0\cdot3)-2(2\cdot3-0\cdot3)+3(2\cdot3-1\cdot3)=3-12+9=0 .
-$$
-**Sí** son coplanares. De hecho, $(1,2,3)+(2,1,0)=(3,3,3)$: el tercero es la suma de los dos primeros.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4 · Demostración"}
-Demuestre que $(\mathbf u\times\mathbf v)\cdot\mathbf w=\mathbf u\cdot(\mathbf v\times\mathbf w)$.
-:::
-
-::: {.solucion .fragment}
-Ambos lados son determinantes con filas $\mathbf u,\mathbf v,\mathbf w$: $(\mathbf u\times\mathbf v)\cdot\mathbf w=\det(\mathbf w;\mathbf u;\mathbf v)$ y $\mathbf u\cdot(\mathbf v\times\mathbf w)=\det(\mathbf u;\mathbf v;\mathbf w)$. Pasar de $(\mathbf w,\mathbf u,\mathbf v)$ a $(\mathbf u,\mathbf v,\mathbf w)$ requiere **dos** intercambios de filas, que no cambian el signo.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

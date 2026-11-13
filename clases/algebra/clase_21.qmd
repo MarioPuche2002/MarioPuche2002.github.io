@@ -237,32 +237,6 @@ $$
 $\{\mathbf u_1,\mathbf u_2\}=\{(\tfrac35,\tfrac45),(\tfrac45,-\tfrac35)\}$. Comprobación: $\tfrac{12}{25}-\tfrac{12}{25}=0$ ✓.
 :::
 
-## Ejemplo 4 · Difícil: Gram-Schmidt en $\mathbb R^3$ {.compacto}
-
-::: {.ejemplo data-t="Nivel difícil"}
-Ortonormalice $\mathbf v_1=(1,0,1)$, $\mathbf v_2=(1,1,0)$, $\mathbf v_3=(0,1,1)$.
-:::
-
-. . .
-
-**Paso 1.** $\mathbf w_1=\mathbf v_1=(1,0,1)$, $\;\mathbf w_1\cdot\mathbf w_1=2$.
-
-**Paso 2.** $\mathbf w_2=\mathbf v_2-\tfrac{\mathbf v_2\cdot\mathbf w_1}{2}\mathbf w_1=(1,1,0)-\tfrac12(1,0,1)=(\tfrac12,1,-\tfrac12)$. Para evitar fracciones se usa el múltiplo $(1,2,-1)$, con $\|\cdot\|^2=6$.
-
-. . .
-
-**Paso 3.** Se restan las proyecciones sobre **los dos** anteriores:
-$$
-\mathbf w_3=(0,1,1)-\tfrac{1}{2}(1,0,1)-\tfrac{1}{6}(1,2,-1)=\left(-\tfrac23,\tfrac23,\tfrac23\right)\;\parallel\;(-1,1,1).
-$$
-Aquí $\mathbf v_3\cdot\mathbf w_1=1$ y $\mathbf v_3\cdot(1,2,-1)=1$.
-
-. . .
-
-::: {.solucion}
-Base ortonormal: $\;\tfrac{1}{\sqrt2}(1,0,1),\;\;\tfrac{1}{\sqrt6}(1,2,-1),\;\;\tfrac{1}{\sqrt3}(-1,1,1)$. Comprobación: $(1,0,1)\cdot(-1,1,1)=0$ y $(1,2,-1)\cdot(-1,1,1)=0$ ✓.
-:::
-
 ## Ejercicios propuestos
 
 ::: {.ejercicio data-t="1"}

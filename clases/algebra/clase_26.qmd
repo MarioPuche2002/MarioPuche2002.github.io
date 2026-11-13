@@ -163,92 +163,13 @@ Solo hay **un** vector propio LI y se necesitan **dos**. $A$ **no es diagonaliza
 Que un valor propio se repita **no** impide diagonalizar (ejemplo anterior); lo que lo impide es que falten vectores propios.
 :::
 
-## Aplicación: potencias de una matriz
-
-::: {.teorema}
-Si $A=PDP^{-1}$, entonces $\;A^k=PD^kP^{-1}$, y $D^k=\operatorname{diag}(\lambda_1^k,\dots,\lambda_n^k)$.
-:::
-
-. . .
-
-::: {.demo}
-$A^2=(PDP^{-1})(PDP^{-1})=PD(P^{-1}P)DP^{-1}=PD^2P^{-1}$, y por inducción $A^{k+1}=A^kA=PD^kP^{-1}PDP^{-1}=PD^{k+1}P^{-1}$.
-:::
-
-. . .
-
-::: {.ejemplo}
-Para $A=\begin{pmatrix}1&1\\-2&4\end{pmatrix}=PDP^{-1}$ con $P=\begin{pmatrix}1&1\\1&2\end{pmatrix}$, $D=\operatorname{diag}(2,3)$:
-$$
-A^k=\begin{pmatrix}1&1\\1&2\end{pmatrix}\begin{pmatrix}2^k&0\\0&3^k\end{pmatrix}\begin{pmatrix}2&-1\\-1&1\end{pmatrix}=\begin{pmatrix}2^{k+1}-3^k&3^k-2^k\\2^{k+1}-2\cdot3^k&2\cdot3^k-2^k\end{pmatrix}.
-$$
-Con $k=1$ se recupera $A$ ✓. Calcular $A^{10}$ así toma segundos.
-:::
-
 ## ¿Qué pasa con $A^k\mathbf x$ cuando $k$ crece?
 
 ![](img/diagonalizacion.svg){fig-align="center" width="48%"}
 
 Como $A^k\mathbf x=c_1\lambda_1^k\mathbf x_1+c_2\lambda_2^k\mathbf x_2$, el término del valor propio de **mayor** $|\lambda|$ domina y $A^k\mathbf x$ se alinea con su vector propio.
 
-## Aplicación: cadena de Markov
-
-::: {.ejemplo}
-Cada mes, el 90 % de los clientes de la empresa A se queda y el 10 % pasa a B; de B, el 80 % se queda y el 20 % pasa a A. Hoy cada empresa tiene la mitad del mercado. ¿Qué pasa a largo plazo?
-:::
-
-. . .
-
-$P=\begin{pmatrix}0.9&0.2\\0.1&0.8\end{pmatrix}$, $\;\mathbf x_{k+1}=P\mathbf x_k$. Valores propios: $\lambda_1=1$ con $\mathbf v_1=(2,1)$ y $\lambda_2=0.7$ con $\mathbf v_2=(-1,1)$.
-
-. . .
-
-Escribiendo $\mathbf x_0=\left(\tfrac12,\tfrac12\right)=\left(\tfrac23,\tfrac13\right)+\tfrac16(-1,1)$:
-$$
-\mathbf x_k=P^k\mathbf x_0=\begin{pmatrix}\tfrac23\\\tfrac13\end{pmatrix}+\tfrac16(0.7)^k\begin{pmatrix}-1\\1\end{pmatrix}\;\xrightarrow{k\to\infty}\;\begin{pmatrix}\tfrac23\\\tfrac13\end{pmatrix}.
-$$
-
-. . .
-
-A largo plazo A tiene $\tfrac23$ del mercado y B $\tfrac13$, sin importar el reparto inicial. Comprobación con $k=2$: $\tfrac23-\tfrac{0.49}{6}=0.585$, igual a $P^2\mathbf x_0$ ✓.
-
-## Ejemplo 1 · Fácil: construir una matriz semejante {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-Con $D=\begin{pmatrix}2&0\\0&3\end{pmatrix}$ y $P=\begin{pmatrix}1&1\\0&1\end{pmatrix}$, calcule $A=PDP^{-1}$ y compare traza y determinante con los de $D$.
-:::
-
-. . .
-
-**Paso 1.** $\;P^{-1}=\begin{pmatrix}1&-1\\0&1\end{pmatrix}$, $\;PD=\begin{pmatrix}2&3\\0&3\end{pmatrix}$, $\;A=PDP^{-1}=\begin{pmatrix}2&1\\0&3\end{pmatrix}.$
-
-. . .
-
-**Paso 2 · Comparar.** Traza: $5$ y $5$. Determinante: $6$ y $6$. Valores propios: $2$ y $3$ en ambas.
-
-::: {.solucion}
-$A=\begin{pmatrix}2&1\\0&3\end{pmatrix}$ es semejante a $D$: son la **misma transformación vista en otra base**, por eso comparten traza, determinante y valores propios.
-:::
-
-## Ejemplo 2 · Fácil: una matriz que no es diagonalizable {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-¿Es diagonalizable $A=\begin{pmatrix}1&1\\0&1\end{pmatrix}$?
-:::
-
-. . .
-
-**Paso 1 · Valores propios:** es triangular, $\lambda=1$ con multiplicidad algebraica $2$.
-
-. . .
-
-**Paso 2 · Vectores propios:** $A-I=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ da $y=0$: solo los múltiplos de $(1,0)$. Multiplicidad geométrica $1$.
-
-::: {.solucion}
-**No** es diagonalizable: para una matriz $2\times2$ se necesitan **dos** vectores propios independientes y solo hay una dirección. Geométricamente es una cizalla.
-:::
-
-## Ejemplo 3 · Medio: diagonalizar una matriz $2\times2$ {.compacto}
+## Ejemplo 1 · Medio: diagonalizar una matriz $2\times2$ {.compacto}
 
 ::: {.ejemplo data-t="Nivel medio"}
 Diagonalice $A=\begin{pmatrix}4&1\\2&3\end{pmatrix}$ (sus valores y vectores propios se hallaron en la clase 25).
@@ -273,7 +194,7 @@ $$
 $A=PDP^{-1}$. Si se cambia el orden de las columnas de $P$, hay que cambiar también el orden en $D$.
 :::
 
-## Ejemplo 4 · Difícil: una fórmula para $A^n$ {.compacto}
+## Ejemplo 2 · Difícil: una fórmula para $A^n$ {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Con la diagonalización anterior, halle una fórmula para $A^n$ y verifíquela con $n=2$.
@@ -350,21 +271,6 @@ Demuestre que si $A$ es diagonalizable con todos sus valores propios iguales a $
 **Paso 2.** De $P^{-1}AP=D$ se despeja $A=PDP^{-1}=P(cI)P^{-1}$.
 
 **Paso 3.** El escalar sale y $PIP^{-1}=PP^{-1}=I$: $A=c\,PP^{-1}=cI$. (Esto confirma de nuevo que $\begin{pmatrix}3&1\\0&3\end{pmatrix}$ no es diagonalizable.)
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="5"}
-Sea $A=\begin{pmatrix}2&1\\1&2\end{pmatrix}$. Diagonalícela y calcule $A^5$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** $\det(A-\lambda I)=(2-\lambda)^2-1=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3)$. Con $\lambda=1$: $A-I=\begin{pmatrix}1&1\\1&1\end{pmatrix}$, $x=-y$, vector $(-1,1)$. Con $\lambda=3$: $A-3I=\begin{pmatrix}-1&1\\1&-1\end{pmatrix}$, $x=y$, vector $(1,1)$.
-
-**Paso 2.** $P=\begin{pmatrix}-1&1\\1&1\end{pmatrix}$, $\det P=-2$, $P^{-1}=\tfrac1{-2}\begin{pmatrix}1&-1\\-1&-1\end{pmatrix}=\tfrac12\begin{pmatrix}-1&1\\1&1\end{pmatrix}$.
-
-**Paso 3.** $A^5=PD^5P^{-1}$ con $D^5=\operatorname{diag}(1^5,3^5)=\operatorname{diag}(1,243)$:
-$PD^5=\begin{pmatrix}-1&243\\1&243\end{pmatrix}$, y $A^5=\begin{pmatrix}-1&243\\1&243\end{pmatrix}\tfrac12\begin{pmatrix}-1&1\\1&1\end{pmatrix}=\tfrac12\begin{pmatrix}244&242\\242&244\end{pmatrix}=\begin{pmatrix}122&121\\121&122\end{pmatrix}$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

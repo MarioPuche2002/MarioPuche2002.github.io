@@ -188,32 +188,6 @@ $\;\text{(i)}\begin{vmatrix}a&b&c\\3d&3e&3f\\g&h&i\end{vmatrix}\quad\text{(ii)}\
 Con la misma matriz $A$ ($3\times3$, $\det A = 7$): $\;\det(2A)=2^3\cdot7=56$, $\;\det(A^{-1})=\tfrac17$, $\;\det(A^TA)=7\cdot7=49$.
 :::
 
-## Demostración: determinante de Vandermonde
-
-::: {.teorema}
-$$
-\det\begin{pmatrix}1&1&1\\a&b&c\\a^2&b^2&c^2\end{pmatrix}=(b-a)(c-a)(c-b).
-$$
-:::
-
-. . .
-
-::: {.demo}
-Restamos la primera **columna** a las otras dos (no cambia el determinante):
-$$
-\begin{vmatrix}1&0&0\\a&b-a&c-a\\a^2&b^2-a^2&c^2-a^2\end{vmatrix}
-=\begin{vmatrix}b-a&c-a\\(b-a)(b+a)&(c-a)(c+a)\end{vmatrix}.
-$$
-Sacamos el factor $(b-a)$ de la primera columna y $(c-a)$ de la segunda:
-$$
-=(b-a)(c-a)\begin{vmatrix}1&1\\b+a&c+a\end{vmatrix}=(b-a)(c-a)\big[(c+a)-(b+a)\big]=(b-a)(c-a)(c-b).
-$$
-:::
-
-. . .
-
-Consecuencia: el determinante es $0$ si y solo si dos de los números $a,b,c$ coinciden (dos columnas iguales).
-
 ## Ejemplo 1 · Fácil: matriz triangular y cambio de filas {.compacto}
 
 ::: {.ejemplo data-t="Nivel fácil"}
@@ -230,104 +204,6 @@ Calcule $\det A$ para $A=\begin{pmatrix}2&7&-1\\0&3&5\\0&0&-4\end{pmatrix}$, y e
 
 ::: {.solucion}
 $\det A=-24$ y, tras el intercambio, $\det=+24$.
-:::
-
-## Ejemplo 2 · Fácil: usar las propiedades {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-$A$ es $3\times3$ y $\det A=3$. Calcule $\det(2A)$, $\det(A^T)$, $\det(A^{-1})$ y $\det(A^2)$.
-:::
-
-. . .
-
-- $\det(2A)=2^3\det A=24$. **Cuidado:** el $2$ multiplica las **tres** filas, por eso sale $2^3$ y no $2$.
-- $\det(A^T)=\det A=3$: transponer no cambia el determinante.
-
-. . .
-
-- $\det(A^{-1})=\dfrac{1}{\det A}=\dfrac13$, porque $\det A\cdot\det A^{-1}=\det I=1$.
-- $\det(A^2)=\det A\cdot\det A=9$.
-
-::: {.solucion}
-$24,\;3,\;\tfrac13,\;9$.
-:::
-
-## Ejemplo 3 · Medio: determinante $4\times4$ reduciendo por filas {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Calcule $\det\begin{pmatrix}1&2&0&1\\2&5&1&3\\1&3&2&0\\0&1&4&2\end{pmatrix}$ llevando la matriz a forma triangular.
-:::
-
-. . .
-
-**Idea.** Sumar a una fila un múltiplo de otra **no cambia** el determinante.
-
-. . .
-
-**Paso 1** ($F_2-2F_1$, $F_3-F_1$), **paso 2** ($F_3-F_2$, $F_4-F_2$) y **paso 3** ($F_4-3F_3$):
-$$
-\begin{pmatrix}1&2&0&1\\0&1&1&1\\0&1&2&-1\\0&1&4&2\end{pmatrix}\sim
-\begin{pmatrix}1&2&0&1\\0&1&1&1\\0&0&1&-2\\0&0&3&1\end{pmatrix}\sim
-\begin{pmatrix}1&2&0&1\\0&1&1&1\\0&0&1&-2\\0&0&0&7\end{pmatrix}.
-$$
-
-::: {.solucion}
-Solo se usaron operaciones del tipo "sumar un múltiplo": $\det=1\cdot1\cdot1\cdot7=7$. Con cofactores se necesitarían varios menores $3\times3$.
-:::
-
-## Ejemplo 4 · Difícil: un determinante sin calcular {.compacto}
-
-::: {.ejemplo data-t="Nivel difícil"}
-Demuestre que, para cualesquiera $a,b,c$: $\quad\begin{vmatrix}1&a&b+c\\1&b&c+a\\1&c&a+b\end{vmatrix}=0.$
-:::
-
-. . .
-
-**Paso 1 · Buscar una operación que simplifique.** Sumar la columna 2 a la columna 3 **no cambia** el determinante:
-$$
-\begin{vmatrix}1&a&b+c\\1&b&c+a\\1&c&a+b\end{vmatrix}=\begin{vmatrix}1&a&a+b+c\\1&b&a+b+c\\1&c&a+b+c\end{vmatrix}.
-$$
-
-. . .
-
-**Paso 2 · Sacar el factor común** de la columna 3:
-$$
-=(a+b+c)\begin{vmatrix}1&a&1\\1&b&1\\1&c&1\end{vmatrix}.
-$$
-
-. . .
-
-**Paso 3.** El último determinante tiene **dos columnas iguales** (la 1 y la 3), así que vale $0$.
-
-::: {.solucion}
-El determinante es $(a+b+c)\cdot0=0$ para cualesquiera $a,b,c$. Con propiedades se evita expandir un determinante con letras.
-:::
-
-## Práctica en clase
-
-::: {.ejercicio data-t="1"}
-Si $A$ es $4\times4$ con $\det A=3$, calcule $\det(2A^TA^{-1})$.
-:::
-
-::: {.solucion .fragment}
-Se aplica una propiedad a la vez:
-
-1. **Escalar:** la matriz es $4\times4$, así que el $2$ sale como $2^4$: $\det(2A^TA^{-1})=2^4\det(A^TA^{-1})$.
-2. **Producto:** $\det(A^TA^{-1})=\det A^T\cdot\det A^{-1}$.
-3. **Transpuesta e inversa:** $\det A^T=\det A=3$ y $\det A^{-1}=\tfrac1{\det A}=\tfrac13$.
-
-Resultado: $16\cdot3\cdot\tfrac13=16$.
-:::
-
-## Práctica en clase (continuación)
-
-::: {.ejercicio data-t="2"}
-Use Vandermonde para calcular $\det\begin{pmatrix}1&1&1\\2&3&5\\4&9&25\end{pmatrix}$.
-:::
-
-::: {.solucion .fragment}
-La matriz tiene la forma de Vandermonde $\begin{pmatrix}1&1&1\\a&b&c\\a^2&b^2&c^2\end{pmatrix}$ con $a=2$, $b=3$, $c=5$ (la fila 3 son los cuadrados: $4,9,25$). Su determinante es $(b-a)(c-a)(c-b)$:
-$\;(3-2)(5-2)(5-3)=1\cdot3\cdot2=6$.
 :::
 
 ## Ejercicios propuestos
@@ -374,34 +250,6 @@ Una matriz $Q$ es **ortogonal** si $Q^TQ = I$. Demuestre que $\det Q = \pm1$.
 **Paso 3.** Transponer no cambia el determinante: $\det Q^T=\det Q$. Entonces $(\det Q)^2=1$.
 
 **Paso 4.** Los únicos números cuyo cuadrado es $1$ son $1$ y $-1$: $\det Q=\pm1$.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4 · Demostración"}
-Demuestre que si $A$ es antisimétrica de tamaño $n\times n$ con $n$ **impar**, entonces $\det A = 0$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1.** Siempre $\det A=\det A^T$. Como $A$ es antisimétrica, $A^T=-A$, así que $\det A=\det(-A)$.
-
-**Paso 2.** $-A$ es multiplicar las $n$ filas por $-1$: $\det(-A)=(-1)^n\det A$. Como $n$ es impar, $(-1)^n=-1$.
-
-**Paso 3.** Juntando: $\det A=-\det A$. Sumando $\det A$ a ambos lados, $2\det A=0$, luego $\det A=0$.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="5 · Demostración"}
-Demuestre que si $A$ es invertible, $\det(A^{-1}BA) = \det B$.
-:::
-
-::: {.solucion .fragment}
-**Paso 1 · Producto:** $\det(A^{-1}BA)=\det A^{-1}\cdot\det B\cdot\det A$.
-
-**Paso 2 · Inversa:** $\det A^{-1}=\tfrac{1}{\det A}$ (existe porque $A$ es invertible, así que $\det A\neq0$).
-
-**Paso 3 · Simplificar:** $\tfrac{1}{\det A}\cdot\det B\cdot\det A = \det B$. (Matrices **semejantes** tienen el mismo determinante; ver unidad 7.)
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

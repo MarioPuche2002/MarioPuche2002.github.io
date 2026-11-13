@@ -229,26 +229,6 @@ $$
 $M_{11}$ es el determinante de una matriz triangular superior $(n-1)\times(n-1)$ con diagonal $a_{22},\dots,a_{nn}$; por hipótesis de inducción vale $a_{22}\cdots a_{nn}$. Luego $\det A = a_{11}a_{22}\cdots a_{nn}$. (El caso inferior es análogo, desarrollando por la primera fila.)
 :::
 
-## Aplicación: área de un triángulo
-
-::: {.ejemplo}
-Halle el área del triángulo con vértices $A=(1,1)$, $B=(4,2)$ y $C=(2,5)$.
-:::
-
-. . .
-
-Los lados desde $A$ son $\overrightarrow{AB}=(3,1)$ y $\overrightarrow{AC}=(1,4)$. El paralelogramo que generan tiene área
-$$
-\left|\det\begin{pmatrix}3&1\\1&4\end{pmatrix}\right|=|12-1|=11 ,
-$$
-y el triángulo es la mitad: **área $=\tfrac{11}{2}=5.5$**.
-
-. . .
-
-::: {.obs}
-Si el determinante es $0$, los tres puntos están **alineados** (el "triángulo" es plano). Es un criterio rápido de colinealidad.
-:::
-
 ## Ejemplo resuelto: determinante con parámetro
 
 ::: {.ejemplo}
@@ -265,93 +245,6 @@ $$
 . . .
 
 Se anula en $x=0$, $x=\sqrt2$ y $x=-\sqrt2$. Para esos valores la matriz **no** es invertible (lo justificaremos en la clase 10).
-
-## Ejemplo 1 · Fácil: determinante $2\times2$ {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-Calcule $\det A$ para $A=\begin{pmatrix}3&5\\1&4\end{pmatrix}$ e interprete el resultado.
-:::
-
-. . .
-
-**Paso 1 · Regla:** diagonal principal menos diagonal secundaria:
-$\;\det A=3\cdot4-5\cdot1=12-5=7.$
-
-. . .
-
-**Paso 2 · Interpretar.** El paralelogramo que forman las columnas $(3,1)$ y $(5,4)$ tiene área $|7|=7$. Como $\det A\neq0$, $A$ es invertible.
-
-::: {.solucion}
-$\det A=7$.
-:::
-
-## Ejemplo 2 · Fácil: regla de Sarrus {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-Calcule $\det\begin{pmatrix}2&0&1\\1&3&2\\1&1&2\end{pmatrix}$ con la regla de Sarrus.
-:::
-
-. . .
-
-**Paso 1 · Diagonales hacia abajo (suman):** $\;2\cdot3\cdot2+0\cdot2\cdot1+1\cdot1\cdot1=12+0+1=13.$
-
-. . .
-
-**Paso 2 · Diagonales hacia arriba (restan):** $\;1\cdot3\cdot1+2\cdot2\cdot1+0\cdot1\cdot2=3+4+0=7.$
-
-. . .
-
-**Paso 3.** $\;\det=13-7=6.$
-
-::: {.solucion}
-$\det=6$. Recuerde: Sarrus **solo** sirve para matrices $3\times3$; para $4\times4$ se usa la expansión por cofactores.
-:::
-
-## Ejemplo 3 · Medio: un determinante $4\times4$ con ceros {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Calcule $\det A$ para $A=\begin{pmatrix}2&0&0&1\\1&3&0&0\\0&1&4&0\\0&0&1&5\end{pmatrix}$.
-:::
-
-. . .
-
-**Paso 1 · Elegir la fila con más ceros.** La fila 1 tiene dos ceros: solo quedan los cofactores $C_{11}$ y $C_{14}$, con signos $(-1)^{1+1}=+$ y $(-1)^{1+4}=-$.
-$$
-\det A=2\begin{vmatrix}3&0&0\\1&4&0\\0&1&5\end{vmatrix}-1\begin{vmatrix}1&3&0\\0&1&4\\0&0&1\end{vmatrix}.
-$$
-
-. . .
-
-**Paso 2 · Los menores son triangulares:** su determinante es el producto de la diagonal: $3\cdot4\cdot5=60$ y $1\cdot1\cdot1=1$.
-
-::: {.solucion}
-$\det A=2(60)-1(1)=119$. Lo que más errores causa es el **signo** del cofactor: el patrón de signos es de tablero de ajedrez.
-:::
-
-## Ejemplo 4 · Difícil: ¿cuándo el determinante es cero? {.compacto}
-
-::: {.ejemplo data-t="Nivel difícil"}
-Halle los valores de $x$ para los que $\;\det\begin{pmatrix}x&1&1\\1&x&1\\1&1&x\end{pmatrix}=0$.
-:::
-
-. . .
-
-**Paso 1 · Sarrus:** $\;x^3+1+1-(x+x+x)=x^3-3x+2$.
-
-. . .
-
-**Paso 2 · Buscar raíces.** $x=1$ anula el polinomio ($1-3+2=0$), así que $(x-1)$ es factor. Dividiendo:
-$$
-x^3-3x+2=(x-1)(x^2+x-2)=(x-1)(x-1)(x+2)=(x-1)^2(x+2).
-$$
-
-. . .
-
-**Paso 3 · Comprobar cada valor.** Con $x=1$ las tres filas son iguales; con $x=-2$ las tres filas suman el vector cero. En ambos casos las filas son dependientes ✓.
-
-::: {.solucion}
-$x=1$ (raíz doble) o $x=-2$. Para cualquier otro valor la matriz es invertible.
-:::
 
 ## Ejercicios propuestos
 
@@ -402,34 +295,6 @@ $$
 **Paso 2 · Igualar a cero y factorizar:** $x^2-5x+6=(x-2)(x-3)=0$, así que $x=2$ o $x=3$.
 
 **Comprobación:** con $x=2$ la columna 1 es igual a la 2, y con $x=3$, igual a la 3: el determinante es cero ✓.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4 · Demostración"}
-Demuestre que si $A$ es $n\times n$ y tiene una fila (o columna) de ceros, entonces $\det A = 0$.
-:::
-
-::: {.solucion .fragment}
-Supongamos que la fila $i$ es de ceros: $a_{i1}=a_{i2}=\dots=a_{in}=0$.
-
-**Paso 1.** El determinante se puede calcular desarrollando por **cualquier** fila; elegimos la fila $i$:
-$\;\det A = a_{i1}A_{i1}+a_{i2}A_{i2}+\dots+a_{in}A_{in}$.
-
-**Paso 2.** Cada $a_{ij}$ es $0$, así que cada término es $0\cdot A_{ij}=0$, sin importar cuánto valga el cofactor. Entonces $\det A = 0$.
-
-Si la de ceros es una columna, se desarrolla por esa columna y el argumento es igual.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="5"}
-Calcule $\det\begin{pmatrix}2&1&3&5\\0&-1&4&7\\0&0&3&-2\\0&0&0&\tfrac12\end{pmatrix}$ sin desarrollar.
-:::
-
-::: {.solucion .fragment}
-Todas las entradas **debajo** de la diagonal son $0$: es triangular superior. Entonces su determinante es el producto de la diagonal:
-$\;\det = 2\cdot(-1)\cdot 3\cdot\tfrac12 = (-2)\cdot3\cdot\tfrac12=-6\cdot\tfrac12 = -3$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}

@@ -208,28 +208,7 @@ $$
 La fórmula de rectas que se cruzan **no** sirve aquí: $\mathbf v_1\times\mathbf v_2=\mathbf 0$ y se dividiría por cero.
 :::
 
-## Ejemplo 1 · Fácil: distancia de un punto a un plano {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-Halle la distancia de $P(1,2,3)$ al plano $2x-y+2z=5$.
-:::
-
-. . .
-
-**Paso 1 · Fórmula** (el plano escrito como $ax+by+cz+d=0$, aquí $d=-5$):
-$$
-D=\frac{|ax_0+by_0+cz_0+d|}{\sqrt{a^2+b^2+c^2}} .
-$$
-
-. . .
-
-**Paso 2.** $\;D=\dfrac{|2(1)-2+2(3)-5|}{\sqrt{4+1+4}}=\dfrac{|1|}{3}=\dfrac13.$
-
-::: {.solucion}
-$D=\tfrac13$. El numerador es "cuánto le falta" al punto para cumplir la ecuación; el denominador lo convierte en distancia.
-:::
-
-## Ejemplo 2 · Fácil: distancia de un punto a una recta en el plano {.compacto}
+## Ejemplo 1 · Fácil: distancia de un punto a una recta en el plano {.compacto}
 
 ::: {.ejemplo data-t="Nivel fácil"}
 Halle la distancia de $P(3,4)$ a la recta $3x+4y-10=0$.
@@ -247,32 +226,7 @@ Halle la distancia de $P(3,4)$ a la recta $3x+4y-10=0$.
 $D=3$. El vector $(3,4)$ es normal a la recta, y la distancia se mide justamente en esa dirección.
 :::
 
-## Ejemplo 3 · Medio: punto a recta en el espacio {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Halle la distancia de $P(1,1,1)$ a la recta $L:\;(0,0,0)+t(1,2,2)$.
-:::
-
-. . .
-
-**Paso 1 · Vector desde un punto de la recta hasta $P$:** $\;\overrightarrow{AP}=(1,1,1)$, con $A=(0,0,0)$.
-
-. . .
-
-**Paso 2 · Área del paralelogramo** formado por $\overrightarrow{AP}$ y $\mathbf d=(1,2,2)$:
-$$
-\overrightarrow{AP}\times\mathbf d=(1\cdot2-1\cdot2,\;-(1\cdot2-1\cdot1),\;1\cdot2-1\cdot1)=(0,-1,1),\qquad\|\cdot\|=\sqrt2 .
-$$
-
-. . .
-
-**Paso 3 · Distancia = altura = área / base:** $\;D=\dfrac{\sqrt2}{\|\mathbf d\|}=\dfrac{\sqrt2}{3}\approx0.47.$
-
-::: {.solucion}
-$D=\tfrac{\sqrt2}{3}$. Comprobación por otro camino: la proyección de $\overrightarrow{AP}$ sobre $\mathbf d$ es $\tfrac59(1,2,2)$, y $\|(1,1,1)-\tfrac59(1,2,2)\|=\tfrac19\|(4,-1,-1)\|=\tfrac{\sqrt{18}}{9}=\tfrac{\sqrt2}{3}$ ✓.
-:::
-
-## Ejemplo 4 · Difícil: distancia entre rectas que se cruzan {.compacto}
+## Ejemplo 2 · Difícil: distancia entre rectas que se cruzan {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Halle la distancia entre $L_1:\;(1,2,3)+t(1,-1,2)$ y $L_2:\;(3,1,5)+s(2,1,0)$, que se cruzan (clase 13).

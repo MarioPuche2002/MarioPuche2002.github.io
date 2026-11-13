@@ -50,12 +50,6 @@ $\quad AB=\dfrac17\begin{pmatrix}5+2&-2+2\\-5+5&2+5\end{pmatrix}=I_2$ y también
 $A^{-1}$ **no** es $\dfrac1A$: no existe la división entre matrices. Tampoco es la matriz de inversos de las entradas.
 :::
 
-## Interpretación geométrica
-
-![](img/inversa_flechas.svg){fig-align="center" width="92%"}
-
-Si $A$ transforma cada vector $\mathbf x$ en $A\mathbf x$, la inversa **deshace** esa transformación: $A^{-1}(A\mathbf x)=\mathbf x$. Una matriz que "aplasta" el plano en una recta no se puede deshacer: es **singular**.
-
 ## La inversa es única
 
 ::: {.teorema}
@@ -223,27 +217,6 @@ $$
 Por la unicidad de la inversa, $(AB)^{-1}=B^{-1}A^{-1}$.
 :::
 
-## Demostraciones de 1 y 3
-
-::: {.demo data-t="1"}
-$A^{-1}A = AA^{-1} = I$ dice precisamente que $A$ es la inversa de $A^{-1}$. Por unicidad, $(A^{-1})^{-1} = A$.
-:::
-
-. . .
-
-::: {.demo data-t="3"}
-$$
-(kA)\left(\tfrac1k A^{-1}\right) = \left(k\cdot\tfrac1k\right)(AA^{-1}) = 1\cdot I = I,
-$$
-y del mismo modo en el otro orden. Se usó la propiedad $r(AB)=(rA)B=A(rB)$ del producto.
-:::
-
-. . .
-
-::: {.obs data-t="Generalización"}
-Por inducción, $(A_1A_2\cdots A_k)^{-1} = A_k^{-1}\cdots A_2^{-1}A_1^{-1}$. Pero en general $(A+B)^{-1}\neq A^{-1}+B^{-1}$.
-:::
-
 ## Resolver sistemas con la inversa
 
 ::: {.teorema}
@@ -314,97 +287,7 @@ $$
 Escribir $X=B^{-1}A^{-1}$ o $X=\dfrac{I}{AB}$ es incorrecto. No existe la división de matrices: se multiplica por la inversa **del lado correspondiente**.
 :::
 
-## Aplicación: mensajes cifrados
-
-::: {.ejemplo}
-Cifre la palabra **HOLA** con la matriz $A=\begin{pmatrix}1&2\\3&7\end{pmatrix}$, usando A=1, B=2, …, H=8, L=12, O=15. Luego descífrela.
-:::
-
-. . .
-
-**Cifrar:** HOLA $\to(8,15),(12,1)$.
-$$
-A\begin{pmatrix}8\\15\end{pmatrix}=\begin{pmatrix}38\\129\end{pmatrix},\qquad A\begin{pmatrix}12\\1\end{pmatrix}=\begin{pmatrix}14\\43\end{pmatrix}.
-$$
-Mensaje enviado: $38,\,129,\,14,\,43$.
-
-. . .
-
-**Descifrar:** con $A^{-1}=\begin{pmatrix}7&-2\\-3&1\end{pmatrix}$:
-$$
-A^{-1}\begin{pmatrix}38\\129\end{pmatrix}=\begin{pmatrix}266-258\\-114+129\end{pmatrix}=\begin{pmatrix}8\\15\end{pmatrix},\qquad
-A^{-1}\begin{pmatrix}14\\43\end{pmatrix}=\begin{pmatrix}98-86\\-42+43\end{pmatrix}=\begin{pmatrix}12\\1\end{pmatrix}.
-$$
-Se recupera HOLA. Sin conocer $A^{-1}$ es difícil descifrar el mensaje.
-
-## Ejemplo 1 · Fácil: inversa de una matriz $2\times2$ {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-Halle la inversa de $A=\begin{pmatrix}2&1\\5&3\end{pmatrix}$.
-:::
-
-. . .
-
-**Paso 1 · ¿Existe?** $\det A=2\cdot3-1\cdot5=1\neq0$: sí es invertible.
-
-. . .
-
-**Paso 2 · Fórmula:** intercambiar la diagonal, cambiar el signo de la otra diagonal y dividir entre el determinante:
-$$
-A^{-1}=\frac{1}{1}\begin{pmatrix}3&-1\\-5&2\end{pmatrix}.
-$$
-
-. . .
-
-**Paso 3 · Comprobar siempre:** $\;AA^{-1}=\begin{pmatrix}6-5&-2+2\\15-15&-5+6\end{pmatrix}=I$ ✓.
-
-::: {.solucion}
-$A^{-1}=\begin{pmatrix}3&-1\\-5&2\end{pmatrix}$.
-:::
-
-## Ejemplo 2 · Fácil: comprobar una inversa y detectar una singular {.compacto}
-
-::: {.ejemplo data-t="Nivel fácil"}
-**(a)** ¿Es $B=\begin{pmatrix}1&-2\\0&1\end{pmatrix}$ la inversa de $A=\begin{pmatrix}1&2\\0&1\end{pmatrix}$? **(b)** ¿Tiene inversa $C=\begin{pmatrix}2&4\\1&2\end{pmatrix}$?
-:::
-
-. . .
-
-**(a)** Basta multiplicar: $\;AB=\begin{pmatrix}1&-2+2\\0&1\end{pmatrix}=I$. Para matrices cuadradas, $AB=I$ ya garantiza $BA=I$. **Sí.**
-
-. . .
-
-**(b)** $\det C=4-4=0$. Además, la fila 1 es el doble de la fila 2: al reducir $(C\mid I)$ aparece una fila de ceros a la izquierda y nunca se llega a $I$.
-
-::: {.solucion}
-**(a)** Sí, $B=A^{-1}$. **(b)** $C$ es **singular**: no tiene inversa.
-:::
-
-## Ejemplo 3 · Medio: inversa $3\times3$ por Gauss-Jordan {.compacto}
-
-::: {.ejemplo data-t="Nivel medio"}
-Halle $A^{-1}$ para $A=\begin{pmatrix}1&0&2\\2&1&0\\0&1&1\end{pmatrix}$.
-:::
-
-. . .
-
-**Paso 1 · Escribir $(A\mid I)$ y hacer ceros en la columna 1** ($F_2-2F_1$), luego en la columna 2 ($F_3-F_2$):
-$$
-\left(\begin{array}{ccc|ccc}1&0&2&1&0&0\\0&1&-4&-2&1&0\\0&0&5&2&-1&1\end{array}\right).
-$$
-
-. . .
-
-**Paso 2 · Pivote 1 en la fila 3** ($\tfrac15F_3$) y ceros arriba ($F_2+4F_3$, $\;F_1-2F_3$):
-$$
-\left(\begin{array}{ccc|ccc}1&0&0&\tfrac15&\tfrac25&-\tfrac25\\0&1&0&-\tfrac25&\tfrac15&\tfrac45\\0&0&1&\tfrac25&-\tfrac15&\tfrac15\end{array}\right).
-$$
-
-::: {.solucion}
-$A^{-1}=\dfrac15\begin{pmatrix}1&2&-2\\-2&1&4\\2&-1&1\end{pmatrix}$. Comprobación de la entrada $(1,1)$ de $AA^{-1}$: $\tfrac15(1\cdot1+0+2\cdot2)=1$ ✓.
-:::
-
-## Ejemplo 4 · Difícil: despejar una matriz {.compacto}
+## Ejemplo 1 · Difícil: despejar una matriz {.compacto}
 
 ::: {.ejemplo data-t="Nivel difícil"}
 Halle $X$ tal que $\;AX+B=2X$, con $A=\begin{pmatrix}3&1\\1&4\end{pmatrix}$ y $B=\begin{pmatrix}1&0\\2&2\end{pmatrix}$.
@@ -470,26 +353,6 @@ Sean $A=\begin{pmatrix}2&1\\1&1\end{pmatrix}$, $B=\begin{pmatrix}1&0\\0&2\end{pm
 **Paso 2.** $\det(A+B)=9-1=8\neq0$, así que $(A+B)^{-1}=\dfrac18\begin{pmatrix}3&-1\\-1&3\end{pmatrix}$.
 
 **Paso 3.** $X=(A+B)^{-1}C=\dfrac18\begin{pmatrix}3\cdot4-1\cdot4&3\cdot2-1\cdot6\\-1\cdot4+3\cdot4&-1\cdot2+3\cdot6\end{pmatrix}=\dfrac18\begin{pmatrix}8&0\\8&16\end{pmatrix}=\begin{pmatrix}1&0\\1&2\end{pmatrix}$. **Ojo:** $X$ va a la **derecha**, así que $(A+B)^{-1}$ multiplica por la **izquierda**.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="3 · Demostración"}
-Demuestre que si $A$ es invertible y $AB = AC$, entonces $B = C$. ¿Por qué esto no contradice la clase 4?
-:::
-
-::: {.solucion .fragment}
-Multiplicando por $A^{-1}$ a la izquierda: $A^{-1}(AB) = A^{-1}(AC) \Rightarrow (A^{-1}A)B = (A^{-1}A)C \Rightarrow B = C$. En la clase 4 la matriz $\begin{pmatrix}1&2\\2&4\end{pmatrix}$ era **singular**: la cancelación solo vale con matrices invertibles.
-:::
-
-## Ejercicios propuestos
-
-::: {.ejercicio data-t="4 · Demostración"}
-Demuestre que si $A^2 = O$ entonces $I - A$ es invertible con $(I-A)^{-1} = I + A$.
-:::
-
-::: {.solucion .fragment}
-$(I-A)(I+A) = I + A - A - A^2 = I - O = I$, y $(I+A)(I-A) = I - A + A - A^2 = I$. Por definición, $I+A$ es la inversa de $I-A$.
 :::
 
 ## Ejercicios del texto guía {.texto-guia}
