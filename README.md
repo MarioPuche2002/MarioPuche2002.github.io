@@ -21,6 +21,9 @@ Sitio web de clases y tutoriales, construido con [Quarto](https://quarto.org) y 
 │   ├── metodologia_investigacion.qmd   Página del curso de Metodología de la Investigación
 │   ├── metodologia/                 20 sesiones en diapositivas (sesion_01.qmd … sesion_20.qmd) e img/
 │   └── metodologia_brief/           Formato Brief del anteproyecto y plantilla en Word
+├── desarrollos/
+│   ├── laboratorio_ml.qmd           Ficha del Laboratorio de Machine Learning
+│   └── laboratorio-ml/              La herramienta (HTML, CSS y JS estáticos; Quarto la copia tal cual)
 ├── tutoriales/                      Un archivo .qmd por tutorial
 └── .github/workflows/publish.yml    Genera y publica el sitio en cada push
 ```
@@ -40,6 +43,11 @@ Sitio web de clases y tutoriales, construido con [Quarto](https://quarto.org) y 
    Para que una solución aparezca al avanzar: `::: {.solucion .fragment}`. Una pausa: `. . .` en una línea sola.
    Para una diapositiva con mucho contenido: `## Título {.compacto}`.
 3. Enlazarla en `clases/algebra_lineal.qmd`.
+
+## Agregar un desarrollo tecnológico
+
+1. Crear la ficha en `desarrollos/` (copiar `laboratorio_ml.qmd`) con `title`, `description`, `date` e `image`; aparece sola en la portada.
+2. Si es una herramienta web estática, ponerla en una subcarpeta de `desarrollos/` y agregar esa carpeta en `resources` de `_quarto.yml` para que Quarto la copie sin modificarla.
 
 ## Agregar un parcial o taller
 

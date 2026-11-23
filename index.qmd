@@ -10,6 +10,12 @@ listing:
     sort: "date desc"
     fields: [image, title, description]
     image-height: 180px
+  - id: desarrollos
+    contents: desarrollos/*.qmd
+    type: grid
+    sort: "date desc"
+    fields: [image, title, description]
+    image-height: 180px
   - id: tutoriales
     contents: tutoriales/*.qmd
     type: default
@@ -23,6 +29,11 @@ listing:
 ## Clases
 
 ::: {#clases}
+:::
+
+## Desarrollos tecnológicos
+
+::: {#desarrollos}
 :::
 
 ## Tutoriales
