@@ -1,7 +1,7 @@
 ---
 title: "Laboratorio de Machine Learning"
 subtitle: "Aprendizaje supervisado con datos en tabla, directamente en el navegador"
-description: "Herramienta educativa para entrenar modelos de clasificación y regresión con datos tabulares: validación de datos al estilo Pandera, preprocesamiento, cinco modelos, métricas, mapas de decisión y exportación a Python. Pensada para estudiantes desde los 12 años."
+description: "Herramienta educativa para entrenar modelos de clasificación y regresión con datos tabulares, sin necesidad de programar. Abarca la validación de datos al estilo Pandera, el preprocesamiento, el entrenamiento de modelos, la evaluación mediante métricas, técnicas de explicabilidad y la exportación de los modelos."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-11-23
 image: ../imagenes/portada_laboratorio_ml.jpg
@@ -29,7 +29,7 @@ No hay que instalar nada ni crear una cuenta: basta con abrirlo en el navegador.
 
 El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar libremente:
 
-1. **Datos.** Ocho datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, riesgo cardíaco, venta de helados, crecimiento de plantas y celulares usados) o un CSV propio. Muestra el esquema de cada columna, la distribución del target, la matriz de correlación y la tabla original o transformada.
+1. **Datos.** Seis datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, venta de helados y precio de vivienda) o un CSV propio. Muestra el esquema de cada columna, la distribución del target, la matriz de correlación de Pearson y la tabla original o transformada.
 2. **Validación.** Un esquema de reglas por columna al estilo de la librería **Pandera**: tipo, vacíos permitidos, mínimo, máximo, valores permitidos y filas duplicadas. Reporta todos los errores a la vez y permite corregirlos.
 3. **Entrenamiento.** Regresión logística o lineal, SVM, árbol de decisión, Random Forest y Gradient Boosting, con sus principales hiperparámetros; partición en entrenamiento, validación y prueba; escalado e imputación de faltantes (media, mediana, KNN y moda). Al entrenar muestra el diagnóstico de *overfitting* y el **mapa de decisión** (con PCA).
 4. **Resultados.** Inferencia con casos nuevos, matriz de confusión con todas las métricas, curva ROC, residuos, el árbol dibujado, prueba de permutación e historial de experimentos.
@@ -39,7 +39,7 @@ El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar 
 
 - Funciona en computadores, tabletas y celulares, en español e inglés.
 - Cada gráfico trae un recuadro *¿Qué estoy viendo?* y la página incluye un **glosario** con la definición, la ecuación y la interpretación de cada métrica.
-- Los datasets de ejemplo, salvo Iris, son **sintéticos**: imitan patrones plausibles pero no provienen de personas reales. Los de salud son solo para aprender y no sirven para diagnosticar.
+- Los datasets de ejemplo, salvo Iris, son **sintéticos**: imitan patrones plausibles pero no provienen de personas reales. El de diabetes es solo para aprender y no sirve para diagnosticar.
 
 ::: {.callout-note}
 ## Ideas de actividades
