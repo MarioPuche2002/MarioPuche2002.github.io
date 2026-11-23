@@ -105,7 +105,8 @@ function applyLang() {
 }
 function renderAll() { renderStepper(); renderData(); renderTrain(); renderPreview(); renderAnalysis(); }
 /* ------------------------------ pasos (pantallas) ----------------------------- */
-const STEPS = [1, 2, 3, 4, 5];
+const STEPS = [1, 3, 4, 5]; // la validación (Pandera) corre por detrás, sin pantalla propia
+const stepNo = n => STEPS.indexOf(n) + 1, stepAt = (n, d) => STEPS[STEPS.indexOf(n) + d];
 function goStep(n) { S.step = n; renderAll(); window.scrollTo({ top: 0, behavior: "smooth" }); }
 function renderStepper() {
   document.querySelectorAll(".screen").forEach(sc => sc.hidden = +sc.dataset.step !== S.step);
@@ -113,12 +114,13 @@ function renderStepper() {
   const R = S.run, done = { 1: !!S.ds, 2: !!S.ds, 3: !!R, 4: !!R, 5: false };
   let chip = "";
   if (R) chip = `<div class="runchip ${S.stale ? "stale-chip" : ""}" title="${E(t("models")[R.cfg.model][0])}"><span>${E(t("models")[R.cfg.model][0])}</span>${R.sets.val ? `<span>${t("valS")} <b>${scoreFmt(R.sets.val.score)}</b></span>` : ""}<span>${t("testS")} <b>${scoreFmt(R.sets.test.score)}</b></span>${S.stale ? `<span class="warnx">${t("staleShort")}</span>` : ""}</div>`;
-  $("#stepper").innerHTML = `<div class="stepper-in"><ol>${STEPS.map(n => `<li><button class="${n === S.step ? "cur" : ""} ${done[n] && n !== S.step ? "done" : ""}" data-go="${n}"><span class="num">${n}</span><span class="nm">${names[n]}</span></button></li>`).join("")}</ol>${chip}</div>`;
+  $("#stepper").innerHTML = `<div class="stepper-in"><ol>${STEPS.map(n => `<li><button class="${n === S.step ? "cur" : ""} ${done[n] && n !== S.step ? "done" : ""}" data-go="${n}"><span class="num">${stepNo(n)}</span><span class="nm">${names[n]}</span></button></li>`).join("")}</ol>${chip}</div>`;
   $("#stepper").querySelectorAll("[data-go]").forEach(b => b.onclick = () => goStep(+b.dataset.go));
-  const prev = S.step > 1 ? `<button class="btn outline" id="sn-prev">← ${names[S.step - 1]}</button>` : "<span></span>";
-  const next = S.step < 5 ? `<button class="btn primary" id="sn-next">${t("nextStep")}: ${names[S.step + 1]} →</button>` : "<span></span>";
+  const pv = stepAt(S.step, -1), nx = stepAt(S.step, 1);
+  const prev = pv ? `<button class="btn outline" id="sn-prev">← ${names[pv]}</button>` : "<span></span>";
+  const next = nx ? `<button class="btn primary" id="sn-next">${t("nextStep")}: ${names[nx]} →</button>` : "<span></span>";
   $("#stepnav").innerHTML = S.ds ? prev + next : "";
-  const p = $("#sn-prev"), x = $("#sn-next"); if (p) p.onclick = () => goStep(S.step - 1); if (x) x.onclick = () => goStep(S.step + 1);
+  const p = $("#sn-prev"), x = $("#sn-next"); if (p) p.onclick = () => goStep(pv); if (x) x.onclick = () => goStep(nx);
 }
 
 /* ================================ 1. DATOS ================================= */
@@ -141,28 +143,26 @@ function renderData() {
     const miss = Prep.missingReport(rawRows(), S.ds.features.length).perColumn;
     h += `<h4>${t("columns")}</h4><p class="help">${t("columnsHelp")}</p><div class="chips">` + S.ds.features.map((f, j) =>
       `<label class="chip ${S.fsel.includes(j) ? "on" : ""}"><input type="checkbox" value="${j}" ${S.fsel.includes(j) ? "checked" : ""}>${E(fName(j))}${f.type === "cat" ? `<span class="badge">${t("cat")}</span>` : ""}${miss[j] ? `<span class="badge miss">${miss[j]} ${t("missingShort")}</span>` : ""}</label>`).join("") + `</div>`;
-    h += `<button class="btn outline full" id="valid-btn" style="margin-top:12px">${t("validBtn")}</button>`;
     if (S.ds.added) h += `<p class="note">${t("addedNote")(S.ds.added)}</p>`;
-    // preprocesamiento: escalado
-    const hasNum = S.fsel.some(j => S.ds.features[j].type === "num"), hasCatSel = S.fsel.some(j => S.ds.features[j].type === "cat");
-    h += `<h4>${t("prepTitle")}</h4>`;
-    if (hasNum) h += field(t("scaling"), sel("scale", ["standard", "minmax", "none"], S.scale, v => t("scaleOpt")[v]), t("scaleHelp")[S.scale]);
-    if (hasCatSel) h += field(t("encoding"), `<select disabled><option>OneHotEncoder(handle_unknown="ignore")</option></select>`);
-    // faltantes
-    h += `<h4>${t("missingTitle")}</h4>`;
+    // preparación de los datos
+    const hasNum = S.fsel.some(j => S.ds.features[j].type === "num"), catSel = S.fsel.filter(j => S.ds.features[j].type === "cat");
+    const total = S.fsel.reduce((s, j) => s + miss[j], 0), P2 = t("prep2");
+    h += `<div class="prep-box"><h4>${t("prepTitle")}</h4>`;
+    if (hasNum) h += `<div class="prep-q">${P2.scaleQ}</div>${optCards("scale", ["standard", "minmax", "none"], S.scale, v => [t("scaleOpt")[v], t("scaleHelp")[v]])}`;
+    if (catSel.length) h += `<div class="prep-q">${P2.catQ}</div><p class="note">${P2.catNote(catSel.map(j => fName(j)))}</p>`;
+    h += `</div><div class="prep-box"><h4>${t("missingTitle")}</h4>`;
     if (S.ds.key !== "custom") h += field(t("practice"), sel("practice", [0, 0.05, 0.1, 0.2, 0.3], S.practice, v => v ? Math.round(v * 100) + " %" : t("practiceOff")), t("practiceHelp"));
-    const total = S.fsel.reduce((s, j) => s + miss[j], 0);
     if (!total) h += `<p class="help">${t("missingNone")}</p>`;
     else {
-      const hasNum = S.fsel.some(j => S.ds.features[j].type === "num" && miss[j]), hasCat = S.fsel.some(j => S.ds.features[j].type === "cat" && miss[j]);
-      h += `<p class="help">${t("missingFound")(total)}</p>`;
-      if (hasNum) {
-        h += field(t("imputeNum"), sel("impnum", ["median", "mean", "knn"], S.impute.num, v => ({ median: t("impMedian"), mean: t("impMean"), knn: t("impKnn") })[v]), t("impHelp")[S.impute.num]);
+      const numMiss = S.fsel.some(j => S.ds.features[j].type === "num" && miss[j]), catMiss = S.fsel.some(j => S.ds.features[j].type === "cat" && miss[j]);
+      h += `<p class="note">${t("missingFound")(total)}</p>`;
+      if (numMiss) {
+        h += `<div class="prep-q">${t("imputeNum")}</div>${optCards("impnum", ["median", "mean", "knn"], S.impute.num, v => [({ median: t("impMedian"), mean: t("impMean"), knn: t("impKnn") })[v], t("impHelp")[v]])}`;
         if (S.impute.num === "knn") h += field(t("kNeighbors"), sel("impk", [1, 3, 5, 10, 20], S.impute.k));
       }
-      if (hasCat) h += field(t("imputeCat"), `<select disabled><option>${t("impMode")}</option></select>`);
-      h += `<p class="help subtle">${t("impLeak")}</p>`;
+      if (catMiss) h += `<p class="help">${P2.catFill}</p>`;
     }
+    h += `</div>`;
   }
   el.innerHTML = h;
   el.querySelectorAll(".ds-item").forEach(b => b.onclick = () => { if (b.dataset.k !== "custom") pickDataset(b.dataset.k); });
@@ -170,12 +170,14 @@ function renderData() {
   el.querySelectorAll(".chip input").forEach(c => c.onchange = () => {
     const v = +c.value; if (c.checked) S.fsel = [...S.fsel, v].sort((a, b) => a - b); else if (S.fsel.length > 1) S.fsel = S.fsel.filter(x => x !== v);
     changed(); renderData(); renderAnalysis(); });
-  const vb = $("#valid-btn"); if (vb) vb.onclick = () => goStep(2);
   bindSel(el, "practice", v => { S.practice = v; changed(); renderData(); renderAnalysis(); });
-  bindSel(el, "impnum", v => { S.impute.num = v; changed(); renderData(); renderAnalysis(); });
+  bindCards(el, "impnum", v => { S.impute.num = v; changed(); renderData(); renderAnalysis(); });
   bindSel(el, "impk", v => { S.impute.k = v; changed(); renderAnalysis(); });
-  bindSel(el, "scale", v => { S.scale = v; changed(); renderData(); renderAnalysis(); });
+  bindCards(el, "scale", v => { S.scale = v; changed(); renderData(); renderAnalysis(); });
 }
+function optCards(id, opts, cur, lab) { SEL_OPTS[id] = opts; return `<div class="model-list opt-cards" data-oc="${id}">${opts.map((o, i) => { const [n, d] = lab(o);
+  return `<button class="model-item ${o === cur ? "on" : ""}" data-oi="${i}"><span class="radio"></span><span><b>${E(n)}</b>${d ? `<small>${E(d)}</small>` : ""}</span></button>`; }).join("")}</div>`; }
+function bindCards(root, id, fn) { const opts = SEL_OPTS[id]; root.querySelectorAll(`[data-oc="${id}"] [data-oi]`).forEach(b => b.onclick = () => fn(opts[+b.dataset.oi])); }
 function field(label, ctl, help) { return `<div class="field"><label>${E(label)}</label>${ctl}${help ? `<div class="help">${E(help)}</div>` : ""}</div>`; }
 const SEL_OPTS = {};
 function sel(id, opts, cur, lab) { SEL_OPTS[id] = opts; return `<select data-sel="${id}">${opts.map((o, i) => `<option value="${i}" ${o === cur ? "selected" : ""}>${E(lab ? lab(o) : String(o))}</option>`).join("")}</select>`; }
@@ -299,7 +301,7 @@ function renderUpload() {
     const ds = { key: "custom", task, name: { es: c.name, en: c.name }, desc: null, simulated: false, classes, target: { key: c.target, es: c.target, en: c.target, unit: "" },
       features, X: rows.map(r => fidx.map(j => r[j])), y, dropped, csvName: c.name,
       badType: Object.fromEntries(fidx.map((j, k) => [k, (c.bad[j] || []).filter(b => newIdx.has(b.row)).map(b => ({ row: newIdx.get(b.row), value: b.value }))])) };
-    closeModal(); setDataset(ds);
+    closeModal(); setDataset(autoClean(ds));
   };
 }
 
@@ -572,28 +574,6 @@ function pData(el) {
     h += `<div class="chart">${F.wrap(s)}</div>` + (isCls() ? C.legend(ds.classes.map((c, i) => [C.color(i), c[S.lang]])) : C.seqLegend(yr[0], yr[1], ds.target[S.lang]));
   }
   h += `</div></div>`;
-  // tabla: original o transformada (antes de entrenar)
-  const part = new Array(N); SETS.forEach(n => sp[n].forEach(i => part[i] = n));
-  const sel2 = raw.map(r => S.fsel.map(j => r[j])), P = Prep.fit(ML.take(sel2, sp.train), S.fsel.map(j => ({ type: ds.features[j].type })), prepOpts(S));
-  h += `<div class="row-inline" style="margin-top:22px"><h4 style="margin:0">${t("table")}</h4><div class="seg">${["orig", "trans"].map(v => `<button class="${S.dataView === v ? "on" : ""}" data-view="${v}">${t(v === "orig" ? "viewOrig" : "viewTrans")}</button>`).join("")}</div>
-    ${S.dataView === "orig" && miss.total ? `<label class="check"><input type="checkbox" id="showimp" ${S.showImputed ? "checked" : ""}> ${t("showImputed")} (${impLabel(S)})</label>` : ""}</div>`;
-  const ptag = i => `<td class="part"><i class="pdot p-${part[i]}"></i>${setLabel(part[i])}</td>`, tgtCell = i => `<td class="tgt">${isCls() ? E(cName(ds.y[i])) : fmt(ds.y[i])}</td>`;
-  if (S.dataView === "orig") {
-    const imputed = S.showImputed && miss.total ? P.impute(sel2) : null;
-    h += `<div class="tablebox"><table class="data"><tr><th>#</th><th>${t("partition")}</th>${ds.features.map((f, j) => `<th class="${S.fsel.includes(j) ? "" : "excl"}">${E(fLabel(j))}</th>`).join("")}<th class="tgt">${E(ds.target[S.lang])}</th></tr>
-      ${raw.slice(0, 300).map((r, i) => `<tr><td class="muted">${i + 1}</td>${ptag(i)}${r.map((v, j) => { const si = S.fsel.indexOf(j);
-        if (isMiss(v)) { if (imputed && si >= 0) { const iv = imputed[i][si]; return `<td class="imp" title="${t("imputedCell")}">${typeof iv === "number" ? fmt(iv) : E(iv)}</td>`; } return `<td class="miss">NaN</td>`; }
-        return `<td class="${si < 0 ? "excl" : ""}">${typeof v === "number" ? fmt(v) : E(v)}</td>`; }).join("")}${tgtCell(i)}</tr>`).join("")}</table></div>`;
-  } else {
-    const Xt = P.transform(sel2), names = P.encoded.map(e => fName(S.fsel[e.src]) + (e.cat !== undefined ? ` = ${e.cat}` : "")), trX = ML.take(Xt, sp.train);
-    const stat = f => P.encoded.map((_, c) => `<td class="mono">${fmt(f(trX.map(r => r[c])), 3)}</td>`).join("");
-    const sd = a => { const m = ML.mean(a); return Math.sqrt(ML.mean(a.map(v => (v - m) ** 2))); };
-    h += `<p class="help">${t("transHelp")(t("scaleOpt")[S.scale], impLabel(S))}</p>
-      <div class="tablebox"><table class="data"><tr><th>#</th><th>${t("partition")}</th>${names.map(n => `<th>${E(n)}</th>`).join("")}<th class="tgt">${E(ds.target[S.lang])}</th></tr>
-      <tr class="stat"><td colspan="2">${t("mean")} (train)</td>${stat(ML.mean)}<td></td></tr><tr class="stat"><td colspan="2">${t("std")} (train)</td>${stat(sd)}<td></td></tr>
-      <tr class="stat"><td colspan="2">${t("min")} (train)</td>${stat(a => Math.min(...a))}<td></td></tr><tr class="stat"><td colspan="2">${t("max")} (train)</td>${stat(a => Math.max(...a))}<td></td></tr>
-      ${Xt.slice(0, 300).map((r, i) => `<tr><td class="muted">${i + 1}</td>${ptag(i)}${r.map((v, c) => { const e = P.encoded[c], wasMiss = isMiss(sel2[i][e.src]); return `<td class="mono ${wasMiss ? "imp" : ""}">${e.cat !== undefined ? v : fmt(v, 3)}</td>`; }).join("")}${tgtCell(i)}</tr>`).join("")}</table></div>`;
-  }
   el.innerHTML = h;
   const ex = $("#ex"), ey = $("#ey"); if (ex) { ex.onchange = () => { S.ex = +ex.value; renderAnalysis(); }; ey.onchange = () => { S.ey = +ey.value; renderAnalysis(); }; }
   const si = $("#showimp"); if (si) si.onchange = () => { S.showImputed = si.checked; renderAnalysis(); };
@@ -857,6 +837,16 @@ function pHist(el) {
 }
 
 /* ---- Validación del dataset (estilo Pandera) ---- */
+/* Validación silenciosa con el esquema inferido (Pandera por detrás): los valores que no son números ya
+   quedan vacíos (se rellenan con la imputación) y se quitan las filas repetidas. Solo se muestra un aviso corto. */
+function autoClean(ds) {
+  const res = Validate.run(Validate.infer(ds), ds, ds.X, { badType: ds.badType }), A2 = t("autoClean");
+  let nBad = 0; const dup = new Set();
+  res.fails.forEach(f => { if (f.check === "dtype") nBad += f.rows.length; if (f.check === "duplicates") f.rows.forEach(r => dup.add(r)); });
+  const keep = ds.y.map((_, i) => i).filter(i => !dup.has(i)), parts = [];
+  if (nBad) parts.push(A2.bad(nBad)); if (dup.size) parts.push(A2.dup(dup.size));
+  return Object.assign({}, ds, { X: keep.map(i => ds.X[i]), y: keep.map(i => ds.y[i]), badType: undefined, cleaned: parts.length ? A2.lead + " " + parts.join(" ") : null });
+}
 function schemaOf(ds) { const k = ds.key + "|" + ds.features.map(f => f.key).join(","); if (!S.schemas[k]) S.schemas[k] = Validate.infer(ds); return S.schemas[k]; }
 function validationRun() { const ds = S.ds; return Validate.run(schemaOf(ds), ds, rawRows(), { badType: ds.badType }); }
 function pValid(el) {
@@ -944,31 +934,12 @@ async function renderExport() {
   const L = $("#s5-left"), Rt = $("#s5-right");
   if (!S.ds) { noData(L); Rt.innerHTML = ""; return; }
   if (!S.run) { L.innerHTML = `<p class="placeholder">${t("needTrain")}</p><div class="actions" style="justify-content:center"><button class="btn primary" id="go3b">${t("goTrain")}</button></div>`; $("#go3b").onclick = () => goStep(3); Rt.innerHTML = `<p class="placeholder">${t("exEmpty")}</p>`; return; }
-  const ctx = exportCtx(), inC = await Exporter.inClaude(), X = t("exp");
-  const paCode = Validate.pandera(schemaOf(S.ds), S.ds, S.lang, ctx.csvName), base = ctx.csvName.replace(".csv", "");
+  const ctx = exportCtx(), X = t("exp"), R = S.run;
   if (pklCache.run !== S.run) pklCache = { run: S.run, bytes: null, info: null };
-  const items = [["py", t("exPy"), X.py], ["nb", t("exNb"), X.nb], ["pkl", t("exPkl"), X.pkl], ["csv", t("exCsv"), X.csv], ["pa", X.paT, X.pa]];
-  if (!items.some(i => i[0] === S.exportTab)) S.exportTab = "py";
-  const R = S.run;
   L.innerHTML = `<div class="exp-model"><span>${t("hModel")}</span><b>${E(t("models")[R.cfg.model][0])}</b><small>${E(S.ds.name[S.lang])} · ${R.sets.val ? `${t("valS")} ${scoreFmt(R.sets.val.score)} · ` : ""}${t("testS")} ${scoreFmt(R.sets.test.score)}</small>${S.stale ? `<p class="stale show" style="margin:8px 0 0">${t("stale")}</p>` : ""}</div>
-    <h4>${X.choose}</h4><div class="model-list">${items.map(([k, n, d]) => `<button class="model-item ${S.exportTab === k ? "on" : ""}" data-x="${k}"><span class="radio"></span><span><b>${E(n)}</b><small>${E(d)}</small></span></button>`).join("")}</div>
-    <div class="sep"></div><button class="btn primary full" id="dl-all">${t("downloadAll")}</button><p class="help">${X.allHelp}${inC ? " " + t("zipNote") : ""}</p><span class="err" id="dl-msg"></span>`;
-  const k = S.exportTab;
-  let body = "";
-  if (k === "py") body = `<p class="help">${t("exPyTip")}</p><div class="actions" style="margin:0 0 10px"><button class="btn primary" data-dl="py">${t("download")} ${E(base)}.py</button><button class="btn outline" data-copy="py">${t("copy")}</button></div><pre class="code tall">${E(Exporter.script(ctx))}</pre>`;
-  if (k === "nb") body = `<p class="help">${t("exNbTip")}</p><div class="actions" style="margin:0 0 10px"><button class="btn primary" data-dl="nb">${t("download")} ${E(base)}.ipynb</button></div><pre class="code tall">${E(Exporter.script(ctx))}</pre>`;
-  if (k === "pa") body = `<p class="help">${t("valid").codeHelp}</p><div class="actions" style="margin:0 0 10px"><button class="btn primary" data-dl="pa">${t("download")} validar_${E(base)}.py</button><button class="btn outline" id="go2">${X.editSchema}</button></div><pre class="code tall">${E(paCode)}</pre>`;
-  if (k === "csv") body = `<p class="help">${t("exCsvTip")}</p><div class="actions" style="margin:0 0 10px"><button class="btn primary" data-dl="csv">${t("download")} ${E(ctx.csvName)}</button></div><pre class="code tall">${E(Exporter.csv(ctx).split("\n").slice(0, 25).join("\n"))}\n…</pre>`;
-  if (k === "pkl") body = `<p class="help">${t("exPklTip")}</p><div class="actions" style="margin:0 0 10px"><button class="btn primary" id="pkl-go">${pklCache.bytes ? t("download") + " .pkl" : t("exPklGo")}</button></div><div id="pkl-status">${pklCache.info || ""}</div><h4>${t("exPklUse")}</h4><pre class="code">${E(Exporter.usage(ctx))}</pre>`;
-  Rt.innerHTML = body;
+    <h4>${X.pklWhat}</h4><p class="help">${X.pklWhatP}</p>`;
+  Rt.innerHTML = `<h4>${t("exPkl")}</h4><p class="help">${t("exPklTip")}</p><div class="actions" style="margin:0 0 10px"><button class="btn primary" id="pkl-go">${pklCache.bytes ? t("download") + " " + E(ctx.pklName) : t("exPklGo")}</button></div><span class="err" id="dl-msg"></span><div id="pkl-status">${pklCache.info || ""}</div><h4>${t("exPklUse")}</h4><pre class="code">${E(Exporter.usage(ctx))}</pre>`;
   const report = r => { const m = $("#dl-msg"); if (m) m.textContent = r === "saved" ? "" : r === "declined" ? t("dlDeclined") : t("dlErr"); };
-  L.querySelectorAll("[data-x]").forEach(b => b.onclick = () => { S.exportTab = b.dataset.x; renderExport(); });
-  Rt.querySelectorAll("[data-dl]").forEach(b => b.onclick = async () => { const k2 = b.dataset.dl;
-    report(k2 === "pa" ? await Exporter.save("validar_" + base + ".py", paCode) : k2 === "py" ? await Exporter.save(base + ".py", Exporter.script(ctx)) : k2 === "nb" ? await Exporter.save(base + ".ipynb", Exporter.notebook(ctx)) : await Exporter.save(ctx.csvName, Exporter.csv(ctx))); });
-  Rt.querySelectorAll("[data-copy]").forEach(b => b.onclick = async () => { try { await navigator.clipboard.writeText(Exporter.script(ctx)); b.textContent = t("copied"); } catch (e) {} });
-  const g2 = $("#go2"); if (g2) g2.onclick = () => goStep(2);
-  $("#dl-all").onclick = async () => { const files = [{ name: ctx.csvName, data: Exporter.csv(ctx) }, { name: base + ".py", data: Exporter.script(ctx) }, { name: base + ".ipynb", data: Exporter.notebook(ctx) }, { name: "validar_" + base + ".py", data: paCode }];
-    if (pklCache.bytes) files.push({ name: ctx.pklName, data: pklCache.bytes }); report(await Exporter.save(base + "_experimento.zip", Exporter.zip(files))); };
   const go = $("#pkl-go"); if (go) go.onclick = async () => {
     if (pklCache.bytes) { report(await Exporter.save(ctx.pklName, pklCache.bytes)); return; }
     const st = $("#pkl-status"); go.disabled = true;

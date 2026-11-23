@@ -476,3 +476,12 @@ table.data td.imp { background: #EEF3FA; color: #2B5591; }
 .note.warn { background: var(--warn-bg); color: var(--warn-c); }
 .p-tr, .pdot.p-train { background: #3B6FB6; } .p-va, .pdot.p-val { background: #D9A441; } .p-te, .pdot.p-test { background: #80868B; }
 .partbar .p-tr, .partbar .p-te { color: #fff; }
+
+/* Preparación de los datos: más aire y opciones en tarjetas */
+.prep-box { border: 1px solid var(--line); border-radius: 12px; padding: 4px 16px 14px; margin-top: 16px; background: #fff; }
+.prep-box h4 { margin-top: 12px; }
+.prep-q { font-weight: 600; font-size: 14.5px; color: var(--ink); margin: 14px 0 8px; }
+.opt-cards { margin-bottom: 4px; }
+.opt-cards .model-item small { font-size: 13px; }
+.prep-box .note { font-size: 14px; line-height: 1.5; }
+.foot a { color: var(--muted); text-decoration: none; } .foot a:hover { color: var(--ink); text-decoration: underline; }

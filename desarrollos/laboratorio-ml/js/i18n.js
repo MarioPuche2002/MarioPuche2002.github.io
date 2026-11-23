@@ -718,3 +718,27 @@ Object.assign(window.TXT.es, { stepExport: "Exportar", exPreview: "Vista previa"
 Object.assign(window.TXT.en, { stepExport: "Export", exPreview: "Preview", exEmpty: "Once you train a model, the code and files to take it to Python will appear here.",
   exp: { choose: "What do you want to take with you?", allHelp: "A .zip with the script, the notebook, the dataset, the Pandera schema and the .pkl (if you already generated it).", paT: "Pandera validation (.py)", editSchema: "Edit the schema",
     py: "The whole experiment as a scikit-learn script.", nb: "The same, ready to open in Jupyter or Google Colab.", pkl: "The trained model, ready to load in Python.", csv: "The data with the split used.", pa: "The validation rules from step 2 as code." } });
+
+/* Panel de preparación más claro, validación automática y exportación solo .pkl */
+Object.assign(window.TXT.es, {
+  prep2: { scaleQ: "¿Cómo escalar los números?", catQ: "Columnas de categorías",
+    catNote: c => `Las columnas de texto (${c.join(", ")}) se convierten automáticamente en columnas de 0 y 1, una por cada valor posible, para que el modelo pueda usarlas. A esto se le llama <b>one-hot encoding</b>.`,
+    catFill: "Las celdas vacías en columnas de categorías se rellenan con el valor más frecuente (moda)." },
+  practice: "Simular datos faltantes", practiceHelp: "Borra al azar algunas celdas para ver qué pasa cuando faltan datos y cómo se rellenan.",
+  autoClean: { lead: "Revisamos tu archivo:", bad: n => n === 1 ? "1 valor que no era un número quedó vacío y se rellenará automáticamente." : `${n} valores que no eran números quedaron vacíos y se rellenarán automáticamente.`, dup: n => `Se ${n === 1 ? "quitó 1 fila repetida" : `quitaron ${n} filas repetidas`}.` },
+  wStep2: "Entrenamiento: escoge el modelo y sus hiperparámetros, y mira el mapa de decisión.", wStep3: "Resultados: prueba casos nuevos y revisa las métricas.", wStep4: "Exportar: descarga el modelo entrenado como archivo .pkl para usarlo en Python."
+});
+Object.assign(window.TXT.es.exp, { pklWhat: "¿Qué es un archivo .pkl?", pklWhatP: "Es el modelo ya entrenado guardado en un archivo. Con él puedes hacer predicciones en Python sin volver a entrenar." });
+Object.assign(window.TXT.en, {
+  prep2: { scaleQ: "How should numbers be scaled?", catQ: "Category columns",
+    catNote: c => `Text columns (${c.join(", ")}) are automatically turned into 0/1 columns, one per possible value, so the model can use them. This is called <b>one-hot encoding</b>.`,
+    catFill: "Empty cells in category columns are filled with the most frequent value (mode)." },
+  practice: "Simulate missing data", practiceHelp: "Randomly erases some cells to see what happens when data is missing and how it gets filled.",
+  autoClean: { lead: "We checked your file:", bad: n => n === 1 ? "1 value that wasn't a number was left empty and will be filled automatically." : `${n} values that weren't numbers were left empty and will be filled automatically.`, dup: n => `${n === 1 ? "1 repeated row was" : `${n} repeated rows were`} removed.` },
+  wStep2: "Training: choose the model and its hyperparameters, and look at the decision map.", wStep3: "Results: try new cases and review the metrics.", wStep4: "Export: download the trained model as a .pkl file to use it in Python."
+});
+Object.assign(window.TXT.en.exp, { pklWhat: "What is a .pkl file?", pklWhatP: "It is the trained model saved to a file. With it you can make predictions in Python without training again." });
+Object.assign(window.TXT.es, { exPkl: "Modelo entrenado (.pkl)", exPreview: "Tu modelo",
+  exPklTip: "Al presionar el botón, el navegador vuelve a entrenar tu modelo con scikit-learn, la librería de Python, y lo guarda en un archivo .pkl. La primera vez tarda un poco." });
+Object.assign(window.TXT.en, { exPkl: "Trained model (.pkl)", exPreview: "Your model",
+  exPklTip: "When you press the button, the browser retrains your model with scikit-learn, the Python library, and saves it to a .pkl file. The first time takes a little while." });
