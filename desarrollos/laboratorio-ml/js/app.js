@@ -135,7 +135,7 @@ function renderData() {
     h += `<div class="sep"></div>`;
     if (S.ds.desc) h += `<p class="desc">${E(S.ds.desc[S.lang])}</p>`;
     if (S.ds.simulated) h += `<p class="note">${t("simNote")}</p>`;
-    if (S.ds.key === "diabetes" || S.ds.key === "heart") h += `<p class="note warn">${t("healthNote")}</p>`;
+    if (S.ds.key === "diabetes") h += `<p class="note warn">${t("healthNote")}</p>`;
     if (S.ds.dropped) h += `<p class="note">${S.ds.dropped} ${t("droppedTarget")}</p>`;
     if (S.ds.cleaned) h += `<p class="note">${E(S.ds.cleaned)}</p>`;
     const miss = Prep.missingReport(rawRows(), S.ds.features.length).perColumn;
@@ -913,35 +913,6 @@ function pValid(el) {
 }
 
 /* ================================ PROYECTO ================================== */
-function openProject() {
-  const P = t("proj");
-  openModal(`<div class="modal-h"><h2>${P.title}</h2><button class="btn text" id="mclose">${t("close")}</button></div><p class="help">${P.help}</p>
-    <div class="proj-grid">
-      <button class="proj-item" id="p-new"><b>${P.newT}</b><span>${P.newD}</span></button>
-      <label class="proj-item"><b>${P.openT}</b><span>${P.openD}</span><input type="file" id="p-open" accept=".json,application/json" hidden></label>
-      <button class="proj-item" id="p-save" ${S.ds ? "" : "disabled"}><b>${P.saveT}</b><span>${P.saveD}</span></button>
-    </div><p class="err" id="p-msg"></p>`);
-  $("#mclose").onclick = closeModal;
-  $("#p-new").onclick = () => { freeRun(); S.ds = null; S.history = {}; S.schemas = {}; closeModal(); renderAll(); };
-  $("#p-save").onclick = async () => {
-    const ds = S.ds, builtin = ds.key !== "custom" && !ds.own;
-    const proj = { app: "laboratorio-ml", version: 1, saved: new Date().toISOString(), lang: S.lang,
-      dataset: builtin ? { builtin: ds.key } : ds, practice: S.practice, dirty: S.dirty, schemas: S.schemas,
-      config: { model: S.model, params: S.params, fsel: S.fsel, valSize: S.valSize, testSize: S.testSize, seed: S.seed, impute: S.impute, scale: S.scale },
-      history: S.history[ds.key] || [] };
-    const name = (ds.key === "custom" ? (ds.csvName || "proyecto") : ds.key) + "_proyecto.json";
-    const r = await Exporter.save(name, JSON.stringify(proj)); $("#p-msg").textContent = r === "saved" ? "" : r === "declined" ? t("dlDeclined") : t("dlErr");
-  };
-  $("#p-open").onchange = e => { const f = e.target.files[0]; if (!f) return; const rd = new FileReader();
-    rd.onload = () => { try {
-      const pj = JSON.parse(rd.result); if (pj.app !== "laboratorio-ml") throw new Error("app");
-      const ds = pj.dataset.builtin ? fromBuiltin(window.DATASETS.find(d => d.key === pj.dataset.builtin)) : pj.dataset;
-      setDataset(ds); const c = pj.config;
-      Object.assign(S, { practice: pj.practice || 0, dirty: pj.dirty || 0, schemas: pj.schemas || {}, model: c.model, params: c.params, fsel: c.fsel, valSize: c.valSize, testSize: c.testSize, seed: c.seed, impute: c.impute, scale: c.scale });
-      S.history[ds.key] = pj.history || []; rawCache = { key: null }; closeModal(); renderAll();
-    } catch (err) { $("#p-msg").textContent = t("proj").openErr; } };
-    rd.readAsText(f); };
-}
 
 /* ================================ GLOSARIO ================================= */
 function openGlossary(cat) {
