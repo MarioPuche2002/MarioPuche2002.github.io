@@ -742,3 +742,23 @@ Object.assign(window.TXT.es, { exPkl: "Modelo entrenado (.pkl)", exPreview: "Tu 
   exPklTip: "Al presionar el botón, el navegador vuelve a entrenar tu modelo con scikit-learn, la librería de Python, y lo guarda en un archivo .pkl. La primera vez tarda un poco." });
 Object.assign(window.TXT.en, { exPkl: "Trained model (.pkl)", exPreview: "Your model",
   exPklTip: "When you press the button, the browser retrains your model with scikit-learn, the Python library, and saves it to a .pkl file. The first time takes a little while." });
+Object.assign(window.TXT.es, { penguinsSrc: "Datos reales: Gorman, Williams y Fraser (2014), Palmer Station LTER, publicados por Horst, Hill y Gorman en el paquete <i>palmerpenguins</i> (licencia CC0)." });
+Object.assign(window.TXT.en, { penguinsSrc: "Real data: Gorman, Williams and Fraser (2014), Palmer Station LTER, published by Horst, Hill and Gorman in the <i>palmerpenguins</i> package (CC0 license)." });
+Object.assign(window.TXT.es, { contract: { title: "Requisitos del archivo", lead: "Antes de usar tus datos los revisamos automáticamente. Tu archivo debe cumplir esto:",
+  items: ["Un archivo <b>CSV</b> con los nombres de las columnas en la primera fila (separado por comas o punto y coma).",
+    "Al menos <b>20 filas</b> con la columna a predecir llena. Las filas donde esa columna esté vacía se quitan.",
+    "Para <b>clasificación</b>: entre 2 y 12 clases, y al menos 3 filas por clase. Para <b>regresión</b>: la columna a predecir debe ser numérica.",
+    "Al menos <b>una feature</b> con números o con categorías (máximo 30 valores distintos). Las columnas de texto libre, como nombres o códigos, no se usan.",
+    "En las columnas de números, los valores que no sean números quedan vacíos. Se aceptan símbolos como $ o % y separadores de miles; las fechas se convierten en año, mes y día de la semana.",
+    "Las celdas vacías (o NA, N/A, null) se permiten y se rellenan; las filas repetidas se quitan."],
+  fewRows: n => `El archivo tiene ${n} filas con la columna a predecir llena y se necesitan al menos 20.`,
+  smallClass: (c, m) => `Cada clase necesita al menos ${m} filas. Tienen menos: ${c.join(", ")}.` } });
+Object.assign(window.TXT.en, { contract: { title: "File requirements", lead: "We check your data automatically before using it. Your file must meet these rules:",
+  items: ["A <b>CSV</b> file with the column names in the first row (comma or semicolon separated).",
+    "At least <b>20 rows</b> with the target column filled in. Rows where that column is empty are removed.",
+    "For <b>classification</b>: between 2 and 12 classes, with at least 3 rows per class. For <b>regression</b>: the target column must be numeric.",
+    "At least <b>one feature</b> with numbers or categories (at most 30 distinct values). Free-text columns, like names or codes, are not used.",
+    "In number columns, values that aren't numbers are left empty. Symbols like $ or % and thousands separators are accepted; dates become year, month and weekday.",
+    "Empty cells (or NA, N/A, null) are allowed and get filled; repeated rows are removed."],
+  fewRows: n => `The file has ${n} rows with the target filled in and at least 20 are needed.`,
+  smallClass: (c, m) => `Each class needs at least ${m} rows. These have fewer: ${c.join(", ")}.` } });
