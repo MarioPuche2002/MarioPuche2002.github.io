@@ -18,7 +18,7 @@ website:
     left:
       - href: index.qmd
         text: Principal
-      - href: index.qmd#desarrollos-tecnológicos
+      - href: desarrollos.qmd
         text: Desarrollos tecnológicos
       - href: about.qmd
         text: Acerca de mí

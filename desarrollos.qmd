@@ -1,0 +1,13 @@
+---
+title: "Desarrollos tecnológicos"
+subtitle: "Herramientas y proyectos de software para la docencia y la investigación"
+listing:
+  contents: desarrollos/*.qmd
+  type: grid
+  sort: "date desc"
+  fields: [image, title, description, categories]
+  image-height: 220px
+  categories: false
+page-layout: full
+title-block-banner: true
+---
