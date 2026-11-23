@@ -1,7 +1,7 @@
 ---
 title: "Laboratorio de Machine Learning"
 subtitle: "Aprendizaje supervisado con datos en tabla, directamente en el navegador"
-description: "Herramienta educativa para entrenar modelos de clasificación y regresión con datos tabulares, sin necesidad de programar. Abarca la validación de datos al estilo Pandera, el preprocesamiento, el entrenamiento de modelos, la evaluación mediante métricas, técnicas de explicabilidad y la exportación de los modelos."
+description: "Herramienta educativa para entrenar modelos de clasificación y regresión con datos tabulares, sin necesidad de programar. Abarca la validación automática de los datos, el preprocesamiento, el entrenamiento de modelos, la evaluación mediante métricas, técnicas de explicabilidad y la exportación de los modelos."
 author: "Mario Andrés Puche Ajiaco"
 date: 2026-11-23
 image: ../imagenes/portada_laboratorio_ml.jpg
@@ -27,13 +27,12 @@ No hay que instalar nada ni crear una cuenta: basta con abrirlo en el navegador.
 
 ## Cómo funciona
 
-El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar libremente:
+El trabajo se organiza en cuatro pasos, que se pueden recorrer en orden o saltar libremente:
 
-1. **Datos.** Seis datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, venta de helados y precio de vivienda) o un CSV propio. Muestra el esquema de cada columna, la distribución del target, la matriz de correlación de Pearson y la tabla original o transformada.
-2. **Validación.** Un esquema de reglas por columna al estilo de la librería **Pandera**: tipo, vacíos permitidos, mínimo, máximo, valores permitidos y filas duplicadas. Reporta todos los errores a la vez y permite corregirlos.
-3. **Entrenamiento.** Regresión logística o lineal, SVM, árbol de decisión, Random Forest y Gradient Boosting, con sus principales hiperparámetros; partición en entrenamiento, validación y prueba; escalado e imputación de faltantes (media, mediana, KNN y moda). Al entrenar muestra el diagnóstico de *overfitting* y el **mapa de decisión** (con PCA).
-4. **Resultados.** Inferencia con casos nuevos, matriz de confusión con todas las métricas, curva ROC, residuos, el árbol dibujado, prueba de permutación e historial de experimentos.
-5. **Exportar.** El mismo experimento como script de Python, notebook de Jupyter/Colab, modelo `.pkl` entrenado con scikit-learn, dataset en CSV y esquema de validación de Pandera.
+1. **Datos.** Seis datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, venta de helados y precio de vivienda) o un CSV propio. Al subir un archivo se elige la variable objetivo y las features. Luego los datos se validan automáticamente con un esquema al estilo de **Pandera**: los valores que no son números quedan vacíos y se quitan las filas repetidas. En este paso se ve el esquema de cada columna, la distribución del target y la matriz de correlación de Pearson, y se eligen el escalado y la forma de rellenar los datos faltantes (media, mediana o KNN). Las columnas de categorías se codifican con one-hot encoding.
+2. **Entrenamiento.** Regresión logística o lineal, SVM, árbol de decisión, Random Forest y Gradient Boosting, con sus principales hiperparámetros, y la partición en entrenamiento, validación y prueba. Al entrenar se muestran el diagnóstico de *overfitting* y el **mapa de decisión** (con PCA).
+3. **Resultados.** Inferencia con casos nuevos, matriz de confusión con todas las métricas, curva ROC, residuos, el árbol dibujado, la prueba de permutación y el historial de experimentos.
+4. **Exportar.** El modelo entrenado como archivo `.pkl` de scikit-learn, listo para cargarlo en Python.
 
 ## Para usarlo en clase
 
@@ -44,15 +43,15 @@ El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar 
 ::: {.callout-note}
 ## Ideas de actividades
 - Entrenar un árbol muy profundo y uno poco profundo, y comparar entrenamiento contra validación para descubrir el *overfitting*.
-- Agregar errores de práctica en el paso de validación y decidir si conviene quitar las filas o convertirlas en vacíos.
+- Simular datos faltantes y comparar cómo cambian las métricas al rellenarlos con la media, la mediana o KNN.
 - Quitar una feature a la vez y usar la prueba de permutación para explicar cuáles importan.
-- Exportar el notebook y repetir el experimento en Google Colab.
+- Exportar el modelo `.pkl` y usarlo en Google Colab para predecir casos nuevos.
 :::
 
 ## Ficha técnica
 
 | | |
 |---|---|
-| **Tecnologías** | HTML, CSS y JavaScript sin servidor; libsvm para la SVM; Pyodide y scikit-learn solo para generar el `.pkl` |
+| **Tecnologías** | HTML, CSS y JavaScript sin servidor; libsvm para la SVM; Pyodide y scikit-learn solo para generar el `.pkl`; validación de datos al estilo Pandera |
 | **Modelos** | Implementados en JavaScript siguiendo los algoritmos de scikit-learn y comparados contra él |
 | **Autor** | Mario Andrés Puche Ajiaco |
