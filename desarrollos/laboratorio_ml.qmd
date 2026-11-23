@@ -23,7 +23,7 @@ categories: [Machine learning, Educación, Herramienta web]
 
 El **Laboratorio de Machine Learning** es una herramienta web para aprender aprendizaje supervisado con **datos en tabla**, en la línea de Teachable Machine pero enfocada en datos tabulares. Está pensada para estudiantes desde los 12 años y para cursos introductorios de ciencia de datos: usa el vocabulario técnico (feature, target, overfitting, validación…) y explica cada término en palabras sencillas.
 
-Todo se ejecuta en el navegador: no hay que instalar nada, no se necesita cuenta y **los datos nunca salen del computador**.
+No hay que instalar nada ni crear una cuenta: basta con abrirlo en el navegador.
 
 ## Cómo funciona
 
@@ -39,7 +39,6 @@ El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar 
 
 - Funciona en computadores, tabletas y celulares, en español e inglés.
 - Cada gráfico trae un recuadro *¿Qué estoy viendo?* y la página incluye un **glosario** con la definición, la ecuación y la interpretación de cada métrica.
-- El botón **Proyecto** guarda el trabajo en un archivo `.json` para continuarlo después o compartirlo.
 - Los datasets de ejemplo, salvo Iris, son **sintéticos**: imitan patrones plausibles pero no provienen de personas reales. Los de salud son solo para aprender y no sirven para diagnosticar.
 
 ::: {.callout-note}
@@ -56,5 +55,4 @@ El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar 
 |---|---|
 | **Tecnologías** | HTML, CSS y JavaScript sin servidor; libsvm para la SVM; Pyodide y scikit-learn solo para generar el `.pkl` |
 | **Modelos** | Implementados en JavaScript siguiendo los algoritmos de scikit-learn y comparados contra él |
-| **Privacidad** | Los datos se procesan en el navegador y no se envían a ningún servidor |
 | **Autor** | Mario Andrés Puche Ajiaco |

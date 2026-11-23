@@ -33,6 +33,8 @@ Ingeniero Biomédico de la Universidad Escuela Colombiana de Ingeniería Julio G
 
 ## Publicaciones
 
+- Puche Ajiaco, M. A., Caicedo Rodríguez, P. E., Castiblanco Sánchez, J. C., Rodríguez Cheu, L. E. y Ortiz Martínez, J. G. (en revisión). *Interpretable Multimodal Ensemble Learning for Acetabular Component Diameter Prediction in Total Hip Arthroplasty*. Versión extendida, invitada para publicación en *Communications in Computer and Information Science* (CCIS), Springer.
+
 - Puche Ajiaco, M. A., Rodríguez Cheu, L. E., Caicedo Rodríguez, P. E., Castiblanco Sánchez, J. C. y Ortiz Martínez, J. G. (2026). *Multimodal Deep Learning for Acetabular Component Diameter Prediction in Total Hip Arthroplasty*. 2026 IEEE Colombian Conference on Applications of Computational Intelligence (ColCACI). DOI: [10.1109/ColCACI71483.2026.11691423](https://doi.org/10.1109/ColCACI71483.2026.11691423)
 
 - Puche Ajiaco, M. A., Caicedo, P. E., Ortiz Martínez, J. G. y Rodríguez Cheu, L. E. (2025). *Prediction of prosthetic components in hip arthroplasty using a multimodal architecture*. Asociación Colombiana de Facultades de Ingeniería (ACOFI). DOI: [10.26507/paper.4602](https://doi.org/10.26507/paper.4602)
