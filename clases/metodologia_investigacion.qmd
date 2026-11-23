@@ -79,7 +79,6 @@ Cada sesión es una **presentación en diapositivas**. Se navega con las flechas
 ## Recursos
 
 - [Formato Brief del anteproyecto: instrucciones y plantilla](metodologia_brief/formato_brief.qmd)
-- [Introducción a la programación en Python](../tutoriales/introduccion_python.qmd), como apoyo para las sesiones de análisis de datos.
 
 ## Bibliografía
 

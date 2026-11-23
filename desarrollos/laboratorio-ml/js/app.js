@@ -1021,7 +1021,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#modal
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { S.lang = b.dataset.lang; try { localStorage.setItem("ml-lab-lang", S.lang); } catch (e) {} applyLang(); });
 $("#export-btn").onclick = () => goStep(5);
 $("#gloss-btn").onclick = () => openGlossary();
-$("#proj-btn").onclick = openProject;
+
 function boot() {
   if (window.libsvm) Promise.resolve(window.libsvm).then(L => ML.setLibsvm(L)).catch(e => console.error(e));
   Exporter.downloadsApi();
