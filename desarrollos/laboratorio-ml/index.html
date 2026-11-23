@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio de Machine Learning</title>
+<meta name="description" content="Herramienta educativa para entrenar modelos de machine learning con datos en tabla, directamente en el navegador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M12 4h8M13.5 4v8.5L6.6 24.3A2.5 2.5 0 0 0 8.8 28h14.4a2.5 2.5 0 0 0 2.2-3.7L18.5 12.5V4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.6 20h12.8l2.4 4.3a1 1 0 0 1-.9 1.5H8.1a1 1 0 0 1-.9-1.5z" fill="currentColor" opacity=".9"/><circle cx="14" cy="22.6" r="1.1" fill="#fff"/><circle cx="18.2" cy="23.8" r=".8" fill="#fff"/></svg>
+      <div><h1 data-i="title"></h1><p data-i="subtitle"></p></div>
+    </div>
+    <div class="top-r">
+      <button class="btn outline sm" id="proj-btn" data-i="project"></button>
+      <button class="btn outline sm" id="gloss-btn" data-i="glossary"></button>
+      <div class="lang" role="group" aria-label="Idioma / Language"><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+    </div>
+  </div>
+</header>
+
+<nav class="stepper" id="stepper"></nav>
+
+<main class="wrap">
+  <section class="screen" data-step="1">
+    <div class="split">
+      <article class="card"><header class="card-h"><h2 data-i="stepData"></h2></header><div class="card-b" id="data-body"></div></article>
+      <article class="card"><header class="card-h"><h2 data-i="dataView"></h2></header><div class="card-b" id="s1-right"></div></article>
+    </div>
+  </section>
+
+  <section class="screen" data-step="2" hidden>
+    <article class="card"><header class="card-h"><h2 data-i="stepValid"></h2></header><div class="card-b" id="s2-body"></div></article>
+  </section>
+
+  <section class="screen" data-step="3" hidden>
+    <div class="split">
+      <article class="card"><header class="card-h"><h2 data-i="stepTrain"></h2></header><div class="card-b" id="train-body"></div></article>
+      <article class="card"><header class="card-h"><h2 data-i="trainResult"></h2></header><div class="card-b" id="s3-right"></div></article>
+    </div>
+  </section>
+
+  <section class="screen" data-step="4" hidden>
+    <div class="split">
+      <article class="card"><header class="card-h"><h2 data-i="stepPreview"></h2><button class="btn accent sm" id="export-btn" data-i="export" hidden></button></header><div class="card-b" id="preview-body"></div></article>
+      <article class="card analysis" id="analysis"><header class="card-h"><h2 data-i="analysis"></h2></header><nav class="tabs" id="tabs"></nav><div class="card-b" id="analysis-body"></div></article>
+    </div>
+  </section>
+
+  <section class="screen" data-step="5" hidden>
+    <div class="split">
+      <article class="card"><header class="card-h"><h2 data-i="stepExport"></h2></header><div class="card-b" id="s5-left"></div></article>
+      <article class="card"><header class="card-h"><h2 data-i="exPreview"></h2></header><div class="card-b" id="s5-right"></div></article>
+    </div>
+  </section>
+
+  <div class="stepnav" id="stepnav"></div>
+  <footer class="foot"><span data-i="footer"></span><br><a href="../laboratorio_ml.html">Mario Andrés Puche Ajiaco · Desarrollos tecnológicos</a></footer>
+</main>
+
+<div class="modal" id="modal" hidden><div class="modal-card"></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<!-- libsvm (C) compilado a JavaScript; si el CDN no responde se usa la copia local -->
+<script src="https://cdn.jsdelivr.net/npm/libsvm-js@0.2.1/dist/browser/asm/libsvm.js"></script>
+<script>window.libsvm || document.write('<script src="vendor/libsvm.js"><\/script>');</script>
+<script src="js/datasets.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/glossary.js"></script>
+<script src="js/ml.js"></script>
+<script src="js/prep.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/export.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

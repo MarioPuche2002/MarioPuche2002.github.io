@@ -3,6 +3,7 @@ project:
   output-dir: _site
   resources:
     - "clases/alli_evaluaciones/**/*.pdf"
+    - "desarrollos/laboratorio-ml/**"
 
 lang: es
 
@@ -17,6 +18,8 @@ website:
     left:
       - href: index.qmd
         text: Principal
+      - href: index.qmd#desarrollos-tecnológicos
+        text: Desarrollos tecnológicos
       - href: about.qmd
         text: Acerca de mí
   page-footer:

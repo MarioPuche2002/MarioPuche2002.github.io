@@ -1,0 +1,60 @@
+---
+title: "Laboratorio de Machine Learning"
+subtitle: "Aprendizaje supervisado con datos en tabla, directamente en el navegador"
+description: "Herramienta educativa para entrenar modelos de clasificación y regresión con datos tabulares: validación de datos al estilo Pandera, preprocesamiento, cinco modelos, métricas, mapas de decisión y exportación a Python. Pensada para estudiantes desde los 12 años."
+author: "Mario Andrés Puche Ajiaco"
+date: 2026-11-23
+image: ../imagenes/portada_laboratorio_ml.jpg
+categories: [Machine learning, Educación, Herramienta web]
+---
+
+```{=html}
+<p style="margin:1.2rem 0 1.6rem">
+  <a class="btn btn-lg" href="laboratorio-ml/index.html" target="_blank" rel="noopener"
+     style="background:#990000;border-color:#990000;color:#fff;padding:.7rem 1.6rem;border-radius:.6rem">
+    Abrir el laboratorio ↗
+  </a>
+</p>
+```
+
+![El paso de entrenamiento: el estudiante elige el modelo y sus hiperparámetros, y ve al lado las métricas y el mapa de decisión.](../imagenes/portada_laboratorio_ml.jpg){fig-alt="Captura del laboratorio en el paso de entrenamiento, con una SVM y su mapa de decisión sobre los datos de pingüinos."}
+
+## ¿Qué es?
+
+El **Laboratorio de Machine Learning** es una herramienta web para aprender aprendizaje supervisado con **datos en tabla**, en la línea de Teachable Machine pero enfocada en datos tabulares. Está pensada para estudiantes desde los 12 años y para cursos introductorios de ciencia de datos: usa el vocabulario técnico (feature, target, overfitting, validación…) y explica cada término en palabras sencillas.
+
+Todo se ejecuta en el navegador: no hay que instalar nada, no se necesita cuenta y **los datos nunca salen del computador**.
+
+## Cómo funciona
+
+El trabajo se organiza en cinco pasos, que se pueden recorrer en orden o saltar libremente:
+
+1. **Datos.** Ocho datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, riesgo cardíaco, venta de helados, crecimiento de plantas y celulares usados) o un CSV propio. Muestra el esquema de cada columna, la distribución del target, la matriz de correlación y la tabla original o transformada.
+2. **Validación.** Un esquema de reglas por columna al estilo de la librería **Pandera**: tipo, vacíos permitidos, mínimo, máximo, valores permitidos y filas duplicadas. Reporta todos los errores a la vez y permite corregirlos.
+3. **Entrenamiento.** Regresión logística o lineal, SVM, árbol de decisión, Random Forest y Gradient Boosting, con sus principales hiperparámetros; partición en entrenamiento, validación y prueba; escalado e imputación de faltantes (media, mediana, KNN y moda). Al entrenar muestra el diagnóstico de *overfitting* y el **mapa de decisión** (con PCA).
+4. **Resultados.** Inferencia con casos nuevos, matriz de confusión con todas las métricas, curva ROC, residuos, el árbol dibujado, prueba de permutación e historial de experimentos.
+5. **Exportar.** El mismo experimento como script de Python, notebook de Jupyter/Colab, modelo `.pkl` entrenado con scikit-learn, dataset en CSV y esquema de validación de Pandera.
+
+## Para usarlo en clase
+
+- Funciona en computadores, tabletas y celulares, en español e inglés.
+- Cada gráfico trae un recuadro *¿Qué estoy viendo?* y la página incluye un **glosario** con la definición, la ecuación y la interpretación de cada métrica.
+- El botón **Proyecto** guarda el trabajo en un archivo `.json` para continuarlo después o compartirlo.
+- Los datasets de ejemplo, salvo Iris, son **sintéticos**: imitan patrones plausibles pero no provienen de personas reales. Los de salud son solo para aprender y no sirven para diagnosticar.
+
+::: {.callout-note}
+## Ideas de actividades
+- Entrenar un árbol muy profundo y uno poco profundo, y comparar entrenamiento contra validación para descubrir el *overfitting*.
+- Agregar errores de práctica en el paso de validación y decidir si conviene quitar las filas o convertirlas en vacíos.
+- Quitar una feature a la vez y usar la prueba de permutación para explicar cuáles importan.
+- Exportar el notebook y repetir el experimento en Google Colab.
+:::
+
+## Ficha técnica
+
+| | |
+|---|---|
+| **Tecnologías** | HTML, CSS y JavaScript sin servidor; libsvm para la SVM; Pyodide y scikit-learn solo para generar el `.pkl` |
+| **Modelos** | Implementados en JavaScript siguiendo los algoritmos de scikit-learn y comparados contra él |
+| **Privacidad** | Los datos se procesan en el navegador y no se envían a ningún servidor |
+| **Autor** | Mario Andrés Puche Ajiaco |
