@@ -29,7 +29,7 @@ No hay que instalar nada ni crear una cuenta: basta con abrirlo en el navegador.
 
 El trabajo se organiza en cuatro pasos, que se pueden recorrer en orden o saltar libremente:
 
-1. **Datos.** Seis datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, venta de helados y precio de vivienda) o un CSV propio. Al subir un archivo se elige la variable objetivo y las features. Luego los datos se validan automáticamente con un esquema al estilo de **Pandera**: los valores que no son números quedan vacíos y se quitan las filas repetidas. En este paso se ve el esquema de cada columna, la distribución del target y la matriz de correlación de Pearson, y se eligen el escalado y la forma de rellenar los datos faltantes (media, mediana o KNN). Las columnas de categorías se codifican con one-hot encoding.
+1. **Datos.** Seis datasets de ejemplo (pingüinos, flores Iris, frutas, diabetes, venta de helados y precio de vivienda) o un CSV propio. Al subir un archivo se muestran los requisitos mínimos que debe cumplir (al menos 20 filas, de 2 a 12 clases con 3 filas o más cada una, entre otros) y luego se eligen la variable objetivo y las features. Luego los datos se validan automáticamente con un esquema al estilo de **Pandera**: los valores que no son números quedan vacíos y se quitan las filas repetidas. En este paso se ve el esquema de cada columna, la distribución del target y la matriz de correlación de Pearson, y se eligen el escalado y la forma de rellenar los datos faltantes (media, mediana o KNN). Las columnas de categorías se codifican con one-hot encoding.
 2. **Entrenamiento.** Regresión logística o lineal, SVM, árbol de decisión, Random Forest y Gradient Boosting, con sus principales hiperparámetros, y la partición en entrenamiento, validación y prueba. Al entrenar se muestran el diagnóstico de *overfitting* y el **mapa de decisión** (con PCA).
 3. **Resultados.** Inferencia con casos nuevos, matriz de confusión con todas las métricas, curva ROC, residuos, el árbol dibujado, la prueba de permutación y el historial de experimentos.
 4. **Exportar.** El modelo entrenado como archivo `.pkl` de scikit-learn, listo para cargarlo en Python.
@@ -38,7 +38,7 @@ El trabajo se organiza en cuatro pasos, que se pueden recorrer en orden o saltar
 
 - Funciona en computadores, tabletas y celulares, en español e inglés.
 - Cada gráfico trae un recuadro *¿Qué estoy viendo?* y la página incluye un **glosario** con la definición, la ecuación y la interpretación de cada métrica.
-- Los datasets de ejemplo, salvo Iris, son **sintéticos**: imitan patrones plausibles pero no provienen de personas reales. El de diabetes es solo para aprender y no sirve para diagnosticar.
+- Los datasets de Iris y Pingüinos son **reales**: el de pingüinos viene de Palmer Station (Antártida) y trae columnas de categorías y datos faltantes. Los demás son **sintéticos**: imitan patrones plausibles pero no provienen de personas ni lugares reales. El de diabetes es solo para aprender y no sirve para diagnosticar.
 
 ::: {.callout-note}
 ## Ideas de actividades

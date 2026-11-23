@@ -137,6 +137,7 @@ function renderData() {
     h += `<div class="sep"></div>`;
     if (S.ds.desc) h += `<p class="desc">${E(S.ds.desc[S.lang])}</p>`;
     if (S.ds.simulated) h += `<p class="note">${t("simNote")}</p>`;
+    if (S.ds.key === "penguins") h += `<p class="note">${t("penguinsSrc")}</p>`;
     if (S.ds.key === "diabetes") h += `<p class="note warn">${t("healthNote")}</p>`;
     if (S.ds.dropped) h += `<p class="note">${S.ds.dropped} ${t("droppedTarget")}</p>`;
     if (S.ds.cleaned) h += `<p class="note">${E(S.ds.cleaned)}</p>`;
@@ -228,6 +229,7 @@ function numberColumn(vals) { // quita $, %, unidades y separadores de miles; de
     const t2 = mode === "es" ? x.replace(/\./g, "").replace(",", ".") : mode === "en" ? x.replace(/,/g, "") : mode === "comma" ? x.replace(",", ".") : x;
     return /^-?(\d+\.?\d*|\.\d+)(e-?\d+)?$/i.test(t2) ? Number(t2) : NaN; });
 }
+const MIN_ROWS = 20, MIN_PER_CLASS = 3; // contrato mínimo del dataset
 function parseCSV(text) {
   text = text.replace(/^﻿/, "");
   const first = text.split(/\r?\n/)[0], delim = [",", ";", "\t"].map(d => [d, first.split(d).length]).sort((a, b) => b[1] - a[1])[0][0];
@@ -259,7 +261,8 @@ function parseCSV(text) {
   return { cols, rows: outRows, types, bad, target: cols[cols.length - 1], task: "auto", use: cols.map((_, j) => types[j] !== "text" && j !== cols.length - 1) };
 }
 function openUpload() {
-  openModal(`<h2>${t("uploadCsv")}</h2><p class="help">${t("uploadHint")}</p>
+  const Q = t("contract");
+  openModal(`<h2>${t("uploadCsv")}</h2><div class="contract"><b>${Q.title}</b><p class="help">${Q.lead}</p><ul>${Q.items.map(x => `<li>${x}</li>`).join("")}</ul></div>
     <label class="btn primary" style="display:inline-flex">${t("uploadCsv")}<input type="file" id="csv-in" accept=".csv,text/csv,.txt" hidden></label>
     <div id="csv-cfg"></div>`);
   $("#csv-in").onchange = e => { const f = e.target.files[0]; if (!f) return; const r = new FileReader();
@@ -290,10 +293,13 @@ function renderUpload() {
     const dropped = c.rows.length - rows.length;
     let task = c.task; const yNum = c.types[ti] === "num";
     if (task === "auto") { const u = new Set(rows.map(r => r[ti])); task = !yNum || (u.size <= 10 && [...u].every(v => Number.isInteger(v))) ? "classification" : "regression"; }
+    if (rows.length < MIN_ROWS) { $("#csv-err").textContent = t("contract").fewRows(rows.length); return; }
     if (task === "regression" && !yNum) { $("#csv-err").textContent = S.lang === "es" ? "Para regresión la columna a predecir debe ser numérica." : "For regression the target column must be numeric."; return; }
     let classes = null, y;
     if (task === "classification") { const labs = [...new Set(rows.map(r => String(r[ti])))].sort((a, b) => yNum ? a - b : a.localeCompare(b));
       if (labs.length > 12) { $("#csv-err").textContent = S.lang === "es" ? "Demasiadas clases (máximo 12)." : "Too many classes (max 12)."; return; }
+      const small = labs.filter(l => rows.filter(r => String(r[ti]) === l).length < MIN_PER_CLASS);
+      if (small.length) { $("#csv-err").textContent = t("contract").smallClass(small, MIN_PER_CLASS); return; }
       classes = labs.map(l => ({ es: l, en: l })); y = rows.map(r => labs.indexOf(String(r[ti]))); }
     else y = rows.map(r => r[ti]);
     const features = fidx.map(j => { const vals = rows.map(r => r[j]).filter(v => v !== null);
