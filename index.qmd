@@ -24,6 +24,7 @@ listing:
     categories: false
     filter-ui: true
     sort-ui: false
+    page-size: 3
 ---
 
 ## Clases
