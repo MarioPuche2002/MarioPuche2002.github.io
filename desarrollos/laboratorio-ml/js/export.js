@@ -10,7 +10,7 @@ window.Exporter = (function () {
   /* ------------------------ literales de Python ------------------------ */
   const py = v => v === null || v === undefined || v === "none" || v === "all" ? "None" : v === true ? "True" : v === false ? "False" : typeof v === "number" ? String(v) : JSON.stringify(v);
 
-  function estimator(model, task, P, seed) {
+  function estimator(model, task, P, seed, nK) {
     const cls = task === "classification", imp = new Set();
     const cw = cls && P.class_weight === "balanced" ? `, class_weight="balanced"` : "";
     let code;
@@ -36,6 +36,7 @@ window.Exporter = (function () {
       case "rf": {
         const n = cls ? "RandomForestClassifier" : "RandomForestRegressor"; imp.add(`from sklearn.ensemble import ${n}`);
         code = `${n}(n_estimators=${P.n_estimators}, ${cls ? `criterion="${P.criterion}", ` : ""}max_depth=${py(P.max_depth)}, min_samples_split=${P.min_samples_split}, min_samples_leaf=${P.min_samples_leaf},\n        max_features=${py(P.max_features)}, bootstrap=${py(P.bootstrap)}${cw}, random_state=${seed})`; break; }
+      case "nb": { imp.add("from sklearn.naive_bayes import GaussianNB"); code = P.priors === "balanced" ? `GaussianNB(priors=[1 / ${nK || 2}] * ${nK || 2})` : "GaussianNB()"; break; }
       case "gb": {
         const n = cls ? "GradientBoostingClassifier" : "GradientBoostingRegressor"; imp.add(`from sklearn.ensemble import ${n}`);
         code = `${n}(${cls ? "" : `loss="${P.loss}", `}n_estimators=${P.n_estimators}, learning_rate=${P.learning_rate}, max_depth=${P.max_depth},\n        subsample=${P.subsample}, min_samples_leaf=${P.min_samples_leaf}, max_features=${py(P.max_features)}, random_state=${seed})`; break; }
@@ -49,7 +50,7 @@ window.Exporter = (function () {
     const { ds, cfg, lang } = ctx, es = lang === "es", cls = ds.task === "classification";
     const cols = cfg.fsel.map(j => ds.features[j]);
     const num = cols.filter(f => f.type === "num").map(f => f.key), cat = cols.filter(f => f.type === "cat").map(f => f.key);
-    const est = estimator(cfg.model, ds.task, cfg.params, cfg.seed), sc = cfg.scale || "standard";
+    const est = estimator(cfg.model, ds.task, cfg.params, cfg.seed, ds.classes ? ds.classes.length : 0), sc = cfg.scale || "standard";
     const scalerCode = sc === "standard" ? "StandardScaler()" : sc === "minmax" ? "MinMaxScaler()" : null;
     const imputerCode = cfg.impute.num === "knn" ? `KNNImputer(n_neighbors=${cfg.impute.k})` : `SimpleImputer(strategy="${cfg.impute.num}")`;
     const numImp = scalerCode ? `make_pipeline(${scalerCode}, ${imputerCode})` : imputerCode;

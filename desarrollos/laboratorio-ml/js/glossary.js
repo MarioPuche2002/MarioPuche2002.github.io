@@ -131,6 +131,11 @@ window.GLOSSARY = {
     "d": "Árboles en fila: cada uno corrige los errores de los anteriores. Es la idea detrás de XGBoost."
    },
    {
+    "c": "model",
+    "t": "Naive Bayes",
+    "d": "Mira cada feature por separado y se pregunta qué tan común es ese valor en cada clase; luego combina las pistas con probabilidades. Es «ingenuo» porque supone que las features no se relacionan entre sí."
+   },
+   {
     "c": "cls",
     "t": "Matriz de confusión",
     "d": "Tabla que compara la clase real con la predicha. VP y VN son aciertos; FP y FN son errores."
@@ -344,6 +349,11 @@ window.GLOSSARY = {
     "c": "model",
     "t": "Gradient Boosting",
     "d": "Trees in a row: each one corrects the errors of the previous ones. It is the idea behind XGBoost."
+   },
+   {
+    "c": "model",
+    "t": "Naive Bayes",
+    "d": "Looks at each feature separately and asks how common that value is in each class; then it combines the clues with probabilities. It is «naive» because it assumes the features are unrelated to each other."
    },
    {
     "c": "cls",

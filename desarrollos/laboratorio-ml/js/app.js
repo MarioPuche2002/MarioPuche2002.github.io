@@ -11,7 +11,7 @@ const MISSING_TOKENS = new Set(["", "na", "n/a", "nan", "null", "none", "?", "-"
 const HP = {
   logreg: [{ k: "C", opts: [0.001, 0.01, 0.1, 1, 10, 100, 1000], def: 1, main: 1 },
            { k: "penalty", opts: ["l2", "l1", "none"], def: "l2", main: 1 },
-           { k: "class_weight", opts: ["none", "balanced"], def: "none" },
+           { k: "class_weight", opts: ["none", "balanced"], def: "none", main: 1 },
            { k: "max_iter", opts: [100, 300, 500, 1000], def: 300 }],
   linreg: [{ k: "degree", opts: [1, 2, 3, 4, 5, 6], def: 1, main: 1 },
            { k: "regularization", opts: ["none", "ridge", "lasso"], def: "none", main: 1 },
@@ -21,13 +21,13 @@ const HP = {
         { k: "gamma", opts: ["scale", 0.01, 0.1, 0.5, 1, 5, 10], def: "scale", main: 1, show: p => p.kernel !== "linear" },
         { k: "degree", opts: [2, 3, 4, 5], def: 3, show: p => p.kernel === "poly" },
         { k: "epsilon", opts: [0.01, 0.05, 0.1, 0.2, 0.5, 1], def: 0.1, only: "regression" },
-        { k: "class_weight", opts: ["none", "balanced"], def: "none", only: "classification" }],
+        { k: "class_weight", opts: ["none", "balanced"], def: "none", only: "classification", main: 1 }],
   tree: [{ k: "max_depth", opts: [1, 2, 3, 4, 5, 6, 8, 10, 15, "none"], def: 4, main: 1 },
          { k: "min_samples_leaf", opts: [1, 2, 5, 10, 20, 50], def: 1, main: 1 },
          { k: "criterion", opts: ["gini", "entropy"], def: "gini", only: "classification" },
          { k: "min_samples_split", opts: [2, 5, 10, 20, 50], def: 2 },
          { k: "max_features", opts: ["all", "sqrt", "log2", 0.5], def: "all" },
-         { k: "class_weight", opts: ["none", "balanced"], def: "none", only: "classification" }],
+         { k: "class_weight", opts: ["none", "balanced"], def: "none", only: "classification", main: 1 }],
   rf: [{ k: "n_estimators", opts: [10, 25, 50, 100, 200, 300], def: 100, main: 1 },
        { k: "max_depth", opts: [2, 3, 4, 5, 6, 8, 10, 15, "none"], def: "none", main: 1 },
        { k: "max_features", opts: ["sqrt", "log2", 0.5, "all"], def: t => t === "classification" ? "sqrt" : "all" },
@@ -35,7 +35,8 @@ const HP = {
        { k: "min_samples_split", opts: [2, 5, 10, 20], def: 2 },
        { k: "bootstrap", opts: [true, false], def: true },
        { k: "criterion", opts: ["gini", "entropy"], def: "gini", only: "classification" },
-       { k: "class_weight", opts: ["none", "balanced"], def: "none", only: "classification" }],
+       { k: "class_weight", opts: ["none", "balanced"], def: "none", only: "classification", main: 1 }],
+  nb: [{ k: "priors", opts: ["data", "balanced"], def: "data", main: 1 }],
   gb: [{ k: "n_estimators", opts: [10, 25, 50, 100, 200, 300, 500], def: 100, main: 1 },
        { k: "learning_rate", opts: [0.01, 0.05, 0.1, 0.2, 0.5, 1], def: 0.1, main: 1 },
        { k: "max_depth", opts: [1, 2, 3, 4, 5, 6], def: 3, main: 1 },
@@ -44,10 +45,10 @@ const HP = {
        { k: "max_features", opts: ["all", "sqrt", "log2"], def: "all" },
        { k: "loss", opts: ["squared_error", "absolute_error"], def: "squared_error", only: "regression" }]
 };
-const MODELS = { classification: ["logreg", "svm", "tree", "rf", "gb"], regression: ["linreg", "svm", "tree", "rf", "gb"] };
+const MODELS = { classification: ["logreg", "nb", "svm", "tree", "rf"], regression: ["linreg", "svm", "tree", "rf"] }; // Gradient Boosting se retiró de la lista
 
 /* --------------------------------- estado ---------------------------------- */
-const S = { step: 1, tab: "summary", lang: "es", ds: null, practice: 0, dirty: 0, schemas: {}, addLabel: null, impute: { num: "median", k: 5 }, model: null, params: {}, fsel: [], valSize: 0.2, testSize: 0.2, seed: 7, evalSet: "val", showImputed: false, scale: "standard", dataView: "orig",
+const S = { how: { stage: null, sel: null, timer: null, model: null }, step: 1, tab: "summary", lang: "es", ds: null, practice: 0, dirty: 0, schemas: {}, addLabel: null, impute: { num: "median", k: 5 }, model: null, params: {}, fsel: [], valSize: 0.2, testSize: 0.2, seed: 7, evalSet: "val", showImputed: false, scale: "standard", dataView: "orig",
   run: null, stale: false, tab: "data", ex: 0, ey: 1, vx: null, vy: null, resX: -1, treeIndex: 0, play: [], history: {}, csv: null, exportTab: "py" };
 try { const l = localStorage.getItem("ml-lab-lang"); if (l === "en" || l === "es") S.lang = l; } catch (e) {}
 
@@ -320,7 +321,7 @@ function optLabel(k, v) {
   if (k === "max_features" && v === 0.5) return o.half;
   if (typeof v === "boolean") return v ? o.yes : o.no;
   if (v === "l1" || v === "l2") return v.toUpperCase();
-  if (k === "class_weight" && v === "none") return "None";
+  if ((k === "class_weight" || k === "priors") && v !== "balanced") return o.balNo; if ((k === "class_weight" || k === "priors") && v === "balanced") return o.balYes;
   if (typeof v === "string" && o[v]) return o[v];
   return typeof v === "number" ? fmt(v, 4) : String(v);
 }
@@ -409,6 +410,7 @@ async function trainNow() {
     run.imp = imp;
     if (model.importances) { const agg = new Array(cfg.fsel.length).fill(0); P.encoded.forEach((e, i) => agg[e.src] += model.importances[i] || 0); run.native = agg; }
     if (model.coef && model.coef.length === 1) run.coef = model.coef[0];
+    howStop(); S.how = { stage: null, sel: null, timer: null, model: null };
     S.run = run; S.stale = false; S.evalSet = sets.val ? "val" : "test";
     S.play = cfg.fsel.map(j => { const st = colStats(j); return ds.features[j].type === "cat" ? st.mode : st.median; });
     S.treeIndex = 0;
@@ -483,8 +485,179 @@ function predictNow() {
 }
 
 /* ================================ 4. ANÁLISIS =============================== */
+/* ---- ¿Cómo decide? Explicación visual del modelo con 2 features (clasificación) o 1 feature (regresión) ---- */
+const sigm = z => 1 / (1 + Math.exp(-z)), smax = z => { const m = Math.max(...z), e = z.map(v => Math.exp(v - m)), s = e.reduce((a, b) => a + b, 0); return e.map(v => v / s); };
+function treeNodeAt(tree, x, d) { let n = tree.nodes[0], k = 0; while (!n.leaf && k < d) { n = tree.nodes[x[n.feature] <= n.threshold ? n.left : n.right]; k++; } return n; }
+function treePath(tree, x, d) { const out = []; let n = tree.nodes[0], k = 0; while (!n.leaf && k < d) { const go = x[n.feature] <= n.threshold; out.push({ n, go }); n = tree.nodes[go ? n.left : n.right]; k++; } return { steps: out, end: n }; }
+function gbOut(m, X, n) { // salida de Gradient Boosting usando solo los primeros n árboles
+  const nOut = m.K === 2 ? 1 : m.K;
+  return X.map(x => { const f = m.init.slice(0, nOut); for (let s = 0; s < n; s++) for (let k = 0; k < nOut; k++) f[k] += m.lr * m.stages[s][k].predictRow(x);
+    if (m.task === "regression") return f[0]; return m.K === 2 ? [1 - sigm(f[0]), sigm(f[0])] : smax(f); });
+}
+function gbStages(M) { const s = [0, 1, 2, 3, 5, 10, 20, 50, 100, 200, 300].filter(v => v < M); s.push(M); return s; }
+function howModel(R) { // modelo de 2 features (clasificación) o 1 feature (regresión) con la misma configuración
+  const ds = S.ds, cls = isCls(), nums = R.cfg.fsel.filter(j => ds.features[j].type === "num");
+  if (cls && nums.length < 2) return { err: t("how").need2 }; if (!cls && !nums.length) return { err: t("how").need1 };
+  if (!nums.includes(S.vx)) S.vx = nums[0];
+  if (cls && (!nums.includes(S.vy) || S.vy === S.vx)) S.vy = nums.find(j => j !== S.vx);
+  const feats = cls ? [S.vx, S.vy] : [S.vx], key = "how|" + feats.join(",");
+  if (R.viz[key]) return R.viz[key];
+  const raw = rawRows(), rows = raw.map(r => feats.map(j => r[j])), tr = R.sets.train.idx;
+  const P2 = Prep.fit(ML.take(rows, tr), feats.map(() => ({ type: "num" })), prepOpts(R.cfg));
+  const X = P2.transform(rows), imp = P2.impute(rows), Xtr = ML.take(X, tr), ytr = ML.take(ds.y, tr);
+  const m = makeModel(R.cfg, R.k); m.fit(Xtr, ytr);
+  const V = { feats, P2, X, imp, m, tr, ytr, Xtr, nums, model: R.cfg.model, cache: {} };
+  if (cls) {
+    const G = 56, xr = C.extent(imp.map(r => r[0]), 0.06), yr = C.extent(imp.map(r => r[1]), 0.06), grid = [];
+    for (let iy = 0; iy < G; iy++) for (let ix = 0; ix < G; ix++) grid.push([xr[0] + (xr[1] - xr[0]) * ix / (G - 1), yr[0] + (yr[1] - yr[0]) * iy / (G - 1)]);
+    Object.assign(V, { G, xr, yr, grid, gridX: P2.transform(grid) });
+  } else {
+    const xr = C.extent(imp.map(r => r[0]), 0.03), xs = Array.from({ length: 160 }, (_, i) => xr[0] + (xr[1] - xr[0]) * i / 159);
+    Object.assign(V, { xr, xs, xsX: P2.transform(xs.map(v => [v])) });
+  }
+  // etapas del aprendizaje
+  const mo = R.cfg.model;
+  if (mo === "tree") { const D = m.depth(); V.stages = ML.range(D + 1); V.stageLab = s => t("how").depthN(s); }
+  else if (mo === "gb") { V.stages = gbStages(m.stages.length); V.stageLab = s => t("how").treesN(s); }
+  else if (mo === "rf") { V.stages = cls ? ML.range(7) : [1, 2, 3, 5, 10, 20, 50, 100, 200, 300].filter(v => v <= m.trees.length); V.stageLab = s => t("how").treesN(s); }
+  else if (mo === "logreg") { V.stages = [1, 2, 4, 8, 16, 32, 64, R.cfg.params.max_iter || 500].filter((v, i, a) => a.indexOf(v) === i && v <= (R.cfg.params.max_iter || 500)); V.stageLab = s => t("how").itersN(s); }
+  else if (mo === "linreg") { V.stages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; V.stageLab = s => t("how").pctN(s * 10); }
+  else { V.stages = [0]; V.stageLab = () => ""; }
+  if (mo === "svm") { // la SVM se libera: se guardan sus predicciones
+    if (cls) { const g = predictSet(m, V.gridX), pts = predictSet(m, X); V.svm = { cls: g.pred, conf: g.proba.map(q => Math.max(...q)), proba: pts.proba };
+      try { V.sv = new Set(m.m.getSVIndices().map(i => tr[i])); } catch (e) { V.sv = null; } }
+    else V.svm = { curve: m.predict(V.xsX), pts: m.predict(X) };
+    m.free && m.free();
+  }
+  if (S.how.sel === null || S.how.sel >= ds.y.length) S.how.sel = R.sets.test.idx[0];
+  return R.viz[key] = V;
+}
+// predicciones (clasificación) en la rejilla y en un punto, para una etapa
+function howCls(V, s) {
+  const c = V.cache[s]; if (c) return c; const m = V.m, mo = V.model; let gp;
+  if (mo === "tree") gp = V.gridX.map(x => treeNodeAt(m, x, s).value);
+  else if (mo === "gb") gp = gbOut(m, V.gridX, s);
+  else if (mo === "logreg") { let mm = V.lr && V.lr[s]; if (!mm) { const cfg = S.run.cfg; mm = makeModel(Object.assign({}, cfg, { params: Object.assign({}, cfg.params, { max_iter: s }) }), S.run.k).fit(V.Xtr, V.ytr); (V.lr = V.lr || {})[s] = mm; } gp = mm.predictProba(V.gridX); }
+  else if (mo === "rf" || mo === "nb") gp = m.predictProba(V.gridX);
+  else return V.cache[s] = { cls: V.svm.cls, conf: V.svm.conf };
+  return V.cache[s] = { cls: gp.map(q => q.indexOf(Math.max(...q))), conf: gp.map(q => Math.max(...q)) };
+}
+function howProba(V, s, i) { const m = V.m, mo = V.model, x = V.X[i];
+  if (mo === "tree") return treeNodeAt(m, x, s).value; if (mo === "gb") return gbOut(m, [x], s)[0];
+  if (mo === "logreg") { howCls(V, s); return V.lr[s].predictProba([x])[0]; } if (mo === "rf" || mo === "nb") return m.predictProba([x])[0]; return V.svm.proba[i]; }
+function howReg(V, s, X) { const m = V.m, mo = V.model;
+  if (mo === "tree") return X.map(x => treeNodeAt(m, x, s).value);
+  if (mo === "gb") return gbOut(m, X, s);
+  if (mo === "rf") return X.map(x => ML.mean(m.trees.slice(0, s).map(tr => tr.predictRow(x))));
+  if (mo === "linreg") { const mu = ML.mean(V.ytr), f = m.predict(X); return f.map(v => mu + (v - mu) * s / 10); }
+  return X === V.X ? V.svm.pts : V.svm.curve;
+}
+const unX = (V, j, z) => z * V.P2.s[j] + V.P2.c[j]; // umbral en unidades originales
+function regionSVG(F, G, cls, conf, k, fade) {
+  const img = C.gridImage(G, (ix, iy) => { const i = iy * G + ix, c = C.hex(C.color(cls[i])), a = (0.14 + 0.42 * Math.max(0, Math.min(1, (conf[i] - 1 / k) / (1 - 1 / k)))) * (fade || 1); return c.map(x => Math.round(255 + (x - 255) * a)); });
+  let s = `<image href="${img}" x="${F.m.l}" y="${F.m.t}" width="${F.W}" height="${F.H}" preserveAspectRatio="none"/>`, dd = ""; const cw = F.W / G, ch = F.H / G;
+  for (let iy = 0; iy < G; iy++) for (let ix = 0; ix < G; ix++) { const c = cls[iy * G + ix], x1 = F.m.l + (ix + 1) * cw, yTop = F.m.t + F.H - (iy + 1) * ch;
+    if (ix < G - 1 && cls[iy * G + ix + 1] !== c) dd += `M${x1.toFixed(1)},${yTop.toFixed(1)}v${ch.toFixed(1)}`;
+    if (iy < G - 1 && cls[(iy + 1) * G + ix] !== c) dd += `M${(x1 - cw).toFixed(1)},${yTop.toFixed(1)}h${cw.toFixed(1)}`; }
+  return s + `<path d="${dd}" fill="none" stroke="#3C4043" stroke-width="2" stroke-linecap="square"/>`;
+}
+function gauge(p) { return `<div class="how-gauge">${p.map((q, c) => q > 0.005 ? `<span style="width:${(q * 100).toFixed(1)}%;background:${C.color(c)}" title="${E(cName(c))}">${q >= 0.12 ? Math.round(q * 100) + "%" : ""}</span>` : "").join("")}</div>`; }
+function treeSVG(V, tree, x, stage, isReg) { // árbol visible hasta 3 niveles, con el camino del punto resaltado
+  const D = Math.min(stage, 3), path = new Set(), H = t("how"); let n = tree.nodes[0], k = 0; path.add(n.id);
+  while (!n.leaf && k < stage) { n = tree.nodes[x[n.feature] <= n.threshold ? n.left : n.right]; path.add(n.id); k++; }
+  const pos = {}; let leaf = 0;
+  (function lay(id, d) { const nd = tree.nodes[id]; if (nd.leaf || d >= D) { pos[id] = { x: leaf++, d, end: true }; return pos[id].x; }
+    const a = lay(nd.left, d + 1), b = lay(nd.right, d + 1); pos[id] = { x: (a + b) / 2, d }; return pos[id].x; })(0, 0);
+  const W = Math.max(leaf, 1) * 170, Hh = (D + 1) * 74 + 10, px = v => 85 + v * 170, py = d => 26 + d * 74; let s = "";
+  Object.keys(pos).forEach(id => { const nd = tree.nodes[id], p = pos[id]; if (p.end) return;
+    [[nd.left, H.yes], [nd.right, H.no]].forEach(([c, lab]) => { const on = path.has(+id) && path.has(c);
+      s += `<line x1="${px(p.x)}" y1="${py(p.d) + 18}" x2="${px(pos[c].x)}" y2="${py(pos[c].d) - 16}" stroke="${on ? "#1B1F24" : "#C9CDD2"}" stroke-width="${on ? 3 : 1.4}"/><text x="${(px(p.x) + px(pos[c].x)) / 2 + (c === nd.left ? -10 : 10)}" y="${(py(p.d) + py(pos[c].d)) / 2 + 4}" font-size="12" text-anchor="middle" fill="#67707B">${lab}</text>`; }); });
+  Object.keys(pos).forEach(id => { const nd = tree.nodes[id], p = pos[id], on = path.has(+id), x0 = px(p.x), y0 = py(p.d);
+    if (p.end) { const lab = isReg ? fmt(nd.value, 1) : cName(nd.value.indexOf(Math.max(...nd.value))), col = isReg ? "#5C6670" : C.color(nd.value.indexOf(Math.max(...nd.value)));
+      s += `<rect x="${x0 - 56}" y="${y0 - 16}" width="112" height="32" rx="8" fill="${col}" fill-opacity="${on ? 0.95 : 0.28}" stroke="${on ? "#1B1F24" : "none"}" stroke-width="2"/><text x="${x0}" y="${y0 + 5}" font-size="13" text-anchor="middle" fill="${on ? "#fff" : "#1B1F24"}">${E(lab)}${!nd.leaf ? " …" : ""}</text>`; }
+    else { const q = `${fName(V.feats[nd.feature])} ≤ ${fmt(unX(V, nd.feature, nd.threshold), 1)}`;
+      s += `<rect x="${x0 - 80}" y="${y0 - 18}" width="160" height="36" rx="8" fill="#fff" stroke="${on ? "#1B1F24" : "#C9CDD2"}" stroke-width="${on ? 2.5 : 1.2}"/><text x="${x0}" y="${y0 + 5}" font-size="12" text-anchor="middle" fill="#1B1F24">${E(q.length > 27 ? q.slice(0, 26) + "…" : q)}</text>`; } });
+  return `<svg viewBox="0 0 ${W} ${Hh}" style="width:${Math.min(W, 680)}px;max-width:100%;height:auto">${s}</svg>`;
+}
+function bellSVG(V, j, sel) { // campanas de Naive Bayes de la feature j, en unidades originales
+  const m = V.m, K = m.K, sc = V.P2.s[j], c0 = V.P2.c[j], xr = j === 0 ? V.xr : V.yr, xs = Array.from({ length: 120 }, (_, i) => xr[0] + (xr[1] - xr[0]) * i / 119);
+  const dens = (k, x) => { const mu = m.theta[k][j] * sc + c0, sd = Math.sqrt(m.var[k][j]) * sc; return Math.exp(-0.5 * ((x - mu) / sd) ** 2) / (sd * Math.sqrt(2 * Math.PI)); };
+  const ys = ML.range(K).map(k => xs.map(x => dens(k, x))), top = Math.max(...ys.flat()) * 1.08, F = C.frame({ w: 430, h: 240, x: xr, y: [0, top], xl: fLabel(V.feats[j]), yl: "" });
+  let s = F.bg + F.axes(); ys.forEach((y, k) => s += `<polyline fill="${C.color(k)}" fill-opacity=".12" stroke="${C.color(k)}" stroke-width="2.5" points="${F.sx(xs[0])},${F.sy(0)} ${xs.map((x, i) => `${F.sx(x)},${F.sy(y[i])}`).join(" ")} ${F.sx(xs[119])},${F.sy(0)}"/>`);
+  const v = V.imp[sel][j]; s += `<line x1="${F.sx(v)}" x2="${F.sx(v)}" y1="${F.sy(0)}" y2="${F.sy(top)}" stroke="#1B1F24" stroke-width="2.5"/>`;
+  ML.range(K).forEach(k => s += `<circle cx="${F.sx(v)}" cy="${F.sy(dens(k, v))}" r="5" fill="${C.color(k)}" stroke="#fff" stroke-width="1.5"/>`);
+  return `<div class="chart">${F.wrap(s)}</div>`;
+}
+function pHow(el) {
+  const R = S.run, ds = S.ds, cls = isCls(), H = t("how"), V = howModel(R);
+  if (V.err) { el.innerHTML = `<p class="placeholder">${V.err}</p>`; return; }
+  const mo = V.model, last = V.stages.length - 1; if (S.how.stage == null || S.how.stage > last || S.how.model !== mo) { S.how.stage = last; S.how.model = mo; }
+  const st = V.stages[S.how.stage], sel = S.how.sel, test = new Set(R.sets.test.idx);
+  const opt = cur => V.nums.map(j => `<option value="${j}" ${j === cur ? "selected" : ""}>${E(fName(j))}</option>`).join("");
+  let h = tip(H.intro[mo]) + `<div class="row-inline"><label>${t("axisX")}</label><select id="hx">${opt(S.vx)}</select>${cls ? `<label>${t("axisY")}</label><select id="hy">${opt(S.vy)}</select>` : ""}<span class="help" style="margin:0">${H.twoNote(cls ? 2 : 1)}</span></div>`;
+  if (V.stages.length > 1) h += `<div class="how-play"><button class="btn primary sm" id="how-play">${S.how.timer ? H.pause : H.play}</button><input type="range" id="how-st" min="0" max="${last}" step="1" value="${S.how.stage}"><b>${V.stageLab(st)}</b></div>`;
+  let cap = "";
+  if (cls) {
+    const F = C.frame({ w: 680, h: 440, x: V.xr, y: V.yr, xl: fLabel(V.feats[0]), yl: fLabel(V.feats[1]) });
+    let s = "";
+    if (mo === "rf") { // mapas pequeños: un árbol cada uno
+      const n = st, mini = []; const p = sel !== null ? V.X[sel] : null, votes = new Array(R.k).fill(0);
+      for (let i = 0; i < 6; i++) { const tree = V.m.trees[i], key = "rf" + i; if (!V.cache[key]) { const gp = V.gridX.map(x => tree.predictRow(x)); V.cache[key] = { cls: gp.map(q => q.indexOf(Math.max(...q))), conf: gp.map(q => Math.max(...q)) }; }
+        const on = i < n, F2 = C.frame({ w: 224, h: 170, x: V.xr, y: V.yr, m: { l: 8, r: 8, t: 8, b: 8 } }), vote = p ? tree.predictRow(p) : null, vc = vote ? vote.indexOf(Math.max(...vote)) : 0; if (on && p) votes[vc]++;
+        let s2 = regionSVG(F2, V.G, V.cache[key].cls, V.cache[key].conf, R.k, on ? 1 : 0.35) + `<rect x="8" y="8" width="${F2.W}" height="${F2.H}" fill="none" stroke="#C9CDD2"/>`;
+        if (p) s2 += `<circle cx="${F2.sx(V.imp[sel][0])}" cy="${F2.sy(V.imp[sel][1])}" r="7" fill="${C.color(ds.y[sel])}" stroke="#1B1F24" stroke-width="2.5"/>`;
+        mini.push(`<div class="how-mini ${on ? "" : "off"}">${F2.wrap(s2)}<div>${H.treeI(i + 1)}: ${on && p ? `<b style="color:${C.color(vc)}">${E(cName(vc))}</b>` : "…"}</div></div>`); }
+      h += `<div class="how-grid">${mini.join("")}</div>`;
+      const all = p ? V.m.predictProba([p])[0] : null;
+      if (p) h += `<p>${H.votes6(votes.map((v, c) => `${E(cName(c))} ${v}`).join(" · "))}</p><p>${H.forestAll(V.m.trees.length)}</p>${gauge(all)}`;
+      cap = H.capRf(sel !== null ? E(cName(ds.y[sel])) : "");
+      h += `<div class="actions" style="margin:6px 0 0"><button class="btn outline sm" id="how-next">${H.next}</button></div>`;
+      el.innerHTML = h + `<p class="how-cap">${cap}</p>` + C.legend(ds.classes.map((c, i) => [C.color(i), c[S.lang]]));
+    } else {
+      const g = howCls(V, st); s += regionSVG(F, V.G, g.cls, g.conf, R.k) + F.axes();
+      V.imp.forEach((p, i) => { const on = i === sel, sv = V.sv && V.sv.has(i);
+        if (sv) s += `<circle cx="${F.sx(p[0])}" cy="${F.sy(p[1])}" r="8.5" fill="none" stroke="#1B1F24" stroke-width="1.4"/>`;
+        s += `<circle data-p="${i}" cx="${F.sx(p[0])}" cy="${F.sy(p[1])}" r="${on ? 8 : 4.2}" fill="${C.color(ds.y[i])}" stroke="${on ? "#1B1F24" : "#fff"}" stroke-width="${on ? 3 : 1}" style="cursor:pointer" opacity="${sel !== null && !on ? 0.8 : 1}"><title>${E(cName(ds.y[i]))}</title></circle>`; });
+      let side = "";
+      if (sel !== null) { const pr = howProba(V, st, sel), k = pr.indexOf(Math.max(...pr)), ok = k === ds.y[sel];
+        side = `<div class="how-side"><b>${H.thisPoint}</b><p class="help">${E(fName(V.feats[0]))}: ${fmt(V.imp[sel][0], 1)} · ${E(fName(V.feats[1]))}: ${fmt(V.imp[sel][1], 1)}</p>${gauge(pr)}<p>${H.says(E(cName(k)), E(cName(ds.y[sel])), ok)}</p>`;
+        if (mo === "tree") { const tp = treePath(V.m, V.X[sel], st);
+          side += `<ol class="how-steps">${tp.steps.map(({ n, go }) => `<li>${H.q(E(fName(V.feats[n.feature])), fmt(unX(V, n.feature, n.threshold), 1), fmt(V.imp[sel][n.feature], 1), go)}</li>`).join("")}<li>${H.leaf(E(cName(tp.end.value.indexOf(Math.max(...tp.end.value)))))}</li></ol>`; }
+        side += `</div>`; }
+      h += `<div class="how-wrap"><div class="chart">${F.wrap(s)}</div>${side}</div>`;
+      if (mo === "tree") h += `<h4>${H.treeTitle}</h4><div class="chart how-tree">${treeSVG(V, V.m, sel !== null ? V.X[sel] : V.X[0], st, false)}</div>${st > 3 ? `<p class="help">${H.treeCut}</p>` : ""}`;
+      if (mo === "nb" && sel !== null) h += `<h4>${H.bellsTitle}</h4><p class="help">${H.bellHelp}</p><div class="how-bells">${[0, 1].map(j => bellSVG(V, j, sel)).join("")}</div>`;
+      cap = H.cap[mo](V.sv ? V.sv.size : 0);
+      el.innerHTML = h + C.legend(ds.classes.map((c, i) => [C.color(i), c[S.lang]])) + `<p class="help">${H.clickHint}${mo === "svm" && V.sv ? " · " + H.svLegend : ""}</p><p class="how-cap">${cap}</p>`;
+    }
+  } else {
+    const xs = V.xs, curve = howReg(V, st, V.xsX), ptsP = howReg(V, st, V.X), trS = new Set(V.tr);
+    const F = C.frame({ w: 680, h: 420, x: C.extent(xs, 0.02), y: C.extent(ds.y.concat(curve), 0.06), xl: fLabel(V.feats[0]), yl: tName() });
+    let s = F.bg + F.axes(), err = 0, nTr = 0;
+    V.imp.forEach((p, i) => { if (!trS.has(i)) return; const on = i === sel; err += Math.abs(ds.y[i] - ptsP[i]); nTr++;
+      s += `<line x1="${F.sx(p[0])}" x2="${F.sx(p[0])}" y1="${F.sy(ds.y[i])}" y2="${F.sy(ptsP[i])}" stroke="${on ? "#1B1F24" : "#D9A441"}" stroke-width="${on ? 3 : 1.2}" opacity="${on ? 1 : 0.7}"/>`; });
+    if (mo === "rf") V.m.trees.slice(0, Math.min(st, 4)).forEach(tr => s += `<polyline fill="none" stroke="#7B5EA7" stroke-opacity=".35" stroke-width="1.5" points="${xs.map((v, i) => `${F.sx(v)},${F.sy(tr.predictRow(V.xsX[i]))}`).join(" ")}"/>`);
+    s += `<polyline fill="none" stroke="#3B6FB6" stroke-width="3.5" points="${xs.map((v, i) => `${F.sx(v)},${F.sy(curve[i])}`).join(" ")}"/>`;
+    V.imp.forEach((p, i) => { if (!trS.has(i) && i !== sel) return; const on = i === sel;
+      s += `<circle data-p="${i}" cx="${F.sx(p[0])}" cy="${F.sy(ds.y[i])}" r="${on ? 7.5 : 4}" fill="#5C6670" fill-opacity="${on ? 1 : 0.55}" stroke="${on ? "#1B1F24" : "#fff"}" stroke-width="${on ? 3 : 0.8}" style="cursor:pointer"/>`; });
+    let side = `<div class="how-side"><b>${H.errTitle}</b><p class="how-big">${fmt(err / (nTr || 1), 1)}</p><p class="help">${H.errHelp}</p>`;
+    if (sel !== null) { side += `<div class="sep"></div><b>${H.thisPoint}</b><p class="help">${E(fName(V.feats[0]))}: ${fmt(V.imp[sel][0], 1)}</p><p>${H.regSays(fmt(ptsP[sel], 1), fmt(ds.y[sel], 1), fmt(Math.abs(ds.y[sel] - ptsP[sel]), 1))}</p>`;
+      if (mo === "tree") { const tp = treePath(V.m, V.X[sel], st); side += `<ol class="how-steps">${tp.steps.map(({ n, go }) => `<li>${H.q(E(fName(V.feats[n.feature])), fmt(unX(V, n.feature, n.threshold), 1), fmt(V.imp[sel][n.feature], 1), go)}</li>`).join("")}<li>${H.leafReg(fmt(tp.end.value, 1))}</li></ol>`; } }
+    side += `</div>`;
+    h += `<div class="how-wrap"><div class="chart">${F.wrap(s)}</div>${side}</div>` + C.legend([["#5C6670", t("realData")], ["#3B6FB6", t("modelLine")], ["#D9A441", H.errLine]].concat(mo === "rf" ? [["#7B5EA7", H.someTrees]] : []));
+    if (mo === "tree") h += `<h4>${H.treeTitle}</h4><div class="chart how-tree">${treeSVG(V, V.m, sel !== null ? V.X[sel] : V.X[0], st, true)}</div>${st > 3 ? `<p class="help">${H.treeCut}</p>` : ""}`;
+    el.innerHTML = h + `<p class="help">${H.clickHintReg}</p><p class="how-cap">${H.capReg[mo]}</p>`;
+  }
+  el.querySelectorAll("[data-p]").forEach(c => c.onclick = () => { S.how.sel = +c.dataset.p; pHow(el); });
+  const nx = $("#how-next"); if (nx) nx.onclick = () => { const te = R.sets.test.idx; S.how.sel = te[(te.indexOf(S.how.sel) + 1) % te.length]; pHow(el); };
+  const hx = $("#hx"), hy = $("#hy"); if (hx) hx.onchange = e => { S.vx = +e.target.value; howStop(); pHow(el); }; if (hy) hy.onchange = e => { S.vy = +e.target.value; howStop(); pHow(el); };
+  const rg = $("#how-st"); if (rg) rg.oninput = e => { howStop(); S.how.stage = +e.target.value; pHow(el); };
+  const pb = $("#how-play"); if (pb) pb.onclick = () => { if (S.how.timer) { howStop(); pHow(el); return; }
+    S.how.stage = 0; S.how.timer = setInterval(() => { if (S.tab !== "how" || S.step !== 4 || !document.body.contains(el)) { howStop(); return; } if (S.how.stage >= last) { howStop(); pHow(el); return; } S.how.stage++; pHow(el); }, 900); pHow(el); };
+}
+function howStop() { if (S.how.timer) { clearInterval(S.how.timer); S.how.timer = null; } }
 function tabsFor() {
-  const tb = ["summary"];
+  const tb = ["summary", "how"];
   if (isCls()) tb.push("conf", "roc"); else tb.push("pa", "res");
   tb.push("tree", "imp", "hist"); return tb;
 }
@@ -502,7 +675,7 @@ function renderAnalysis() {
   $("#tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { S.tab = b.dataset.t; renderAnalysis(); });
   el.innerHTML = "";
   if (S.tab !== "hist" && !S.run) { el.innerHTML = `<p class="placeholder">${t("needTrain")}</p><div class="actions" style="justify-content:center"><button class="btn primary" id="go3">${t("goTrain")}</button></div>`; $("#go3").onclick = () => goStep(3); return; }
-  ({ summary: pSummary, conf: pConf, roc: pRoc, pa: pPA, res: pRes, tree: pTree, imp: pImp, hist: pHist })[S.tab](el);
+  ({ summary: pSummary, how: pHow, conf: pConf, roc: pRoc, pa: pPA, res: pRes, tree: pTree, imp: pImp, hist: pHist })[S.tab](el);
 }
 function renderWelcome(el) {
   el.innerHTML = `<div class="welcome"><h3>${t("wTitle")}</h3><p class="lead">${t("wLead")}</p><ol class="how">${[1, 2, 3, 4].map(n => `<li>${t("wStep" + n)}</li>`).join("")}</ol>${factsHTML("facts-w")}</div>`;
@@ -784,7 +957,7 @@ function pRes(el) {
 /* ---- Árbol ---- */
 function pTree(el) {
   const R = S.run, m = R.model, name = R.cfg.model, cls = isCls();
-  if (!["tree", "rf", "gb"].includes(name)) { el.innerHTML = `<p class="placeholder">${t("treeNA")}</p>`; return; }
+  if (!["tree", "rf"].includes(name)) { el.innerHTML = `<p class="placeholder">${t("treeNA")}</p>`; return; }
   let tree, kind = "single", count = 1;
   if (name === "tree") tree = m;
   else if (name === "rf") { kind = "forest"; count = m.trees.length; tree = m.trees[S.treeIndex % count]; }

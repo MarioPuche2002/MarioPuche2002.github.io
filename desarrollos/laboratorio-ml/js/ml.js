@@ -323,6 +323,25 @@
     predict(X0) { const P = polyExpand(X0, this.deg), X = this.sc ? this.sc.transform(P) : P; return X.map(x => this.b + x.reduce((s, v, j) => s + v * this.w[j], 0)); }
   }
 
+  /* --------------------------- Naive Bayes (gaussiano) ------------------ */
+  class GaussianNB { // como sklearn.naive_bayes.GaussianNB
+    constructor(o = {}) { this.o = o; }
+    fit(X, y) {
+      const K = this.o.nClasses, d = X[0].length, n = X.length;
+      const allVar = range(d).map(j => { const m = mean(X.map(x => x[j])); return mean(X.map(x => (x[j] - m) ** 2)); });
+      const eps = (this.o.var_smoothing ?? 1e-9) * Math.max(...allVar, 0);
+      this.theta = []; this.var = []; const cnt = new Array(K).fill(0); y.forEach(v => cnt[v]++);
+      for (let k = 0; k < K; k++) { const rows = X.filter((_, i) => y[i] === k);
+        this.theta.push(range(d).map(j => rows.length ? mean(rows.map(x => x[j])) : 0));
+        this.var.push(range(d).map((j, jj) => (rows.length ? mean(rows.map(x => (x[j] - this.theta[k][j]) ** 2)) : 1) + eps)); }
+      this.prior = this.o.priors === "balanced" ? new Array(K).fill(1 / K) : cnt.map(c => c / n); this.K = K; this.d = d;
+      return this;
+    }
+    logLik(x, k, j) { const v = this.var[k][j]; return -0.5 * Math.log(2 * Math.PI * v) - (x[j] - this.theta[k][j]) ** 2 / (2 * v); }
+    predictProba(X) { return X.map(x => softmaxRow(range(this.K).map(k => Math.log(Math.max(this.prior[k], 1e-12)) + range(this.d).reduce((s, j) => s + this.logLik(x, k, j), 0)))); }
+    predict(X) { return this.predictProba(X).map(argmax); }
+  }
+
   /* --------------------------------- SVM ------------------------------- */
   let LIBSVM = null;
   function setLibsvm(S) { LIBSVM = S; }
@@ -368,6 +387,7 @@
         return t; }
       case "rf": return new RandomForest(o);
       case "gb": return new GradientBoosting(o);
+      case "nb": return new GaussianNB(o);
     }
     throw new Error("modelo desconocido " + name);
   }
@@ -488,6 +508,6 @@
   }
   function project(P, X, k) { return X.map(r => P.comps.slice(0, k).map(c => c.reduce((s, v, j) => s + v * (r[j] - P.mean[j]), 0))); }
 
-  return { pca, project, split3, curves, classMetrics, regMetrics, rng, shuffle, range, mean, median, argmax, col, take, Scaler, polyExpand, DecisionTree, RandomForest, GradientBoosting,
+  return { pca, project, split3, curves, classMetrics, regMetrics, rng, shuffle, range, mean, median, argmax, col, take, Scaler, polyExpand, DecisionTree, RandomForest, GradientBoosting, GaussianNB,
     LogisticRegression, LinearRegression, SVM, setLibsvm, make, accuracy, confusion, prf, r2, mae, rmse, split, permutationImportance };
 });
