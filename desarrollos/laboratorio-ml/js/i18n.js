@@ -868,3 +868,5 @@ Object.assign(window.TXT.en, { grp: { perf: "Performance", expl: "Explainability
   lead: { perf: "How well does the model do on data it hasn't seen?", expl: "How does it make decisions, and which features matter?" } } });
 Object.assign(window.TXT.es.det, { sub: c => c ? "Desempeño (métricas, matriz de confusión, curva ROC) y explicabilidad" : "Desempeño (métricas, real vs. predicho, residuos) y explicabilidad" });
 Object.assign(window.TXT.en.det, { sub: c => c ? "Performance (metrics, confusion matrix, ROC curve) and explainability" : "Performance (metrics, observed vs. predicted, residuals) and explainability" });
+Object.assign(window.TXT.es.how.cap, { nb: () => "El color fuerte es donde Naive Bayes está seguro y el suave, cerca de las fronteras, es donde duda. Toca un punto para ver qué tan seguro está de su predicción." });
+Object.assign(window.TXT.en.how.cap, { nb: () => "Strong color is where Naive Bayes is sure, and faint color, near the boundaries, is where it hesitates. Tap a point to see how sure it is of its prediction." });
