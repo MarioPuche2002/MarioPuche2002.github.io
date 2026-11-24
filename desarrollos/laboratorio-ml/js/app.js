@@ -48,7 +48,7 @@ const HP = {
 const MODELS = { classification: ["logreg", "nb", "svm", "tree", "rf"], regression: ["linreg", "svm", "tree", "rf"] }; // Gradient Boosting se retiró de la lista
 
 /* --------------------------------- estado ---------------------------------- */
-const S = { details: false, how: { stage: null, sel: null, timer: null, model: null }, step: 1, tab: "summary", lang: "es", ds: null, practice: 0, dirty: 0, schemas: {}, addLabel: null, impute: { num: "median", k: 5 }, model: null, params: {}, fsel: [], valSize: 0.2, testSize: 0.2, seed: 7, evalSet: "val", showImputed: false, scale: "standard", dataView: "orig",
+const S = { sub: { perf: "summary", expl: "how" }, details: false, how: { stage: null, sel: null, timer: null, model: null }, step: 1, tab: "summary", lang: "es", ds: null, practice: 0, dirty: 0, schemas: {}, addLabel: null, impute: { num: "median", k: 5 }, model: null, params: {}, fsel: [], valSize: 0.2, testSize: 0.2, seed: 7, evalSet: "val", showImputed: false, scale: "standard", dataView: "orig",
   run: null, stale: false, tab: "data", ex: 0, ey: 1, vx: null, vy: null, resX: -1, treeIndex: 0, play: [], history: {}, csv: null, exportTab: "py" };
 try { const l = localStorage.getItem("ml-lab-lang"); if (l === "en" || l === "es") S.lang = l; } catch (e) {}
 
@@ -191,7 +191,7 @@ function pickDataset(key) {
 }
 function setDataset(ds) {
   freeRun(); S.ds = ds; S.practice = 0; S.dirty = 0; S.addLabel = null; rawCache = { key: null };
-  S.fsel = ds.features.map((_, j) => j); S.run = null; S.stale = false; S.tab = "summary";
+  S.fsel = ds.features.map((_, j) => j); S.run = null; S.stale = false; S.tab = "perf";
   const nums = ds.features.map((f, j) => f.type === "num" ? j : -1).filter(j => j >= 0);
   S.ex = nums[0] ?? 0; S.ey = isCls() ? (nums[1] ?? nums[0] ?? 0) : -1; S.vx = null; S.vy = null; S.resX = -1;
   if (!S.model || !MODELS[ds.task].includes(S.model)) setModel(ds.task === "classification" ? "tree" : "linreg"); else S.params = defaults(S.model);
@@ -459,7 +459,7 @@ function renderPreview() {
   el.querySelectorAll("[data-p]").forEach(inp => inp.oninput = inp.onchange = () => { const i = +inp.dataset.p; S.play[i] = inp.tagName === "SELECT" ? inp.value : +inp.value;
     const o = $("#po" + i); if (o) o.textContent = fmt(S.play[i]); schedPredict(); });
   $("#add-btn").onclick = addExample;
-  $("#how-btn").onclick = () => { S.details = true; S.tab = "how"; applyDetails(); renderPreview(); renderAnalysis(); $("#analysis").scrollIntoView({ behavior: "smooth", block: "start" }); };
+  $("#how-btn").onclick = () => { S.details = true; S.tab = "expl"; S.sub.expl = "how"; applyDetails(); renderPreview(); renderAnalysis(); $("#analysis").scrollIntoView({ behavior: "smooth", block: "start" }); };
   $("#details-btn").onclick = () => { S.details = !S.details; applyDetails(); renderPreview(); renderAnalysis();
     if (S.details && window.innerWidth < 980) $("#analysis").scrollIntoView({ behavior: "smooth", block: "start" }); };
   predictNow();
@@ -663,15 +663,15 @@ function pHow(el) {
   const hx = $("#hx"), hy = $("#hy"); if (hx) hx.onchange = e => { S.vx = +e.target.value; howStop(); pHow(el); }; if (hy) hy.onchange = e => { S.vy = +e.target.value; howStop(); pHow(el); };
   const rg = $("#how-st"); if (rg) rg.oninput = e => { howStop(); S.how.stage = +e.target.value; pHow(el); };
   const pb = $("#how-play"); if (pb) pb.onclick = () => { if (S.how.timer) { howStop(); pHow(el); return; }
-    S.how.stage = 0; S.how.timer = setInterval(() => { if (S.tab !== "how" || S.step !== 4 || !document.body.contains(el)) { howStop(); return; } if (S.how.stage >= last) { howStop(); pHow(el); return; } S.how.stage++; pHow(el); }, 900); pHow(el); };
+    S.how.stage = 0; S.how.timer = setInterval(() => { if (S.tab !== "expl" || S.sub.expl !== "how" || S.step !== 4 || !document.body.contains(el)) { howStop(); return; } if (S.how.stage >= last) { howStop(); pHow(el); return; } S.how.stage++; pHow(el); }, 900); pHow(el); };
 }
 function howStop() { if (S.how.timer) { clearInterval(S.how.timer); S.how.timer = null; } }
-function tabsFor() {
-  const tb = ["summary"];
-  if (isCls()) tb.push("conf", "roc"); else tb.push("pa", "res");
-  tb.push("how", "tree", "imp"); return tb; // «Experimentos» se retiró
+function tabsFor() { return ["perf", "expl"]; } // Resultados: Desempeño y Explicabilidad
+function subsFor(g) {
+  if (g === "perf") return isCls() ? ["summary", "conf", "roc"] : ["summary", "pa", "res"];
+  const sb = ["how"]; if (S.run && ["tree", "rf"].includes(S.run.cfg.model)) sb.push("tree"); sb.push("imp"); return sb;
 }
-function tabLabel(k) { if (k === "map" && !isCls()) return t("tabs").curve; return t("tabs")[k]; }
+function tabLabel(k) { if (k === "perf" || k === "expl") return t("grp")[k]; if (k === "map" && !isCls()) return t("tabs").curve; return t("tabs")[k]; }
 function noData(el) { el.innerHTML = `<p class="placeholder">${t("pickFirst")}</p>`; }
 function renderAnalysis() {
   if (S.step === 1) { const el = $("#s1-right"); if (!S.ds) { renderWelcome(el); return; } stopFacts("facts-w"); pData(el); return; }
@@ -680,12 +680,15 @@ function renderAnalysis() {
   if (S.step === 5) { renderExport(); return; }
   const el = $("#analysis-body");
   if (!S.ds) { $("#tabs").innerHTML = ""; return noData(el); }
-  const tb = tabsFor(); if (!tb.includes(S.tab)) S.tab = "summary";
+  const tb = tabsFor(); if (!tb.includes(S.tab)) S.tab = "perf";
   $("#tabs").innerHTML = tb.map(k => `<button class="tab ${S.tab === k ? "on" : ""}" data-t="${k}">${tabLabel(k)}</button>`).join("");
   $("#tabs").querySelectorAll(".tab").forEach(b => b.onclick = () => { S.tab = b.dataset.t; renderAnalysis(); });
   el.innerHTML = "";
   if (S.tab !== "hist" && !S.run) { el.innerHTML = `<p class="placeholder">${t("needTrain")}</p><div class="actions" style="justify-content:center"><button class="btn primary" id="go3">${t("goTrain")}</button></div>`; $("#go3").onclick = () => goStep(3); return; }
-  ({ summary: pSummary, how: pHow, conf: pConf, roc: pRoc, pa: pPA, res: pRes, tree: pTree, imp: pImp, hist: pHist })[S.tab](el);
+  const sb = subsFor(S.tab); if (!sb.includes(S.sub[S.tab])) S.sub[S.tab] = sb[0];
+  el.innerHTML = `<p class="help sub-lead">${t("grp").lead[S.tab]}</p><div class="seg subseg">${sb.map(k => `<button class="${S.sub[S.tab] === k ? "on" : ""}" data-sub="${k}">${t("tabs")[k]}</button>`).join("")}</div><div id="sub-body"></div>`;
+  el.querySelectorAll("[data-sub]").forEach(b => b.onclick = () => { S.sub[S.tab] = b.dataset.sub; renderAnalysis(); });
+  ({ summary: pSummary, how: pHow, conf: pConf, roc: pRoc, pa: pPA, res: pRes, tree: pTree, imp: pImp, hist: pHist })[S.sub[S.tab]]($("#sub-body"));
 }
 function renderWelcome(el) {
   el.innerHTML = `<div class="welcome"><h3>${t("wTitle")}</h3><p class="lead">${t("wLead")}</p><ol class="how">${[1, 2, 3, 4].map(n => `<li>${t("wStep" + n)}</li>`).join("")}</ol>${factsHTML("facts-w")}</div>`;

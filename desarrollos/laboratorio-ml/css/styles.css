@@ -518,3 +518,4 @@ table.data td.imp { background: #EEF3FA; color: #2B5591; }
 .nick { font-style: normal; color: var(--muted); font-size: 12px; }
 .how-btn { margin: 14px 0 0; }
 details.opts { margin-top: 18px; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; } details.opts summary { cursor: pointer; font-weight: 600; font-size: 14px; }
+.subseg { margin: 2px 0 16px; flex-wrap: wrap; } .sub-lead { margin: 0 0 8px; }
