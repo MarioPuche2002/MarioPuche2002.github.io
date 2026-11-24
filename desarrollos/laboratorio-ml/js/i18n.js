@@ -512,7 +512,7 @@ Object.assign(window.TXT.es, {
   treeTip: "El árbol hace preguntas de sí o no, de arriba hacia abajo. Al llegar a una hoja, da su respuesta.",
   treeForest: "Este es uno de los árboles del bosque. Cada árbol es distinto porque aprendió con una mezcla diferente de filas.",
   treeBoost: "En boosting, cada árbol aporta una corrección que se suma a la de los árboles anteriores.",
-  treeNA: "Este modelo no es un árbol. Elige Árbol de decisión, Random Forest o Gradient Boosting y entrena para verlo aquí.",
+  treeNA: "Este modelo no es un árbol. Elige Árbol de decisión o Random Forest y entrena para verlo aquí.",
   treeScroll: "desliza hacia los lados para verlo completo", samples: "filas", treeCut: "Se muestran los primeros niveles. Profundidad total:",
   impTip: "Se desordena una feature al azar y se mide cuánto empeora el modelo. Si empeora mucho, esa feature era importante.",
   impDrop: "Cuánto empeora el modelo al desordenar la feature", impNative: "Importancia según el propio modelo",
@@ -587,7 +587,7 @@ Object.assign(window.TXT.en, {
   treeTip: "The tree asks yes/no questions from top to bottom. When it reaches a leaf, it gives its answer.",
   treeForest: "This is one of the trees in the forest. Each tree is different because it learned from a different mix of rows.",
   treeBoost: "In boosting, each tree adds a correction on top of the previous trees.",
-  treeNA: "This model is not a tree. Choose Decision tree, Random Forest or Gradient Boosting and train to see it here.",
+  treeNA: "This model is not a tree. Choose Decision tree or Random Forest and train to see it here.",
   treeScroll: "swipe sideways to see all of it", samples: "rows",
   impTip: "One feature is shuffled at random and we measure how much worse the model gets. If it gets much worse, that feature mattered.",
   impDrop: "How much worse the model gets when the feature is shuffled", impNative: "Importance according to the model itself",
@@ -762,3 +762,79 @@ Object.assign(window.TXT.en, { contract: { title: "File requirements", lead: "We
     "Empty cells (or NA, N/A, null) are allowed and get filled; repeated rows are removed."],
   fewRows: n => `The file has ${n} rows with the target filled in and at least 20 are needed.`,
   smallClass: (c, m) => `Each class needs at least ${m} rows. These have fewer: ${c.join(", ")}.` } });
+/* ¿Cómo decide? */
+window.TXT.es.tabs.how = "¿Cómo decide?"; window.TXT.en.tabs.how = "How does it decide?";
+Object.assign(window.TXT.es, { how: {
+  need2: "Para esta vista se necesitan al menos 2 features numéricas.", need1: "Para esta vista se necesita al menos 1 feature numérica.",
+  twoNote: n => n === 2 ? "Para poder dibujarlo, aquí el modelo se entrena solo con estas 2 features." : "Para poder dibujarlo, aquí el modelo se entrena solo con esta feature.",
+  play: "▶ Ver cómo aprende", pause: "❚❚ Pausar",
+  depthN: s => s === 0 ? "Sin preguntas todavía" : `${s} ${s === 1 ? "nivel" : "niveles"} de preguntas`, treesN: s => `${s} ${s === 1 ? "árbol" : "árboles"}`,
+  itersN: s => `${s} ${s === 1 ? "vuelta" : "vueltas"} de entrenamiento`, pctN: p => `${p} % del aprendizaje`,
+  intro: { tree: "El árbol hace preguntas de sí o no. Cada pregunta parte el mapa con una línea recta y crea cajas: cada caja es una predicción.",
+    gb: "Gradient Boosting junta muchos árboles pequeños. Cada árbol nuevo corrige los errores de los anteriores, así que las fronteras se van afinando.",
+    rf: "Random Forest entrena muchos árboles distintos y los pone a votar. Cada árbol divide el mapa a su manera y gana la mayoría.",
+    logreg: "La regresión logística separa las clases con líneas rectas. Donde el color es fuerte está segura; cerca de las líneas, duda.",
+    svm: "La SVM busca la frontera que deja el mayor espacio libre entre las clases. Los puntos con círculo (vectores de soporte) son los que deciden dónde va.",
+    linreg: "La regresión lineal busca la línea (o la curva, si el grado es mayor que 1) que pase lo más cerca posible de todos los puntos." },
+  thisPoint: "Este punto", says: (p, r, ok) => `El modelo dice <b>${p}</b>. En realidad es ${r}: ${ok ? '<span class="good-t">acertó</span>' : '<span class="bad-t">se equivocó</span>'}.`,
+  q: (f, th, v, go) => `¿${f} ≤ ${th}? Este tiene ${v}, así que <b>${go ? "sí" : "no"}</b>.`, leaf: c => `Llega a la caja <b>${c}</b>.`, leafReg: v => `Llega a la caja que predice <b>${v}</b>.`,
+  yes: "sí", no: "no", treeTitle: "El árbol (el camino de este punto está resaltado)", treeCut: "Solo se dibujan los 3 primeros niveles; las cajas con … siguen preguntando.",
+  treeI: i => `Árbol ${i}`, votes6: v => `Votos de estos 6 árboles: ${v}.`, forestAll: n => `Votación de los ${n} árboles del bosque:`,
+  capRf: c => `El punto marcado ${c ? `(es ${c}) ` : ""}está en el mismo lugar en los 6 mapas. Cada árbol lo ve distinto porque aprendió con una muestra diferente de los datos. Mueve la barra para que voten uno por uno.`,
+  next: "Elegir otro punto",
+  cap: { tree: () => "Mueve la barra para ver cómo cada nivel de preguntas agrega líneas al mapa. Con demasiados niveles el árbol puede memorizar los datos (overfitting).",
+    gb: () => "Mueve la barra: con pocos árboles las fronteras son toscas; con muchos se ajustan a los datos (y si son demasiados, pueden memorizarlos).",
+    logreg: () => "Mueve la barra para ver el entrenamiento: al principio el modelo duda en todas partes y poco a poco las líneas se acomodan y los colores se vuelven fuertes.",
+    svm: n => `Esta SVM usa ${n} vectores de soporte: solo esos puntos definen la frontera. Si se quitara cualquier otro punto, la frontera no cambiaría.` },
+  clickHint: "Toca un punto del mapa para seguir su predicción.", svLegend: "círculo negro = vector de soporte",
+  errTitle: "Error promedio (entrenamiento)", errHelp: "Es el promedio del largo de las rayas amarillas. Mientras más cortas, mejor se ajusta.", errLine: "Error de cada punto", someTrees: "Algunos árboles",
+  regSays: (p, r, e) => `El modelo dice <b>${p}</b> y el valor real es ${r}: se equivoca por <b>${e}</b>.`, clickHintReg: "Toca un punto para ver su error.",
+  capReg: { tree: "Cada nivel del árbol agrega escalones a la curva. Mueve la barra para verlo crecer.",
+    gb: "Empieza con una línea plana (el promedio). Cada árbol agrega escalones que corrigen los errores, y las rayas amarillas se acortan.",
+    rf: "Cada árbol (morado) da una curva con escalones; el bosque (azul) es el promedio de todos, por eso es más suave.",
+    linreg: "Mueve la barra: la línea parte plana (el promedio) y se va inclinando hasta quedar lo más cerca posible de los puntos.",
+    svm: "La SVM dibuja una curva suave que trata de pasar cerca de los puntos e ignora los errores pequeños." } } });
+Object.assign(window.TXT.en, { how: {
+  need2: "This view needs at least 2 numeric features.", need1: "This view needs at least 1 numeric feature.",
+  twoNote: n => n === 2 ? "So it can be drawn, here the model is trained only with these 2 features." : "So it can be drawn, here the model is trained only with this feature.",
+  play: "▶ Watch it learn", pause: "❚❚ Pause",
+  depthN: s => s === 0 ? "No questions yet" : `${s} ${s === 1 ? "level" : "levels"} of questions`, treesN: s => `${s} ${s === 1 ? "tree" : "trees"}`,
+  itersN: s => `${s} training ${s === 1 ? "round" : "rounds"}`, pctN: p => `${p}% of learning`,
+  intro: { tree: "The tree asks yes-or-no questions. Each question cuts the map with a straight line and creates boxes: each box is a prediction.",
+    gb: "Gradient Boosting combines many small trees. Each new tree fixes the mistakes of the previous ones, so the boundaries get sharper.",
+    rf: "Random Forest trains many different trees and lets them vote. Each tree splits the map its own way and the majority wins.",
+    logreg: "Logistic regression separates the classes with straight lines. Where the color is strong it is sure; near the lines, it hesitates.",
+    svm: "The SVM looks for the boundary that leaves the most free space between classes. The circled points (support vectors) decide where it goes.",
+    linreg: "Linear regression looks for the line (or curve, if the degree is above 1) that passes as close as possible to all points." },
+  thisPoint: "This point", says: (p, r, ok) => `The model says <b>${p}</b>. It actually is ${r}: ${ok ? '<span class="good-t">correct</span>' : '<span class="bad-t">wrong</span>'}.`,
+  q: (f, th, v, go) => `Is ${f} ≤ ${th}? This one has ${v}, so <b>${go ? "yes" : "no"}</b>.`, leaf: c => `It reaches the box <b>${c}</b>.`, leafReg: v => `It reaches the box that predicts <b>${v}</b>.`,
+  yes: "yes", no: "no", treeTitle: "The tree (this point's path is highlighted)", treeCut: "Only the first 3 levels are drawn; boxes with … keep asking.",
+  treeI: i => `Tree ${i}`, votes6: v => `Votes from these 6 trees: ${v}.`, forestAll: n => `Vote of all ${n} trees in the forest:`,
+  capRf: c => `The marked point ${c ? `(a ${c}) ` : ""}is in the same place on all 6 maps. Each tree sees it differently because it learned from a different sample of the data. Move the slider to let them vote one by one.`,
+  next: "Pick another point",
+  cap: { tree: () => "Move the slider to see how each level of questions adds lines to the map. With too many levels the tree can memorize the data (overfitting).",
+    gb: () => "Move the slider: with few trees the boundaries are rough; with many they fit the data (and with too many, they may memorize it).",
+    logreg: () => "Move the slider to watch training: at first the model hesitates everywhere, then the lines settle and the colors get stronger.",
+    svm: n => `This SVM uses ${n} support vectors: only those points define the boundary. Removing any other point would not change it.` },
+  clickHint: "Tap a point on the map to follow its prediction.", svLegend: "black circle = support vector",
+  errTitle: "Average error (training)", errHelp: "The average length of the yellow lines. The shorter, the better the fit.", errLine: "Error of each point", someTrees: "Some trees",
+  regSays: (p, r, e) => `The model says <b>${p}</b> and the real value is ${r}: it is off by <b>${e}</b>.`, clickHintReg: "Tap a point to see its error.",
+  capReg: { tree: "Each level of the tree adds steps to the curve. Move the slider to watch it grow.",
+    gb: "It starts with a flat line (the average). Each tree adds steps that fix the errors, and the yellow lines get shorter.",
+    rf: "Each tree (purple) gives a stepped curve; the forest (blue) is the average of all, so it is smoother.",
+    linreg: "Move the slider: the line starts flat (the average) and tilts until it is as close as possible to the points.",
+    svm: "The SVM draws a smooth curve that tries to pass close to the points and ignores small errors." } } });
+/* Naive Bayes y balanceo de clases */
+Object.assign(window.TXT.es.models, { nb: ["Naive Bayes", "Mira cada feature por separado y combina las pistas con probabilidades."] });
+Object.assign(window.TXT.en.models, { nb: ["Naive Bayes", "Looks at each feature separately and combines the clues with probabilities."] });
+Object.assign(window.TXT.es.hp, { class_weight: ["Balancear clases", "Si una clase tiene muchas menos filas, «sí» le da más peso para que el modelo no la ignore (class_weight=\"balanced\")."],
+  priors: ["Balancear clases", "«No» usa qué tan común es cada clase en los datos; «sí» supone que todas son igual de comunes (priors iguales)."] });
+Object.assign(window.TXT.en.hp, { class_weight: ["Balance classes", "If a class has far fewer rows, «yes» gives it more weight so the model doesn't ignore it (class_weight=\"balanced\")."],
+  priors: ["Balance classes", "«No» uses how common each class is in the data; «yes» assumes all are equally common (equal priors)."] });
+Object.assign(window.TXT.es.opt, { balNo: "No", balYes: "Sí (balanced)" }); Object.assign(window.TXT.en.opt, { balNo: "No", balYes: "Yes (balanced)" });
+Object.assign(window.TXT.es.how.intro, { nb: "Naive Bayes mira cada feature por separado y se pregunta: ¿qué tan común es este valor en cada clase? Luego combina esas pistas. Por eso sus fronteras suelen ser curvas suaves." });
+Object.assign(window.TXT.en.how.intro, { nb: "Naive Bayes looks at each feature separately and asks: how common is this value in each class? Then it combines those clues. That's why its boundaries are usually smooth curves." });
+Object.assign(window.TXT.es.how.cap, { nb: () => "Cada campana muestra cómo se reparten los valores de una feature en cada clase. La línea negra es el punto elegido: la clase cuya campana está más alta en esa línea, en las dos features, es la que gana." });
+Object.assign(window.TXT.en.how.cap, { nb: () => "Each bell shows how the values of a feature are spread in each class. The black line is the chosen point: the class whose bell is highest at that line, in both features, wins." });
+Object.assign(window.TXT.es.how, { bellsTitle: "Las pistas de cada feature", bellHelp: "Altura de la campana en la línea = qué tan común es ese valor en esa clase." });
+Object.assign(window.TXT.en.how, { bellsTitle: "The clues from each feature", bellHelp: "Height of the bell at the line = how common that value is in that class." });
