@@ -862,3 +862,9 @@ Object.assign(window.TXT.en, { tourBtn: "Guide",
     ["2. Train a model", "Here you choose the model, turn its knobs (hyperparameters) and press «Train»."],
     ["3. Try it and see how it thinks", "Make up new cases to see what it predicts, and look at a map of how it makes decisions."],
     ["4. A strange word?", "The glossary explains each term with examples. You can watch this guide again with the «Guide» button."]] } });
+Object.assign(window.TXT.es, { grp: { perf: "Desempeño", expl: "Explicabilidad",
+  lead: { perf: "¿Qué tan bien le va al modelo con datos que no vio?", expl: "¿Cómo toma sus decisiones y qué features le importan?" } } });
+Object.assign(window.TXT.en, { grp: { perf: "Performance", expl: "Explainability",
+  lead: { perf: "How well does the model do on data it hasn't seen?", expl: "How does it make decisions, and which features matter?" } } });
+Object.assign(window.TXT.es.det, { sub: c => c ? "Desempeño (métricas, matriz de confusión, curva ROC) y explicabilidad" : "Desempeño (métricas, real vs. predicho, residuos) y explicabilidad" });
+Object.assign(window.TXT.en.det, { sub: c => c ? "Performance (metrics, confusion matrix, ROC curve) and explainability" : "Performance (metrics, observed vs. predicted, residuals) and explainability" });
