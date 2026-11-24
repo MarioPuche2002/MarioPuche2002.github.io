@@ -48,7 +48,7 @@ const HP = {
 const MODELS = { classification: ["logreg", "nb", "svm", "tree", "rf"], regression: ["linreg", "svm", "tree", "rf"] }; // Gradient Boosting se retiró de la lista
 
 /* --------------------------------- estado ---------------------------------- */
-const S = { how: { stage: null, sel: null, timer: null, model: null }, step: 1, tab: "summary", lang: "es", ds: null, practice: 0, dirty: 0, schemas: {}, addLabel: null, impute: { num: "median", k: 5 }, model: null, params: {}, fsel: [], valSize: 0.2, testSize: 0.2, seed: 7, evalSet: "val", showImputed: false, scale: "standard", dataView: "orig",
+const S = { details: false, how: { stage: null, sel: null, timer: null, model: null }, step: 1, tab: "summary", lang: "es", ds: null, practice: 0, dirty: 0, schemas: {}, addLabel: null, impute: { num: "median", k: 5 }, model: null, params: {}, fsel: [], valSize: 0.2, testSize: 0.2, seed: 7, evalSet: "val", showImputed: false, scale: "standard", dataView: "orig",
   run: null, stale: false, tab: "data", ex: 0, ey: 1, vx: null, vy: null, resX: -1, treeIndex: 0, play: [], history: {}, csv: null, exportTab: "py" };
 try { const l = localStorage.getItem("ml-lab-lang"); if (l === "en" || l === "es") S.lang = l; } catch (e) {}
 
@@ -433,12 +433,15 @@ function startFacts(id) {
   go(); factTimers[id] = setInterval(go, 6000);
 }
 function stopFacts(id) { clearInterval(factTimers[id]); }
+function applyDetails() { const on = !!(S.details && S.run); $("#analysis").hidden = !on; document.querySelector('.screen[data-step="4"] .split').classList.toggle("solo", !on); }
 function renderPreview() {
+  applyDetails();
   const el = $("#preview-body"), R = S.run, xb = $("#export-btn");
   if (!R) { xb.hidden = true; el.innerHTML = `<p class="placeholder">${t("previewEmpty")}</p>${factsHTML("facts-p")}`; startFacts("facts-p"); return; }
   stopFacts("facts-p"); xb.hidden = false;
   let h = `<div class="kpis">${SETS.filter(n => n !== "train" && R.sets[n]).map(n => `<div class="kpi ${n === "test" ? "main" : ""}"><span>${setLabel(n)}</span><b>${scoreFmt(R.sets[n].score)}</b><small>${scoreName()}</small></div>`).join("")}</div>`;
   const [vk, vc] = verdict(R); h += `<div class="verdict ${vc} slim"><b>${t(vk + "T")}</b></div>`;
+  h += `<button class="btn outline full details-btn" id="details-btn"><span><b>${S.details ? t("det").hide : t("det").show}</b><small>${t("det").sub(isCls())}</small></span><span aria-hidden="true">${S.details ? "‹" : "›"}</span></button>`;
   h += `<h4>${t("tryIt")}</h4>`;
   R.cfg.fsel.forEach((j, i) => { const f = S.ds.features[j], st = colStats(j);
     if (f.type === "cat") h += field(fName(j), `<select data-p="${i}">${st.cats.map(c => `<option ${c === S.play[i] ? "selected" : ""}>${E(c)}</option>`).join("")}</select>`);
@@ -452,6 +455,8 @@ function renderPreview() {
   el.querySelectorAll("[data-p]").forEach(inp => inp.oninput = inp.onchange = () => { const i = +inp.dataset.p; S.play[i] = inp.tagName === "SELECT" ? inp.value : +inp.value;
     const o = $("#po" + i); if (o) o.textContent = fmt(S.play[i]); schedPredict(); });
   $("#add-btn").onclick = addExample;
+  $("#details-btn").onclick = () => { S.details = !S.details; applyDetails(); renderPreview(); renderAnalysis();
+    if (S.details && window.innerWidth < 980) $("#analysis").scrollIntoView({ behavior: "smooth", block: "start" }); };
   predictNow();
 }
 function addExample() {
@@ -657,9 +662,9 @@ function pHow(el) {
 }
 function howStop() { if (S.how.timer) { clearInterval(S.how.timer); S.how.timer = null; } }
 function tabsFor() {
-  const tb = ["summary", "how"];
+  const tb = ["summary"];
   if (isCls()) tb.push("conf", "roc"); else tb.push("pa", "res");
-  tb.push("tree", "imp", "hist"); return tb;
+  tb.push("how", "tree", "imp"); return tb; // «Experimentos» se retiró
 }
 function tabLabel(k) { if (k === "map" && !isCls()) return t("tabs").curve; return t("tabs")[k]; }
 function noData(el) { el.innerHTML = `<p class="placeholder">${t("pickFirst")}</p>`; }

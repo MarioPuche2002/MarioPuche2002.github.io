@@ -838,3 +838,6 @@ Object.assign(window.TXT.es.how.cap, { nb: () => "Cada campana muestra cómo se 
 Object.assign(window.TXT.en.how.cap, { nb: () => "Each bell shows how the values of a feature are spread in each class. The black line is the chosen point: the class whose bell is highest at that line, in both features, wins." });
 Object.assign(window.TXT.es.how, { bellsTitle: "Las pistas de cada feature", bellHelp: "Altura de la campana en la línea = qué tan común es ese valor en esa clase." });
 Object.assign(window.TXT.en.how, { bellsTitle: "The clues from each feature", bellHelp: "Height of the bell at the line = how common that value is in that class." });
+Object.assign(window.TXT.es, { det: { show: "Más detalles", hide: "Ocultar detalles", sub: c => c ? "Métricas, matriz de confusión, curva ROC, cómo decide el modelo y más" : "Métricas, real vs. predicho, residuos, cómo decide el modelo y más" } });
+Object.assign(window.TXT.en, { det: { show: "More details", hide: "Hide details", sub: c => c ? "Metrics, confusion matrix, ROC curve, how the model decides and more" : "Metrics, observed vs. predicted, residuals, how the model decides and more" } });
+window.TXT.es.tabs.summary = "Métricas"; window.TXT.en.tabs.summary = "Metrics";
