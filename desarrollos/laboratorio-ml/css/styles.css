@@ -510,3 +510,11 @@ table.data td.imp { background: #EEF3FA; color: #2B5591; }
 .details-btn { display: flex; justify-content: space-between; align-items: center; text-align: left; gap: 10px; margin: 14px 0 4px; padding: 12px 16px; height: auto; }
 .details-btn span:first-child { display: flex; flex-direction: column; gap: 2px; } .details-btn small { font-weight: 400; color: var(--muted); font-size: 12.5px; }
 .details-btn span:last-child { font-size: 22px; line-height: 1; }
+/* Guía, apodos y botón ¿cómo piensa? */
+.tour { position: absolute; z-index: 60; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; box-shadow: 0 10px 30px rgba(0,0,0,.14); font-size: 14px; line-height: 1.5; }
+.tour p { margin: 6px 0 10px; color: var(--ink2); } .tour .actions { display: flex; justify-content: space-between; margin: 0; }
+.tour-n { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+.tour-hl { outline: 3px solid #990000; outline-offset: 3px; border-radius: 10px; position: relative; z-index: 55; }
+.nick { font-style: normal; color: var(--muted); font-size: 12px; }
+.how-btn { margin: 14px 0 0; }
+details.opts { margin-top: 18px; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; } details.opts summary { cursor: pointer; font-weight: 600; font-size: 14px; }
