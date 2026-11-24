@@ -345,16 +345,19 @@ function renderTrain() {
       return `<button class="model-item ${S.model === m ? "on" : ""}" data-m="${m}"><span class="radio"></span><span><b>${E(n)}</b><small>${E(d)}</small></span></button>`; }).join("")}</div>
     <h4>${t("hyper")}</h4>${main.map(hpField).join("")}
     ${adv.length ? `<details class="adv" ${S.advOpen ? "open" : ""}><summary>${t("advanced")}</summary>${adv.map(hpField).join("")}</details>` : ""}
+    <details class="adv opts" ${S.optsOpen ? "open" : ""}><summary>${t("teen").advOpts}</summary><p class="help">${t("teen").advHelp}</p>
     <h4>${t("partition")}</h4>
     <div class="grid2 tight">${field(t("valSize"), sel("val", [0, 0.1, 0.15, 0.2, 0.25, 0.3], S.valSize, v => v ? Math.round(v * 100) + " %" : t("noVal")))}
     ${field(t("testSize"), sel("test", [0.1, 0.15, 0.2, 0.25, 0.3], S.testSize, v => Math.round(v * 100) + " %"))}</div>
     ${partBar(1 - S.valSize - S.testSize, S.valSize, S.testSize)}<p class="help">${t("partHelp")}</p>
     <div class="field"><label>${t("seed")}</label><div class="row-inline"><span class="seed">${S.seed}</span><button class="btn text" id="reseed">${t("shuffle")}</button></div><div class="help">${t("seedHelp")}</div></div>
+    </details>
     <div class="stale ${S.stale ? "show" : ""}">${t("stale")}</div>
     <button class="btn primary full big" id="train-btn">${t("train")}</button>`;
   el.querySelectorAll(".model-item").forEach(b => b.onclick = () => { setModel(b.dataset.m); changed(); renderTrain(); });
   visible.forEach(h => bindSel(el, "hp-" + h.k, v => { S.params[h.k] = v; changed(); renderTrain(); }));
-  const d = el.querySelector("details.adv"); if (d) d.ontoggle = () => S.advOpen = d.open;
+  const d = el.querySelector("details.adv:not(.opts)"); if (d) d.ontoggle = () => S.advOpen = d.open;
+  const d2 = el.querySelector("details.opts"); if (d2) d2.ontoggle = () => S.optsOpen = d2.open;
   bindSel(el, "val", v => { S.valSize = v; changed(); renderTrain(); renderAnalysis(); });
   bindSel(el, "test", v => { S.testSize = v; changed(); renderTrain(); renderAnalysis(); });
   $("#reseed").onclick = () => { S.seed = 1 + Math.floor(Math.random() * 999); changed(); renderTrain(); renderAnalysis(); };
@@ -439,8 +442,9 @@ function renderPreview() {
   const el = $("#preview-body"), R = S.run, xb = $("#export-btn");
   if (!R) { xb.hidden = true; el.innerHTML = `<p class="placeholder">${t("previewEmpty")}</p>${factsHTML("facts-p")}`; startFacts("facts-p"); return; }
   stopFacts("facts-p"); xb.hidden = false;
-  let h = `<div class="kpis">${SETS.filter(n => n !== "train" && R.sets[n]).map(n => `<div class="kpi ${n === "test" ? "main" : ""}"><span>${setLabel(n)}</span><b>${scoreFmt(R.sets[n].score)}</b><small>${scoreName()}</small></div>`).join("")}</div>`;
+  let h = `<div class="kpis">${SETS.filter(n => n !== "train" && R.sets[n]).map(n => `<div class="kpi ${n === "test" ? "main" : ""}"><span>${setLabel(n)} <em class="nick">· ${t("teen").nick[n]}</em></span><b>${scoreFmt(R.sets[n].score)}</b><small>${scoreName()}</small></div>`).join("")}</div>`;
   const [vk, vc] = verdict(R); h += `<div class="verdict ${vc} slim"><b>${t(vk + "T")}</b></div>`;
+  h += `<button class="btn primary full how-btn" id="how-btn">${t("teen").howBtn}</button>`;
   h += `<button class="btn outline full details-btn" id="details-btn"><span><b>${S.details ? t("det").hide : t("det").show}</b><small>${t("det").sub(isCls())}</small></span><span aria-hidden="true">${S.details ? "‹" : "›"}</span></button>`;
   h += `<h4>${t("tryIt")}</h4>`;
   R.cfg.fsel.forEach((j, i) => { const f = S.ds.features[j], st = colStats(j);
@@ -455,6 +459,7 @@ function renderPreview() {
   el.querySelectorAll("[data-p]").forEach(inp => inp.oninput = inp.onchange = () => { const i = +inp.dataset.p; S.play[i] = inp.tagName === "SELECT" ? inp.value : +inp.value;
     const o = $("#po" + i); if (o) o.textContent = fmt(S.play[i]); schedPredict(); });
   $("#add-btn").onclick = addExample;
+  $("#how-btn").onclick = () => { S.details = true; S.tab = "how"; applyDetails(); renderPreview(); renderAnalysis(); $("#analysis").scrollIntoView({ behavior: "smooth", block: "start" }); };
   $("#details-btn").onclick = () => { S.details = !S.details; applyDetails(); renderPreview(); renderAnalysis();
     if (S.details && window.innerWidth < 980) $("#analysis").scrollIntoView({ behavior: "smooth", block: "start" }); };
   predictNow();
@@ -1148,10 +1153,30 @@ document.querySelectorAll(".lang button").forEach(b => b.onclick = () => { S.lan
 $("#export-btn").onclick = () => goStep(5);
 $("#gloss-btn").onclick = () => openGlossary();
 
+/* ------------------------- recorrido guiado (primera visita) ------------------------- */
+let tourI = -1;
+function tourSteps() { return [["#data-body .ds-list", 1], ['#stepper [data-go="3"]', 1], ['#stepper [data-go="4"]', 1], ["#gloss-btn", 1]]; }
+function tourShow() {
+  const T = t("tour"), st = tourSteps(); let b = $("#tour"); if (tourI < 0 || tourI >= st.length) { if (b) b.remove(); document.querySelectorAll(".tour-hl").forEach(e => e.classList.remove("tour-hl")); return; }
+  if (S.step !== 1) goStep(1);
+  const tg = document.querySelector(st[tourI][0]); if (!tg) { tourI = -1; return tourShow(); }
+  document.querySelectorAll(".tour-hl").forEach(e => e.classList.remove("tour-hl")); tg.classList.add("tour-hl");
+  if (!b) { b = document.createElement("div"); b.id = "tour"; b.className = "tour"; document.body.appendChild(b); }
+  b.innerHTML = `<div class="tour-n">${tourI + 1} / ${st.length}</div><b>${T.items[tourI][0]}</b><p>${T.items[tourI][1]}</p><div class="actions"><button class="btn text sm" id="tour-skip">${T.skip}</button><button class="btn primary sm" id="tour-next">${tourI === st.length - 1 ? T.done : T.next}</button></div>`;
+  const r = tg.getBoundingClientRect(), w = Math.min(320, window.innerWidth - 24);
+  b.style.width = w + "px"; b.style.left = Math.max(12, Math.min(window.innerWidth - w - 12, r.left + window.scrollX)) + "px"; b.style.top = (r.bottom + window.scrollY + 12) + "px";
+  tg.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  $("#tour-next").onclick = () => { tourI++; tourShow(); }; $("#tour-skip").onclick = () => { tourI = -1; tourShow(); };
+}
+function tourStart() { tourI = 0; tourShow(); }
+window.addEventListener("resize", () => { if (tourI >= 0) tourShow(); });
 function boot() {
   if (window.libsvm) Promise.resolve(window.libsvm).then(L => ML.setLibsvm(L)).catch(e => console.error(e));
   Exporter.downloadsApi();
   applyLang();
+  $("#tour-btn").onclick = tourStart;
+  let seen = false; try { seen = localStorage.getItem("ml-lab-tour") === "1"; localStorage.setItem("ml-lab-tour", "1"); } catch (e) {}
+  if (!seen) setTimeout(tourStart, 600);
 }
 boot();
 })();

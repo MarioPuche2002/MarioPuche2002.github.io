@@ -126,7 +126,7 @@ es: {
   facts: [
     "El dataset Iris fue publicado por Ronald Fisher en 1936 y sigue siendo uno de los más usados para enseñar clasificación.",
     "Random Forest fue propuesto por Leo Breiman en 2001: combina bagging con selección aleatoria de features.",
-    "Gradient Boosting fue formalizado por Jerome Friedman en 1999; XGBoost (2014) es una implementación optimizada de la misma idea.",
+    "Naive Bayes se basa en el teorema de Bayes, publicado en 1763; uno de sus usos más famosos fue filtrar el correo basura (spam).",
     "La SVM de esta página usa libsvm, la librería en C (año 2000) que scikit-learn también usa internamente.",
     "La curva ROC nació en la Segunda Guerra Mundial para evaluar operadores de radar.",
     "Evaluar con el conjunto de prueba durante el ajuste de hiperparámetros produce una estimación optimista: es una forma de data leakage.",
@@ -343,7 +343,7 @@ en: {
   facts: [
     "The Iris dataset was published by Ronald Fisher in 1936 and is still one of the most used for teaching classification.",
     "Random Forest was proposed by Leo Breiman in 2001: it combines bagging with random feature selection.",
-    "Gradient Boosting was formalized by Jerome Friedman in 1999; XGBoost (2014) is an optimized implementation of the same idea.",
+    "Naive Bayes is based on Bayes' theorem, published in 1763; one of its most famous uses was filtering junk email (spam).",
     "This page's SVM uses libsvm, the C library (2000) that scikit-learn also uses internally.",
     "The ROC curve was born in World War II to evaluate radar operators.",
     "Using the test set while tuning hyperparameters yields an optimistic estimate: it is a form of data leakage.",
@@ -841,3 +841,24 @@ Object.assign(window.TXT.en.how, { bellsTitle: "The clues from each feature", be
 Object.assign(window.TXT.es, { det: { show: "Más detalles", hide: "Ocultar detalles", sub: c => c ? "Métricas, matriz de confusión, curva ROC, cómo decide el modelo y más" : "Métricas, real vs. predicho, residuos, cómo decide el modelo y más" } });
 Object.assign(window.TXT.en, { det: { show: "More details", hide: "Hide details", sub: c => c ? "Metrics, confusion matrix, ROC curve, how the model decides and more" : "Metrics, observed vs. predicted, residuals, how the model decides and more" } });
 window.TXT.es.tabs.summary = "Métricas"; window.TXT.en.tabs.summary = "Metrics";
+/* Lenguaje para adolescentes, recorrido guiado y opciones avanzadas */
+Object.assign(window.TXT.es, { tourBtn: "Guía",
+  columns: "Features (las pistas para adivinar)", toPredict: "Target (lo que se adivina)", hyper: "Hiperparámetros (las perillas del modelo)",
+  stepPreview: "Prueba tu modelo",
+  teen: { nick: { val: "práctica", test: "examen final", train: "estudio" }, howBtn: "Mira cómo piensa el modelo →",
+    advOpts: "Opciones avanzadas: partición de los datos y semilla", advHelp: "Puedes dejarlas como están. Sirven para decidir cuántas filas se usan para estudiar, practicar y presentar el examen final." },
+  tour: { next: "Siguiente", done: "¡Empezar!", skip: "Saltar guía", items: [
+    ["1. Elige los datos", "Escoge una tabla de ejemplo o sube tu propio archivo CSV. Cada fila es un caso y cada columna, una pista."],
+    ["2. Entrena un modelo", "Aquí eliges el modelo, mueves sus perillas (hiperparámetros) y presionas «Entrenar»."],
+    ["3. Pruébalo y mira cómo piensa", "Inventa casos nuevos para ver qué predice, y mira en un mapa cómo toma sus decisiones."],
+    ["4. ¿Una palabra rara?", "El glosario explica cada término con ejemplos. Puedes volver a ver esta guía con el botón «Guía»."]] } });
+Object.assign(window.TXT.en, { tourBtn: "Guide",
+  columns: "Features (the clues to guess with)", toPredict: "Target (what we guess)", hyper: "Hyperparameters (the model's knobs)",
+  stepPreview: "Try your model",
+  teen: { nick: { val: "practice", test: "final exam", train: "study" }, howBtn: "See how the model thinks →",
+    advOpts: "Advanced options: data split and seed", advHelp: "You can leave them as they are. They decide how many rows are used to study, to practice and for the final exam." },
+  tour: { next: "Next", done: "Let's go!", skip: "Skip guide", items: [
+    ["1. Pick the data", "Choose an example table or upload your own CSV file. Each row is a case and each column is a clue."],
+    ["2. Train a model", "Here you choose the model, turn its knobs (hyperparameters) and press «Train»."],
+    ["3. Try it and see how it thinks", "Make up new cases to see what it predicts, and look at a map of how it makes decisions."],
+    ["4. A strange word?", "The glossary explains each term with examples. You can watch this guide again with the «Guide» button."]] } });
