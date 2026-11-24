@@ -636,7 +636,6 @@ function pHow(el) {
         side += `</div>`; }
       h += `<div class="how-wrap"><div class="chart">${F.wrap(s)}</div>${side}</div>`;
       if (mo === "tree") h += `<h4>${H.treeTitle}</h4><div class="chart how-tree">${treeSVG(V, V.m, sel !== null ? V.X[sel] : V.X[0], st, false)}</div>${st > 3 ? `<p class="help">${H.treeCut}</p>` : ""}`;
-      if (mo === "nb" && sel !== null) h += `<h4>${H.bellsTitle}</h4><p class="help">${H.bellHelp}</p><div class="how-bells">${[0, 1].map(j => bellSVG(V, j, sel)).join("")}</div>`;
       cap = H.cap[mo](V.sv ? V.sv.size : 0);
       el.innerHTML = h + C.legend(ds.classes.map((c, i) => [C.color(i), c[S.lang]])) + `<p class="help">${H.clickHint}${mo === "svm" && V.sv ? " · " + H.svLegend : ""}</p><p class="how-cap">${cap}</p>`;
     }
